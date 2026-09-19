@@ -48,6 +48,29 @@ const assetRes = await fetch(`${base}${asset}`, {
 if (!assetRes.ok) fail(`Asset ${asset} failed with ${assetRes.status}`);
 if (!assetRes.headers.get("content-type")?.includes("javascript"))
   fail("Browser bundle has the wrong content type");
-if (!html.includes('id="map"')) fail("Station map container missing");
+if (!html.includes('id="app"')) fail("App container missing");
+for (const route of [
+  "/fr/lines/7/stations/les-gobelins",
+  "/en/lines/14/stations/saint-denis-pleyel",
+]) {
+  const res = await fetch(`${base}${route}`, {
+    redirect: "error",
+    signal: AbortSignal.timeout(10_000),
+  });
+  if (!res.ok || !(await res.text()).includes('id="app"'))
+    fail(`Deep route failed: ${route}`);
+}
+for (const path of [
+  "/illustrations/line-7.png",
+  "/illustrations/line-14.png",
+]) {
+  const res = await fetch(`${base}${path}`, {
+    method: "HEAD",
+    redirect: "error",
+    signal: AbortSignal.timeout(10_000),
+  });
+  if (!res.ok || !res.headers.get("content-type")?.includes("image/png"))
+    fail(`Illustration failed: ${path}`);
+}
 
 console.log(`Verified ${base} at commit ${commit}`);

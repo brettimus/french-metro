@@ -1,4 +1,6 @@
 import { resolve } from "node:path";
+import { parseRoute } from "./routing";
+import { getLine } from "./data/lines";
 
 const mimeTypes: Record<string, string> = {
   ".html": "text/html; charset=utf-8",
@@ -17,9 +19,9 @@ export interface CommitSource {
 
 /**
  * Static file handler with a JSON /healthz endpoint.
- * Missing files return 404, never the app HTML.
+ * Valid atlas routes serve the app. Missing files and unknown routes return 404.
  *
- * The HTML references a content-hashed bundle via a data-src-template; the
+ * The HTML references a content-hashed bundle via a placeholder; the
  * handler substitutes the real filename from build.json at request time.
  */
 export function createHandler(
@@ -39,39 +41,56 @@ export function createHandler(
   };
   return async (req: Request): Promise<Response> => {
     const url = new URL(req.url);
+    if (req.method !== "GET" && req.method !== "HEAD") {
+      return new Response("Method Not Allowed", { status: 405 });
+    }
     if (url.pathname === "/healthz") {
       const commit = commitSource ? await commitSource.readCommit() : undefined;
       const body = JSON.stringify({ status: "ok", commit: commit ?? "dev" });
-      return new Response(body, {
+      return new Response(req.method === "HEAD" ? null : body, {
         headers: {
           "Content-Type": "application/json",
           "Cache-Control": "no-store",
         },
       });
     }
-    if (req.method !== "GET" && req.method !== "HEAD") {
-      return new Response("Method Not Allowed", { status: 405 });
+    let pathname: string;
+    try {
+      pathname = decodeURIComponent(url.pathname);
+    } catch {
+      return new Response("Bad Request", { status: 400 });
     }
-    const relative =
-      url.pathname === "/"
-        ? "index.html"
-        : decodeURIComponent(url.pathname).slice(1);
+    const route = parseRoute(url.pathname);
+    const line = getLine(route.lineId);
+    const isAppRoute =
+      route.valid &&
+      (!route.lineId || !!line) &&
+      (!route.stationId ||
+        !!line?.stations.some((s) => s.id === route.stationId));
+    const relative = isAppRoute ? "index.html" : pathname.slice(1);
     // Reject absolute or escaped paths; then prove the resolved file stays inside publicDir.
     const abs = resolve(publicDir, relative);
     if (relative.startsWith("/") || !abs.startsWith(publicDir + "/")) {
       return new Response("Not Found", { status: 404 });
     }
-    if (abs.endsWith("index.html")) {
+    if (isAppRoute || pathname === "/index.html") {
       try {
         const html = await Bun.file(abs).text();
         const bundle = await readBundleName();
-        return new Response(html.replace("/app-HASH.js", `/${bundle}`), {
-          headers: {
-            "Content-Type": mimeTypes[".html"] ?? "text/html; charset=utf-8",
-            "X-Content-Type-Options": "nosniff",
-            "Cache-Control": "no-store",
+        return new Response(
+          req.method === "HEAD"
+            ? null
+            : html
+                .replace("/app-HASH.js", `/${bundle}`)
+                .replace('lang="fr"', `lang="${route.locale}"`),
+          {
+            headers: {
+              "Content-Type": mimeTypes[".html"] ?? "text/html; charset=utf-8",
+              "X-Content-Type-Options": "nosniff",
+              "Cache-Control": "no-store",
+            },
           },
-        });
+        );
       } catch (error) {
         console.error("index.html render failed:", error);
         return new Response("Internal Server Error", { status: 500 });

@@ -1,7 +1,24 @@
-export type Locale = 'en' | 'fr';
+export type Locale = "en" | "fr";
 export type Localized = Record<Locale, string>;
-export type Art = 'church' | 'station' | 'towers' | 'garden' | 'market' | 'modern' | 'plane' | 'loom' | 'portrait' | 'gate' | 'river' | 'square' | 'piano' | 'hospital';
-export interface Source { label: string; url: string }
+export type Art =
+  | "church"
+  | "station"
+  | "towers"
+  | "garden"
+  | "market"
+  | "modern"
+  | "plane"
+  | "loom"
+  | "portrait"
+  | "gate"
+  | "river"
+  | "square"
+  | "piano"
+  | "hospital";
+export interface Source {
+  label: string;
+  url: string;
+}
 export interface Station {
   id: string;
   name: string;
@@ -17,10 +34,10 @@ export interface Station {
   people?: { name: string; url: Localized }[];
   art: Art;
   /** Line 7: trunk includes Maison Blanche, then two separate branches. */
-  branch?: 'trunk' | 'ivry' | 'villejuif';
+  branch?: "trunk" | "ivry" | "villejuif";
 }
 export interface MetroLine {
-  id: '7' | '14';
+  id: "7" | "14";
   color: string;
   textColor: string;
   title: Localized;

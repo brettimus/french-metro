@@ -41,3 +41,7 @@ Each worker creates its own goal before work and completes that goal only after 
 3. Add completed route data and illustrations, run tests and publish the integrated release.
 4. Check desktop/mobile layouts, both languages, direct links, Back/Forward, accent-insensitive search, keyboard access, reduced motion, branch navigation and unknown-route behaviour.
 5. Review every station for source coverage, localization parity, broken links and unsupported claims. Scan committed files for secrets. Build from the selected commit, push, deploy with the existing script and verify the public commit.
+
+## Completion
+
+The three scoped workers completed their goals. Both content modules received a second review. The integrated frontend received a separate code review; the history, filtered keyboard navigation, encoded routes and missing-file findings were fixed. The root session integrated the work and ran browser and automated checks. See [verification](verification.md) for the results.

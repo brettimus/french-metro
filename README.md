@@ -1,10 +1,17 @@
 # French Metro
 
-An illustrated, interactive history atlas for Paris Métro Line 14, deployed to an [exe.dev](https://exe.dev) VM.
+An illustrated history atlas for Paris Métro Lines 7 and 14, in French and English.
 
-Explore all 21 stations at **https://french-metro.exe.xyz/**. The map has hover previews, animated story panels, source links, station search, keyboard navigation, and browser-local reading progress.
+Explore **https://french-metro.exe.xyz/**. Line 7 has 38 entries, including Les Gobelins and both southern branches. Line 14 has 21 entries. Each entry explains the station name, adds a short history, and links its sources.
 
-Generated visual references and their prompts are committed under `docs/design/`. The actual route is a separately researched schematic; historical sources are linked in each story.
+The home page offers both lines and marks future lines as coming soon. Maps have hover previews, animated station panels, search, keyboard navigation, and reading progress stored in the browser. Each line and station has a direct URL. The language switch preserves the current station.
+
+- French home: `/fr`; English home: `/en`.
+- Line: `/{locale}/lines/{line}`.
+- Station: `/{locale}/lines/{line}/stations/{station-id}`.
+- Old Line 14 links in the form `/#station-id` remain supported.
+
+To add a line, use the shared contract in `apps/web/src/data/types.ts`, register its module in `data/lines.ts`, and extend the supported line IDs in `routing.ts`. Route paths define branch connections. Historical audits are in `docs/research/`; the plan, generated design reference, artwork, and prompts are in `docs/design/` and `docs/multi-line-plan.md`.
 
 ## Purpose
 
@@ -42,6 +49,7 @@ docs/               outline, deployment guide
 
 ```sh
 bun install
+bun run --cwd apps/web build # rebuild the browser bundle after frontend changes
 bun run dev                 # local dev server on :3000
 bun test && bun run typecheck
 ```

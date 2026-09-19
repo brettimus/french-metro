@@ -1,169 +1,26 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#f7f4ec" />
     <meta
       name="description"
-      content="An illustrated journey through Paris Métro Line 14. Explore all 21 stations and the stories above them, from Saint-Denis–Pleyel to Orly."
+      content="L’origine des noms des stations du métro parisien. Lignes 7 et 14, en français et en anglais."
     />
     <title>French Metro</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <a class="skip" href="#explore">Skip to stations</a>
-    <header class="masthead">
-      <a class="brand" href="/" aria-label="Métro Stories home"
-        ><span class="metro-mark">M</span
-        ><span>MÉTRO<span class="brand-light"> / STORIES</span></span></a
-      >
-      <span class="edition">AN ILLUSTRATED PARIS ATLAS</span>
-      <button class="text-button" id="about-button">
-        About this journey <span aria-hidden="true">↗</span>
-      </button>
-    </header>
-    <main class="atlas">
-      <aside class="intro">
-        <div class="line-label">
-          <span class="line-badge">14</span><span>LA LIGNE VIOLETTE</span
-          ><span class="small-rule"></span>
-        </div>
-        <h1>Paris,<br />one stop<br />at a <em>time.</em></h1>
-        <p class="intro-copy">
-          Beneath the city, a line.<br />Above every stop, a story.
-        </p>
-        <p class="description">
-          Follow the violet line from Saint-Denis to Orly. Meet the places,
-          people and little histories along the way.
-        </p>
-        <button class="primary-button" id="start-button">
-          Begin the journey <span aria-hidden="true">↗</span>
-        </button>
-        <div class="trip-facts">
-          <div><strong>21</strong><span>STATIONS</span></div>
-          <div><strong>1998</strong><span>FIRST JOURNEY</span></div>
-          <div><strong>∞</strong><span>WAYS TO WANDER</span></div>
-        </div>
-        <button
-          class="preview-card"
-          id="preview-card"
-          aria-label="Read the story of Madeleine"
-        ></button>
-        <div class="visited">
-          <span class="visited-dot"></span
-          ><span id="visited-count">0 of 21 stories explored</span
-          ><button id="surprise-button" aria-label="Choose a surprise station">
-            Surprise me ↗
-          </button>
-        </div>
-        <p class="editorial-note">
-          Take the slow route.<br /><em
-            >There’s more to a city than getting there.</em
-          >
-        </p>
-      </aside>
-      <section class="map-section" id="explore" aria-label="Explore Line 14">
-        <div class="map-toolbar">
-          <div class="view-switch" aria-label="Choose a view">
-            <button id="map-view" aria-pressed="true">Route map</button
-            ><button id="list-view" aria-pressed="false">All stations</button>
-          </div>
-          <label class="search"
-            ><span aria-hidden="true">⌕</span
-            ><input
-              type="search"
-              id="station-search"
-              placeholder="Find a station"
-              aria-label="Find a station"
-              autocomplete="off"
-            /><kbd>/</kbd></label
-          >
-        </div>
-        <div class="map-caption">
-          <span
-            >SAINT-DENIS–PLEYEL <span aria-hidden="true">↘</span> AÉROPORT
-            D’ORLY</span
-          ><span>HOVER TO WANDER · CLICK TO EXPLORE</span>
-        </div>
-        <div id="map" class="map-canvas"></div>
-        <div id="station-list" class="station-list" hidden></div>
-        <p id="no-results" class="no-results" role="status" hidden>
-          No station found. Try “Madeleine” or “Orly”.
-        </p>
-        <div class="map-legend">
-          <span><i class="legend-node"></i> A story at every stop</span
-          ><span
-            >Illustrated route · not to scale
-            <span aria-hidden="true">↗ N</span></span
-          >
-        </div>
-      </section>
-    </main>
-    <footer>
-      <span>PARIS IS ALWAYS A GOOD STORY.</span
-      ><span
-        >Line 14 · Independent cultural atlas ·
-        <a
-          href="https://www.ratp.fr/vos-lignes/metro/14"
-          target="_blank"
-          rel="noreferrer"
-          >Travel information ↗</a
-        ></span
-      >
-    </footer>
-    <dialog id="story-dialog" aria-labelledby="story-name">
-      <div id="story-content"></div>
-    </dialog>
-    <dialog id="about-dialog" aria-labelledby="about-title">
-      <button class="close-button" id="close-about" aria-label="Close about">
-        ×</button
-      ><img
-        class="about-panorama"
-        src="/paris-panorama.png"
-        width="1536"
-        height="1024"
-        loading="lazy"
-        alt="An imagined Paris panorama in ink and watercolour, with the Madeleine, station clock tower, library towers and the Seine."
-      />
-      <div class="about-content">
-        <span class="eyebrow">A DIFFERENT KIND OF JOURNEY</span>
-        <h2 id="about-title">The city between<br />the stops.</h2>
-        <p>
-          Métro Stories is an independent, illustrated history atlas. Start with
-          Line 14, the automated line that first opened in 1998 and now links
-          Saint-Denis–Pleyel with Orly airport.
-        </p>
-        <p>
-          Every station has a short story and a source to keep exploring. Dates
-          in the stories describe local history; “Line 14 arrived” gives the
-          station’s opening year on this line.
-        </p>
-        <p>
-          The route is a schematic, not a street map. Illustrations are
-          interpretive. This is not a live journey planner or an official RATP
-          service.
-        </p>
-        <a
-          href="https://www.ratp.fr/en/discover/heritage/history-metro-line-14"
-          target="_blank"
-          rel="noreferrer"
-          >Read RATP’s history of Line 14 ↗</a
-        >
-        <p class="about-footnote">
-          Built for curious travellers. Artwork made with AI; station stories
-          researched from the linked sources. Local reading progress stays in
-          this browser.
-        </p>
-      </div>
-    </dialog>
+    <div id="app"><p class="loading">Métro / Noms</p></div>
+    <dialog id="station-dialog" aria-labelledby="station-title"></dialog>
+    <dialog id="about-dialog" aria-labelledby="about-title"></dialog>
     <noscript
-      ><p class="noscript">
-        Enable JavaScript to explore the interactive map.
-        <a href="https://www.transilien.com/fr/page-lignes/metro-14"
-          >Read the full Line 14 station list here.</a
-        >
+      ><p class="loading">
+        Activez JavaScript pour explorer les notices. Enable JavaScript to
+        explore the station entries.
+        <a href="https://www.ratp.fr/vos-lignes">Plans RATP / RATP maps</a>
       </p></noscript
     >
     <script type="module" id="app-bundle" src="/app-HASH.js"></script>
