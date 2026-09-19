@@ -90,16 +90,79 @@ summary:focus-visible {
   margin-left: auto;
 }
 .header-lines a {
+  --nav-lift: 0px;
+  --nav-scale: 1;
+  --nav-halo: 0px;
+  --nav-track: 0;
+  position: relative;
   display: grid;
   place-items: center;
   min-width: 44px;
   min-height: 44px;
   text-decoration: none;
-  border-bottom: 2px solid transparent;
-  padding: 7px 1px;
+  border-radius: 12px;
+  padding: 7px 1px 9px;
+}
+.header-lines .line-badge {
+  transform: translateY(var(--nav-lift)) scale(var(--nav-scale));
+  box-shadow: 0 0 0 var(--nav-halo)
+    color-mix(in srgb, var(--nav-line) 15%, transparent);
+  transition:
+    transform 240ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 240ms ease;
+}
+/* A short rail with two stops grounds the lifted line badge. */
+.header-lines a::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 5px;
+  bottom: 0;
+  left: calc(50% - 15px);
+  background:
+    radial-gradient(circle, var(--nav-line) 2px, transparent 2.5px) left
+      center / 5px 5px no-repeat,
+    radial-gradient(circle, var(--nav-line) 2px, transparent 2.5px) right
+      center / 5px 5px no-repeat,
+    linear-gradient(var(--nav-line), var(--nav-line)) center / calc(100% - 5px)
+      2px no-repeat;
+  opacity: var(--nav-track);
+  transform: scaleX(var(--nav-track));
+  transition:
+    transform 240ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 160ms ease;
+  pointer-events: none;
 }
 .header-lines a[aria-current] {
-  border-bottom-color: var(--ink);
+  --nav-track: 1;
+  background: color-mix(in srgb, var(--nav-line) 9%, transparent);
+  box-shadow: inset 0 0 0 1px
+    color-mix(in srgb, var(--nav-line) 35%, transparent);
+}
+.header-lines a[aria-current]::after {
+  bottom: 3px;
+  width: 22px;
+  left: calc(50% - 11px);
+}
+.header-lines a:focus-visible {
+  --nav-lift: -3px;
+  --nav-scale: 1.08;
+  --nav-halo: 6px;
+  --nav-track: 1;
+}
+@media (hover: hover) and (pointer: fine) {
+  .header-lines a:hover {
+    --nav-lift: -3px;
+    --nav-scale: 1.08;
+    --nav-halo: 6px;
+    --nav-track: 1;
+  }
+}
+.header-lines a:active {
+  --nav-lift: 0px;
+  --nav-scale: 0.96;
+  --nav-halo: 3px;
+  --nav-track: 1;
 }
 .language {
   display: flex;
