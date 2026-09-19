@@ -27,8 +27,9 @@ describe('createHandler', () => {
 
   async function setup(): Promise<ReturnType<typeof createHandler>> {
     dir = await mkdtemp(join(tmpdir(), 'french-metro-'));
-    await writeFile(join(dir, 'index.html'), '<html>hello</html>');
-    await writeFile(join(dir, 'app.js'), 'console.log(1)');
+    await writeFile(join(dir, 'index.html'), '<html><script id="app-bundle" data-src-template="/app-HASH.js"></script></html>');
+    await writeFile(join(dir, 'build.json'), JSON.stringify({ bundle: 'app-test123.js' }));
+    await writeFile(join(dir, 'app-test123.js'), 'console.log(1)');
     await mkdir(join(dir, 'sub'));
     await writeFile(join(dir, 'sub', 'note.txt'), 'hi');
     return createHandler(dir, commitSource);
@@ -39,22 +40,24 @@ describe('createHandler', () => {
     const res = await handler(new Request('http://localhost/'));
     expect(res.status).toBe(200);
     expect(res.headers.get('Content-Type')).toBe('text/html; charset=utf-8');
-    expect(await res.text()).toBe('<html>hello</html>');
+    expect(await res.text()).toContain('data-src-template="/app-test123.js"');
   });
 
-  test('serves assets with MIME types', async () => {
+  test('serves index.html with the hashed bundle substituted', async () => {
     const handler = await setup();
-    const res = await handler(new Request('http://localhost/app.js'));
+    const res = await handler(new Request('http://localhost/'));
+    expect(res.status).toBe(200);
+    expect(res.headers.get('Content-Type')).toBe('text/html; charset=utf-8');
+    expect(res.headers.get('Cache-Control')).toBe('no-store');
+    expect(await res.text()).toContain('/app-test123.js');
+  });
+
+  test('serves hashed bundles', async () => {
+    const handler = await setup();
+    const res = await handler(new Request('http://localhost/app-test123.js'));
     expect(res.status).toBe(200);
     expect(res.headers.get('Content-Type')).toBe('text/javascript; charset=utf-8');
     expect(res.headers.get('X-Content-Type-Options')).toBe('nosniff');
-  });
-
-  test('serves nested files', async () => {
-    const handler = await setup();
-    const res = await handler(new Request('http://localhost/sub/note.txt'));
-    expect(res.status).toBe(200);
-    expect(await res.text()).toBe('hi');
   });
 
   test('404 for missing files, not HTML fallback', async () => {
@@ -84,10 +87,29 @@ describe('createHandler', () => {
     expect(body.commit).toBe('a'.repeat(40));
   });
 
+  test('serves nested files', async () => {
+    const handler = await setup();
+    const res = await handler(new Request('http://localhost/sub/note.txt'));
+    expect(res.status).toBe(200);
+    expect(await res.text()).toBe('hi');
+  });
+
   test('rejects non-GET methods', async () => {
     const handler = await setup();
     const res = await handler(new Request('http://localhost/', { method: 'POST' }));
     expect(res.status).toBe(405);
+  });
+
+  test('index.html without build.json fails loudly', async () => {
+    const dir2 = await mkdtemp(join(tmpdir(), 'french-metro-nobuild-'));
+    try {
+      await writeFile(join(dir2, 'index.html'), '<html></html>');
+      const handler = createHandler(dir2);
+      const res = await handler(new Request('http://localhost/'));
+      expect(res.status).toBe(500);
+    } finally {
+      await rm(dir2, { recursive: true, force: true });
+    }
   });
 
   test('cleanup: removes temp dir', async () => {

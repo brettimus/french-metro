@@ -10,17 +10,22 @@
 
 ## Deployment scheme
 
-1. Commit everything. `deploy.sh` refuses a dirty tree.
-2. `git archive` an explicit allowlist (`src`, `public`, `ops`, `package.json`
+1. Commit everything. `deploy.sh` refuses a dirty tree and builds the browser
+   bundle before archiving.
+2. Build the browser bundle with `bun run build` (hashed `app-<hash>.js`
+   written to `public/`, with `build.json` recording the filename).
+3. `git archive` an explicit allowlist (`src`, `public`, `ops`, `package.json`
    within `apps/web`) for the given revision. The server has zero runtime
    dependencies, so no lockfile ships. No secrets, docs, tests, or untracked
    files are included.
-3. Extract to `/home/exedev/french-metro/releases/<revision>` on the VM.
-4. Switch the `current` symlink atomically (`ln -sfn` + `mv -Tf`).
-5. Install the hardened systemd unit, restart, and poll
+4. Extract to a staging directory, then move it to
+   `/home/exedev/french-metro/releases/<revision>` on the VM.
+5. Switch the `current` symlink atomically (`ln -sfn` + `mv -Tf`).
+6. Install the hardened systemd unit, restart, and poll
    `127.0.0.1:3000/healthz` for up to ~90 s (30 attempts).
-6. On failure: restore the previous `current` link and restart the old release.
-7. From the local machine, verify public HTTPS and the reported commit.
+7. On failure: restore the previous `current` link (and its systemd unit) and
+   restart the old release.
+8. From the local machine, verify public HTTPS and the reported commit.
 
 ## One-time provisioning (already complete)
 

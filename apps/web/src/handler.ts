@@ -18,8 +18,22 @@ export interface CommitSource {
 /**
  * Static file handler with a JSON /healthz endpoint.
  * Missing files return 404, never the app HTML.
+ *
+ * The HTML references a content-hashed bundle via a data-src-template; the
+ * handler substitutes the real filename from build.json at request time.
  */
 export function createHandler(publicDir: string, commitSource?: CommitSource): (req: Request) => Promise<Response> {
+  let bundleName: string | undefined;
+  const readBundleName = async (): Promise<string> => {
+    if (!bundleName) {
+      const meta = (await Bun.file(resolve(publicDir, 'build.json')).json()) as { bundle?: string };
+      if (!meta.bundle || !/^app-[A-Za-z0-9_-]+\.js$/.test(meta.bundle)) {
+        throw new Error('build.json is missing or invalid; run: bun run build');
+      }
+      bundleName = meta.bundle;
+    }
+    return bundleName;
+  };
   return async (req: Request): Promise<Response> => {
     const url = new URL(req.url);
     if (url.pathname === '/healthz') {
@@ -37,6 +51,22 @@ export function createHandler(publicDir: string, commitSource?: CommitSource): (
     const abs = resolve(publicDir, relative);
     if (relative.startsWith('/') || !abs.startsWith(publicDir + '/')) {
       return new Response('Not Found', { status: 404 });
+    }
+    if (abs.endsWith('index.html')) {
+      try {
+        const html = await Bun.file(abs).text();
+        const bundle = await readBundleName();
+        return new Response(html.replace('/app-HASH.js', `/${bundle}`), {
+          headers: {
+            'Content-Type': mimeTypes['.html'] ?? 'text/html; charset=utf-8',
+            'X-Content-Type-Options': 'nosniff',
+            'Cache-Control': 'no-store',
+          },
+        });
+      } catch (error) {
+        console.error('index.html render failed:', error);
+        return new Response('Internal Server Error', { status: 500 });
+      }
     }
     const file = Bun.file(abs);
     if (!(await file.exists())) {

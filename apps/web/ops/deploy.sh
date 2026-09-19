@@ -12,6 +12,8 @@ if ! git diff --quiet || ! git diff --cached --quiet || [[ -n "$(git ls-files --
 fi
 revision=$(git rev-parse --verify "${2:-HEAD}^{commit}")
 echo "Deploying $revision to $host"
+# Build the browser bundle first; the deploy must ship a fresh, working build.
+(bun run --cwd apps/web build)
 archive=$(mktemp)
 trap 'rm -f "$archive"' EXIT
 git archive "$revision:apps/web" src public ops package.json > "$archive"

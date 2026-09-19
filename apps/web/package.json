@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "bun --watch src/index.ts",
     "start": "bun src/index.ts",
+    "build": "bun run scripts/build.ts",
     "test": "bun test tests/*.test.ts",
     "typecheck": "tsc --noEmit"
   },
