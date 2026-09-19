@@ -25,8 +25,9 @@ const page = await fetch(base, { redirect: 'error', signal: AbortSignal.timeout(
 const html = await page.text();
 if (!page.ok) fail(`App page failed with ${page.status}`);
 if (!/<title>French Metro<\/title>/.test(html)) fail('App page does not look like French Metro');
-const asset = html.match(/src="(\/[^"]+\.js)"/)?.[1];
-if (!asset) fail('No script asset found in app page');
+const asset = html.match(/(?:src|data-src-template)="(\/app-[A-Za-z0-9_-]+\.js)"/)?.[1];
+if (!asset) fail('No app bundle found in app page');
+if (asset.includes('app-HASH')) fail('Bundle substitution failed: template placeholder still present');
 const assetRes = await fetch(`${base}${asset}`, { redirect: 'error', signal: AbortSignal.timeout(10_000) });
 if (!assetRes.ok) fail(`Asset ${asset} failed with ${assetRes.status}`);
 
