@@ -21,12 +21,12 @@ export const line14: MetroLine = {
       area: "Saint-Denis",
       art: "piano",
       etymology: {
-        en: "Called Saint-Denis–Pleyel because it serves the Pleyel district of Saint-Denis. The district took its name from the Pleyel piano factory, whose company was founded by composer and piano maker Ignace Pleyel.",
-        fr: "La station doit son nom au quartier Pleyel de Saint-Denis. Ce quartier porte le nom de la manufacture de pianos Pleyel, une entreprise fondée par le compositeur et facteur de pianos Ignace Pleyel.",
+        en: "Called Saint-Denis–Pleyel after the district named for the Pleyel piano factory. The company’s founder was composer and piano maker Ignace Pleyel.",
+        fr: "La station doit son nom au quartier Pleyel de Saint-Denis, nommé d’après la manufacture fondée par le compositeur et facteur de pianos Ignace Pleyel.",
       },
       context: {
-        en: "Saint-Denis itself recalls Denis, the first bishop of Paris, whose burial place became a religious centre. The station name joins that older town name to an industrial one. A public consultation confirmed the name Saint-Denis Pleyel in 2022.",
-        fr: "Saint-Denis rappelle Denis, premier évêque de Paris, dont le lieu de sépulture est devenu un centre religieux. Le nom de la station associe ainsi celui de la ville à celui d’un quartier industriel. Une consultation publique a confirmé ce choix en 2022.",
+        en: "Saint-Denis itself recalls Denis, the first bishop of Paris, whose burial place became a religious centre. A public consultation confirmed the name Saint-Denis Pleyel in 2022.",
+        fr: "Saint-Denis rappelle Denis, premier évêque de Paris, dont le lieu de sépulture est devenu un centre religieux. Une consultation publique a confirmé ce choix en 2022.",
       },
       sources: [
         {
@@ -70,8 +70,8 @@ export const line14: MetroLine = {
         fr: "La station doit son nom à la mairie de Saint-Ouen qu’elle dessert. La ville porte le nom d’Ouen, évêque de Rouen au VIIe siècle, qui fut aussi un dignitaire de la cour mérovingienne.",
       },
       context: {
-        en: "The name identifies a civic building within a town whose name comes from a saint. Line 13 already served this town-hall stop before Line 14 arrived. It became the northern terminus of Line 14 in 2020, before the extension to Saint-Denis.",
-        fr: "Le nom désigne un bâtiment municipal dans une ville nommée d’après un saint. La ligne 13 desservait déjà cet arrêt avant l’arrivée de la ligne 14. Il est devenu le terminus nord de cette dernière en 2020, avant son prolongement vers Saint-Denis.",
+        en: "Line 13 already served this town-hall stop before Line 14 arrived. It became the northern terminus of Line 14 in 2020, before the extension to Saint-Denis.",
+        fr: "La ligne 13 desservait déjà cet arrêt avant l’arrivée de la ligne 14. Il est devenu le terminus nord de cette dernière en 2020, avant son prolongement vers Saint-Denis.",
       },
       sources: [
         {
@@ -103,8 +103,8 @@ export const line14: MetroLine = {
         fr: "La station doit son nom à la gare du RER avec laquelle elle est en correspondance. Celle-ci porte le nom de Saint-Ouen, ville nommée d’après Ouen, évêque de Rouen au VIIe siècle.",
       },
       context: {
-        en: "The planned name was Clichy–Saint-Ouen because the station straddles the two towns. The final choice followed the transport authority’s rule that connecting stations share a name. This explains why Clichy is absent from the sign despite the station’s position.",
-        fr: "Le nom prévu était Clichy–Saint-Ouen, car la station se trouve à cheval sur les deux villes. Le choix définitif suit la règle de l’autorité organisatrice qui donne le même nom aux gares en correspondance. Clichy ne figure donc pas sur le panneau.",
+        en: "The planned name was Clichy–Saint-Ouen because the station straddles the two towns. The final choice followed the transport authority’s rule that connecting stations share a name.",
+        fr: "Le nom prévu était Clichy–Saint-Ouen, car la station se trouve à cheval sur les deux villes. Le choix définitif suit la règle de l’autorité organisatrice qui donne le même nom aux gares en correspondance.",
       },
       sources: [
         {
@@ -156,12 +156,12 @@ export const line14: MetroLine = {
       area: "Paris · 17e",
       art: "station",
       etymology: {
-        en: "Called Pont Cardinet after the bridge that carries rue Cardinet over the railway tracks. The street bears the name of a local property owner, Philippe Cardinet. “Pont” means bridge, completing the name’s two parts.",
-        fr: "La station doit son nom au pont qui porte la rue Cardinet au-dessus des voies ferrées. Cette rue rappelle un propriétaire local, Philippe Cardinet. Le nom associe ainsi un pont routier au patronyme conservé par la rue.",
+        en: "Called Pont Cardinet after the bridge that carries rue Cardinet over the railway tracks. The street bears the name of a local property owner, Philippe Cardinet.",
+        fr: "La station doit son nom au pont qui porte la rue Cardinet au-dessus des voies ferrées. Cette rue rappelle un propriétaire local, Philippe Cardinet.",
       },
       context: {
-        en: "The bridge crosses the tracks approaching Saint-Lazare. The nearby suburban railway station also takes its name from this crossing. Cardinet was a wine merchant and caterer; the street name preserves a private owner’s name rather than that of a railway engineer.",
-        fr: "Le pont franchit les voies qui mènent à Saint-Lazare. La gare de banlieue voisine porte elle aussi le nom de ce passage. Cardinet était marchand de vins et traiteur : la rue conserve le nom d’un propriétaire, et non celui d’un ingénieur ferroviaire.",
+        en: "The bridge crosses the tracks approaching Saint-Lazare. The nearby suburban railway station also takes its name from this crossing. Cardinet was a wine merchant and caterer.",
+        fr: "Le pont franchit les voies qui mènent à Saint-Lazare. La gare de banlieue voisine porte elle aussi le nom de ce passage. Cardinet était marchand de vins et traiteur.",
       },
       sources: [
         {
@@ -184,8 +184,8 @@ export const line14: MetroLine = {
       area: "Paris · 8e",
       art: "hospital",
       etymology: {
-        en: "Called Saint-Lazare after the nearby railway station and rue Saint-Lazare. The street led to the Maison Saint-Lazare, a leper hospital dedicated to Saint Lazarus. The metro thus inherited the name through local transport and street geography.",
-        fr: "La station doit son nom à la gare et à la rue Saint-Lazare voisines. Cette rue menait à la maison Saint-Lazare, ancienne léproserie dédiée à saint Lazare. Le métro a ainsi reçu ce nom par l’intermédiaire de la gare et de la voirie.",
+        en: "Called Saint-Lazare after the nearby railway station and rue Saint-Lazare. The street led to the Maison Saint-Lazare, a leper hospital dedicated to Saint Lazarus.",
+        fr: "La station doit son nom à la gare et à la rue Saint-Lazare voisines. Cette rue menait à la maison Saint-Lazare, ancienne léproserie dédiée à saint Lazare.",
       },
       context: {
         en: "The old institution stood farther east, near rue du Faubourg-Saint-Denis. It later became a religious house and then a prison. The street retained the name of the destination it once served, even after these successive changes in the building’s use.",
@@ -210,14 +210,14 @@ export const line14: MetroLine = {
       id: "madeleine",
       name: "Madeleine",
       area: "Paris · 8e",
-      art: "church",
+      art: "temple",
       etymology: {
-        en: "Called Madeleine after place de la Madeleine and the church at its centre. The church is dedicated to Mary Magdalene, called Marie Madeleine in French. The station therefore carries a religious dedication through the name of the square.",
-        fr: "La station doit son nom à la place de la Madeleine et à l’église qui en occupe le centre. Celle-ci est dédiée à sainte Marie Madeleine. Le métro reprend donc une dédicace religieuse par l’intermédiaire du nom de la place.",
+        en: "Called Madeleine after place de la Madeleine and the church at its centre. The church is dedicated to Mary Magdalene, called Marie Madeleine in French.",
+        fr: "La station doit son nom à la place de la Madeleine et à l’église qui en occupe le centre. Celle-ci est dédiée à sainte Marie Madeleine.",
       },
       context: {
-        en: "The dedication predates the present church: a chapel in the former Ville-l’Évêque settlement was dedicated to Madeleine in the thirteenth century. The later monumental church kept that dedication. Its classical columns can obscure the older Christian name that the station preserves.",
-        fr: "La dédicace précède l’église actuelle : une chapelle de l’ancien bourg de la Ville-l’Évêque était dédiée à Madeleine au XIIIe siècle. L’église monumentale a conservé cette dédicace. Derrière ses colonnes classiques, le nom repris par le métro garde donc une origine chrétienne plus ancienne.",
+        en: "The dedication predates the present church: a chapel in the former Ville-l’Évêque settlement was dedicated to Madeleine in the thirteenth century. The later monumental church kept that dedication.",
+        fr: "La dédicace précède l’église actuelle : une chapelle de l’ancien bourg de la Ville-l’Évêque était dédiée à Madeleine au XIIIe siècle. L’église monumentale a conservé cette dédicace.",
       },
       sources: [
         {
@@ -241,8 +241,8 @@ export const line14: MetroLine = {
       area: "Paris · 1er",
       art: "square",
       etymology: {
-        en: "Called Pyramides after rue des Pyramides, which commemorates Bonaparte’s victory at the Battle of the Pyramids in Egypt in 1798. The name reaches the station through the street, rather than through an Egyptian monument in Paris.",
-        fr: "La station doit son nom à la rue des Pyramides, qui commémore la victoire de Bonaparte à la bataille des Pyramides, en Égypte, en 1798. Ce souvenir militaire est arrivé dans le métro par le nom de la rue.",
+        en: "Called Pyramides after rue des Pyramides, which commemorates Bonaparte’s victory at the Battle of the Pyramids in Egypt in 1798.",
+        fr: "La station doit son nom à la rue des Pyramides, qui commémore la victoire de Bonaparte à la bataille des Pyramides, en Égypte, en 1798.",
       },
       context: {
         en: "The battle formed part of the French campaign in Egypt and opposed Bonaparte’s army to Mamluk forces. The metro station first used the name on Line 7. Line 14 later joined the same interchange and kept the existing station name.",
@@ -270,8 +270,8 @@ export const line14: MetroLine = {
       area: "Paris · 1er / 4e",
       art: "gate",
       etymology: {
-        en: "Called Châtelet after place du Châtelet, laid out on the site of the Grand Châtelet. This vanished fortress became a court and prison. The station preserves the building’s name through the square that replaced it.",
-        fr: "La station doit son nom à la place du Châtelet, aménagée à l’emplacement du Grand Châtelet. Cette forteresse disparue a servi de tribunal et de prison. Son nom subsiste dans celui de la place, puis de la station.",
+        en: "Called Châtelet after place du Châtelet, laid out on the site of the Grand Châtelet. This vanished fortress became a court and prison.",
+        fr: "La station doit son nom à la place du Châtelet, aménagée à l’emplacement du Grand Châtelet. Cette forteresse disparue a servi de tribunal et de prison.",
       },
       context: {
         en: "The Grand Châtelet stood at the northern approach to the Pont au Change. Royal justice operated there under the Ancien Régime. Its demolition began in 1802, leaving the name attached to an open square instead of the former fortified building.",
@@ -294,12 +294,12 @@ export const line14: MetroLine = {
       area: "Paris · 12e",
       art: "station",
       etymology: {
-        en: "Called Gare de Lyon because it serves the Paris railway terminus of that name. Lyon refers to the city reached by its railway route towards south-eastern France; the metro station inherits the mainline station’s destination-based name.",
-        fr: "La station doit son nom à la gare parisienne qu’elle dessert. Lyon désigne la ville desservie par son axe ferroviaire vers le sud-est de la France. Le métro reprend donc un nom de gare fondé sur une destination.",
+        en: "Called Gare de Lyon because it serves the Paris railway terminus of that name. Lyon refers to the city reached by its railway route towards south-eastern France.",
+        fr: "La station doit son nom à la gare parisienne qu’elle dessert. Lyon désigne la ville desservie par son axe ferroviaire vers le sud-est de la France.",
       },
       context: {
-        en: "The railway terminus was associated with the Paris–Lyon–Méditerranée network. Its name describes the direction of long-distance travel from Paris. The Line 14 platforms lie along rue de Bercy, while the older Line 1 platforms are under boulevard Diderot.",
-        fr: "La gare ferroviaire était associée au réseau Paris–Lyon–Méditerranée. Son nom indique la direction des voyages au départ de Paris. Les quais de la ligne 14 se trouvent le long de la rue de Bercy, tandis que ceux de la ligne 1 sont sous le boulevard Diderot.",
+        en: "The railway terminus was associated with the Paris–Lyon–Méditerranée network. The Line 14 platforms lie along rue de Bercy, while the older Line 1 platforms are under boulevard Diderot.",
+        fr: "La gare ferroviaire était associée au réseau Paris–Lyon–Méditerranée. Les quais de la ligne 14 se trouvent le long de la rue de Bercy, tandis que ceux de la ligne 1 sont sous le boulevard Diderot.",
       },
       sources: [
         {
@@ -346,8 +346,8 @@ export const line14: MetroLine = {
         fr: "La station doit son nom à la cour Saint-Émilion, dans les anciens entrepôts de vins de Bercy. Ce nom renvoie à la ville viticole et à l’appellation bordelaise de Saint-Émilion. Il rappelle le commerce autrefois installé dans cette cour.",
       },
       context: {
-        en: "The station occupies part of the former Bercy goods yard, where trains brought wine from southern France. The neighbouring warehouse courts used wine-region names. This explains why a Bordeaux name appears on the Paris metro at this particular site.",
-        fr: "La station occupe une partie de l’ancienne gare de marchandises de Bercy, où arrivaient des trains de vins du sud de la France. Les cours des entrepôts voisins portaient des noms viticoles. Cette activité explique la présence d’un nom bordelais dans le métro parisien.",
+        en: "The station occupies part of the former Bercy goods yard, where trains brought wine from southern France. The neighbouring warehouse courts used wine-region names.",
+        fr: "La station occupe une partie de l’ancienne gare de marchandises de Bercy, où arrivaient des trains de vins du sud de la France. Les cours des entrepôts voisins portaient des noms viticoles.",
       },
       sources: [
         {
@@ -366,12 +366,12 @@ export const line14: MetroLine = {
       area: "Paris · 13e",
       art: "towers",
       etymology: {
-        en: "Called Bibliothèque François-Mitterrand after the nearby site of the Bibliothèque nationale de France. The library site honours President François Mitterrand, who initiated its construction. Both the institution and the person are therefore part of the station’s name.",
-        fr: "La station doit son nom au site voisin de la Bibliothèque nationale de France. Celui-ci rend hommage au président François Mitterrand, à l’origine de sa construction. Le nom de la station associe donc l’institution à la personne honorée.",
+        en: "Called Bibliothèque François-Mitterrand after the nearby site of the Bibliothèque nationale de France. The library site honours President François Mitterrand, who initiated its construction.",
+        fr: "La station doit son nom au site voisin de la Bibliothèque nationale de France. Celui-ci rend hommage au président François Mitterrand, à l’origine de sa construction.",
       },
       context: {
-        en: "The planned station name was Tolbiac–Masséna, after nearby roads. The final name instead identifies the national library’s new site, opened to the public in 1996. Dominique Perrault designed its four towers around a central garden, giving the library a distinct architectural form.",
-        fr: "Le nom prévu était Tolbiac–Masséna, d’après des voies voisines. Le choix définitif désigne plutôt le nouveau site de la bibliothèque nationale, ouvert au public en 1996. Dominique Perrault a conçu ses quatre tours autour d’un jardin central, donnant à la bibliothèque une forme architecturale distincte.",
+        en: "The planned station name was Tolbiac–Masséna, after nearby roads. The final name instead identifies the national library’s new site, opened to the public in 1996. Dominique Perrault designed its four towers around a central garden.",
+        fr: "Le nom prévu était Tolbiac–Masséna, d’après des voies voisines. Le choix définitif désigne plutôt le nouveau site de la bibliothèque nationale, ouvert au public en 1996. Dominique Perrault a conçu ses quatre tours autour d’un jardin central.",
       },
       sources: [
         {
@@ -398,14 +398,14 @@ export const line14: MetroLine = {
       id: "olympiades",
       name: "Olympiades",
       area: "Paris · 13e",
-      art: "towers",
+      art: "modern",
       etymology: {
-        en: "Called Olympiades after the nearby housing development and its raised pedestrian deck. The development uses an Olympic theme: its towers bear names of cities that hosted the Olympic Games. The metro adopted the name of this existing neighbourhood.",
-        fr: "La station doit son nom à l’ensemble immobilier des Olympiades et à sa dalle piétonne. Les tours portent des noms de villes ayant accueilli les Jeux olympiques. Le métro a ainsi repris le thème olympique d’un quartier déjà construit.",
+        en: "Called Olympiades after the nearby housing development and its raised pedestrian deck. The development uses an Olympic theme: its towers bear names of cities that hosted the Olympic Games.",
+        fr: "La station doit son nom à l’ensemble immobilier des Olympiades et à sa dalle piétonne. Les tours portent des noms de villes ayant accueilli les Jeux olympiques.",
       },
       context: {
-        en: "The station’s use of the name required an agreement with the French Olympic committee, which owned the trademark. An agreement in 2006 allowed its use for public transport. The station opened the following year as the next stop beyond Bibliothèque François-Mitterrand.",
-        fr: "L’usage de ce nom par la station a nécessité un accord avec le Comité national olympique et sportif français, propriétaire de la marque. Un accord conclu en 2006 a permis son utilisation pour les transports publics. La station a ouvert l’année suivante, au-delà de Bibliothèque François-Mitterrand.",
+        en: "The French Olympic committee, which owned the trademark, agreed in 2006 to its use for public transport. The station opened the following year, beyond Bibliothèque François-Mitterrand.",
+        fr: "En 2006, le Comité national olympique et sportif français, propriétaire de la marque, a autorisé son usage pour les transports publics. La station a ouvert l’année suivante, au-delà de Bibliothèque François-Mitterrand.",
       },
       sources: [
         {
@@ -418,14 +418,14 @@ export const line14: MetroLine = {
       id: "maison-blanche",
       name: "Maison Blanche",
       area: "Paris · 13e",
-      art: "market",
+      art: "house",
       etymology: {
-        en: "Called Maison Blanche after the surrounding Maison-Blanche district, which took its name from an inn called Maison Blanche, or “White House”. The metro preserves the inn’s name through the neighbourhood that grew around it.",
-        fr: "La station doit son nom au quartier de la Maison-Blanche, lui-même nommé d’après une auberge appelée « Maison Blanche ». Le métro conserve ainsi le nom d’un établissement ancien par l’intermédiaire du quartier qui s’est développé autour de lui.",
+        en: "Called Maison Blanche after the surrounding Maison-Blanche district, which took its name from an inn called “Maison Blanche”, meaning “white house”.",
+        fr: "La station doit son nom au quartier de la Maison-Blanche, lui-même nommé d’après une auberge appelée « Maison Blanche ».",
       },
       context: {
-        en: "The name was already used by Line 7 before Line 14 arrived. The nearby rue de la Maison-Blanche carries the same local name, but lies farther north, near Tolbiac station. The district, rather than that street, gives this station its name.",
-        fr: "La ligne 7 utilisait déjà ce nom avant l’arrivée de la ligne 14. La rue de la Maison-Blanche porte le même nom local, mais se trouve plus au nord, près de la station Tolbiac. C’est le quartier, plutôt que cette rue, qui donne son nom à la station.",
+        en: "The name was already used by Line 7 before Line 14 arrived. The nearby rue de la Maison-Blanche carries the same local name, but lies farther north, near Tolbiac station.",
+        fr: "La ligne 7 utilisait déjà ce nom avant l’arrivée de la ligne 14. La rue de la Maison-Blanche porte le même nom local, mais se trouve plus au nord, près de la station Tolbiac.",
       },
       sources: [
         {
@@ -509,8 +509,8 @@ export const line14: MetroLine = {
       area: "L’Haÿ-les-Roses",
       art: "garden",
       etymology: {
-        en: "Called L’Haÿ-les-Roses after the town it serves. The town added “les-Roses” to L’Haÿ in 1914 because of the fame of its rose garden. The station carries that floral addition as part of the municipal name.",
-        fr: "La station doit son nom à la ville qu’elle dessert. L’Haÿ a ajouté « les-Roses » à son nom en 1914 en raison de la renommée de sa roseraie. Le métro reprend cette référence florale intégrée au nom municipal.",
+        en: "Called L’Haÿ-les-Roses after the town it serves. The town added “les-Roses” to L’Haÿ in 1914 because of the fame of its rose garden.",
+        fr: "La station doit son nom à la ville qu’elle dessert. L’Haÿ a ajouté « les-Roses » à son nom en 1914 en raison de la renommée de sa roseraie.",
       },
       context: {
         en: "The garden’s reputation brought visitors to the town and supported the request to change its name. The metro project initially used Chevilly–Trois Communes. A public consultation in 2022 chose L’Haÿ-les-Roses, identifying the town rather than the earlier project area.",
@@ -545,8 +545,8 @@ export const line14: MetroLine = {
         fr: "La station doit son nom à la commune où elle se trouve. Ce nom composé associe Chevilly à l’ancien hameau de Larue. Larue a été ajouté au nom officiel de la commune en 1920, bien avant l’arrivée du métro.",
       },
       context: {
-        en: "The metro project originally called this station Porte de Thiais. Local authorities sought names that better identified the towns served. Chevilly-Larue was confirmed in 2022. The municipality’s own history describes its origins as two distinct settlements, Chevilly and Larue.",
-        fr: "Le projet de métro appelait initialement cette station Porte de Thiais. Les collectivités ont demandé des noms identifiant mieux les communes desservies. Chevilly-Larue a été confirmé en 2022. L’histoire publiée par la ville rappelle ses deux noyaux d’origine distincts, Chevilly et Larue.",
+        en: "The metro project originally called this station Porte de Thiais. Local authorities sought names that better identified the towns served. Chevilly-Larue was confirmed in 2022.",
+        fr: "Le projet de métro appelait initialement cette station Porte de Thiais. Les collectivités ont demandé des noms identifiant mieux les communes desservies. Chevilly-Larue a été confirmé en 2022.",
       },
       sources: [
         {
@@ -569,8 +569,8 @@ export const line14: MetroLine = {
       area: "Thiais / Orly",
       art: "station",
       etymology: {
-        en: "Called Thiais–Orly to identify the two neighbouring municipalities served by the station. The compound name replaced the project name Pont de Rungis. It brings Thiais and Orly onto the metro map as towns in their own right.",
-        fr: "La station doit son nom aux deux communes voisines de Thiais et d’Orly qu’elle dessert. Ce nom composé a remplacé le nom de projet Pont de Rungis. Il inscrit les deux villes sur le plan du métro.",
+        en: "Called Thiais–Orly to identify the two neighbouring municipalities served by the station. The compound name replaced the project name Pont de Rungis.",
+        fr: "La station doit son nom aux deux communes voisines de Thiais et d’Orly qu’elle dessert. Ce nom composé a remplacé le nom de projet Pont de Rungis.",
       },
       context: {
         en: "The name was confirmed in 2022 after local authorities requested changes to the southern extension’s station names. Pont de Rungis remains the name of the connecting RER C station. The two names therefore describe the same interchange through different local references.",

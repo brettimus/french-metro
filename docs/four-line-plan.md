@@ -21,3 +21,12 @@ Each worker sets and completes a goal for its slice. Root owns commits, deployme
 - No horizontal overflow at 320, 390, 768, 1024 and 1440 pixels. Check enlarged text, reduced motion, keyboard focus, native dialogs and touch-sized controls.
 - Screenshots cover home, map, branch, filtered list, empty search, station, expanded sources, About and error states. Include language changes, first/last stations, Back/Forward, copied-link feedback and read/reset state.
 - Unit tests validate complete routes and source contracts; browser checks validate interactions and visual bounds. Public deployment verifies the selected commit.
+
+## Implementation record
+
+- Home alignment deployed first as `5737f25`. Images and mini routes occupy separate bounded columns; nested grid rows align the cards.
+- The first copy panel used three independent GLM reviews. Its accepted changes shorten prose and clarify control intent. See [copy panel](reviews/copy-panel.md).
+- The UI-state audit led to larger controls, a two-row mobile header, larger secondary text, a sticky station header, accurate filtered counts, a quieter future-line row and more appropriate illustration symbols.
+- Line 4 adds 29 entries; Line 5 adds 22. All four lines provide 110 bilingual station entries. The route model supports both Line 7 branches and the two river arms around Cité on Line 4.
+- The code review found a reversed keyboard choice at the Line 7 fork. `mapNeighbour` now selects branches by their visible horizontal position. A regression test checks both directions and the upstream station.
+- Generated Saint-Sulpice artwork received a structural correction before use. PNG originals and prompts remain in the repository; the app serves smaller WebP files.

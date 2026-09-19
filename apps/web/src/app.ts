@@ -8,8 +8,9 @@ import {
   normalizeSearch,
   type Route,
 } from "./routing";
-import { mapLayout } from "./map";
+import { mapLayout, mapNeighbour } from "./map";
 import { illustration } from "./illustrations";
+const linkIcon = `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m10 13 4-2m-5 5H7a4 4 0 0 1 0-8h3m4 0h3a4 4 0 0 1 0 8h-3"/></svg>`;
 const closeIcon = `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 6 12 12M18 6 6 18"/></svg>`;
 const app = document.getElementById("app")!;
 const dialog = document.getElementById("station-dialog") as HTMLDialogElement;
@@ -76,21 +77,12 @@ function home() {
     )
     .join(
       "",
-    )}</section><section class="coming-soon" aria-labelledby="soon-title"><h2 id="soon-title">${m.other}</h2><div>${comingSoon.map((l) => `<span class="future-line">${badge(l.id, l.color, l.ink, true)}<span>${m.soon}</span></span>`).join("")}</div></section></main>`;
+    )}</section><section class="coming-soon" aria-labelledby="soon-title"><h2 id="soon-title">${m.other}</h2><div>${comingSoon.map((l) => `<span class="future-line" aria-label="${m.line} ${l.id} · ${m.soon}">${badge(l.id, l.color, l.ink, true)}</span>`).join("")}</div></section></main>`;
 }
 function mapMarkup(line: MetroLine) {
   const m = t(state.locale);
-  const { points, height, paths } = mapLayout(line);
-  const crossA = line.stations.find((s) =>
-    line.id === "7" ? s.id.startsWith("sully") : s.id.startsWith("cour-saint"),
-  );
-  const crossB = line.stations.find((s) =>
-    line.id === "7" ? s.id === "jussieu" : s.id.startsWith("bibliotheque"),
-  );
-  const ay = points.find((p) => p.station.id === crossA?.id)?.y;
-  const by = points.find((p) => p.station.id === crossB?.id)?.y;
-  const riverY = ay && by ? (ay + by) / 2 : undefined;
-  return `<div id="map" class="map-canvas" style="--map-height:${height}px"><svg class="route-svg" viewBox="0 0 800 ${height}" preserveAspectRatio="none" aria-hidden="true">${riverY ? `<path class="river" d="M0 ${riverY + 12}C200 ${riverY - 22} 575 ${riverY + 22} 800 ${riverY - 12}"/><text class="river-name" x="95" y="${riverY - 15}">Seine</text>` : ""}${paths.map((p) => `<path class="route-track" d="${p}"/>`).join("")}</svg><div class="map-stations">${points.map((p) => `<a data-route href="${href(line, p.station)}" class="station-node ${p.left ? "label-left" : ""} ${p.branch ? "branch-node" : ""} ${visited.has(readKey(line, p.station)) ? "is-read" : ""}" data-station="${p.station.id}" style="--label-space:${p.left ? p.x / 8 : 100 - p.x / 8};left:${p.x / 8}%;top:${(p.y / height) * 100}%" aria-label="${esc(p.station.name)}"><span class="node-dot" aria-hidden="true"></span><span class="node-label">${esc(p.station.name)}</span></a>`).join("")}</div></div>`;
+  const { points, height, paths, rivers } = mapLayout(line);
+  return `<div id="map" class="map-canvas" style="--map-height:${height}px"><svg class="route-svg" viewBox="0 0 800 ${height}" preserveAspectRatio="none" aria-hidden="true">${rivers.map((riverY) => `<path class="river" d="M0 ${riverY + 12}C200 ${riverY - 22} 575 ${riverY + 22} 800 ${riverY - 12}"/><text class="river-name" x="95" y="${riverY - 15}">Seine</text>`).join("")}${paths.map((p) => `<path class="route-track" d="${p}"/>`).join("")}</svg><div class="map-stations">${points.map((p) => `<a data-route href="${href(line, p.station)}" class="station-node ${p.left ? "label-left" : ""} ${p.branch ? "branch-node" : ""} ${visited.has(readKey(line, p.station)) ? "is-read" : ""}" data-station="${p.station.id}" style="--label-space:${p.left ? p.x / 8 : 100 - p.x / 8};left:${p.x / 8}%;top:${(p.y / height) * 100}%" aria-label="${esc(p.station.name)}"><span class="node-dot" aria-hidden="true"></span><span class="node-label">${esc(p.station.name)}</span></a>`).join("")}</div></div>`;
 }
 function linePage(line: MetroLine) {
   const m = t(state.locale);
@@ -104,7 +96,7 @@ function linePage(line: MetroLine) {
     )
     .join(
       "",
-    )}</div><div id="station-preview"></div><div class="reading-progress"><span id="read-count"></span><button id="reset-progress">${m.reset}</button></div><p class="sidebar-help">${m.keyHint}</p></div></aside><section class="route-section" aria-label="${m.routeLabel} ${line.id}"><div class="route-toolbar"><div class="view-switch" aria-label="${m.selectStation}"><button id="map-view" aria-pressed="true">${m.map}</button><button id="list-view" aria-pressed="false">${m.list}</button></div><label class="search"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8" cy="8" r="5"/><path d="m12 12 5 5"/></svg><input type="search" id="station-search" placeholder="${m.search}" aria-label="${m.search}" autocomplete="off"/></label></div><div class="map-meta"><span>${line.stations.length} ${m.stations}</span><span>${m.instruction}</span></div>${mapMarkup(line)}<div id="station-list" class="station-list" hidden>${line.stations.map((s) => `<a data-route class="station-row" data-station="${s.id}" href="${href(line, s)}"><span class="row-dot" aria-hidden="true"></span><span><strong>${esc(s.name)}</strong><small>${esc(s.area)}</small></span><span class="row-arrow" aria-hidden="true">↗</span></a>`).join("")}</div><div id="search-status" class="search-status" role="status" hidden></div><div class="map-legend"><span>${m.schematic}</span><a href="${esc(line.sources[0]?.url || "https://www.ratp.fr/vos-lignes")}" target="_blank" rel="noreferrer">${m.sources} ↗</a></div></section></div></main>`;
+    )}</div><div id="station-preview"></div><div class="reading-progress"><span id="read-count"></span><button id="reset-progress">${m.reset}</button></div><p class="sidebar-help">${m.keyHint}</p></div></aside><section class="route-section" aria-label="${m.routeLabel} ${line.id}"><div class="route-toolbar"><div class="view-switch" aria-label="${m.selectStation}"><button id="map-view" aria-pressed="true">${m.map}</button><button id="list-view" aria-pressed="false">${m.list}</button></div><label class="search"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8" cy="8" r="5"/><path d="m12 12 5 5"/></svg><input type="search" id="station-search" placeholder="${m.search}" aria-label="${m.search}" autocomplete="off"/></label></div><div class="map-meta"><span id="station-count">${line.stations.length} ${m.stations}</span><span id="station-instruction">${m.instruction}</span></div>${mapMarkup(line)}<div id="station-list" class="station-list" hidden>${line.stations.map((s) => `<a data-route class="station-row" data-station="${s.id}" href="${href(line, s)}"><span class="row-dot" aria-hidden="true"></span><span><strong>${esc(s.name)}</strong><small>${esc(s.area)}</small></span><span class="row-arrow" aria-hidden="true">↗</span></a>`).join("")}</div><div id="search-status" class="search-status" role="status" hidden></div><div class="map-legend" id="map-legend"><span id="schematic-note">${m.schematic}</span><a href="${esc(line.sources[0]?.url || "https://www.ratp.fr/vos-lignes")}" target="_blank" rel="noreferrer">${m.sources} ↗</a></div></section></div></main>`;
 }
 function updateProgress(line: MetroLine) {
   const el = document.getElementById("read-count");
@@ -134,6 +126,7 @@ function setupLine(line: MetroLine) {
   const view = (isList: boolean) => {
     map.hidden = isList;
     list.hidden = !isList;
+    document.getElementById("schematic-note")!.hidden = isList;
     mapButton.setAttribute("aria-pressed", String(!isList));
     listButton.setAttribute("aria-pressed", String(isList));
   };
@@ -145,7 +138,10 @@ function setupLine(line: MetroLine) {
       row.hidden = !normalizeSearch(s.name + " " + s.area).includes(term);
       if (!row.hidden) found++;
     });
+    document.getElementById("station-count")!.textContent =
+      `${found} ${found === 1 ? "station" : m.stations}`;
     if (term) view(true);
+    document.getElementById("station-instruction")!.hidden = found === 0;
     status.hidden = found > 0;
     status.textContent = found ? "" : m.noResults;
     list.classList.toggle("is-empty", !found);
@@ -184,11 +180,7 @@ function setupLine(line: MetroLine) {
         const step = e.key === "ArrowUp" || e.key === "ArrowLeft" ? -1 : 1;
         rows[rows.indexOf(node) + step]?.focus();
       } else {
-        const { previous, next } = neighbours(line, node.dataset.station!);
-        const target =
-          e.key === "ArrowUp" || e.key === "ArrowLeft"
-            ? previous[0]
-            : next[e.key === "ArrowRight" && next.length > 1 ? 1 : 0];
+        const target = mapNeighbour(line, node.dataset.station!, e.key);
         if (target)
           node
             .closest(".map-stations")
@@ -218,7 +210,7 @@ function saveProgress() {
 function stationPanel(line: MetroLine, s: Station) {
   const m = t(state.locale),
     near = neighbours(line, s.id);
-  return `<div class="sheet-top">${lineBadge(line, true)}<span>${m.line} ${line.id}</span><nav class="language sheet-language" aria-label="${m.chooseLanguage}">${(["fr", "en"] as Locale[]).map((locale) => `<a data-route href="${routeUrl(locale, line.id, s.id)}" lang="${locale}" hreflang="${locale}" ${state.locale === locale ? 'aria-current="true"' : ""}>${locale.toUpperCase()}</a>`).join("")}</nav><button class="close-button" id="close-station" aria-label="${m.close}">${closeIcon}</button></div><div class="sheet-illustration">${illustration(s.art)}</div><article class="sheet-body"><p class="kicker">${esc(s.area)}</p><h1 id="station-title" tabindex="-1">${esc(s.name)}</h1><section class="name-origin"><h2>${m.why}</h2><p>${esc(s.etymology[state.locale])}</p></section><section class="station-context"><h2>${m.history}</h2><p>${esc(s.context[state.locale])}</p></section>${s.opened ? `<p class="opening-year">${m.arrived} <strong>${s.opened}</strong></p>` : ""}${s.people?.length ? `<section class="person-links"><h2>${m.people}</h2>${s.people.map((p) => `<a href="${esc(p.url[state.locale])}" target="_blank" rel="noreferrer">${esc(p.name)} ↗</a>`).join("")}</section>` : ""}<details class="sources"><summary>${m.sources} <span>+</span></summary>${s.sources.map((source) => `<a href="${esc(source.url)}" target="_blank" rel="noreferrer">${esc(source.label)} ↗</a>`).join("")}<small>${m.sourceDate}</small></details><div class="share-row"><button id="copy-link">${m.copy} ↗</button><span id="copy-status" role="status"></span></div><nav class="station-nav" aria-label="${m.selectStation}"><div><span>${m.previous}</span>${near.previous.length ? near.previous.map((n) => `<a data-route href="${href(line, n)}">← ${esc(n.name)}</a>`).join("") : `<span class="end">${m.terminus}</span>`}</div><div><span>${near.next.length > 1 ? m.branches : m.next}</span>${near.next.length ? near.next.map((n) => `<a data-route href="${href(line, n)}">${esc(n.name)} →</a>`).join("") : `<span class="end">${m.end}</span>`}</div></nav></article>`;
+  return `<div class="sheet-top">${lineBadge(line, true)}<span>${m.line} ${line.id}</span><nav class="language sheet-language" aria-label="${m.chooseLanguage}">${(["fr", "en"] as Locale[]).map((locale) => `<a data-route href="${routeUrl(locale, line.id, s.id)}" lang="${locale}" hreflang="${locale}" ${state.locale === locale ? 'aria-current="true"' : ""}>${locale.toUpperCase()}</a>`).join("")}</nav><button class="close-button" id="close-station" aria-label="${m.close}">${closeIcon}</button></div><div class="sheet-illustration">${illustration(s.art)}</div><article class="sheet-body"><p class="kicker">${esc(s.area)}</p><h1 id="station-title" tabindex="-1">${esc(s.name)}</h1><section class="name-origin"><h2>${m.why}</h2><p>${esc(s.etymology[state.locale])}</p></section><section class="station-context"><h2>${m.history}</h2><p>${esc(s.context[state.locale])}</p></section>${s.opened ? `<p class="opening-year">${m.arrived} <strong>${s.opened}</strong></p>` : ""}${s.people?.length ? `<section class="person-links"><h2>${m.people}</h2>${s.people.map((p) => `<a href="${esc(p.url[state.locale])}" target="_blank" rel="noreferrer">${esc(p.name)} ↗</a>`).join("")}</section>` : ""}<details class="sources"><summary>${m.sources} <span>+</span></summary>${s.sources.map((source) => `<a href="${esc(source.url)}" target="_blank" rel="noreferrer">${esc(source.label)} ↗</a>`).join("")}<small>${m.sourceDate}</small></details><div class="share-row"><button id="copy-link">${m.copy} ${linkIcon}</button><span id="copy-status" role="status"></span></div><nav class="station-nav" aria-label="${m.selectStation}"><div><span>${m.previous}</span>${near.previous.length ? near.previous.map((n) => `<a data-route href="${href(line, n)}">← ${esc(n.name)}</a>`).join("") : `<span class="end">${m.terminus}</span>`}</div><div><span>${near.next.length > 1 ? m.branches : m.next}</span>${near.next.length ? near.next.map((n) => `<a data-route href="${href(line, n)}">${esc(n.name)} →</a>`).join("") : `<span class="end">${m.terminus}</span>`}</div></nav></article>`;
 }
 function showStation(line: MetroLine, s: Station) {
   visited.add(readKey(line, s));
@@ -284,7 +276,7 @@ function render() {
   const m = t(state.locale);
   const key = `${state.locale}:${state.lineId || "home"}:${valid}`;
   document.documentElement.lang = state.locale;
-  document.title = `${station ? station.name + " — " : ""}${line ? m.line + " " + line.id : m.title} | Métro / Noms`;
+  document.title = `${station ? station.name + " · " : ""}${line ? m.line + " " + line.id : m.title} | Métro / Noms`;
   document.querySelector<HTMLMetaElement>('meta[name="description"]')!.content =
     station?.etymology[state.locale] ||
     line?.summary[state.locale] ||

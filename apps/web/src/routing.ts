@@ -1,7 +1,13 @@
-import type { Locale, MetroLine, Station } from "./data/types";
+import {
+  lineIds,
+  type LineId,
+  type Locale,
+  type MetroLine,
+  type Station,
+} from "./data/types";
 export interface Route {
   locale: Locale;
-  lineId?: "7" | "14";
+  lineId?: LineId;
   stationId?: string;
   valid: boolean;
 }
@@ -18,9 +24,9 @@ export function parseRoute(pathname: string): Route {
   const locale = parts[0] === "en" ? "en" : "fr";
   if (!["en", "fr"].includes(parts[0]!)) return { locale, valid: false };
   if (parts.length === 1) return { locale, valid: true };
-  if (parts[1] !== "lines" || !["7", "14"].includes(parts[2] ?? ""))
+  if (parts[1] !== "lines" || !lineIds.includes(parts[2] as LineId))
     return { locale, valid: false };
-  const lineId = parts[2] as "7" | "14";
+  const lineId = parts[2] as LineId;
   if (parts.length === 3) return { locale, lineId, valid: true };
   if (
     parts.length === 5 &&

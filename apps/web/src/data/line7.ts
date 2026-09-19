@@ -30,7 +30,7 @@ function station(
     context: { en: contextEn, fr: contextFr },
     sources: [
       {
-        label: `${name} — Wikipédia`,
+        label: `${name} · Wikipédia`,
         url: wiki(`${name.replaceAll(" – ", " - ")} (métro de Paris)`),
       },
     ],
@@ -54,14 +54,14 @@ const stations: Station[] = [
     "Fort d’Aubervilliers",
     "Aubervilliers",
     "gate",
-    "Called Fort d’Aubervilliers because it stands near the fort built in Aubervilliers. This nineteenth-century military work guarded the route de Flandre on the northeastern approach to Paris.",
+    "Called Fort d’Aubervilliers because it stands near the fort built in Aubervilliers. This nineteenth-century fortification guarded the route de Flandre on the northeastern approach to Paris.",
     "La station doit son nom au fort voisin, construit à Aubervilliers au XIXe siècle. Cet ouvrage militaire contrôlait la route de Flandre, sur les voies d’accès à Paris depuis le nord-est.",
     "The station became the northern terminus in 1979, when Line 7 first extended beyond Porte de la Villette. It kept that role until the next extension reached La Courneuve in 1987. The fort dates from 1843.",
     "La station devient le terminus nord en 1979, lorsque la ligne 7 dépasse pour la première fois Porte de la Villette. Elle conserve ce rôle jusqu’au prolongement vers La Courneuve en 1987. Le fort date de 1843.",
     {
       sources: [
         {
-          label: "Fort d’Aubervilliers — Wikipédia",
+          label: "Fort d’Aubervilliers · Wikipédia",
           url: wiki("Fort d'Aubervilliers (métro de Paris)"),
         },
       ],
@@ -94,8 +94,8 @@ const stations: Station[] = [
     "portrait",
     "Called Corentin Cariou after the adjoining avenue, renamed for the Communist councillor who represented the 19th arrondissement. German forces executed Cariou as a hostage during the Occupation in 1942.",
     "La station doit son nom à l’avenue voisine, rebaptisée en mémoire de Corentin Cariou, conseiller municipal communiste du 19e arrondissement. Retenu comme otage pendant l’Occupation, il est fusillé par les forces allemandes en 1942.",
-    "The station first bore the name Pont de Flandre, after the road bridge over the Canal Saint-Denis. The station took Cariou’s name in 1946, as Paris commemorated people killed during the Occupation.",
-    "La station portait d’abord le nom de Pont de Flandre, celui du pont routier sur le canal Saint-Denis. La station prend le nom de Cariou en 1946, lorsque Paris commémore les personnes tuées pendant l’Occupation.",
+    "The station first bore the name Pont de Flandre, after the road bridge over the Canal Saint-Denis. It took Cariou’s name in 1946, as Paris commemorated people killed during the Occupation.",
+    "La station portait d’abord le nom de Pont de Flandre, celui du pont routier sur le canal Saint-Denis. Elle prend le nom de Cariou en 1946, lorsque Paris commémore les personnes tuées pendant l’Occupation.",
     { people: [biography("Corentin Cariou", "Corentin Cariou")] },
   ),
   station(
@@ -103,8 +103,8 @@ const stations: Station[] = [
     "Crimée",
     "Paris 19e",
     "gate",
-    "Called Crimée because it lies near Rue de Crimée, a street named to commemorate the Crimean War. The station inherits this military reference through the street beside Avenue de Flandre.",
-    "La station doit son nom à la rue de Crimée, qui commémore la guerre de Crimée. C’est par cette voie, située au croisement de l’avenue de Flandre, que la référence militaire entre dans le nom du métro.",
+    "Called Crimée because it lies near Rue de Crimée, a street named to commemorate the Crimean War.",
+    "La station doit son nom à la rue de Crimée, qui commémore la guerre de Crimée.",
     "Crimée belonged to the first section of Line 7, opened in 1910 between Opéra and Porte de la Villette. Rue de Crimée crosses the 19th arrondissement. The station’s street entrance includes a historic Hector Guimard surround.",
     "Crimée appartient au premier tronçon de la ligne 7, ouvert en 1910 entre Opéra et Porte de la Villette. La rue de Crimée traverse le 19e arrondissement. L’une des entrées de la station conserve un entourage historique d’Hector Guimard.",
   ),
@@ -142,8 +142,8 @@ const stations: Station[] = [
     "Louis Blanc",
     "Paris 10e",
     "portrait",
-    "Called Louis Blanc after nearby Rue Louis-Blanc, which honours the French politician, journalist and historian Louis Jean Joseph Blanc. The station thus carries a person’s name through a local street.",
-    "La station doit son nom à la rue Louis-Blanc, qui rend hommage à Louis Jean Joseph Blanc, homme politique, journaliste et historien français. Le métro reprend ainsi le nom d’une personne par l’intermédiaire d’une rue voisine.",
+    "Called Louis Blanc after nearby Rue Louis-Blanc, which honours the French politician, journalist and historian Louis Jean Joseph Blanc.",
+    "La station doit son nom à la rue Louis-Blanc, qui rend hommage à Louis Jean Joseph Blanc, homme politique, journaliste et historien français.",
     "The station was built on two levels for the original northern fork of Line 7. Trains once continued either to Porte de la Villette or Pré-Saint-Gervais. The latter branch became the independent Line 7 bis in 1967.",
     "La station est construite sur deux niveaux pour l’ancienne bifurcation nord de la ligne 7. Les trains poursuivaient vers Porte de la Villette ou Pré-Saint-Gervais. Cette seconde branche devient la ligne indépendante 7 bis en 1967.",
     { people: [biography("Louis Blanc", "Louis Blanc")] },
@@ -152,7 +152,7 @@ const stations: Station[] = [
     "chateau-landon",
     "Château-Landon",
     "Paris 10e",
-    "towers",
+    "modern",
     "Called Château-Landon after Rue du Château-Landon. Historical research traces the street’s name to a local house belonging to a man named Landon; an older explanation linking it to the distant town was challenged.",
     "La station doit son nom à la rue du Château-Landon. Des recherches historiques rattachent ce nom à une maison appartenant à un certain Landon ; l’ancienne explication par la ville lointaine de Château-Landon a été contestée.",
     "A passage beneath the railway tracks connects the station with Gare de l’Est. Built during the railway station’s 1931 reconstruction, the tunnel originally carried luggage and parcels. It later became a passage for passengers transferring between trains and Métro.",
@@ -160,11 +160,11 @@ const stations: Station[] = [
     {
       sources: [
         {
-          label: "Château-Landon — Wikipédia",
+          label: "Château-Landon · Wikipédia",
           url: wiki("Château-Landon (métro de Paris)"),
         },
         {
-          label: "Rue du Château-Landon — histoire du nom",
+          label: "Rue du Château-Landon · histoire du nom",
           url: wiki("Rue du Château-Landon"),
         },
       ],
@@ -177,16 +177,16 @@ const stations: Station[] = [
     "station",
     "Called Gare de l’Est because it serves the mainline railway station above it, whose routes run towards eastern France. The additional name Verdun refers to nearby Avenue de Verdun, named for the city associated with the 1916 battle.",
     "La station doit son nom à la gare de l’Est qu’elle dessert, point de départ de lignes ferroviaires vers l’est de la France. Le complément Verdun renvoie à l’avenue voisine, nommée pour la ville associée à la bataille de 1916.",
-    "The Métro station brings together Lines 4, 5 and 7 beneath and beside the railway terminus. Line 7 arrived in 1910. Its platforms share a large underground space with those of Line 5, making the railway role visible below ground.",
+    "The Métro station brings together Lines 4, 5 and 7 beneath and beside the railway terminus. Line 7 arrived in 1910. Its platforms share a large underground space with those of Line 5.",
     "Le métro réunit les lignes 4, 5 et 7 sous la gare ferroviaire et à ses abords. La ligne 7 y arrive en 1910. Ses quais partagent un vaste espace souterrain avec ceux de la ligne 5.",
     {
       sources: [
         {
-          label: "Gare de l’Est — Wikipédia",
+          label: "Gare de l’Est · Wikipédia",
           url: wiki("Gare de l'Est (métro de Paris)"),
         },
         {
-          label: "Avenue de Verdun — origine du nom",
+          label: "Avenue de Verdun · origine du nom",
           url: wiki("Avenue de Verdun (Paris)"),
         },
       ],
@@ -199,8 +199,8 @@ const stations: Station[] = [
     "market",
     "Called Poissonnière after Rue du Faubourg-Poissonnière. This street followed part of the old fish merchants’ route, used to bring fish from the North Sea to the central markets of Paris.",
     "La station doit son nom à la rue du Faubourg-Poissonnière. Cette voie suivait une partie de l’ancien chemin des marchands de poisson, qui acheminaient leur marchandise depuis la mer du Nord jusqu’aux halles de Paris.",
-    "The street preserves the memory of a supply route used long before the Métro. The station opened with the first Line 7 section in 1910. It lies beneath Rue La Fayette where that street crosses Rue du Faubourg-Poissonnière.",
-    "La rue garde le souvenir d’un itinéraire d’approvisionnement bien antérieur au métro. La station ouvre avec le premier tronçon de la ligne 7 en 1910. Elle se trouve sous la rue La Fayette, au croisement de la rue du Faubourg-Poissonnière.",
+    "The station opened with the first Line 7 section in 1910. It lies beneath Rue La Fayette where that street crosses Rue du Faubourg-Poissonnière.",
+    "La station ouvre avec le premier tronçon de la ligne 7 en 1910. Elle se trouve sous la rue La Fayette, au croisement de la rue du Faubourg-Poissonnière.",
   ),
   station(
     "cadet",
@@ -234,7 +234,7 @@ const stations: Station[] = [
     {
       sources: [
         {
-          label: "Chaussée d’Antin – La Fayette — Wikipédia",
+          label: "Chaussée d’Antin – La Fayette · Wikipédia",
           url: wiki("Chaussée d'Antin - La Fayette (métro de Paris)"),
         },
       ],
@@ -252,8 +252,8 @@ const stations: Station[] = [
     "Opéra",
     "Paris 9e",
     "piano",
-    "Called Opéra because it serves the opera house designed by Charles Garnier, now known as the Palais Garnier. The nearby building, rather than a person or street, gives the station its name.",
-    "La station doit son nom à l’opéra construit par Charles Garnier, aujourd’hui appelé palais Garnier. C’est cet édifice voisin, plutôt qu’une personne ou une rue, qui donne son nom à la station.",
+    "Called Opéra because it serves the opera house designed by Charles Garnier, now known as the Palais Garnier.",
+    "La station doit son nom à l’opéra construit par Charles Garnier, aujourd’hui appelé palais Garnier.",
     "Opéra was the southern terminus of Line 7 when the line opened in 1910. It remained a terminus until the extension to Palais-Royal in 1916. Lines 3, 7 and 8 cross here at different underground levels.",
     "Opéra est le terminus sud de la ligne 7 à son ouverture en 1910. Elle conserve ce rôle jusqu’au prolongement vers Palais-Royal en 1916. Les lignes 3, 7 et 8 se croisent ici à différents niveaux souterrains.",
     {
@@ -271,8 +271,8 @@ const stations: Station[] = [
     "Pyramides",
     "Paris 1er / 2e",
     "gate",
-    "Called Pyramides after Rue des Pyramides, which commemorates Bonaparte’s victory over the Mamluks at the Battle of the Pyramids in 1798. The name records a battle during the French campaign in Egypt.",
-    "La station doit son nom à la rue des Pyramides, qui commémore la victoire de Bonaparte sur les Mamelouks à la bataille des Pyramides en 1798. Le nom rappelle donc un combat de la campagne d’Égypte.",
+    "Called Pyramides after Rue des Pyramides, which commemorates Bonaparte’s victory over the Mamluks at the Battle of the Pyramids in 1798, during the French campaign in Egypt.",
+    "La station doit son nom à la rue des Pyramides, qui commémore la victoire de Bonaparte sur les Mamelouks à la bataille des Pyramides en 1798, pendant la campagne d’Égypte.",
     "The station opened during the First World War, in 1916. A shortage of ceramic tiles meant that its initial finish was plain masonry. The arrival of Line 14 in 1998 added a new interchange above the Line 7 tracks.",
     "La station ouvre pendant la Première Guerre mondiale, en 1916. La pénurie de carreaux de faïence impose alors un simple revêtement de maçonnerie. L’arrivée de la ligne 14 en 1998 ajoute une nouvelle salle de correspondance au-dessus des voies de la ligne 7.",
   ),
@@ -280,7 +280,7 @@ const stations: Station[] = [
     "palais-royal-musee-du-louvre",
     "Palais-Royal – Musée du Louvre",
     "Paris 1er",
-    "towers",
+    "modern",
     "Called Palais-Royal–Musée du Louvre because it serves both the Palais-Royal and the Louvre museum. Musée du Louvre was added in 1989 to identify the station serving the museum’s new entrance through the Pyramid.",
     "La station doit son nom au Palais-Royal et au musée du Louvre qu’elle dessert. Le complément Musée du Louvre est ajouté en 1989 pour signaler l’accès à la nouvelle entrée du musée, aménagée par la Pyramide.",
     "The original station name was simply Palais-Royal. Line 7 reached it in 1916, and it remained the southern terminus until the extension along the Seine in 1926. The combined name distinguishes it from nearby Louvre–Rivoli.",
@@ -298,11 +298,11 @@ const stations: Station[] = [
     {
       sources: [
         {
-          label: "Pont-Neuf — Wikipédia",
+          label: "Pont-Neuf · Wikipédia",
           url: wiki("Pont-Neuf (métro de Paris)"),
         },
         {
-          label: "Monnaie de Paris — Architecture et installation en 1775",
+          label: "Monnaie de Paris · Architecture et installation en 1775",
           url: "https://www.monnaiedeparis.fr/fr/l-architecture-de-la-monnaie-de-paris",
         },
       ],
@@ -312,7 +312,7 @@ const stations: Station[] = [
     "chatelet",
     "Châtelet",
     "Paris 1er / 4e",
-    "towers",
+    "modern",
     "Called Châtelet after Place du Châtelet, on the site of the Grand Châtelet fortress. The fortress later housed a court and prison before its demolition. The Line 7 subtitle Pont au Change recalls the bridge of money changers.",
     "La station doit son nom à la place du Châtelet, aménagée à l’emplacement du Grand Châtelet, forteresse devenue tribunal et prison avant sa démolition. Le sous-titre Pont au Change de la ligne 7 rappelle le pont des changeurs.",
     "The Line 7 station opened separately as Pont Notre-Dame in 1926. A long passage linked it to Châtelet’s other platforms in 1934, when it adopted their name. Its riverside position explains the distance between the different Métro platforms.",
@@ -330,10 +330,10 @@ const stations: Station[] = [
     {
       sources: [
         {
-          label: "Pont Marie — station",
+          label: "Pont Marie · station",
           url: wiki("Pont Marie (métro de Paris)"),
         },
-        { label: "Pont Marie — histoire du pont", url: wiki("Pont Marie") },
+        { label: "Pont Marie · histoire du pont", url: wiki("Pont Marie") },
       ],
     },
   ),
@@ -380,8 +380,8 @@ const stations: Station[] = [
     "Place Monge",
     "Paris 5e",
     "portrait",
-    "Called Place Monge after the square and adjoining Rue Monge, both named for mathematician Gaspard Monge. A founder of the École polytechnique, he is the person commemorated by this part of the Latin Quarter.",
-    "La station doit son nom à la place et à la rue Monge, toutes deux dédiées au mathématicien Gaspard Monge. Fondateur de l’École polytechnique, il est la personne commémorée dans cette partie du Quartier latin.",
+    "Called Place Monge after the square and adjoining Rue Monge, both named for mathematician Gaspard Monge. Monge was a founder of the École polytechnique.",
+    "La station doit son nom à la place et à la rue Monge, toutes deux dédiées au mathématicien Gaspard Monge. Monge est l’un des fondateurs de l’École polytechnique.",
     "The station first opened on Line 10 in 1930. It transferred to Line 7 in 1931 when the river crossing was completed. A connecting tunnel north of the platforms preserves the route used during that first year of operation.",
     "La station ouvre d’abord sur la ligne 10 en 1930. Elle passe à la ligne 7 en 1931, après l’achèvement de la traversée de la Seine. Un raccordement au nord des quais conserve le tracé utilisé pendant cette première année.",
     { people: [biography("Gaspard Monge", "Gaspard Monge")] },
@@ -410,18 +410,18 @@ const stations: Station[] = [
     "Les Gobelins",
     "Paris 13e",
     "loom",
-    "Called Les Gobelins after the tapestry manufacture and avenue, whose name comes from the Gobelin family of dyers. Jehan Gobelin established a dye workshop in the fifteenth century; his descendants built workshops beside the Bièvre.",
+    "Called Les Gobelins after the tapestry works and avenue, named for the Gobelin family of dyers. Jehan Gobelin established a dye workshop in the fifteenth century; his descendants built workshops beside the Bièvre.",
     "La station doit son nom à la manufacture de tapisseries et à l’avenue, dont le nom vient de la famille de teinturiers Gobelin. Jehan Gobelin fonde un atelier au XVe siècle ; ses descendants s’installent au bord de la Bièvre.",
     "The dyers came before the royal tapestry works. In 1662, Colbert bought the property for the Crown and brought workshops together under Charles Le Brun. Gobelins tapestries use vertical looms, with the weaver working on the reverse of the fabric.",
     "Les teinturiers précèdent la manufacture royale de tapisseries. En 1662, Colbert achète la propriété pour la Couronne et rassemble les ateliers sous la direction de Charles Le Brun. Les tapisseries des Gobelins sont tissées sur des métiers verticaux, à l’envers de l’ouvrage.",
     {
       sources: [
         {
-          label: "Les Gobelins — Wikipédia",
+          label: "Les Gobelins · Wikipédia",
           url: wiki("Les Gobelins (métro de Paris)"),
         },
         {
-          label: "Mobilier national — Manufacture des Gobelins",
+          label: "Mobilier national · Manufacture des Gobelins",
           url: "https://www.mobiliernational.culture.gouv.fr/fr/nous-connaitre/les-manufactures/manufacture-des-gobelins",
         },
       ],
@@ -434,12 +434,12 @@ const stations: Station[] = [
     "square",
     "Called Place d’Italie because it lies beneath the square at the start of the road towards Italy. Avenue d’Italie continues south from the square into the historic Route nationale 7 corridor.",
     "La station doit son nom à la place d’Italie, située au départ de la route qui conduisait vers l’Italie. L’avenue d’Italie se prolonge vers le sud dans l’axe historique de la route nationale 7.",
-    "Lines 5, 6 and 7 meet below this major road junction. The Line 7 platforms initially belonged to Line 10 in 1930. They changed lines in 1931, when the new tunnel beneath the Seine connected the northern and southern sections.",
+    "Lines 5, 6 and 7 meet below this major road junction. The platforms initially belonged to Line 10 in 1930 and transferred to Line 7 in 1931, when the new tunnel beneath the Seine connected the northern and southern sections.",
     "Les lignes 5, 6 et 7 se rencontrent sous ce grand carrefour. Les quais de la ligne 7 appartiennent d’abord à la ligne 10 en 1930. Ils changent de ligne en 1931, lorsque le tunnel sous la Seine relie les tronçons nord et sud.",
     {
       sources: [
         {
-          label: "Place d’Italie — Wikipédia",
+          label: "Place d’Italie · Wikipédia",
           url: wiki("Place d'Italie (métro de Paris)"),
         },
       ],
@@ -456,9 +456,9 @@ const stations: Station[] = [
     "La rue de Tolbiac traverse le 13e arrondissement d’est en ouest, tandis que les quais du métro se trouvent sous l’avenue d’Italie. La station ouvre sur la ligne 10 en 1930, puis passe à la ligne 7 l’année suivante.",
     {
       sources: [
-        { label: "Tolbiac — Wikipédia", url: wiki("Tolbiac (métro de Paris)") },
+        { label: "Tolbiac · Wikipédia", url: wiki("Tolbiac (métro de Paris)") },
         {
-          label: "Rue de Tolbiac — origine du nom",
+          label: "Rue de Tolbiac · origine du nom",
           url: wiki("Rue de Tolbiac"),
         },
       ],
@@ -468,9 +468,9 @@ const stations: Station[] = [
     "maison-blanche",
     "Maison Blanche",
     "Paris 13e",
-    "towers",
-    "Called Maison Blanche after the surrounding district, which took its name from an inn called Maison Blanche, or white house. The station preserves the inn’s name through this older neighbourhood name.",
-    "La station doit son nom au quartier de la Maison-Blanche, lui-même nommé d’après une auberge appelée Maison Blanche. Le métro conserve ainsi le nom de cet établissement ancien par l’intermédiaire du quartier.",
+    "house",
+    "Called Maison Blanche after the surrounding district, which took its name from an inn called “Maison Blanche”, meaning “white house”.",
+    "La station doit son nom au quartier de la Maison-Blanche, lui-même nommé d’après une auberge appelée Maison Blanche.",
     "Maison Blanche is the last station shared by both southern branches of Line 7. Beyond it, tracks separate towards Mairie d’Ivry and Villejuif. The branch to Le Kremlin-Bicêtre opened in 1982; Line 14 added an interchange here in 2024.",
     "Maison Blanche est la dernière station commune aux deux branches sud de la ligne 7. Au-delà, les voies se séparent vers Mairie d’Ivry et Villejuif. La branche vers Le Kremlin-Bicêtre ouvre en 1982 ; la ligne 14 ajoute une correspondance en 2024.",
   ),
@@ -487,7 +487,7 @@ const stations: Station[] = [
       branch: "ivry",
       sources: [
         {
-          label: "Porte d’Italie — Wikipédia",
+          label: "Porte d’Italie · Wikipédia",
           url: wiki("Porte d'Italie (métro de Paris)"),
         },
       ],
@@ -517,10 +517,10 @@ const stations: Station[] = [
       branch: "ivry",
       sources: [
         {
-          label: "Porte d’Ivry — station",
+          label: "Porte d’Ivry · station",
           url: wiki("Porte d'Ivry (métro de Paris)"),
         },
-        { label: "Porte d’Ivry — porte de Paris", url: wiki("Porte d'Ivry") },
+        { label: "Porte d’Ivry · porte de Paris", url: wiki("Porte d'Ivry") },
       ],
     },
   ),
@@ -532,7 +532,7 @@ const stations: Station[] = [
     "Called Pierre et Marie Curie to honour the two physicists. The original name, Pierre Curie, came from the nearby street; Marie’s name was added to the station in 2007 to recognise her work as well.",
     "La station doit son nom aux physiciens Pierre et Marie Curie. Le nom initial, Pierre Curie, venait de la rue voisine ; celui de Marie est ajouté à la station en 2007 pour honorer également son travail scientifique.",
     "The change became official on International Women’s Day, 8 March 2007, following the station’s renovation. Opened in 1946, the station forms the intermediate stop on the extension from Porte d’Ivry to the town hall at Mairie d’Ivry.",
-    "Le changement devient officiel le 8 mars 2007, Journée internationale des femmes, après la rénovation de la station. Ouverte en 1946, celle-ci est l’arrêt intermédiaire du prolongement entre Porte d’Ivry et le terminus situé près de la mairie.",
+    "Le changement devient officiel le 8 mars 2007, Journée internationale des femmes, après la rénovation de la station. Ouverte en 1946, la station est l’arrêt intermédiaire du prolongement entre Porte d’Ivry et le terminus situé près de la mairie.",
     {
       branch: "ivry",
       people: [
@@ -545,16 +545,16 @@ const stations: Station[] = [
     "mairie-divry",
     "Mairie d’Ivry",
     "Ivry-sur-Seine",
-    "towers",
-    "Called Mairie d’Ivry because it serves the town hall of Ivry-sur-Seine. Mairie is the French word for town hall; Ivry identifies the municipality whose civic centre gives this terminus its name.",
-    "La station doit son nom à la mairie d’Ivry-sur-Seine qu’elle dessert. Le mot mairie désigne l’hôtel de ville ; Ivry précise la commune dont le centre administratif donne son nom à ce terminus de la ligne 7.",
+    "modern",
+    "Called Mairie d’Ivry because it serves the town hall of Ivry-sur-Seine. Mairie is the French word for town hall.",
+    "La station doit son nom à la mairie d’Ivry-sur-Seine qu’elle dessert.",
     "The station opened on 1 May 1946 with the extension beyond Porte d’Ivry. Its three platform tracks serve the end of the branch. The other southern branch, which later reached Villejuif, separates from this route at Maison Blanche.",
     "La station ouvre le 1er mai 1946 avec le prolongement au-delà de Porte d’Ivry. Ses trois voies à quai desservent le terminus de la branche. L’autre branche sud, prolongée ensuite vers Villejuif, se sépare de cet itinéraire à Maison Blanche.",
     {
       branch: "ivry",
       sources: [
         {
-          label: "Mairie d’Ivry — Wikipédia",
+          label: "Mairie d’Ivry · Wikipédia",
           url: wiki("Mairie d'Ivry (métro de Paris)"),
         },
       ],
@@ -564,7 +564,7 @@ const stations: Station[] = [
     "le-kremlin-bicetre",
     "Le Kremlin-Bicêtre",
     "Le Kremlin-Bicêtre",
-    "towers",
+    "modern",
     "Called Le Kremlin-Bicêtre after the town. Bicêtre evolved from Winchester, the bishopric of a medieval owner; Kremlin recalls an inn associated with veterans of Napoleon’s Russian campaign who were treated at the local hospital.",
     "La station doit son nom à la commune. Bicêtre est une déformation de Winchester, évêché d’un propriétaire médiéval ; Kremlin rappelle un cabaret associé aux vétérans de la campagne de Russie de Napoléon, soignés à l’hôpital voisin.",
     "The station opened in 1982 as the first terminus of Line 7’s new southern branch. Trains reached Villejuif in 1985, turning it into a through station. The junction with the Ivry branch remains just south of Maison Blanche.",
@@ -573,11 +573,11 @@ const stations: Station[] = [
       branch: "villejuif",
       sources: [
         {
-          label: "Le Kremlin-Bicêtre — station",
+          label: "Le Kremlin-Bicêtre · station",
           url: wiki("Le Kremlin-Bicêtre (métro de Paris)"),
         },
         {
-          label: "Ville du Kremlin-Bicêtre — histoire du nom",
+          label: "Ville du Kremlin-Bicêtre · histoire du nom",
           url: "https://www.kremlinbicetre.fr/ma-ville/decouvrir-le-kremlin-bicetre/lhistoire-du-kremlin-bicetre-dont-archives/",
         },
       ],
@@ -588,8 +588,8 @@ const stations: Station[] = [
     "Villejuif – Léo Lagrange",
     "Villejuif",
     "portrait",
-    "Called Villejuif–Léo Lagrange because it serves Villejuif and honours Léo Lagrange, the Socialist lawyer and politician. The compound name combines the municipality with a person commemorated by the station.",
-    "La station doit son nom à la commune de Villejuif et à Léo Lagrange, avocat et homme politique socialiste. Ce nom composé associe donc le territoire desservi à une personnalité que la station honore.",
+    "Called Villejuif–Léo Lagrange because it serves Villejuif and honours Léo Lagrange, the Socialist lawyer and politician.",
+    "La station doit son nom à la commune de Villejuif et à Léo Lagrange, avocat et homme politique socialiste.",
     "The station opened in 1985 with the extension from Le Kremlin-Bicêtre to Louis Aragon. Its project name was Villejuif 1. The platforms lie below Avenue de Paris, with entrances on both sides of this main road.",
     "La station ouvre en 1985 avec le prolongement du Kremlin-Bicêtre à Louis Aragon. Son nom de projet était Villejuif 1. Les quais se trouvent sous l’avenue de Paris, avec des accès répartis des deux côtés de cette grande voie.",
     {
@@ -602,8 +602,8 @@ const stations: Station[] = [
     "Villejuif – Paul Vaillant-Couturier",
     "Villejuif",
     "portrait",
-    "Called Villejuif–Paul Vaillant-Couturier after the town and nearby Avenue Paul-Vaillant-Couturier. The avenue honours the Communist journalist and deputy who became editor of L’Humanité; the station carries his name through this local road.",
-    "La station doit son nom à Villejuif et à l’avenue Paul-Vaillant-Couturier voisine. Cette avenue honore le journaliste et député communiste devenu rédacteur en chef de L’Humanité ; le métro reprend son nom par l’intermédiaire de cette voie.",
+    "Called Villejuif–Paul Vaillant-Couturier after the town and nearby Avenue Paul-Vaillant-Couturier. The avenue honours the Communist journalist and deputy who became editor of L’Humanité.",
+    "La station doit son nom à Villejuif et à l’avenue Paul-Vaillant-Couturier voisine. Cette avenue honore le journaliste et député communiste devenu rédacteur en chef de L’Humanité.",
     "The station opened in 1985 as part of the extension to Louis Aragon. It also bears the subtitle Hôpital Paul Brousse, referring to the nearby hospital. The Métro follows the old Route nationale 7 corridor through this part of Villejuif.",
     "La station ouvre en 1985 dans le cadre du prolongement à Louis Aragon. Elle porte aussi le sous-titre Hôpital Paul Brousse, qui désigne l’hôpital voisin. Le métro suit l’axe de l’ancienne route nationale 7 dans cette partie de Villejuif.",
     {
@@ -616,8 +616,8 @@ const stations: Station[] = [
     "Villejuif – Louis Aragon",
     "Villejuif",
     "portrait",
-    "Called Villejuif–Louis Aragon after the town and a nearby road named for the French writer Louis Aragon. The station joins the municipality’s name with the author commemorated at this road junction.",
-    "La station doit son nom à Villejuif et à une voie voisine dédiée à l’écrivain français Louis Aragon. Le nom composé réunit ainsi celui de la commune et celui de l’auteur commémoré à ce carrefour.",
+    "Called Villejuif–Louis Aragon after the town and a nearby road named for the French writer Louis Aragon.",
+    "La station doit son nom à Villejuif et à une voie voisine dédiée à l’écrivain français Louis Aragon.",
     "The terminus opened in 1985 when the branch extended beyond Le Kremlin-Bicêtre through Villejuif. It is one of Line 7’s two southern endpoints, alongside Mairie d’Ivry. The two routes share all stations north of their fork at Maison Blanche.",
     "Le terminus ouvre en 1985 lorsque la branche dépasse Le Kremlin-Bicêtre et traverse Villejuif. Il constitue l’une des deux extrémités sud de la ligne 7, avec Mairie d’Ivry. Les deux itinéraires partagent les stations au nord de Maison Blanche.",
     {
@@ -668,12 +668,12 @@ export const line7: MetroLine = {
   },
   sources: [
     {
-      label: "SNCF Transilien — liste des stations et branches",
+      label: "SNCF Transilien · liste des stations et branches",
       url: "https://www.transilien.com/fr/page-lignes/metro-7",
     },
-    { label: "RATP — ligne 7", url: "https://www.ratp.fr/vos-lignes/metro/7" },
+    { label: "RATP · ligne 7", url: "https://www.ratp.fr/vos-lignes/metro/7" },
     {
-      label: "Ligne 7 — parcours et histoire",
+      label: "Ligne 7 · parcours et histoire",
       url: wiki("Ligne 7 du métro de Paris"),
     },
   ],

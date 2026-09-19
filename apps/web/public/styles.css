@@ -76,6 +76,9 @@ summary:focus-visible {
   gap: 30px;
 }
 .brand {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   font: 25px var(--serif);
   letter-spacing: 3.5px;
   text-decoration: none;
@@ -87,7 +90,10 @@ summary:focus-visible {
   margin-left: auto;
 }
 .header-lines a {
-  display: block;
+  display: grid;
+  place-items: center;
+  min-width: 44px;
+  min-height: 44px;
   text-decoration: none;
   border-bottom: 2px solid transparent;
   padding: 7px 1px;
@@ -97,10 +103,14 @@ summary:focus-visible {
 }
 .language {
   display: flex;
-  gap: 17px;
+  gap: 6px;
   margin-left: 25px;
 }
 .language a {
+  display: grid;
+  place-items: center;
+  min-width: 44px;
+  min-height: 44px;
   font-size: 11px;
   text-decoration: none;
   padding: 9px 0;
@@ -130,7 +140,7 @@ summary:focus-visible {
   letter-spacing: -0.8px;
 }
 .kicker {
-  font-size: 10px;
+  font-size: 11px;
   line-height: 1.5;
   letter-spacing: 1.8px;
   text-transform: uppercase;
@@ -263,13 +273,17 @@ h2 {
 }
 .card-featured {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
   padding: 13px 31px;
   border-top: 1px solid var(--rule);
   background: var(--paper);
 }
 .card-featured a {
-  font-size: 10px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 11px;
   text-decoration: none;
 }
 .card-featured a:hover {
@@ -302,7 +316,7 @@ h2 {
   align-items: center;
   gap: 9px;
   color: var(--muted);
-  font-size: 10px;
+  font-size: 11px;
 }
 .future-line .line-badge {
   filter: saturate(0.75);
@@ -315,16 +329,20 @@ footer {
   align-items: center;
   border-top: 1px solid var(--rule);
   padding: 24px 46px;
-  font-size: 10px;
+  font-size: 11px;
   color: var(--muted);
 }
 footer a,
 footer button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   text-decoration: none;
-  font-size: 10px;
+  font-size: 11px;
   padding: 0;
 }
 footer button {
+  min-width: 44px;
   margin-left: auto;
 }
 footer a:hover,
@@ -337,6 +355,9 @@ footer button:hover {
   padding: 30px 46px 45px;
 }
 .back-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   font-size: 11px;
   text-decoration: none;
   color: var(--muted);
@@ -385,11 +406,13 @@ footer button:hover {
 }
 .featured-links .kicker {
   display: block;
-  font-size: 8px;
+  font-size: 11px;
   margin-bottom: 9px;
 }
 .featured-links a {
   display: flex;
+  align-items: center;
+  min-height: 44px;
   justify-content: space-between;
   font-size: 11px;
   text-decoration: none;
@@ -418,7 +441,7 @@ footer button:hover {
   color: #655d4f;
 }
 .preview .kicker {
-  font-size: 8px;
+  font-size: 11px;
   letter-spacing: 1px;
 }
 .preview h2 {
@@ -448,11 +471,13 @@ footer button:hover {
   border-top: 1px solid var(--rule);
   margin-top: 26px;
   padding-top: 15px;
-  font-size: 9px;
+  font-size: 11px;
   color: var(--muted);
 }
 .reading-progress button {
-  font-size: 9px;
+  min-height: 44px;
+  min-width: 44px;
+  font-size: 11px;
   margin-left: auto;
   padding: 2px;
 }
@@ -460,7 +485,7 @@ footer button:hover {
   text-decoration: underline;
 }
 .sidebar-help {
-  font-size: 9px;
+  font-size: 11px;
   line-height: 1.7;
   color: var(--muted);
   margin-top: 20px;
@@ -483,6 +508,7 @@ footer button:hover {
   gap: 20px;
 }
 .view-switch button {
+  min-height: 44px;
   font-size: 11px;
   white-space: nowrap;
   padding: 7px 0;
@@ -505,6 +531,7 @@ footer button:hover {
   stroke-width: 1.4;
 }
 .search input {
+  min-height: 44px;
   width: 158px;
   font-size: 11px;
   border: 0;
@@ -519,11 +546,12 @@ footer button:hover {
 .map-meta {
   display: flex;
   justify-content: space-between;
-  font-size: 9px;
+  font-size: 11px;
   color: var(--muted);
   padding: 20px 0 4px;
 }
 .map-canvas {
+  container-type: inline-size;
   position: relative;
   height: var(--map-height);
   width: 100%;
@@ -562,8 +590,8 @@ footer button:hover {
 }
 .station-node {
   position: absolute;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
@@ -589,7 +617,9 @@ footer button:hover {
   left: calc(50% + 18px);
   font-size: 13px;
   font-weight: 450;
-  white-space: nowrap;
+  white-space: normal;
+  width: max-content;
+  max-width: calc(var(--label-space) * 1cqw - 23px);
   line-height: 1.35;
   transition: transform 0.23s;
   text-shadow:
@@ -605,7 +635,8 @@ footer button:hover {
   left: 50%;
   top: calc(50% + 16px);
   transform: translateX(-50%);
-  width: 220px;
+  width: min(220px, 42cqw);
+  max-width: 42cqw;
   white-space: normal;
   text-align: center;
   font-size: 12px;
@@ -632,15 +663,21 @@ footer button:hover {
   font-weight: 650;
 }
 .map-legend {
+  align-items: center;
+  flex-wrap: wrap;
   border-top: 1px solid var(--rule);
   padding: 17px 0;
   display: flex;
   justify-content: space-between;
   gap: 10px;
   color: var(--muted);
-  font-size: 9px;
+  font-size: 11px;
 }
 .map-legend a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-left: auto;
   text-decoration: none;
 }
 .map-legend a:hover {
@@ -679,7 +716,7 @@ footer button:hover {
 }
 .station-row small {
   display: block;
-  font-size: 10px;
+  font-size: 11px;
   color: var(--muted);
   margin-top: 5px;
 }
@@ -718,24 +755,29 @@ dialog::backdrop {
   max-width: 100%;
   margin: 0 0 0 auto;
   overflow: auto;
+  scroll-padding-top: 90px;
   border-left: 1px solid var(--rule);
   animation: slide-in 0.3s ease-out;
 }
 .sheet-top {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--paper);
   display: flex;
   align-items: center;
   gap: 11px;
   padding: 18px 32px;
   border-bottom: 1px solid var(--rule);
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.7px;
 }
 .close-button {
   line-height: 1;
   letter-spacing: 0;
   flex-shrink: 0;
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   display: grid;
   place-items: center;
   padding: 0;
@@ -758,6 +800,12 @@ dialog::backdrop {
 .sheet-top .close-button {
   margin-left: auto;
 }
+.sheet-top .sheet-language {
+  margin-left: auto;
+}
+.sheet-top .sheet-language + .close-button {
+  margin-left: 8px;
+}
 .sheet-illustration {
   height: 190px;
   display: grid;
@@ -774,17 +822,18 @@ dialog::backdrop {
   padding: 31px 38px 22px;
 }
 .sheet-body > .kicker {
-  font-size: 9px;
+  font-size: 11px;
   margin-bottom: 9px;
 }
 .sheet-body h1 {
+  scroll-margin-top: 90px;
   font: 48px/1.04 var(--serif);
   letter-spacing: -1.1px;
   margin: 0 0 28px;
   outline: none;
 }
 .sheet-body h2 {
-  font-size: 9px;
+  font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 1.2px;
   font-weight: 500;
@@ -808,7 +857,7 @@ dialog::backdrop {
   margin-bottom: 20px;
 }
 .opening-year {
-  font-size: 10px;
+  font-size: 11px;
   color: var(--muted);
   margin: 20px 0;
 }
@@ -820,17 +869,21 @@ dialog::backdrop {
   margin: 23px 0;
 }
 .person-links a {
-  font-size: 11px;
-  display: inline-block;
+  font-size: 12px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
   margin: 0 14px 7px 0;
 }
 .sources {
-  padding: 16px 0;
+  padding: 4px 0;
   border-top: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule);
   font-size: 11px;
 }
 .sources summary {
+  min-height: 44px;
+  align-items: center;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
@@ -844,12 +897,15 @@ dialog::backdrop {
   transform: rotate(45deg);
 }
 .sources a {
-  display: block;
-  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 0;
   line-height: 1.5;
 }
 .sources small {
-  font-size: 9px;
+  margin-bottom: 12px;
+  font-size: 11px;
   color: var(--muted);
   display: block;
   margin-top: 15px;
@@ -862,11 +918,23 @@ dialog::backdrop {
   min-height: 25px;
 }
 .share-row button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
   padding: 0;
-  font-size: 10px;
+  font-size: 11px;
+}
+.share-row button svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
 }
 .share-row span {
-  font-size: 9px;
+  font-size: 11px;
   color: var(--muted);
 }
 .station-nav {
@@ -885,15 +953,21 @@ dialog::backdrop {
   text-align: right;
 }
 .station-nav > div > span:first-child {
-  font-size: 8px;
+  font-size: 11px;
   color: var(--muted);
   text-transform: uppercase;
   letter-spacing: 0.7px;
 }
 .station-nav a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
   font-size: 12px;
   line-height: 1.5;
   text-decoration: none;
+}
+.station-nav > div:last-child a {
+  justify-content: flex-end;
 }
 .station-nav a:hover {
   text-decoration: underline;
@@ -921,7 +995,7 @@ dialog::backdrop {
   color: #625d53;
 }
 .about-body .small-copy {
-  font-size: 10px;
+  font-size: 11px;
   border-top: 1px solid var(--rule);
   padding-top: 20px;
   margin-top: 25px;
@@ -1023,12 +1097,8 @@ dialog::backdrop {
   }
   .node-label {
     font-size: 11px;
-    max-width: 220px;
     white-space: normal;
     width: max-content;
-  }
-  .branch-node .node-label {
-    width: 165px;
   }
   .search input {
     width: 130px;
@@ -1037,7 +1107,7 @@ dialog::backdrop {
     gap: 14px;
   }
   .view-switch button {
-    font-size: 10px;
+    font-size: 11px;
   }
   .preview h2 {
     font-size: 29px;
@@ -1068,7 +1138,7 @@ dialog::backdrop {
   }
   .language {
     margin-left: 10px;
-    gap: 14px;
+    gap: 6px;
   }
   .header-lines {
     gap: 7px;
@@ -1098,7 +1168,7 @@ dialog::backdrop {
     font-size: 32px;
   }
   .termini {
-    font-size: 10px;
+    font-size: 11px;
     min-height: 30px;
   }
   .card-link {
@@ -1119,7 +1189,7 @@ dialog::backdrop {
     gap: 15px;
   }
   .future-line {
-    font-size: 8px;
+    font-size: 11px;
   }
   .line-page {
     padding: 24px 23px 30px;
@@ -1156,11 +1226,11 @@ dialog::backdrop {
   }
   .featured-links .kicker {
     margin: 0;
-    font-size: 7px;
+    font-size: 11px;
   }
   .featured-links a {
     border: 0;
-    font-size: 10px;
+    font-size: 11px;
     padding: 4px 0;
     gap: 7px;
   }
@@ -1189,51 +1259,73 @@ dialog::backdrop {
   }
   .node-label {
     font-size: 12px;
-    max-width: 240px;
   }
   .branch-node .node-label {
-    width: 210px;
     font-size: 11px;
   }
   .map-meta {
     padding-top: 15px;
   }
   .map-legend {
-    font-size: 8px;
+    font-size: 11px;
   }
   footer {
     padding: 20px 23px;
-    font-size: 9px;
+    font-size: 11px;
     gap: 15px;
   }
   footer button,
   footer a {
-    font-size: 9px;
+    font-size: 11px;
+  }
+}
+@media (max-width: 600px) {
+  .masthead {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 6px;
+    gap: 0 10px;
+  }
+  .masthead .brand {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .masthead .language {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+    gap: 2px;
+  }
+  .header-lines {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-content: center;
+    margin: 0;
+    gap: 12px;
+  }
+  .header-lines .line-badge {
+    width: 27px;
+    height: 27px;
+    font-size: 16px;
   }
 }
 @media (max-width: 540px) {
   .masthead {
-    height: 68px;
-    padding: 0 18px;
+    padding-left: 18px;
+    padding-right: 18px;
   }
   .brand {
     font-size: 19px;
     letter-spacing: 1.7px;
   }
-  .header-lines .line-badge {
-    width: 25px;
-    height: 25px;
-    font-size: 15px;
-  }
-  .header-lines {
-    gap: 6px;
-  }
   .language {
-    gap: 11px;
+    gap: 2px;
     margin-left: 2px;
   }
   .language a {
-    font-size: 10px;
+    font-size: 11px;
   }
   .home {
     padding: 0 18px 32px;
@@ -1243,7 +1335,7 @@ dialog::backdrop {
     text-align: left;
   }
   .home-heading .kicker {
-    font-size: 8px;
+    font-size: 11px;
     margin-bottom: 11px;
   }
   .home-heading h1 {
@@ -1275,16 +1367,16 @@ dialog::backdrop {
     margin-bottom: 18px;
   }
   .card-top > span:nth-child(2) {
-    font-size: 10px;
+    font-size: 11px;
   }
   .card-featured {
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     gap: 12px;
     padding: 12px 23px;
   }
   .card-featured a {
-    font-size: 9px;
+    font-size: 11px;
   }
   .coming-soon {
     display: block;
@@ -1299,14 +1391,14 @@ dialog::backdrop {
     gap: 12px;
   }
   .future-line {
-    font-size: 9px;
+    font-size: 11px;
     gap: 8px;
   }
   .line-page {
     padding: 21px 18px 25px;
   }
   .back-link {
-    font-size: 10px;
+    font-size: 11px;
   }
   .line-heading-title {
     gap: 14px;
@@ -1316,7 +1408,7 @@ dialog::backdrop {
     font-size: 38px;
   }
   .line-heading-title p {
-    font-size: 10px;
+    font-size: 11px;
     line-height: 1.6;
     max-width: 280px;
   }
@@ -1330,30 +1422,36 @@ dialog::backdrop {
     display: none;
   }
   .featured-links a {
-    font-size: 9px;
+    font-size: 11px;
   }
   .view-switch {
     gap: 14px;
   }
   .view-switch button {
-    font-size: 10px;
+    font-size: 11px;
   }
   .search {
     gap: 7px;
   }
   .search input {
-    font-size: 10px;
-    width: 125px;
+    font-size: 16px;
+    width: 100%;
+  }
+  .route-toolbar {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .search {
+    width: 100%;
   }
   .map-meta {
-    font-size: 8px;
+    font-size: 11px;
   }
   .map-canvas {
     height: calc(var(--map-height) * 0.87);
   }
   .node-label {
     font-size: 11px;
-    max-width: 175px;
     white-space: normal;
     line-height: 1.35;
     left: calc(50% + 14px);
@@ -1362,9 +1460,7 @@ dialog::backdrop {
     right: calc(50% + 14px);
   }
   .branch-node .node-label {
-    max-width: none;
-    width: 145px;
-    font-size: 10px;
+    font-size: 11px;
     left: 50%;
     right: auto;
     line-height: 1.4;
@@ -1381,7 +1477,7 @@ dialog::backdrop {
     font-size: 18px;
   }
   .map-legend {
-    font-size: 7px;
+    font-size: 11px;
   }
   .station-row strong {
     font-size: 25px;
@@ -1429,13 +1525,13 @@ dialog::backdrop {
   }
   footer {
     padding: 20px 18px;
-    font-size: 8px;
+    font-size: 11px;
     flex-wrap: wrap;
     gap: 15px;
   }
   footer button,
   footer a {
-    font-size: 8px;
+    font-size: 11px;
   }
   .not-found {
     padding: 55px 24px;
@@ -1456,39 +1552,5 @@ dialog::backdrop {
   ::view-transition-old(*),
   ::view-transition-new(*) {
     animation: none !important;
-  }
-}
-
-.sheet-language {
-  margin-left: auto;
-}
-.sheet-top .sheet-language + .close-button {
-  margin-left: 8px;
-}
-
-/* Labels use the actual space beside each point, including narrow screens. */
-.map-canvas {
-  container-type: inline-size;
-}
-.node-label {
-  white-space: normal;
-  width: max-content;
-  max-width: calc(var(--label-space) * 1cqw - 23px);
-}
-.branch-node .node-label {
-  width: min(220px, 42cqw);
-  max-width: 42cqw;
-}
-
-@media (max-width: 380px) {
-  .route-toolbar {
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  .search {
-    width: 100%;
-  }
-  .search input {
-    width: 100%;
   }
 }

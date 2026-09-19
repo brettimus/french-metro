@@ -68,13 +68,17 @@ export function createHandler(
       (!route.lineId || !!line) &&
       (!route.stationId ||
         !!line?.stations.some((s) => s.id === route.stationId));
-    const relative = isAppRoute ? "index.html" : pathname.slice(1);
+    // Localized page-shaped URLs receive the styled error view with HTTP 404.
+    // Missing assets remain plain 404 responses, never browser HTML.
+    const isPageRoute =
+      isAppRoute || /^\/(?:fr|en)(?:\/[a-zA-Z0-9-]+)*\/?$/.test(pathname);
+    const relative = isPageRoute ? "index.html" : pathname.slice(1);
     // Reject absolute or escaped paths; then prove the resolved file stays inside publicDir.
     const abs = resolve(publicDir, relative);
     if (relative.startsWith("/") || !abs.startsWith(publicDir + "/")) {
       return new Response("Not Found", { status: 404 });
     }
-    if (isAppRoute || pathname === "/index.html") {
+    if (isPageRoute || pathname === "/index.html") {
       try {
         const html = await Bun.file(abs).text();
         const bundle = await readBundleName();
@@ -85,6 +89,7 @@ export function createHandler(
                 .replace("/app-HASH.js", `/${bundle}`)
                 .replace('lang="fr"', `lang="${route.locale}"`),
           {
+            status: isAppRoute || pathname === "/index.html" ? 200 : 404,
             headers: {
               "Content-Type": mimeTypes[".html"] ?? "text/html; charset=utf-8",
               "X-Content-Type-Options": "nosniff",

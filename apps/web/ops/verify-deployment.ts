@@ -50,6 +50,8 @@ if (!assetRes.headers.get("content-type")?.includes("javascript"))
   fail("Browser bundle has the wrong content type");
 if (!html.includes('id="app"')) fail("App container missing");
 for (const route of [
+  "/fr/lines/4/stations/saint-sulpice",
+  "/en/lines/5/stations/oberkampf",
   "/fr/lines/7/stations/les-gobelins",
   "/en/lines/14/stations/saint-denis-pleyel",
 ]) {
@@ -61,6 +63,8 @@ for (const route of [
     fail(`Deep route failed: ${route}`);
 }
 for (const path of [
+  "/illustrations/line-4.webp",
+  "/illustrations/line-5.webp",
   "/illustrations/line-7.webp",
   "/illustrations/line-14.webp",
 ]) {

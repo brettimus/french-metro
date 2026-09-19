@@ -12,7 +12,9 @@ const columns = repeat(8, (i) => {
   return `<path d="M${x} 71v52h9V71m-3 5v42m-8 7h13m-13-55h13m-12-5q5 7 11 0"/>`;
 });
 const art: Record<Art, string> = {
-  church: `<path d="M32 61l98-40 98 40ZM43 60l87-32 87 32M35 64h190v7H35ZM42 73h176v54H42Z" fill="${paper}"/>${columns}<path d="M34 128h192v6H34Zm-7 7h206v6H27Zm-7 7h220M103 56l27-21 27 21m-44-4l17-12 17 12"/>`,
+  church: `<path d="M47 143V61h48v82m-52-82 28-35 28 35M95 142V87l57-34 62 34v55Z" fill="${paper}"/><path d="M61 142v-26q10-15 20 0v26m-19-62V65h17v15M71 37V15m-8 8h16M119 142v-34q16-22 32 0v34m25-34V87h17v21M40 148h184M121 89h20m-10-10v20"/>`,
+  house: `<path d="M48 83l80-55 83 55M61 75v70h136V75L128 39Z" fill="#f7f4ec"/><path d="M143 37V22h18v28M108 145v-43h37v43M78 91h19v24H78Zm82 0h20v24h-20ZM78 102h19m-10-11v24m73-13h20m-10-11v24M41 148h174M53 152h150"/><path d="M117 82h23V61h-23Zm12-21v21m-12-11h23M189 130q25-28 36 7m-17-13v25"/>`,
+  temple: `<path d="M32 61l98-40 98 40ZM43 60l87-32 87 32M35 64h190v7H35ZM42 73h176v54H42Z" fill="${paper}"/>${columns}<path d="M34 128h192v6H34Zm-7 7h206v6H27Zm-7 7h220M103 56l27-21 27 21m-44-4l17-12 17 12"/>`,
   station: `<path d="M31 130V76q99-103 198 0v54Z" fill="${paper}"/><path d="M43 128V79q87-83 174 0v49M48 79h164m-81-62v61m-42-45 18 45m64-45-18 45M48 86h164"/>${repeat(5, (i) => `<path d="M${53 + i * 34} 127V91h24v36m-20-29h16"/>`)}<path d="M29 134h202M43 144l29-10m142 10-29-10M83 154l25-20m67 20-25-20"/><circle cx="130" cy="62" r="11" fill="${paper}"/><path d="M130 55v8l5 3"/>`,
   towers: `${(
     [

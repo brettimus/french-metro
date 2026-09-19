@@ -6,7 +6,8 @@ import {
   neighbours,
   normalizeSearch,
 } from "../src/routing";
-import { mapLayout } from "../src/map";
+import { mapLayout, mapNeighbour, riverCrossings } from "../src/map";
+import { messages } from "../src/i18n";
 import { createHandler } from "../src/handler";
 import { join } from "node:path";
 
@@ -24,7 +25,7 @@ describe("atlas routes", () => {
     }
     for (const path of [
       "/de",
-      "/en/lines/5",
+      "/en/lines/9",
       "/fr/lines/7/extra",
       "/fr//lines/7",
       "//fr",
@@ -48,7 +49,7 @@ describe("atlas routes", () => {
   test("unknown stations, lines and missing files remain 404", async () => {
     for (const path of [
       "/en/lines/7/stations/not-a-station",
-      "/fr/lines/5",
+      "/fr/lines/9",
       "/missing.js",
       "/missing/index.html",
     ]) {
@@ -59,6 +60,14 @@ describe("atlas routes", () => {
     expect((await handler(new Request("http://localhost/%zz"))).status).toBe(
       400,
     );
+  });
+  test("unknown localized pages render a recoverable 404, while missing assets do not", async () => {
+    const page = await handler(new Request("http://localhost/en/lines/99"));
+    expect(page.status).toBe(404);
+    expect(await page.text()).toContain('id="app"');
+    const asset = await handler(new Request("http://localhost/fr/missing.js"));
+    expect(asset.status).toBe(404);
+    expect(await asset.text()).not.toContain('id="app"');
   });
   test("encoded station links agree between server and browser routing", async () => {
     const path = "/fr/lines/7/stations/les%2Dgobelins";
@@ -79,7 +88,10 @@ describe("atlas routes", () => {
   });
 });
 describe("route graph and content", () => {
-  test("all 59 entries have complete bilingual text, sources, and map points", () => {
+  test("all 110 entries have complete bilingual text, sources, and map points", () => {
+    expect(lines.map((line) => line.id)).toEqual(["4", "5", "7", "14"]);
+    expect(getLine("4")!.stations.length).toBe(29);
+    expect(getLine("5")!.stations.length).toBe(22);
     expect(getLine("7")!.stations.length).toBe(38);
     expect(getLine("14")!.stations.length).toBe(21);
     for (const line of lines) {
@@ -107,6 +119,25 @@ describe("route graph and content", () => {
       }
     }
   });
+  test("river crossings join adjacent stations and termini end each path", () => {
+    for (const line of lines) {
+      for (const [a, b] of riverCrossings[line.id] || []) {
+        expect(
+          line.paths.some(
+            (path) => path.indexOf(a) >= 0 && path[path.indexOf(a) + 1] === b,
+          ),
+        ).toBe(true);
+      }
+      for (const path of line.paths) {
+        expect(neighbours(line, path[0]!).previous).toHaveLength(0);
+        expect(neighbours(line, path.at(-1)!).next).toHaveLength(0);
+      }
+    }
+  });
+  test("displayed copy contains no em dashes", () => {
+    expect(JSON.stringify(messages)).not.toContain("—");
+    for (const line of lines) expect(JSON.stringify(line)).not.toContain("—");
+  });
   test("Maison Blanche forks without connecting southern termini", () => {
     const line = getLine("7")!;
     expect(line.paths.map((p) => p.length)).toEqual([34, 33]);
@@ -121,6 +152,17 @@ describe("route graph and content", () => {
       expect(neighbours(line, id).previous.map((s) => s.id)).toEqual([
         "maison-blanche",
       ]);
+  });
+  test("fork arrow keys follow the left and right branch positions", () => {
+    const line = getLine("7")!;
+    expect(mapNeighbour(line, "maison-blanche", "ArrowLeft")?.id).toBe(
+      "le-kremlin-bicetre",
+    );
+    expect(mapNeighbour(line, "maison-blanche", "ArrowRight")?.id).toBe(
+      "porte-ditalie",
+    );
+    expect(mapNeighbour(line, "maison-blanche", "ArrowUp")?.id).toBe("tolbiac");
+    expect(mapNeighbour(line, "mairie-divry", "ArrowDown")).toBeUndefined();
   });
   test("search ignores accents, apostrophe styles and dashes", () => {
     expect(normalizeSearch("Châtelet")).toBe("chatelet");

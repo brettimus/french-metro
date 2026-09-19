@@ -1,17 +1,17 @@
 # French Metro
 
-An illustrated history atlas for Paris Métro Lines 7 and 14, in French and English.
+An illustrated history atlas for Paris Métro Lines 4, 5, 7 and 14, in French and English.
 
-Explore **https://french-metro.exe.xyz/**. Line 7 has 38 entries, including Les Gobelins and both southern branches. Line 14 has 21 entries. Each entry explains the station name, adds a short history, and links its sources.
+Explore **https://french-metro.exe.xyz/**. Line 4 has 29 entries, Line 5 has 22, Line 7 has 38, and Line 14 has 21. This includes Les Gobelins, Oberkampf, and both southern branches of Line 7. Each entry explains the station name, adds a short history, and links its sources.
 
-The home page offers both lines and marks future lines as coming soon. Maps have hover previews, animated station panels, search, keyboard navigation, and reading progress stored in the browser. Each line and station has a direct URL. The language switch preserves the current station.
+The home page offers all four lines and marks future lines as coming soon. Maps have hover previews, animated station panels, search, keyboard navigation, and reading progress stored in the browser. Each line and station has a direct URL. The language switch preserves the current station.
 
 - French home: `/fr`; English home: `/en`.
 - Line: `/{locale}/lines/{line}`.
 - Station: `/{locale}/lines/{line}/stations/{station-id}`.
 - Old Line 14 links in the form `/#station-id` remain supported.
 
-To add a line, use the shared contract in `apps/web/src/data/types.ts`, register its module in `data/lines.ts`, and extend the supported line IDs in `routing.ts`. Route paths define branch connections. Historical audits are in `docs/research/`; the plan, generated design reference, artwork, and prompts are in `docs/design/` and `docs/multi-line-plan.md`.
+To add a line, use the shared contract in `apps/web/src/data/types.ts`, register its module in `data/lines.ts`, and add its ID to `lineIds` in `data/types.ts`. Route paths define branch connections. Historical audits are in `docs/research/`. Editorial panels and UI/code reviews are in `docs/reviews/`. The release plan is `docs/four-line-plan.md`; generated artwork and exact prompts are in `docs/design/`.
 
 ## Purpose
 
