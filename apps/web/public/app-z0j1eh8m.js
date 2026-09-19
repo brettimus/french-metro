@@ -1,1 +1,0 @@
-async function a(){let t=document.getElementById("health");if(!t)return;try{let e=await(await fetch("/healthz")).json();t.textContent=`status: ${e.status} · commit: ${e.commit.slice(0,7)}`}catch{t.textContent="health check failed"}}a();

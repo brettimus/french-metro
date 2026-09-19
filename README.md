@@ -1,6 +1,10 @@
 # French Metro
 
-A Bun monorepo deploying a small web app to an [exe.dev](https://exe.dev) VM.
+An illustrated, interactive history atlas for Paris Métro Line 14, deployed to an [exe.dev](https://exe.dev) VM.
+
+Explore all 21 stations at **https://french-metro.exe.xyz/**. The map has hover previews, animated story panels, source links, station search, keyboard navigation, and browser-local reading progress.
+
+Generated visual references and their prompts are committed under `docs/design/`. The actual route is a separately researched schematic; historical sources are linked in each story.
 
 ## Purpose
 

@@ -2,7 +2,6 @@
  * Build the browser bundle from src/app.ts into public/.
  * Usage: bun run build  (from apps/web)
  */
-import { createHash } from 'node:crypto';
 import { rm, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 
@@ -38,6 +37,6 @@ const bundleName = fresh.values().next().value as string;
 await rm(join(outDir, 'app.js'), { force: true });
 await writeFile(
   join(outDir, 'build.json'),
-  JSON.stringify({ bundle: bundleName, builtAt: new Date().toISOString() }, null, 2) + '\n',
+  JSON.stringify({ bundle: bundleName }, null, 2) + '\n',
 );
 console.log(`bundle: ${bundleName}`);

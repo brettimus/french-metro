@@ -27,7 +27,7 @@ describe('createHandler', () => {
 
   async function setup(): Promise<ReturnType<typeof createHandler>> {
     dir = await mkdtemp(join(tmpdir(), 'french-metro-'));
-    await writeFile(join(dir, 'index.html'), '<html><script id="app-bundle" data-src-template="/app-HASH.js"></script></html>');
+    await writeFile(join(dir, 'index.html'), '<html><script id="app-bundle" src="/app-HASH.js"></script></html>');
     await writeFile(join(dir, 'build.json'), JSON.stringify({ bundle: 'app-test123.js' }));
     await writeFile(join(dir, 'app-test123.js'), 'console.log(1)');
     await mkdir(join(dir, 'sub'));
@@ -40,7 +40,7 @@ describe('createHandler', () => {
     const res = await handler(new Request('http://localhost/'));
     expect(res.status).toBe(200);
     expect(res.headers.get('Content-Type')).toBe('text/html; charset=utf-8');
-    expect(await res.text()).toContain('data-src-template="/app-test123.js"');
+    expect(await res.text()).toContain('src="/app-test123.js"');
   });
 
   test('serves index.html with the hashed bundle substituted', async () => {
@@ -115,4 +115,17 @@ describe('createHandler', () => {
   test('cleanup: removes temp dir', async () => {
     await rm(dir, { recursive: true, force: true });
   });
+});
+
+// Exercise the shipped HTML, not only the small fixture above.
+test('real entrypoint loads a JavaScript module with an executable src', async () => {
+  const dir = join(import.meta.dir, '../public');
+  const response = await createHandler(dir)(new Request('http://localhost/'));
+  const html = await response.text();
+  const src = html.match(/<script[^>]*type="module"[^>]*src="(\/app-[A-Za-z0-9_-]+\.js)"/)?.[1];
+  expect(src).toBeDefined();
+  expect(src).not.toContain('HASH');
+  const bundle = await createHandler(dir)(new Request(`http://localhost${src}`));
+  expect(bundle.status).toBe(200);
+  expect(bundle.headers.get('content-type')).toContain('javascript');
 });

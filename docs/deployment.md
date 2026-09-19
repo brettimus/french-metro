@@ -12,10 +12,10 @@
 
 1. Commit everything. `deploy.sh` refuses a dirty tree and builds the browser
    bundle before archiving.
-2. Build the browser bundle with `bun run build` (hashed `app-<hash>.js`
-   written to `public/`, with `build.json` recording the filename).
+2. Extract the selected commit into a temporary directory, then build the browser bundle with `bun run build` (hashed `app-<hash>.js`
+   written to `public/`, with deterministic `build.json` recording the filename).
 3. `git archive` an explicit allowlist (`src`, `public`, `ops`, `package.json`
-   within `apps/web`) for the given revision. The server has zero runtime
+   within `apps/web`) for the given revision. Build scripts are used only in the local temporary directory; the shipped archive contains the resulting public assets. The server has zero runtime
    dependencies, so no lockfile ships. No secrets, docs, tests, or untracked
    files are included.
 4. Extract to a staging directory, then move it to

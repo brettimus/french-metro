@@ -1,0 +1,12 @@
+# Line 14 visual direction
+
+Generated with the built-in image generation tool on 19 September 2026.
+The concept is a visual reference, not an accurate route diagram. The application uses a separately researched 21-station route and code-native SVG drawings.
+
+## Design reference — line-14-inspiration.png
+
+Use case: ui-mockup. Asset type: design inspiration for an interactive Paris Metro Line 14 history website. Create a polished editorial travel atlas web design, landscape 1536x1024. Warm ivory paper background, deep plum typography, Metro 14 saturated purple route, mint Seine, tiny coral details. Left editorial heading 'Paris, one stop at a time.' small METRO / STORIES brand and round 14 badge. Main center and right is a beautifully illustrated winding schematic metro route from Saint-Denis to Orly, with white circular station nodes and delicate ink illustrated Paris landmarks, trees, Haussmann buildings, library towers, train station, airport. Sparse generous whitespace, elegant large serif typography paired with tiny functional sans serif labels. A small editorial station preview card at bottom left titled 'Madeleine' with an engraved neoclassical church drawing. Looks like a modern collectible French travel poster brought to life, sophisticated, tactile paper grain, precise thin rules. No device frame, no gradients, no glossy 3D. This is an evocative design reference not an accurate navigation map.
+
+## Editorial panorama — paris-panorama.png
+
+Use case: illustration-story. Asset type: wide editorial illustration for a Paris metro history atlas website. A finely drawn panoramic vignette of Paris from Saint Denis to Orly: leafy Haussmann street facades, neoclassical Madeleine church in center-left with beautifully detailed columns, train station clock tower at center, four open-book modern library towers at right, tiny jet at far right. No text whatsoever, no map lines, no labels, no UI, no border. Warm ivory #f7f3e9 background, thin dark plum etched ink lines with soft sage green foliage and extremely restrained lavender watercolor shadows, small dusty coral accents. Sophisticated French architectural travel sketchbook, hand drawn pen and ink, textured paper, playful yet precise and elegant, not a cartoon. Landscape 1536x1024, buildings arranged along lower two thirds with negative ivory space at top. Beautiful consistent architecture, crisp engraving details.

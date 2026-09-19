@@ -12,11 +12,14 @@ if ! git diff --quiet || ! git diff --cached --quiet || [[ -n "$(git ls-files --
 fi
 revision=$(git rev-parse --verify "${2:-HEAD}^{commit}")
 echo "Deploying $revision to $host"
-# Build the browser bundle first; the deploy must ship a fresh, working build.
-(bun run --cwd apps/web build)
+# Build from the selected commit in isolation. Never archive stale checked-in assets
+# or build a different checkout than the revision recorded in COMMIT.
+stage=$(mktemp -d)
 archive=$(mktemp)
-trap 'rm -f "$archive"' EXIT
-git archive "$revision:apps/web" src public ops package.json > "$archive"
+trap 'rm -rf "$stage"; rm -f "$archive"' EXIT
+git archive "$revision:apps/web" src public ops scripts package.json | tar -xf - -C "$stage"
+(cd "$stage" && bun run build)
+tar -cf "$archive" -C "$stage" src public ops package.json
 # Extract to a staging directory; the locked remote script moves it into place.
 ssh "$host" "mkdir -p /home/exedev/french-metro/releases/.staging-$revision"
 ssh "$host" "tar -xf - -C /home/exedev/french-metro/releases/.staging-$revision" < "$archive"
