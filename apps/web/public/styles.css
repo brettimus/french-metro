@@ -722,7 +722,9 @@ dialog::backdrop {
   letter-spacing: 0.7px;
 }
 .close-button {
-  font-size: 26px;
+  line-height: 1;
+  letter-spacing: 0;
+  flex-shrink: 0;
   width: 36px;
   height: 36px;
   display: grid;
@@ -731,6 +733,15 @@ dialog::backdrop {
   border: 1px solid var(--rule);
   border-radius: 50%;
   transition: background 0.2s;
+}
+.close-button svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
 }
 .close-button:hover {
   background: #e8e1d4;
