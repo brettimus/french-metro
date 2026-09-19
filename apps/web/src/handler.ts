@@ -20,7 +20,6 @@ export interface CommitSource {
  * Missing files return 404, never the app HTML.
  */
 export function createHandler(publicDir: string, commitSource?: CommitSource): (req: Request) => Promise<Response> {
-  const encoder = new TextEncoder();
   return async (req: Request): Promise<Response> => {
     const url = new URL(req.url);
     if (url.pathname === '/healthz') {
@@ -33,11 +32,13 @@ export function createHandler(publicDir: string, commitSource?: CommitSource): (
     if (req.method !== 'GET' && req.method !== 'HEAD') {
       return new Response('Method Not Allowed', { status: 405 });
     }
-    if (url.pathname.includes('..') || url.pathname.includes('\0')) {
+    const relative = url.pathname === '/' ? 'index.html' : decodeURIComponent(url.pathname).slice(1);
+    // Reject absolute or escaped paths; then prove the resolved file stays inside publicDir.
+    const abs = resolve(publicDir, relative);
+    if (relative.startsWith('/') || !abs.startsWith(publicDir + '/')) {
       return new Response('Not Found', { status: 404 });
     }
-    const relative = url.pathname === '/' ? 'index.html' : url.pathname.slice(1);
-    const file = Bun.file(resolve(publicDir, relative));
+    const file = Bun.file(abs);
     if (!(await file.exists())) {
       return new Response('Not Found', { status: 404 });
     }

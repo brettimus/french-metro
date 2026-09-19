@@ -11,13 +11,14 @@
 ## Deployment scheme
 
 1. Commit everything. `deploy.sh` refuses a dirty tree.
-2. `git archive` an explicit allowlist (`apps/web/src`, `apps/web/public`,
-   `apps/web/ops`, `apps/web/package.json`, root `bun.lock`) for the given
-   revision. No secrets, docs, tests, or untracked files ship.
+2. `git archive` an explicit allowlist (`src`, `public`, `ops`, `package.json`
+   within `apps/web`) for the given revision. The server has zero runtime
+   dependencies, so no lockfile ships. No secrets, docs, tests, or untracked
+   files are included.
 3. Extract to `/home/exedev/french-metro/releases/<revision>` on the VM.
 4. Switch the `current` symlink atomically (`ln -sfn` + `mv -Tf`).
 5. Install the hardened systemd unit, restart, and poll
-   `127.0.0.1:3000/healthz` for up to 30 s.
+   `127.0.0.1:3000/healthz` for up to ~90 s (30 attempts).
 6. On failure: restore the previous `current` link and restart the old release.
 7. From the local machine, verify public HTTPS and the reported commit.
 
@@ -35,8 +36,18 @@ ssh exe.dev share set-public french-metro
 
 `bootstrap-vm.sh` installs Bun 1.3.14 and creates
 `/home/exedev/french-metro/{releases,shared}` as the `exedev` user. It creates
-no VMs and transfers no credentials. If public URLs return an exe.dev login
+no VMs and transfers no credentials. Deployment requires passwordless `sudo`
+for `exedev` (systemd unit install and service control); on exe.dev VMs this
+is the default. If public URLs return an exe.dev login
 redirect, re-run `ssh exe.dev share set-public french-metro`.
+
+### First deploy vs update
+
+The first deploy creates the `current` symlink, installs the unit, and starts
+the service from scratch. If the first deploy fails its health check, the
+script stops the service and removes `current` rather than rolling back.
+Every later deploy switches the symlink atomically and, on failure, restores
+the previous release (including its systemd unit) and restarts it.
 
 ## Deploying a release
 
@@ -51,8 +62,14 @@ bun run deploy            # deploys HEAD
 ```
 
 The script prints the deployed revision and verifies the public
-`/healthz` commit matches. Releases accumulate under `releases/`; old ones are
-kept for rollback and can be pruned once nothing references them.
+`/healthz` commit matches. Old releases are kept for rollback. Prune
+everything except the active and one previous release with:
+
+```sh
+ssh french-metro.exe.xyz 'cd /home/exedev/french-metro/releases && \
+  keep=$(readlink ../current | xargs basename); prev=$(readlink ../previous 2>/dev/null | xargs basename || true); \
+  for d in */; do d=${d%/}; [[ "$d" == "$keep" || "$d" == "$prev" ]] || rm -rf "$d"; done'
+```
 
 ## Status, logs, restart
 
@@ -63,8 +80,9 @@ ssh french-metro.exe.xyz 'journalctl -u french-metro -n 100 --no-pager'
 ssh french-metro.exe.xyz 'sudo systemctl restart french-metro'
 ```
 
-The service binds `0.0.0.0:3000`, restarts on failure, and drains on SIGTERM.
-A normal `systemctl stop` leaves it stopped.
+The service binds `0.0.0.0:3000`, restarts always (even after a manual
+`kill`), and drains in-flight requests on SIGTERM before systemd's 30 s stop
+timeout. A normal `systemctl stop` leaves it stopped.
 
 ## Rollback
 

@@ -30,8 +30,8 @@ Concretely:
 
 ```
 apps/web            Bun static server + public assets + tests
-apps/web/ops        bootstrap, deploy, verify, systemd units
-docs/               purpose, outline, deployment guide
+apps/web/ops        bootstrap, deploy, verify, systemd unit
+docs/               outline, deployment guide
 ```
 
 ## Quick start

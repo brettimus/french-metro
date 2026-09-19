@@ -26,10 +26,18 @@ release=$base/releases/$revision
 bun_bin=/home/exedev/.bun/bin/bun
 [[ "$(id -un)" == exedev ]] || { echo 'Run as exedev.' >&2; exit 2; }
 [[ "$("$bun_bin" --version)" == 1.3.14 ]] || { echo "Expected Bun 1.3.14 on the VM, got $("$bun_bin" --version)." >&2; exit 2; }
-[[ -f "$release/package.json" ]] || { echo 'Release archive is incomplete.' >&2; exit 2; }
-# A lock prevents simultaneous deployments from switching each other's release.
+# A lock prevents simultaneous deployments from extracting or switching at the same time.
 exec 9>"$base/deploy.lock"
 flock -n 9 || { echo 'A deployment is already in progress.' >&2; exit 1; }
+[[ -f "$release/package.json" ]] || { echo 'Release archive is incomplete.' >&2; exit 2; }
+# Releases are immutable: rebuild the directory from scratch on redeploy.
+# Safe while current points elsewhere; the lock excludes concurrent deploys.
+current_target=$(readlink "$base/current" || true)
+if [[ "$current_target" == "$release" ]]; then
+  echo 'Refusing to redeploy the release that is currently active.' >&2
+  exit 2
+fi
+rm -rf "$release"
 previous=$(readlink "$base/current" || true)
 ln -sfn "$release" "$base/current.next"
 mv -Tf "$base/current.next" "$base/current"
@@ -39,6 +47,11 @@ restore_previous() {
   if [[ -n "$previous" ]]; then
     ln -sfn "$previous" "$base/current.previous"
     mv -Tf "$base/current.previous" "$base/current"
+    # Roll the unit file back too, so the restored release boots with its own unit.
+    if [[ -f "$previous/ops/french-metro.service" ]]; then
+      sudo install -m 644 "$previous/ops/french-metro.service" /etc/systemd/system/french-metro.service
+      sudo systemctl daemon-reload
+    fi
     sudo systemctl restart french-metro || true
     echo "Release failed. Restored $previous. Check service health." >&2
   else

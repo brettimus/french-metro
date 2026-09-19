@@ -13,7 +13,7 @@ console.info(`French Metro listening on ${server.url}`);
 
 for (const signal of ['SIGINT', 'SIGTERM'] as const) {
   process.on(signal, () => {
-    server.stop(true);
-    process.exit(0);
+    // Stop accepting new connections and let in-flight requests finish.
+    server.stop(false);
   });
 }

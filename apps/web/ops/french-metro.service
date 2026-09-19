@@ -9,7 +9,7 @@ Group=exedev
 WorkingDirectory=/home/exedev/french-metro/current
 Environment=NODE_ENV=production
 ExecStart=/home/exedev/.bun/bin/bun src/index.ts
-Restart=on-failure
+Restart=always
 RestartSec=3
 TimeoutStopSec=30
 KillSignal=SIGTERM

@@ -65,7 +65,12 @@ describe('createHandler', () => {
 
   test('rejects path traversal', async () => {
     const handler = await setup();
-    const res = await handler(new Request('http://localhost/..%2F..%2Fetc%2Fpasswd'));
+    for (const path of ['http://localhost/..%2F..%2Fetc%2Fpasswd', 'http://localhost/../../etc/passwd', 'http://localhost/%2e%2e/etc/passwd']) {
+      const res = await handler(new Request(path));
+      expect(res.status, path).toBe(404);
+    }
+    // `//etc/passwd` survives URL parsing as a host; handler must still not resolve it.
+    const res = await handler(new Request('http://localhost///etc/passwd'));
     expect(res.status).toBe(404);
   });
 
