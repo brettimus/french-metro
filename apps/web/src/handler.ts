@@ -12,7 +12,7 @@ const mimeTypes: Record<string, string> = {
 };
 
 export interface CommitSource {
-  readCommit(): Promise<string | undefined>;
+  readCommit(): string | undefined | Promise<string | undefined>;
 }
 
 /**

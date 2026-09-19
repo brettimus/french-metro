@@ -1,0 +1,26 @@
+[Unit]
+Description=French Metro Bun server
+After=network.target
+
+[Service]
+Type=simple
+User=exedev
+Group=exedev
+WorkingDirectory=/home/exedev/french-metro/current
+Environment=NODE_ENV=production
+ExecStart=/home/exedev/.bun/bin/bun apps/web/src/index.ts
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=30
+KillSignal=SIGTERM
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/home/exedev/french-metro/shared
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

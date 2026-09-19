@@ -1,11 +1,12 @@
 import { resolve } from 'node:path';
+import { readCommit } from './commit';
 import { parsePort } from './config';
 import { createHandler } from './handler';
 
 const server = Bun.serve({
   hostname: '0.0.0.0',
   port: parsePort(process.env.PORT),
-  fetch: createHandler(resolve(import.meta.dir, '../public')),
+  fetch: createHandler(resolve(import.meta.dir, '../public'), { readCommit }),
 });
 
 console.info(`French Metro listening on ${server.url}`);

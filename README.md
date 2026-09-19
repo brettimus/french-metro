@@ -9,9 +9,7 @@ publicly from a VM we control, with boring, auditable deployment plumbing.**
 
 Concretely:
 
-1. **Capture the deployment scheme.** Reuse the pattern proven in three sibling
-   repos — `ow`, `quantization/apps/inference-practice`, and
-   `bodhi-and-ozzy` — rather than inventing a new one:
+1. **Capture the deployment scheme.** A boring, auditable pattern:
    - Bun 1.3.14 everywhere, pinned.
    - `git archive` of an allowlisted path set (never the whole checkout, never
      secrets) shipped over SSH.
