@@ -62,7 +62,7 @@ function miniRoute(id: string) {
 }
 function home() {
   const m = t(state.locale);
-  return `<main id="main" class="home"><section class="home-heading"><p class="kicker">PARIS · ${m.choose}</p><h1>${m.title}</h1><p>${m.subtitle}</p></section><section class="line-grid" aria-label="${m.choose}">${lines
+  return `<main id="main" class="home"><section class="home-heading"><img class="metropolitain-sign" src="/illustrations/metropolitain.svg" alt="Métropolitain" width="336" height="82"/><h1>${m.title}</h1><p>${m.subtitle}</p></section><section class="line-grid" aria-label="${m.choose}">${lines
     .map(
       (line) =>
         `<article class="line-card" style="${lineStyle(line)}"><a class="line-card-link" data-route href="${href(line)}" aria-label="${m.explore} ${line.id}"><div class="card-top">${lineBadge(line)}<span>${line.stations.length} ${m.stations}</span><span class="card-arrow" aria-hidden="true">↗</span></div><h2>${esc(line.termini[0]!)}</h2><p class="termini">${line.termini.slice(1).map(esc).join(" / ")}</p><div class="card-art"><img src="${line.image}" alt="${esc(line.imageAlt[state.locale])}" width="1536" height="1024" decoding="async"/>${miniRoute(line.id)}</div><span class="card-link">${m.explore} <span aria-hidden="true">→</span></span></a><div class="card-featured">${line.featured

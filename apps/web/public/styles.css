@@ -228,8 +228,12 @@ h2 {
   text-align: center;
   padding: 57px 0 42px;
 }
-.home-heading .kicker {
-  margin-bottom: 15px;
+.metropolitain-sign {
+  display: block;
+  width: clamp(220px, 25vw, 290px);
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 22px;
 }
 .home-heading h1 {
   font: 400 clamp(58px, 7vw, 94px) / 1.04 var(--serif);
@@ -1397,9 +1401,8 @@ dialog::backdrop {
     padding: 36px 0 29px;
     text-align: left;
   }
-  .home-heading .kicker {
-    font-size: 11px;
-    margin-bottom: 11px;
+  .metropolitain-sign {
+    margin: 0 0 20px;
   }
   .home-heading h1 {
     font-size: 56px;
