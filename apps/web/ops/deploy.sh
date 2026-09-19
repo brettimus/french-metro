@@ -47,7 +47,7 @@ restore_previous() {
     echo 'First release failed. Service stopped.' >&2
   fi
 }
-sudo install -m 644 "$release/apps/web/ops/french-metro.service" /etc/systemd/system/
+sudo install -m 644 "$release/ops/french-metro.service" /etc/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl enable french-metro.service
 check_health() {
