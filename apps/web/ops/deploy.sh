@@ -15,9 +15,9 @@ echo "Deploying $revision to $host"
 archive=$(mktemp)
 trap 'rm -f "$archive"' EXIT
 git archive "$revision:apps/web" src public ops package.json > "$archive"
-ssh "$host" "mkdir -p /home/exedev/french-metro/releases/$revision/apps/web"
+ssh "$host" "mkdir -p /home/exedev/french-metro/releases/$revision"
 ssh "$host" "tar -xf - -C /home/exedev/french-metro/releases/$revision" < "$archive"
-ssh "$host" "printf '%s' '$revision' > /home/exedev/french-metro/releases/$revision/apps/web/COMMIT"
+ssh "$host" "printf '%s' '$revision' > /home/exedev/french-metro/releases/$revision/COMMIT"
 ssh "$host" bash -s -- "$revision" <<'REMOTE'
 set -euo pipefail
 revision=$1
@@ -26,7 +26,7 @@ release=$base/releases/$revision
 bun_bin=/home/exedev/.bun/bin/bun
 [[ "$(id -un)" == exedev ]] || { echo 'Run as exedev.' >&2; exit 2; }
 [[ "$("$bun_bin" --version)" == 1.3.14 ]] || { echo "Expected Bun 1.3.14 on the VM, got $("$bun_bin" --version)." >&2; exit 2; }
-[[ -f "$release/apps/web/package.json" ]] || { echo 'Release archive is incomplete.' >&2; exit 2; }
+[[ -f "$release/package.json" ]] || { echo 'Release archive is incomplete.' >&2; exit 2; }
 # A lock prevents simultaneous deployments from switching each other's release.
 exec 9>"$base/deploy.lock"
 flock -n 9 || { echo 'A deployment is already in progress.' >&2; exit 1; }
