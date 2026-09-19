@@ -33,3 +33,7 @@ Separate research workers checked each line, then reviewed one another’s work.
 The generated route art is interpretive. It is not used to establish geography, station count, or historical claims. The maps are schematics. Original design references and prompts remain in `docs/design/`.
 
 The deployment verifier checks the public health commit, browser bundle, direct station URLs in both languages, and both route images.
+
+## Public release check
+
+The integrated release passed health, bundle, direct-link, and image checks at `https://french-metro.exe.xyz`. The French home page and Gobelins panel were checked in Chrome. Switching to English and reloading retained the station. The browser reported no console errors. A final asset pass keeps generated PNG originals in the repository and serves smaller WebP copies.

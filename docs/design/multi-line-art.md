@@ -2,8 +2,8 @@
 
 ## Assets
 
-- `apps/web/public/illustrations/line-7.png`: Gobelins high-warp loom with floral tapestry and a botanical specimen.
-- `apps/web/public/illustrations/line-14.png`: Madeleine temple and a separate BnF tower vignette.
+- `docs/design/originals/line-7.png`: Gobelins high-warp loom with floral tapestry and a botanical specimen.
+- `docs/design/originals/line-14.png`: Madeleine temple and a separate BnF tower vignette.
 
 Both files are 1536 × 1024 PNG images. They were generated with the built-in imagegen tool. The original generated files remain in the Codex image directory. No CLI fallback was used.
 
@@ -57,3 +57,5 @@ Constraints: absolutely no text including inscriptions, no letters, no numbers, 
 ## Verification
 
 Inspected both generated PNG files. Rendered and inspected all 14 SVG subjects together with librsvg. A runtime check confirmed that each subject produces content, hides decoration from assistive technology, and avoids foreignObject in ornaments. The full type check currently reports only missing line7 and line14 data modules, which other workers own. No error remains in illustrations.ts.
+
+Production uses WebP copies encoded at quality 88, with the same dimensions and composition. The original generated PNGs remain in `docs/design/originals/`.

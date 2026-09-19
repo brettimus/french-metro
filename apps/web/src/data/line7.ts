@@ -661,7 +661,7 @@ export const line7: MetroLine = {
     ],
   ],
   featured: ["les-gobelins", "censier-daubenton", "pierre-et-marie-curie"],
-  image: "/illustrations/line-7.png",
+  image: "/illustrations/line-7.webp",
   imageAlt: {
     en: "Interpretive illustration of Line 7 and its station-name stories",
     fr: "Illustration évocatrice de la ligne 7 et de l’histoire des noms de ses stations",

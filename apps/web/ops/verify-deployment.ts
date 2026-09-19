@@ -61,15 +61,15 @@ for (const route of [
     fail(`Deep route failed: ${route}`);
 }
 for (const path of [
-  "/illustrations/line-7.png",
-  "/illustrations/line-14.png",
+  "/illustrations/line-7.webp",
+  "/illustrations/line-14.webp",
 ]) {
   const res = await fetch(`${base}${path}`, {
     method: "HEAD",
     redirect: "error",
     signal: AbortSignal.timeout(10_000),
   });
-  if (!res.ok || !res.headers.get("content-type")?.includes("image/png"))
+  if (!res.ok || !res.headers.get("content-type")?.includes("image/webp"))
     fail(`Illustration failed: ${path}`);
 }
 

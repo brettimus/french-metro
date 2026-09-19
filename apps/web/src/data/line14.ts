@@ -647,7 +647,7 @@ export const line14: MetroLine = {
     "hopital-bicetre",
     "l-hay-les-roses",
   ],
-  image: "/illustrations/line-14.png",
+  image: "/illustrations/line-14.webp",
   imageAlt: {
     en: "Illustration of places and names along Line 14.",
     fr: "Illustration des lieux et des noms de la ligne 14.",
