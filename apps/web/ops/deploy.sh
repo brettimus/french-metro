@@ -15,29 +15,33 @@ echo "Deploying $revision to $host"
 archive=$(mktemp)
 trap 'rm -f "$archive"' EXIT
 git archive "$revision:apps/web" src public ops package.json > "$archive"
-ssh "$host" "mkdir -p /home/exedev/french-metro/releases/$revision"
-ssh "$host" "tar -xf - -C /home/exedev/french-metro/releases/$revision" < "$archive"
-ssh "$host" "printf '%s' '$revision' > /home/exedev/french-metro/releases/$revision/COMMIT"
+# Extract to a staging directory; the locked remote script moves it into place.
+ssh "$host" "mkdir -p /home/exedev/french-metro/releases/.staging-$revision"
+ssh "$host" "tar -xf - -C /home/exedev/french-metro/releases/.staging-$revision" < "$archive"
+ssh "$host" "printf '%s' '$revision' > /home/exedev/french-metro/releases/.staging-$revision/COMMIT"
 ssh "$host" bash -s -- "$revision" <<'REMOTE'
 set -euo pipefail
 revision=$1
 base=/home/exedev/french-metro
 release=$base/releases/$revision
+staging=$base/releases/.staging-$revision
 bun_bin=/home/exedev/.bun/bin/bun
 [[ "$(id -un)" == exedev ]] || { echo 'Run as exedev.' >&2; exit 2; }
 [[ "$("$bun_bin" --version)" == 1.3.14 ]] || { echo "Expected Bun 1.3.14 on the VM, got $("$bun_bin" --version)." >&2; exit 2; }
+[[ -f "$staging/package.json" ]] || { echo 'Release archive is incomplete.' >&2; exit 2; }
 # A lock prevents simultaneous deployments from extracting or switching at the same time.
 exec 9>"$base/deploy.lock"
 flock -n 9 || { echo 'A deployment is already in progress.' >&2; exit 1; }
-[[ -f "$release/package.json" ]] || { echo 'Release archive is incomplete.' >&2; exit 2; }
-# Releases are immutable: rebuild the directory from scratch on redeploy.
-# Safe while current points elsewhere; the lock excludes concurrent deploys.
+# Releases are immutable: replace the directory wholesale from staging.
+# Refusing to touch the active release keeps rm -rf safe.
 current_target=$(readlink "$base/current" || true)
 if [[ "$current_target" == "$release" ]]; then
   echo 'Refusing to redeploy the release that is currently active.' >&2
   exit 2
 fi
 rm -rf "$release"
+mv "$staging" "$release"
+[[ -f "$release/package.json" && -f "$release/COMMIT" ]] || { echo 'Staged release is incomplete.' >&2; exit 2; }
 previous=$(readlink "$base/current" || true)
 ln -sfn "$release" "$base/current.next"
 mv -Tf "$base/current.next" "$base/current"
