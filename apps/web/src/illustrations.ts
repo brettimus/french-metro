@@ -1,15 +1,44 @@
-import type { Art } from './stations';
-const windows = (x: number, y: number, cols: number, rows: number, dx = 16, dy = 19) => Array.from({length: rows}, (_, r) => Array.from({length: cols}, (_, c) => `<path d="M${x+c*dx} ${y+r*dy}v9h5v-9z" fill="#e4dbcc"/>`).join('')).join('');
-const tree = (x: number, y: number, s = 1) => `<g transform="translate(${x} ${y}) scale(${s})"><path d="M0 0v-46m0 24l-12-13m12 6l13-17"/><path d="M-4-21C-35-12-32-45-19-47C-30-67-7-78 2-61C16-80 33-53 20-43C37-24 16-10-4-21Z" fill="#c6d2bd"/><path d="M0 0v-50m0 22l-13-12m13 6l12-16"/></g>`;
-export function illustration(kind: Art, cls = ''): string {
-  let shape = '';
-  if (kind === 'church') shape = `<path d="M38 130h180v7H38zM45 123h166v7H45zM55 66h146v56H55z" fill="#e8dfcc"/><path d="M41 61L126 22 216 61Z" fill="#d8ccbc"/><path d="M54 56l72-28 74 28ZM46 64h168v7H46Z"/><path d="M70 52l56-19 59 19"/><path d="M116 45l10-7 10 7-10 7z" fill="#c6baa8"/>${[60,82,104,126,148,170,192].map(x=>`<path d="M${x} 72v48h10V72M${x-2} 73h14m-14 44h14m-9-41v37"/>`).join('')}<path d="M38 141h182M31 147h195"/>${tree(25,136,.65)}${tree(235,136,.72)}`;
-  if (kind === 'station') shape = `<path d="M35 133V77h173v56" fill="#e8dfcc"/><path d="M30 77l18-22h145l22 22z" fill="#b9c9bd"/><path d="M112 134V39h31v95" fill="#eee6d8"/><path d="M106 39l21-24 22 24zM122 19V8h10v12" fill="#9aaea0"/><circle cx="127" cy="55" r="10" fill="#f8f5ed"/><path d="M127 48v7l6 3M120 128v-28a7 7 0 0114 0v28"/>${windows(47,86,4,2,15)}${windows(155,86,3,2,16)}<path d="M28 135h192M26 141h198M40 113h64m44 0h56"/>${tree(232,137,.7)}`;
-  if (kind === 'towers') shape = `${[35,87,146,197].map((x,i)=>`<path d="M${x} 130V${35+i%2*13}l22-9v99z" fill="#d3d6cc"/><path d="M${x+22} ${26+i%2*13}l13 6v97l-13-4z" fill="#e4d9cb"/>${Array.from({length:8},(_,j)=>`<path d="M${x+3} ${45+i%2*10+j*10}l16-6" opacity=".45"/>`).join('')}`).join('')}<path d="M27 136l91 14 121-14M36 141l84 14 110-10"/>${tree(133,134,.42)}`;
-  if (kind === 'market') shape = `${[29,89,149].map(x=>`<path d="M${x} 132V87h58v45" fill="#e9dfce"/><path d="M${x-4} 87l33-29 34 29z" fill="#bbc8b9"/><path d="M${x+7} 88l22-21 23 21M${x+18} 132v-25a11 11 0 0122 0v25"/><path d="M${x+20} 112h18m-18 9h18"/>`).join('')}<path d="M20 137h199M34 143h176M45 151l157-3"/>${tree(235,137,.75)}`;
-  if (kind === 'modern') shape = `<path d="M44 132V83h176v49H44Z" fill="#ddd9cc"/><path d="M63 83V53h137v30M88 53V28h92v25" fill="#c6d2c9"/>${Array.from({length:12},(_,i)=>`<path d="M${50+i*14} 87v40"/>`).join('')}${Array.from({length:9},(_,i)=>`<path d="M${69+i*14} 57v22"/>`).join('')}${Array.from({length:6},(_,i)=>`<path d="M${96+i*14} 32v18"/>`).join('')}<path d="M39 137h186M36 142h194M44 97h176m-176 18h176"/>${tree(25,139,.55)}${tree(237,139,.6)}`;
-  if (kind === 'garden') shape = `<path d="M37 134c25-41 158-40 187 0M70 136c15-29 103-28 118 0M27 145h205M90 145l27-54h24l27 54"/><path d="M107 107V50q22-31 44 0v57M101 58h56m-52 12h49m-46 12h43"/>${tree(37,137,.88)}${tree(213,137,.9)}${[65,82,170,190,103,151].map((x,i)=>`<path d="M${x} ${125+i%2*7}v-18"/><circle cx="${x}" cy="${103+i%2*7}" r="7" fill="#d9a8a6"/><circle cx="${x}" cy="${103+i%2*7}" r="2"/>`).join('')}`;
-  if (kind === 'plane') shape = `<path d="M30 131v-30h154v30M25 136h213M39 108h135m-135 9h135" fill="#e7dfd1"/><path d="M197 131V70h12v61M187 70V55h32v15zM183 55l8-8h24l8 8" fill="#c7d1c7"/><path d="M56 53l60 5 43-23 9 2-29 23 41 5 11-8h7l-8 16-43 1-29 20-10-2 18-20-51-9-24-18z" fill="#ede5d7"/><path d="M56 141h139m-139 6h126"/>`;
+import type { Art } from "./stations";
+const windows = (
+  x: number,
+  y: number,
+  cols: number,
+  rows: number,
+  dx = 16,
+  dy = 19,
+) =>
+  Array.from({ length: rows }, (_, r) =>
+    Array.from(
+      { length: cols },
+      (_, c) =>
+        `<path d="M${x + c * dx} ${y + r * dy}v9h5v-9z" fill="#e4dbcc"/>`,
+    ).join(""),
+  ).join("");
+const tree = (x: number, y: number, s = 1) =>
+  `<g transform="translate(${x} ${y}) scale(${s})"><path d="M0 0v-46m0 24l-12-13m12 6l13-17"/><path d="M-4-21C-35-12-32-45-19-47C-30-67-7-78 2-61C16-80 33-53 20-43C37-24 16-10-4-21Z" fill="#c6d2bd"/><path d="M0 0v-50m0 22l-13-12m13 6l12-16"/></g>`;
+export function illustration(kind: Art, cls = ""): string {
+  let shape = "";
+  if (kind === "church")
+    shape = `<path d="M38 130h180v7H38zM45 123h166v7H45zM55 66h146v56H55z" fill="#e8dfcc"/><path d="M41 61L126 22 216 61Z" fill="#d8ccbc"/><path d="M54 56l72-28 74 28ZM46 64h168v7H46Z"/><path d="M70 52l56-19 59 19"/><path d="M116 45l10-7 10 7-10 7z" fill="#c6baa8"/>${[60, 82, 104, 126, 148, 170, 192].map((x) => `<path d="M${x} 72v48h10V72M${x - 2} 73h14m-14 44h14m-9-41v37"/>`).join("")}<path d="M38 141h182M31 147h195"/>${tree(25, 136, 0.65)}${tree(235, 136, 0.72)}`;
+  if (kind === "station")
+    shape = `<path d="M35 133V77h173v56" fill="#e8dfcc"/><path d="M30 77l18-22h145l22 22z" fill="#b9c9bd"/><path d="M112 134V39h31v95" fill="#eee6d8"/><path d="M106 39l21-24 22 24zM122 19V8h10v12" fill="#9aaea0"/><circle cx="127" cy="55" r="10" fill="#f8f5ed"/><path d="M127 48v7l6 3M120 128v-28a7 7 0 0114 0v28"/>${windows(47, 86, 4, 2, 15)}${windows(155, 86, 3, 2, 16)}<path d="M28 135h192M26 141h198M40 113h64m44 0h56"/>${tree(232, 137, 0.7)}`;
+  if (kind === "towers")
+    shape = `${[35, 87, 146, 197].map((x, i) => `<path d="M${x} 130V${35 + (i % 2) * 13}l22-9v99z" fill="#d3d6cc"/><path d="M${x + 22} ${26 + (i % 2) * 13}l13 6v97l-13-4z" fill="#e4d9cb"/>${Array.from({ length: 8 }, (_, j) => `<path d="M${x + 3} ${45 + (i % 2) * 10 + j * 10}l16-6" opacity=".45"/>`).join("")}`).join("")}<path d="M27 136l91 14 121-14M36 141l84 14 110-10"/>${tree(133, 134, 0.42)}`;
+  if (kind === "market")
+    shape = `${[29, 89, 149].map((x) => `<path d="M${x} 132V87h58v45" fill="#e9dfce"/><path d="M${x - 4} 87l33-29 34 29z" fill="#bbc8b9"/><path d="M${x + 7} 88l22-21 23 21M${x + 18} 132v-25a11 11 0 0122 0v25"/><path d="M${x + 20} 112h18m-18 9h18"/>`).join("")}<path d="M20 137h199M34 143h176M45 151l157-3"/>${tree(235, 137, 0.75)}`;
+  if (kind === "modern")
+    shape = `<path d="M44 132V83h176v49H44Z" fill="#ddd9cc"/><path d="M63 83V53h137v30M88 53V28h92v25" fill="#c6d2c9"/>${Array.from({ length: 12 }, (_, i) => `<path d="M${50 + i * 14} 87v40"/>`).join("")}${Array.from({ length: 9 }, (_, i) => `<path d="M${69 + i * 14} 57v22"/>`).join("")}${Array.from({ length: 6 }, (_, i) => `<path d="M${96 + i * 14} 32v18"/>`).join("")}<path d="M39 137h186M36 142h194M44 97h176m-176 18h176"/>${tree(25, 139, 0.55)}${tree(237, 139, 0.6)}`;
+  if (kind === "garden")
+    shape = `<path d="M37 134c25-41 158-40 187 0M70 136c15-29 103-28 118 0M27 145h205M90 145l27-54h24l27 54"/><path d="M107 107V50q22-31 44 0v57M101 58h56m-52 12h49m-46 12h43"/>${tree(37, 137, 0.88)}${tree(213, 137, 0.9)}${[65, 82, 170, 190, 103, 151].map((x, i) => `<path d="M${x} ${125 + (i % 2) * 7}v-18"/><circle cx="${x}" cy="${103 + (i % 2) * 7}" r="7" fill="#d9a8a6"/><circle cx="${x}" cy="${103 + (i % 2) * 7}" r="2"/>`).join("")}`;
+  if (kind === "plane")
+    shape = `<path d="M30 131v-30h154v30M25 136h213M39 108h135m-135 9h135" fill="#e7dfd1"/><path d="M197 131V70h12v61M187 70V55h32v15zM183 55l8-8h24l8 8" fill="#c7d1c7"/><path d="M56 53l60 5 43-23 9 2-29 23 41 5 11-8h7l-8 16-43 1-29 20-10-2 18-20-51-9-24-18z" fill="#ede5d7"/><path d="M56 141h139m-139 6h126"/>`;
   return `<svg class="illustration ${cls}" viewBox="0 0 260 165" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">${shape}</svg>`;
 }
-export function ornament(kind: Art, x: number, y: number, width: number): string { return `<g class="map-illustration" transform="translate(${x} ${y})"><foreignObject width="${width}" height="${width*165/260}">${illustration(kind)}</foreignObject></g>`; }
+export function ornament(
+  kind: Art,
+  x: number,
+  y: number,
+  width: number,
+): string {
+  return `<g class="map-illustration" transform="translate(${x} ${y})"><foreignObject width="${width}" height="${(width * 165) / 260}">${illustration(kind)}</foreignObject></g>`;
+}

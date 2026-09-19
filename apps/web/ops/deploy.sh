@@ -19,7 +19,7 @@ archive=$(mktemp)
 trap 'rm -rf "$stage"; rm -f "$archive"' EXIT
 git archive "$revision:apps/web" src public ops scripts package.json | tar -xf - -C "$stage"
 (cd "$stage" && bun run build)
-tar -cf "$archive" -C "$stage" src public ops package.json
+COPYFILE_DISABLE=1 tar -cf "$archive" -C "$stage" src public ops package.json
 # Extract to a staging directory; the locked remote script moves it into place.
 ssh "$host" "mkdir -p /home/exedev/french-metro/releases/.staging-$revision"
 ssh "$host" "tar -xf - -C /home/exedev/french-metro/releases/.staging-$revision" < "$archive"
