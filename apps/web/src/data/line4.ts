@@ -250,8 +250,8 @@ const stations: Station[] = [
     "square",
     "Called Saint-Michel after the square above the station. The square takes its name from the nearby bridge, which recalls a former palace chapel dedicated to the archangel Michael.",
     "La station porte le nom de la place Saint-Michel, située au-dessus des quais. La place reprend celui du pont voisin, qui rappelle une ancienne chapelle du palais dédiée à l’archange Michel.",
-    "The station was built in a metal caisson sunk into the wet ground beside the Seine. This construction formed part of Line 4’s difficult river crossing.",
-    "La station a été construite dans un caisson métallique enfoncé dans le sol humide, près de la Seine. Cet ouvrage faisait partie de la difficile traversée du fleuve par la ligne 4.",
+    "The station was built in steel caissons sunk into the ground beside the Seine. This construction formed part of Line 4’s difficult river crossing.",
+    "La station a été construite dans des caissons en acier enfoncés dans le sol, près de la Seine. Cet ouvrage faisait partie de la difficile traversée du fleuve par la ligne 4.",
     {
       sources: [
         source(

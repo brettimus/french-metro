@@ -101,7 +101,7 @@ Island origin and late-antique fortified-city meaning checked. Two Seine crossin
 
 ### 15. Saint-Michel
 
-Place to bridge to palace-chapel chain checked. Metal caisson construction checked. The name is not incorrectly derived from the nineteenth-century fountain.
+Place to bridge to palace-chapel chain checked. Steel caisson construction checked. The independent cross-review corrected the description to the plural. The name is not incorrectly derived from the nineteenth-century fountain.
 
 - [Saint-Michel · Wikipédia](<https://fr.wikipedia.org/wiki/Saint-Michel_(m%C3%A9tro_de_Paris)>)
 - [Place Saint-Michel · Wikipédia](<https://fr.wikipedia.org/wiki/Place_Saint-Michel_(Paris)>)

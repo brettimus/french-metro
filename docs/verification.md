@@ -35,3 +35,5 @@ Generated art is interpretive, not historical evidence. Original PNGs and [promp
 ## Release verification
 
 The home alignment was deployed first as `5737f25`. The deployment script verifies the selected commit, service restart, public health, browser bundle, a direct station URL for every line, and all four route images. Final public release checks are recorded in the release commit report.
+
+The integrated release `96c22a8` passed public health, bundle, all four direct-route and image checks. The final source review corrected Saint-Michel to steel caissons in the plural. See the independent [Line 4](reviews/line4-cross-review.md) and [Line 5](reviews/line5-cross-review.md) reports.
