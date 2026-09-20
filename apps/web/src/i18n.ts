@@ -40,6 +40,7 @@ export const messages = {
     aboutPrivacy:
       "La progression de lecture reste dans ce navigateur. Les illustrations de l’accueil ont été créées avec une IA.",
     aboutLanguage: "Les textes sont disponibles en français et en anglais.",
+    signCredit: "Enseigne : illustration adaptée d’une photographie de",
     official: "Plans et informations voyageurs",
     schematic: "Plan schématique · pas à l’échelle",
     instruction: "Choisissez une station",
@@ -106,6 +107,7 @@ export const messages = {
     aboutPrivacy:
       "Reading progress stays in this browser. The home page illustrations were created with AI.",
     aboutLanguage: "All entries are available in French and English.",
+    signCredit: "Sign illustration adapted from a photograph by",
     official: "Maps and travel information",
     schematic: "Schematic route · not to scale",
     instruction: "Choose a station",
