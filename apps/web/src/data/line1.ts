@@ -184,7 +184,7 @@ const stations: Station[] = [
     "Paris 1er",
     "modern",
     "Opened in 1900 as plain Louvre, after Rue du Louvre and the museum's old entrance by the colonnade. In 1989 the museum's name passed to Palais-Royal, so this station became Louvre – Rivoli, stressing its Rue de Rivoli side.",
-    "Ouverte en 1900 sous le simple nom de Louvre, d’après la rue du Louvre et l’ancienne entrée du musée par la colonnade. En 1989, le nom du musée passe à Palais-Royal ; la station devient donc Louvre – Rivoli, pour signaler son accès par la rue de Rivoli.",
+    "Ouverte en 1900 sous le simple nom de Louvre, d’après la rue du Louvre et l’ancienne entrée du musée par la colonnade. En 1989, le nom du musée passe à Palais-Royal ; la station devient Louvre – Rivoli, pour signaler son accès par la rue de Rivoli.",
     "Rue de Rivoli itself commemorates Bonaparte's 1797 victory over Austria at Rivoli. The station received museum-style decor, including copied artworks and historical plans, in September 1968, under Minister of Culture André Malraux.",
     "La rue de Rivoli commémore elle-même la victoire de Bonaparte sur l’Autriche à Rivoli en 1797. La station reçoit un décor de style muséal, copies d’œuvres et plans historiques, en septembre 1968, sous le ministre de la Culture André Malraux.",
   ),

@@ -88,8 +88,9 @@ describe("atlas routes", () => {
   });
 });
 describe("route graph and content", () => {
-  test("all 175 entries have complete bilingual text, sources, and map points", () => {
+  test("all 200 entries have complete bilingual text, sources, and map points", () => {
     expect(lines.map((line) => line.id)).toEqual([
+      "1",
       "4",
       "5",
       "6",
@@ -97,6 +98,7 @@ describe("route graph and content", () => {
       "9",
       "14",
     ]);
+    expect(getLine("1")!.stations.length).toBe(25);
     expect(getLine("4")!.stations.length).toBe(29);
     expect(getLine("5")!.stations.length).toBe(22);
     expect(getLine("6")!.stations.length).toBe(28);

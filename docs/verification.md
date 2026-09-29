@@ -41,3 +41,7 @@ The integrated release `96c22a8` passed public health, bundle, all four direct-r
 ## Lines 6 and 9
 
 With Lines 6 and 9, the app has 6 lines (29, 22, 28, 38, 37 and 21 entries): 175 line-specific entries and 350 French/English direct station URLs. `apps/web/ops/verify-deployment.ts` checks one direct station URL and the route image for each of the 6 lines. The Line 9 review findings (copy corrections, image alt text and the shared Trocadéro escalator date on Line 6) were fixed in the commit "Address Line 9 review findings".
+
+## Line 1
+
+With Line 1, the app has 7 lines (25, 29, 22, 28, 38, 37 and 21 entries): 200 line-specific entries and 400 French/English direct station URLs. Line 1 shares the `chatelet`, `bastille`, `gare-de-lyon` and `palais-royal-musee-du-louvre` station IDs with Lines 4, 5, 7 and 14; their facts were cross-checked for consistency. Source audit: [Line 1](research/line1.md). `apps/web/ops/verify-deployment.ts` checks one direct station URL and the route image for each of the 7 lines. The home page no longer lists any coming-soon lines.
