@@ -9,6 +9,7 @@ export const riverCrossings: Partial<
     ["cite", "saint-michel"],
   ],
   "5": [["quai-de-la-rapee", "gare-dausterlitz"]],
+  "6": [["passy", "bir-hakeim"]],
   "7": [["sully-morland", "jussieu"]],
   "14": [["cour-saint-emilion", "bibliotheque-francois-mitterrand"]],
 };
