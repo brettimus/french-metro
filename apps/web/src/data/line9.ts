@@ -87,10 +87,10 @@ const stations: Station[] = [
     "Porte de Saint-Cloud",
     "Paris 16e",
     "gate",
-    "Named for the Porte de Saint-Cloud, a gate in the nineteenth-century Thiers fortifications that opened towards the town of Saint-Cloud, a link its English Wikipedia article states; the French article gives no naming reason.",
-    "La station doit son nom à la porte de Saint-Cloud, une ouverture dans l’enceinte de Thiers menant vers la ville de Saint-Cloud, précision donnée par l’article anglais ; l’article français ne fournit pas d’explication.",
-    "Its Parc des Princes subtitle names the nearby stadium. The station opened on 29 September 1923 with the one-stop extension from Exelmans, and served as the line’s western terminus until the 1934 extension reached Pont de Sèvres.",
-    "Son sous-titre Parc des Princes désigne le stade voisin. La station ouvre le 29 septembre 1923 avec le prolongement d’une station depuis Exelmans, et reste le terminus ouest de la ligne jusqu’au prolongement de 1934 vers Pont de Sèvres.",
+    "Named for the Porte de Saint-Cloud, a gate in the nineteenth-century Thiers fortifications on the road towards the town of Saint-Cloud.",
+    "La station doit son nom à la porte de Saint-Cloud, une ouverture de l’enceinte de Thiers, construite au XIXe siècle, sur la route menant vers la ville de Saint-Cloud.",
+    "Its Parc des Princes subtitle names the nearby stadium. The station opened in September 1923 with the one-stop extension from Exelmans, and served as the line’s western terminus until the 1934 extension reached Pont de Sèvres.",
+    "Son sous-titre Parc des Princes désigne le stade voisin. La station ouvre en septembre 1923 avec le prolongement d’une station depuis Exelmans, et reste le terminus ouest de la ligne jusqu’au prolongement de 1934 vers Pont de Sèvres.",
     1923,
     {
       sources: [
@@ -107,8 +107,8 @@ const stations: Station[] = [
     "Exelmans",
     "Paris 16e",
     "portrait",
-    "Named for Boulevard Exelmans, honouring cavalry general Rémy Joseph Isidore Exelmans (1775-1852), described by the source as a hero of the Empire’s last battle, who later became a Marshal of France.",
-    "La station doit son nom au boulevard Exelmans, dédié au général de cavalerie Rémy Joseph Isidore Exelmans (1775-1852), présenté par la source comme un héros de la dernière bataille de l’Empire, plus tard maréchal de France.",
+    "Named for Boulevard Exelmans, honouring cavalry general Rémy Joseph Isidore Exelmans (1775-1852), remembered as a hero of the Empire’s last battle, who later became a Marshal of France.",
+    "La station doit son nom au boulevard Exelmans, dédié au général de cavalerie Rémy Joseph Isidore Exelmans (1775-1852), considéré comme un héros de la dernière bataille de l’Empire, plus tard maréchal de France.",
     "Opened on 8 November 1922 as the south-western terminus of the line’s first section, Exelmans once had a street-level link to the Petite Ceinture’s Point-du-Jour station, which closed to passengers on 23 July 1934.",
     "Ouverte le 8 novembre 1922 comme terminus sud-ouest du premier tronçon de la ligne, Exelmans disposait autrefois d’une liaison en surface avec la station Point-du-Jour de la Petite Ceinture, fermée aux voyageurs le 23 juillet 1934.",
     1922,
@@ -215,8 +215,8 @@ const stations: Station[] = [
     "square",
     "Named for Place d’Iéna, which commemorates Napoleon’s 1806 victory over Prussian forces at the Battle of Jena. The station shares this classical battle-naming pattern with nearby Trocadéro and Alma – Marceau.",
     "La station doit son nom à la place d’Iéna, qui commémore la victoire de Napoléon sur les forces prussiennes à la bataille d’Iéna en 1806. La station partage ce principe de nom de bataille avec Trocadéro et Alma – Marceau, à proximité.",
-    "Opened on 27 May 1923 with the extension from Trocadéro to Saint-Augustin, Iéna is, according to its French Wikipedia article, one of four network stations with a four-letter name, alongside Rome, Cité and the closed station Haxo.",
-    "Ouverte le 27 mai 1923 avec le prolongement de Trocadéro à Saint-Augustin, Iéna est, selon son article Wikipédia, l’une des quatre stations du réseau dont le nom compte quatre lettres, avec Rome, Cité et la station fermée Haxo.",
+    "Opened on 27 May 1923 with the extension from Trocadéro to Saint-Augustin, Iéna is one of four network stations with a four-letter name, alongside Rome, Cité and Haxo, a ghost station never opened to passengers.",
+    "Ouverte le 27 mai 1923 avec le prolongement de Trocadéro à Saint-Augustin, Iéna est l’une des quatre stations du réseau dont le nom compte quatre lettres, avec Rome, Cité et Haxo, station fantôme jamais ouverte aux voyageurs.",
     1923,
   ),
   station(
@@ -313,7 +313,7 @@ const stations: Station[] = [
     "Chaussée d'Antin - La Fayette",
     "Paris 9e",
     "portrait",
-    "Called Chaussée d’Antin–La Fayette after two streets. The first recalls the Duc d’Antin’s mansion and a roadway raised above marshy ground; Rue La Fayette honours the marquis who fought for American independence.",
+    "Called Chaussée d’Antin – La Fayette after two streets. The first recalls the Duc d’Antin’s mansion and a roadway raised above marshy ground; Rue La Fayette honours the marquis who fought for American independence.",
     "La station doit son nom à deux rues. La Chaussée-d’Antin rappelle l’hôtel du duc d’Antin et une voie surélevée sur un terrain marécageux ; la rue La Fayette honore le marquis engagé pour l’indépendance américaine.",
     "La Fayette was added to the station name in 1989. That year, murals on the vaults of Lines 7 and 9 marked the bicentenary of the French Revolution. Their subjects include La Fayette, liberty and the American Revolution.",
     "La Fayette est ajouté au nom de la station en 1989. Cette année-là, des fresques sur les voûtes des lignes 7 et 9 marquent le bicentenaire de la Révolution française. Elles représentent notamment La Fayette, la liberté et la Révolution américaine.",
@@ -484,8 +484,8 @@ const stations: Station[] = [
     "Rue des Boulets",
     "Paris 11e / 20e",
     "market",
-    "Named for Rue des Boulets; boulets most likely refers to compressed coal pellets once sold in the area, one of three possible origins the source gives for the name.",
-    "La station doit son nom à la rue des Boulets ; boulets désigne le plus probablement des boulets de charbon aggloméré autrefois vendus dans le quartier, l’une des trois origines possibles avancées par la source.",
+    "Named for Rue des Boulets; boulets most likely refers to compressed coal pellets once sold in the area, though two other origins have also been suggested.",
+    "La station doit son nom à la rue des Boulets ; boulets désigne le plus probablement des boulets de charbon aggloméré autrefois vendus dans le quartier, même si deux autres origines ont aussi été proposées.",
     "Opened on 10 December 1933 as Rue des Boulets – Rue de Montreuil, the station was later simplified to Boulets – Montreuil, then renamed Rue des Boulets in 1998 to avoid confusion with the town of Montreuil, also served by the line.",
     "Ouverte le 10 décembre 1933 sous le nom Rue des Boulets – Rue de Montreuil, la station est ensuite simplifiée en Boulets – Montreuil, puis renommée Rue des Boulets en 1998 pour éviter la confusion avec la ville de Montreuil, également desservie par la ligne.",
     1933,
@@ -498,8 +498,8 @@ const stations: Station[] = [
     "square",
     "Named for Place de la Nation, so called since the national holiday of 14 July 1880, when the motto Liberté, Égalité, Fraternité appeared on public buildings; the square had earlier been Place du Trône, then Place du Trône-Renversé.",
     "La station doit son nom à la place de la Nation, ainsi appelée depuis la fête nationale du 14 juillet 1880, lorsque la devise Liberté, Égalité, Fraternité apparaît sur les bâtiments publics ; la place s’appelait auparavant place du Trône, puis place du Trône-Renversé.",
-    "The Line 9 platform opened on 10 December 1933, subtitled Place des Antilles. Nation is the only Métro station that serves as a terminus for two lines, 2 and 6, according to its Wikipedia article.",
-    "Le quai de la ligne 9 ouvre le 10 décembre 1933, avec le sous-titre Place des Antilles. Nation est, selon son article Wikipédia, la seule station du métro qui soit terminus de deux lignes, la 2 et la 6.",
+    "The Line 9 platform opened on 10 December 1933, subtitled Place des Antilles. Nation is the only Métro station that serves as a terminus for two lines, 2 and 6.",
+    "Le quai de la ligne 9 ouvre le 10 décembre 1933, avec le sous-titre Place des Antilles. Nation est la seule station du métro qui soit terminus de deux lignes, la 2 et la 6.",
     1933,
     {
       sources: [
@@ -518,8 +518,8 @@ const stations: Station[] = [
     "square",
     "Named for Rue de Buzenval, commemorating the Battle of Buzenval of 19 January 1871, when Paris forces sortied against besieging German troops during the Franco-Prussian War.",
     "La station doit son nom à la rue de Buzenval, qui commémore la bataille de Buzenval du 19 janvier 1871, lorsque les troupes parisiennes tentent une sortie contre les forces allemandes assiégeant la capitale, pendant la guerre franco-prussienne.",
-    "Opened on 10 December 1933, the station’s entrance was built into the ground floor of the Palais Avron cinema, for lack of room on the street; the building has served as a supermarket since 1977, according to its English Wikipedia article.",
-    "Ouverte le 10 décembre 1933, l’entrée de la station est aménagée au rez-de-chaussée du cinéma Palais Avron, faute de place en surface ; le bâtiment abrite un supermarché depuis 1977, selon son article Wikipédia en anglais.",
+    "Opened on 10 December 1933, the station’s entrance was built into the ground floor of the Palais Avron cinema, for lack of room on the street; the building has served as a supermarket since 1977.",
+    "Ouverte le 10 décembre 1933, l’entrée de la station est aménagée au rez-de-chaussée du cinéma Palais Avron, faute de place en surface ; le bâtiment abrite un supermarché depuis 1977.",
     1933,
     {
       sources: [
@@ -562,8 +562,8 @@ const stations: Station[] = [
     "portrait",
     "Named for Rue Robespierre, honouring lawyer and revolutionary Maximilien de Robespierre (1758-1794); Montreuil’s Communist town council gave the name to the station, then under construction, in 1936, at the initiative of Jacques Duclos.",
     "La station doit son nom à la rue Robespierre, en hommage à l’avocat et révolutionnaire Maximilien de Robespierre (1758-1794) ; le conseil municipal communiste de Montreuil attribue ce nom à la station, alors en construction, en 1936, à l’initiative de Jacques Duclos.",
-    "Opened on 14 October 1937 with the line’s final extension, from Porte de Montreuil to Mairie de Montreuil, the station has two entrances; only the one on Rue Barbès is marked as Art Deco, according to its English Wikipedia article.",
-    "Ouverte le 14 octobre 1937 avec le dernier prolongement de la ligne, de Porte de Montreuil à Mairie de Montreuil, la station compte deux entrées ; seule celle de la rue Barbès est qualifiée d’Art déco, selon son article Wikipédia en anglais.",
+    "Opened on 14 October 1937 with the line’s final extension, from Porte de Montreuil to Mairie de Montreuil, the station has two entrances; only the one on Rue Barbès is described as Art Deco.",
+    "Ouverte le 14 octobre 1937 avec le dernier prolongement de la ligne, de Porte de Montreuil à Mairie de Montreuil, la station compte deux entrées ; seule celle de la rue Barbès est qualifiée d’Art déco.",
     1937,
     {
       sources: [
@@ -589,8 +589,8 @@ const stations: Station[] = [
     "square",
     "Named for the crossroads above it, then called Croix-de-Chavaux and today Place Jacques-Duclos, where six roads met leading to Paris, Rosny-sous-Bois, Bagnolet and Vincennes; croix refers to a monumental wayside cross shown on old maps.",
     "La station doit son nom au carrefour qui la surmonte, alors appelé Croix-de-Chavaux et aujourd’hui place Jacques-Duclos, où se croisaient six routes menant à Paris, Rosny-sous-Bois, Bagnolet et Vincennes ; croix désigne une croix monumentale figurant sur d’anciens plans.",
-    "Chavaux is said, in the conditional tense the source uses to keep the claim unsettled, to be a deformation of chevaux, horses, from a coaching relay once at the crossroads. Opened on 14 October 1937 with the line’s final extension to Mairie de Montreuil.",
-    "Chavaux serait, selon le conditionnel employé par la source pour ne pas trancher, une déformation de chevaux, en souvenir d’un relais où l’on changeait les chevaux des diligences au carrefour. Ouverte le 14 octobre 1937 avec le dernier prolongement de la ligne vers Mairie de Montreuil.",
+    "Chavaux is probably a corruption of chevaux, horses, recalling a coaching relay where stagecoach horses were changed at the crossroads. The station opened on 14 October 1937 with the line’s final extension to Mairie de Montreuil.",
+    "Chavaux serait une déformation de chevaux, en souvenir d’un relais où l’on changeait les chevaux des diligences au carrefour. La station ouvre le 14 octobre 1937 avec le dernier prolongement de la ligne vers Mairie de Montreuil.",
     1937,
   ),
   station(
@@ -613,8 +613,8 @@ export const line9: MetroLine = {
   textColor: "#29251f",
   title: { en: "Line 9", fr: "Ligne 9" },
   summary: {
-    en: "Battle names from Iéna to Trocadéro, grand boulevards, and a bridge across the Seine into Boulogne-Billancourt. Discover the names of 37 stations.",
-    fr: "Des noms de batailles, d’Iéna à Trocadéro, de grands boulevards, et un pont sur la Seine vers Boulogne-Billancourt. Découvrez les noms de 37 stations.",
+    en: "Battle names from Iéna to Trocadéro, grand boulevards, and the Pont de Sèvres, where the Métro first left Paris for Boulogne-Billancourt. Discover the names of 37 stations.",
+    fr: "Des noms de batailles, d’Iéna à Trocadéro, de grands boulevards, et le pont de Sèvres, où le métro quitte Paris pour la première fois, à Boulogne-Billancourt. Découvrez les noms de 37 stations.",
   },
   termini: ["Pont de Sèvres", "Mairie de Montreuil"],
   stations,
@@ -622,8 +622,8 @@ export const line9: MetroLine = {
   featured: ["trocadero", "franklin-d-roosevelt", "charonne"],
   image: "/illustrations/line-9.webp",
   imageAlt: {
-    en: "Engraved-style illustration of the Pont de Sèvres bridge over the Seine.",
-    fr: "Illustration de style gravure du pont de Sèvres au-dessus de la Seine.",
+    en: "Engraved-style illustration of the Église Saint-Augustin, with its ribbed dome, seen from the front left.",
+    fr: "Illustration de style gravure de l’église Saint-Augustin et de son dôme à côtes, vue de trois quarts.",
   },
   sources: [
     source(

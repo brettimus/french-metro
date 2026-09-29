@@ -84,8 +84,8 @@ const stations: Station[] = [
     "square",
     "Named for Place du Trocadéro, renamed in 1877 from Place du Roi-de-Rome to commemorate the French capture of the Trocadero fort at Cadiz on 30 and 31 August 1823.",
     "La station doit son nom à la place du Trocadéro, rebaptisée en 1877 (elle s’appelait auparavant place du Roi-de-Rome) pour commémorer la prise du fort du Trocadéro à Cadix par les Français les 30 et 31 août 1823.",
-    "The station opened on 2 October 1900 with one of the network’s first escalators, removed only in 1959. A municipal decree renamed the square Place du Trocadéro-et-du-11-Novembre on 18 October 1978.",
-    "La station ouvre le 2 octobre 1900 avec l’un des premiers escalators du réseau, retiré seulement en 1959. Un arrêté municipal rebaptise la place « place du Trocadéro-et-du-11-Novembre » le 18 octobre 1978.",
+    "The station opened on 2 October 1900; before 1914 it received one of the network’s first escalators, removed only in 1959. A municipal decree renamed the square Place du Trocadéro-et-du-11-Novembre on 18 October 1978.",
+    "La station ouvre le 2 octobre 1900 ; avant 1914, elle reçoit l’un des premiers escaliers mécaniques du réseau, retiré seulement en 1959. Un arrêté municipal rebaptise la place « place du Trocadéro-et-du-11-Novembre » le 18 octobre 1978.",
     {
       sources: [
         source(

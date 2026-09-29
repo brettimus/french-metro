@@ -5,7 +5,7 @@ Checked on 19 September 2026.
 ## Automated checks
 
 - 30 Bun tests pass. TypeScript passes.
-- Lines 4, 5, 7 and 14 contain 29, 22, 38 and 21 entries: 110 line-specific entries and 220 French/English direct station URLs.
+- Lines 4, 5, 7 and 14 contain 29, 22, 38 and 21 entries: 110 line-specific entries and 220 French/English direct station URLs. These counts apply to the four-line release only; see the Lines 6 and 9 section below.
 - Every entry has one map point, bilingual text and HTTPS sources. Route tests check order, complete path coverage, termini, branches and adjacent river crossings.
 - Maison Blanche keyboard tests check left, right and upstream selection against visible map positions.
 - Displayed interface and station data contain no em dashes.
@@ -37,3 +37,7 @@ Generated art is interpretive, not historical evidence. Original PNGs and [promp
 The home alignment was deployed first as `5737f25`. The deployment script verifies the selected commit, service restart, public health, browser bundle, a direct station URL for every line, and all four route images. Final public release checks are recorded in the release commit report.
 
 The integrated release `96c22a8` passed public health, bundle, all four direct-route and image checks. The final source review corrected Saint-Michel to steel caissons in the plural. See the independent [Line 4](reviews/line4-cross-review.md) and [Line 5](reviews/line5-cross-review.md) reports.
+
+## Lines 6 and 9
+
+With Lines 6 and 9, the app has 6 lines (29, 22, 28, 38, 37 and 21 entries): 175 line-specific entries and 350 French/English direct station URLs. `apps/web/ops/verify-deployment.ts` checks one direct station URL and the route image for each of the 6 lines. The Line 9 review findings (copy corrections, image alt text and the shared Trocadéro escalator date on Line 6) were fixed in the commit "Address Line 9 review findings".

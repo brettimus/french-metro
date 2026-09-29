@@ -227,7 +227,7 @@ const stations: Station[] = [
     "Chaussée d’Antin – La Fayette",
     "Paris 9e",
     "portrait",
-    "Called Chaussée d’Antin–La Fayette after two streets. The first recalls the Duc d’Antin’s mansion and a roadway raised above marshy ground; Rue La Fayette honours the marquis who fought for American independence.",
+    "Called Chaussée d’Antin – La Fayette after two streets. The first recalls the Duc d’Antin’s mansion and a roadway raised above marshy ground; Rue La Fayette honours the marquis who fought for American independence.",
     "La station doit son nom à deux rues. La Chaussée-d’Antin rappelle l’hôtel du duc d’Antin et une voie surélevée sur un terrain marécageux ; la rue La Fayette honore le marquis engagé pour l’indépendance américaine.",
     "La Fayette was added to the station name in 1989. That year, murals on the vaults of Lines 7 and 9 marked the bicentenary of the French Revolution. Their subjects include La Fayette, liberty and the American Revolution.",
     "La Fayette est ajouté au nom de la station en 1989. Cette année-là, des fresques sur les voûtes des lignes 7 et 9 marquent le bicentenaire de la Révolution française. Elles représentent notamment La Fayette, la liberté et la Révolution américaine.",
