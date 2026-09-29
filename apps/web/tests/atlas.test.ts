@@ -199,15 +199,17 @@ describe("route graph and content", () => {
 describe("home coming-soon section", () => {
   test("is omitted when no lines are coming soon", async () => {
     const { comingSoonMarkup } = await import("../src/coming-soon");
-    const { comingSoon } = await import("../src/data/lines");
-    const markup = comingSoonMarkup(comingSoon, "More lines to come", () => "x");
-    if (comingSoon.length === 0) {
-      expect(markup).toBe("");
-      expect(markup).not.toContain("soon-title");
-    }
     expect(comingSoonMarkup([], "More lines to come", () => "x")).toBe("");
     expect(
       comingSoonMarkup([{ id: "2", color: "#000", ink: "#fff" }], "Soon", (l) => l.id),
     ).toContain('<h2 id="soon-title">Soon</h2><div>2</div>');
+  });
+
+  test("lists only lines that are not yet in the atlas", async () => {
+    const { comingSoon, lines } = await import("../src/data/lines");
+    const live = new Set<string>(lines.map((line) => line.id));
+    const soon = comingSoon.map((line) => line.id);
+    expect(soon.filter((id) => live.has(id))).toEqual([]);
+    expect(new Set(soon).size).toBe(soon.length);
   });
 });

@@ -18,4 +18,14 @@ export const lines: MetroLine[] = [
 ];
 export const getLine = (id: string | undefined) =>
   lines.find((line) => line.id === id);
-export const comingSoon: FutureLine[] = [];
+// Lines not yet in the atlas, with IDFM line colours. 3bis and 7bis are
+// left out until the badge layout is checked with four-character labels.
+export const comingSoon: FutureLine[] = [
+  { id: "2", color: "#003ca6", ink: "#fff" },
+  { id: "3", color: "#837902", ink: "#fff" },
+  { id: "8", color: "#e19bdf", ink: "#29251f" },
+  { id: "10", color: "#e3b32a", ink: "#29251f" },
+  { id: "11", color: "#8d5e2a", ink: "#fff" },
+  { id: "12", color: "#00814f", ink: "#fff" },
+  { id: "13", color: "#98d4e2", ink: "#29251f" },
+];
