@@ -54,6 +54,7 @@ for (const route of [
   "/en/lines/5/stations/oberkampf",
   "/en/lines/6/stations/bir-hakeim",
   "/fr/lines/7/stations/les-gobelins",
+  "/en/lines/9/stations/trocadero",
   "/en/lines/14/stations/saint-denis-pleyel",
 ]) {
   const res = await fetch(`${base}${route}`, {
@@ -68,6 +69,7 @@ for (const path of [
   "/illustrations/line-5.webp",
   "/illustrations/line-6.webp",
   "/illustrations/line-7.webp",
+  "/illustrations/line-9.webp",
   "/illustrations/line-14.webp",
 ]) {
   const res = await fetch(`${base}${path}`, {

@@ -25,7 +25,7 @@ describe("atlas routes", () => {
     }
     for (const path of [
       "/de",
-      "/en/lines/9",
+      "/en/lines/12",
       "/fr/lines/7/extra",
       "/fr//lines/7",
       "//fr",
@@ -49,7 +49,7 @@ describe("atlas routes", () => {
   test("unknown stations, lines and missing files remain 404", async () => {
     for (const path of [
       "/en/lines/7/stations/not-a-station",
-      "/fr/lines/9",
+      "/fr/lines/12",
       "/missing.js",
       "/missing/index.html",
     ]) {
@@ -88,12 +88,20 @@ describe("atlas routes", () => {
   });
 });
 describe("route graph and content", () => {
-  test("all 138 entries have complete bilingual text, sources, and map points", () => {
-    expect(lines.map((line) => line.id)).toEqual(["4", "5", "6", "7", "14"]);
+  test("all 175 entries have complete bilingual text, sources, and map points", () => {
+    expect(lines.map((line) => line.id)).toEqual([
+      "4",
+      "5",
+      "6",
+      "7",
+      "9",
+      "14",
+    ]);
     expect(getLine("4")!.stations.length).toBe(29);
     expect(getLine("5")!.stations.length).toBe(22);
     expect(getLine("6")!.stations.length).toBe(28);
     expect(getLine("7")!.stations.length).toBe(38);
+    expect(getLine("9")!.stations.length).toBe(37);
     expect(getLine("14")!.stations.length).toBe(21);
     for (const line of lines) {
       const ids = line.stations.map((s) => s.id);

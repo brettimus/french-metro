@@ -1,10 +1,10 @@
 # French Metro
 
-An illustrated history atlas for Paris Métro Lines 4, 5, 6, 7 and 14, in French and English.
+An illustrated history atlas for Paris Métro Lines 4, 5, 6, 7, 9 and 14, in French and English.
 
-Explore **https://french-metro.exe.xyz/**. Line 4 has 29 entries, Line 5 has 22, Line 6 has 28, Line 7 has 38, and Line 14 has 21. This includes Les Gobelins, Oberkampf, and both southern branches of Line 7. Each entry explains the station name, adds a short history, and links its sources.
+Explore **https://french-metro.exe.xyz/**. Line 4 has 29 entries, Line 5 has 22, Line 6 has 28, Line 7 has 38, Line 9 has 37, and Line 14 has 21. This includes Les Gobelins, Oberkampf, and both southern branches of Line 7. Each entry explains the station name, adds a short history, and links its sources.
 
-The home page offers all five lines and marks future lines as coming soon. Maps have hover previews, animated station panels, search, keyboard navigation, and reading progress stored in the browser. Each line and station has a direct URL. The language switch preserves the current station.
+The home page offers all six lines and marks future lines as coming soon. Maps have hover previews, animated station panels, search, keyboard navigation, and reading progress stored in the browser. Each line and station has a direct URL. The language switch preserves the current station.
 
 - French home: `/fr`; English home: `/en`.
 - Line: `/{locale}/lines/{line}`.

@@ -337,7 +337,7 @@ const stations: Station[] = [
     "Named for two streets: Rue de Richelieu honours Cardinal Armand Jean du Plessis de Richelieu (1585-1642); Rue Drouot honours artillery general Antoine Drouot (1774-1847).",
     "La station doit son nom à deux rues : la rue de Richelieu honore le cardinal Armand Jean du Plessis de Richelieu (1585-1642) ; la rue Drouot honore le général d’artillerie Antoine Drouot (1774-1847).",
     "Opened on 30 June 1928 with simultaneous extensions of Lines 8 and 9, its Line 8 platform was the first on the network built with 105-metre platforms, a length then used on certain Line 8 sections and on new 1930s stations of Lines 1, 3, 7 and 9.",
-    "Ouverte le 30 juin 1928 avec des prolongements simultanés des lignes 8 et 9, son quai de la ligne 8 est le premier du réseau construit avec des quais de 105 mètres, une longueur ensuite utilisée sur certaines sections de la ligne 8 et sur les nouvelles stations des lignes 1, 3, 7 et 9 dans les années 1930.",
+    "Ouverte le 30 juin 1928 avec des prolongements simultanés des lignes 8 et 9, son quai de la ligne 8 est le premier du réseau construit avec des quais de 105 mètres, une longueur ensuite reprise sur certaines sections de la ligne 8 et sur de nouvelles stations des lignes 1, 3, 7 et 9.",
     1928,
     {
       people: [
