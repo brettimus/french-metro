@@ -4,6 +4,7 @@ import type { LineId, MetroLine, Station } from "./data/types";
 export const riverCrossings: Partial<
   Record<LineId, readonly (readonly [string, string])[]>
 > = {
+  "1": [["esplanade-de-la-defense", "pont-de-neuilly"]],
   "4": [
     ["chatelet", "cite"],
     ["cite", "saint-michel"],

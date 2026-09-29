@@ -21,7 +21,7 @@ The line opened in stages. Both line articles and [Herodote](https://www.herodot
 - Concorde's platform art quoting the Declaration of the Rights of Man is on the connecting Line 12 platforms, not Line 1's own platforms. The Line 1 entry should not claim this artwork for its own concourse.
 - Gare de Lyon's Line 1 station was built 100 metres long, against 75 metres elsewhere on the line, with four tracks and two central platforms so that the circular line (the Line 2 of the time) could also stop there, which never happened; Line 14's existing entry separately notes that Line 1's platforms sit under boulevard Diderot. Both facts are kept, and neither contradicts the other.
 - Spelling of the shared "Palais-Royal – Musée du Louvre" name follows the existing Line 7 entry (hyphen inside Palais-Royal, en dash before Musée), even though some sources print "Palais Royal" without the hyphen.
-- Shared station IDs reused from other lines: `chatelet` (Lines 4, 7, 14), `bastille` (Line 5), `gare-de-lyon` (Line 14), `palais-royal-musee-du-louvre` (Line 7). All four names and underlying facts were checked against the existing entries for consistency before reuse.
+- Shared station IDs reused from other lines: `chatelet` (Lines 4, 7, 14), `bastille` (Line 5), `gare-de-lyon` (Line 14), `palais-royal-musee-du-louvre` (Line 7), `charles-de-gaulle-etoile` (Line 6), `franklin-d-roosevelt` (Line 9) and `nation` (Lines 6, 9). All seven names and underlying facts were checked against the existing entries for consistency before reuse. The review phase found two mismatches, now fixed: the Nation area is "Paris 11e / 12e / 20e" on all three lines, and both lines spell the avenue "Victor-Emmanuel-III".
 - No em dashes are used in this document's prose. En dashes remain in compound station names.
 
 ## Station checks and sources
@@ -192,7 +192,7 @@ Named for the adjoining royal château. Opened 24 March 1934 as Line 1's eastern
 - 25 unique station IDs and one ordered path cover every stop once; no branches.
 - Every station above has a naming chain, a separate context fact, and an opening date checked against its own source. The opening day of eight original stations is unresolved; see Route and method.
 - All source links use HTTPS; every station's own Wikipedia article was opened during the audit, plus both line-level Wikipedia articles.
-- Shared IDs `chatelet`, `bastille`, `gare-de-lyon` and `palais-royal-musee-du-louvre` were checked against the existing Line 4, 5, 7 and 14 entries for consistent names and facts before reuse.
+- Shared IDs `chatelet`, `bastille`, `gare-de-lyon`, `palais-royal-musee-du-louvre`, `charles-de-gaulle-etoile`, `franklin-d-roosevelt` and `nation` were checked against the existing Line 4, 5, 6, 7, 9 and 14 entries for consistent names and facts before reuse.
 - No em dashes are used in this document's prose.
 - Open questions after verification: exact line length (not used in app data); which eight stations opened on 19 July 1900; the date Saint-Mandé – Tourelle was shortened to Saint-Mandé. Bérault's first name (Michel) and the Porte Maillot framing are resolved in the Verification section.
 - Bilingual station text, TypeScript checks, and browser/functional checks belong to the building and review phases that follow this audit.
@@ -226,7 +226,7 @@ Corrections made in this document:
 19. Château de Vincennes. The station article gives no opening date; the date now cites the line article. Added a sourced context fact (closure 24 to 27 September 2009 during automation works).
 20. George V. Kept the "one of only two" claim as single-source and qualified; no corroboration found.
 
-Checked and confirmed without change: La Défense (renamed 1997), Pont de Neuilly (Avenue de Madrid suffix 1940 to 1950), Les Sablons (sand quarries; Jacques Barrot died after collapsing in the station on 3 December 2014), Charles de Gaulle – Étoile (renamed 30 November 1970), George V (Alma until 27 May 1920; avenue renamed 14 July 1918), Champs-Élysées – Clemenceau (renamed 20 May 1931; platforms lengthened 1963 to 1964), Tuileries, Châtelet (6 August 1900), Hôtel de Ville, Saint-Paul (Paul of Thebes; Gotha raid of 12 to 13 April 1918; entrance demolished 1922). Shared IDs `chatelet`, `bastille`, `gare-de-lyon` and `palais-royal-musee-du-louvre` match the existing Line 4, 5, 7 and 14 entries, and the facts above do not contradict them.
+Checked and confirmed without change: La Défense (renamed 1997), Pont de Neuilly (Avenue de Madrid suffix 1940 to 1950), Les Sablons (sand quarries; Jacques Barrot died after collapsing in the station on 3 December 2014), Charles de Gaulle – Étoile (renamed 30 November 1970), George V (Alma until 27 May 1920; avenue renamed 14 July 1918), Champs-Élysées – Clemenceau (renamed 20 May 1931; platforms lengthened 1963 to 1964), Tuileries, Châtelet (6 August 1900), Hôtel de Ville, Saint-Paul (Paul of Thebes; Gotha raid of 12 to 13 April 1918; entrance demolished 1922). Shared IDs `chatelet`, `bastille`, `gare-de-lyon`, `palais-royal-musee-du-louvre`, `charles-de-gaulle-etoile`, `franklin-d-roosevelt` and `nation` match the existing Line 4, 5, 6, 7, 9 and 14 entries, and the facts above do not contradict them.
 
 Still unresolved:
 
@@ -249,3 +249,15 @@ Additional sources opened during verification:
 - [Tuileries station · Wikipedia](https://en.wikipedia.org/wiki/Tuileries_station)
 - [Porte Maillot station · Wikipedia](https://en.wikipedia.org/wiki/Porte_Maillot_station)
 - [19 juillet 1900, inauguration du métro · Herodote](https://www.herodote.net/19_juillet_1900-evenement-19000719.php)
+
+## Review fixes
+
+The Line 1 review replaced four context facts that did not add new information. Each new fact comes from the station's own French Wikipedia article, opened on 29 September 2026:
+
+- Charles de Gaulle – Étoile: Line 1 platforms opened 1 September 1900, more than a month after the first section; the Line 6 terminus is a loop beneath the square, with a narrow platform for getting off and a wider one for boarding.
+- Hôtel de Ville: since 1994, a plaque near the access to the Line 1 platforms marks the fiftieth anniversary of the strike by 3,000 employees of the Compagnie du chemin de fer métropolitain de Paris on 16 August 1944. The app writes "opened in 1900" (see correction 1).
+- Champs-Élysées – Clemenceau: since 1995, the corridor between Lines 1 and 13 has shown the *Azulejo géométrique* tile decor by Manuel Cargaleiro, from an artistic exchange between the Lisbon Metro and the RATP.
+- Reuilly – Diderot: Line 1 platforms raised on the weekend of 31 May to 1 June 2008; platform screen doors installed in March 2011.
+- Pont de Neuilly: the bridge was widened from 1988 to 1992 for the Line 1 extension to La Défense ([Pont de Neuilly · Wikipédia](https://fr.wikipedia.org/wiki/Pont_de_Neuilly)).
+
+Every station now carries its opening year (1900, 1934, 1937 or 1992) in the `opened` field. The years do not depend on the open question about 19 July 1900.

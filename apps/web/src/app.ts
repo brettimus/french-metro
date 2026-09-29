@@ -1,4 +1,5 @@
 import { lines, getLine, comingSoon } from "./data/lines";
+import { comingSoonMarkup } from "./coming-soon";
 import type { Locale, MetroLine, Station } from "./data/types";
 import { t } from "./i18n";
 import {
@@ -77,7 +78,7 @@ function home() {
     )
     .join(
       "",
-    )}</section><section class="coming-soon" aria-labelledby="soon-title"><h2 id="soon-title">${m.other}</h2><div>${comingSoon.map((l) => `<span class="future-line" aria-label="${m.line} ${l.id} · ${m.soon}">${badge(l.id, l.color, l.ink, true)}</span>`).join("")}</div></section></main>`;
+    )}</section>${comingSoonMarkup(comingSoon, m.other, (l) => `<span class="future-line" aria-label="${m.line} ${l.id} · ${m.soon}">${badge(l.id, l.color, l.ink, true)}</span>`)}</main>`;
 }
 function mapMarkup(line: MetroLine) {
   const m = t(state.locale);

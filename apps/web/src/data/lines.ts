@@ -6,6 +6,7 @@ import { line7 } from "./line7";
 import { line9 } from "./line9";
 import { line14 } from "./line14";
 import type { MetroLine } from "./types";
+import type { FutureLine } from "../coming-soon";
 export const lines: MetroLine[] = [
   line1,
   line4,
@@ -17,4 +18,4 @@ export const lines: MetroLine[] = [
 ];
 export const getLine = (id: string | undefined) =>
   lines.find((line) => line.id === id);
-export const comingSoon: { id: string; color: string; ink: string }[] = [];
+export const comingSoon: FutureLine[] = [];
