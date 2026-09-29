@@ -135,6 +135,16 @@ describe("route graph and content", () => {
       }
     }
   });
+  test("station copy stays within the maximum word counts", () => {
+    const words = (text: string) =>
+      text.split(/\s+/).filter((w) => /[\p{L}\p{N}]/u.test(w)).length;
+    for (const line of lines)
+      for (const s of line.stations)
+        for (const locale of ["en", "fr"] as const) {
+          expect(words(s.etymology[locale])).toBeLessThanOrEqual(45);
+          expect(words(s.context[locale])).toBeLessThanOrEqual(55);
+        }
+  });
   test("displayed copy contains no em dashes", () => {
     expect(JSON.stringify(messages)).not.toContain("—");
     for (const line of lines) expect(JSON.stringify(line)).not.toContain("—");
