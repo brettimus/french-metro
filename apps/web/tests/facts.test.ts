@@ -1,8 +1,9 @@
 import { describe, expect, test } from "bun:test";
-import { alignSentences, splitField } from "../scripts/facts/claims";
+import { alignSentences, buildClaims, splitField } from "../scripts/facts/claims";
 import { buildNumberIndex, extractNumbers, matchFact, parseNumber, romanToInt } from "../scripts/facts/numbers";
 import { buildQuestions, MODEL } from "../scripts/facts/jev";
-import { claimRisk, rankPairs, RISK_WEIGHTS, type ClaimRow } from "../scripts/facts/rank";
+import { claimRisk, rankPairs, RISK_WEIGHTS, staleConflicts, type ClaimRow } from "../scripts/facts/rank";
+import { KNOWN_CONFLICTS, matchKnownConflict } from "../scripts/facts/known-conflicts";
 import { compactLine } from "../scripts/facts/run";
 import { Bm25Index, buildQuery, chunkText, cleanSourceText, type Passage } from "../scripts/facts/retrieve";
 import { htmlToText, wikiTitle } from "../scripts/facts/sources";
@@ -207,13 +208,45 @@ describe("risk", () => {
     expect(r.risk).toBeCloseTo(w.contradicted * 0.9 + w.unsupported * 0.8 + w.noPassage + w.unmatchedNumber + w.fetchFailure, 3);
   });
 
-  test("pairs take the riskier locale plus a disagreement term", () => {
-    const en = row({ risk: 0.6 });
-    const fr = row({ id: "1/a/context/fr/1", locale: "fr", risk: 0.1 });
-    const other = row({ id: "1/b/context/en/1", pairKey: "1/b/context/1", risk: 0.3 });
-    const pairs = rankPairs([en, fr, other]);
+  test("pairs take the strongest value of each signal among their claims", () => {
+    const en = row({ risk: 0.6, riskParts: { unsupported: 0.6 } });
+    const fr = row({ id: "1/a/context/fr/1", locale: "fr", risk: 0.3, riskParts: { unsupported: 0.1, numbers: 0.2 } });
+    const other = row({ id: "1/b/context/en/1", pairKey: "1/b/context/1", risk: 0.3, riskParts: { unsupported: 0.3 } });
+    const { pairs, excluded } = rankPairs([en, fr, other]);
+    expect(excluded).toEqual([]);
     expect(pairs.map((p) => p.pairKey)).toEqual(["1/a/context/1", "1/b/context/1"]);
-    expect(pairs[0]!.risk).toBeCloseTo(0.6 + RISK_WEIGHTS.pairDisagreement * 0.5, 3);
+    expect(pairs[0]!.risk).toBeCloseTo(0.6 + 0.2 + RISK_WEIGHTS.pairDisagreement * 0.3, 3);
+    expect(pairs[0]!.disagreement).toBeCloseTo(0.3, 3);
+  });
+
+  test("the unsupported part of a pair uses its lowest supported score", () => {
+    const jev = (supported: number) => ({ supported, contradicted: 0, bestPassage: "p1", ms: 0, cached: false });
+    const scored = (over: Partial<ClaimRow>) => {
+      const r = row(over);
+      const { risk, parts } = claimRisk(r);
+      return { ...r, risk, riskParts: parts };
+    };
+    const { pairs } = rankPairs([scored({ jev: jev(0.9) }), scored({ id: "1/a/context/fr/1", locale: "fr", jev: jev(0.2) })]);
+    expect(pairs[0]!.riskParts.unsupported).toBeCloseTo(RISK_WEIGHTS.unsupported * 0.8, 3);
+  });
+
+  test("known conflicts are left out of the ranking and stale entries are reported", () => {
+    const conflict = { lineId: "1", stationId: "a", field: "context" as const, contains: ["26 April 1937"], note: "n", ref: "r" };
+    const unused = { ...conflict, stationId: "b" };
+    const hit = row({ lineId: "1", stationId: "a", field: "context", text: "It became X on 26 April 1937.", risk: 0.9, riskParts: { unsupported: 0.9 } });
+    const miss = row({ id: "1/a/context/en/2", pairKey: "1/a/context/2", lineId: "1", stationId: "a", field: "context", text: "Opened in 1934.", risk: 0.5, riskParts: { unsupported: 0.5 } });
+    const { pairs, excluded } = rankPairs([hit, miss], RISK_WEIGHTS, [conflict, unused]);
+    expect(pairs.map((p) => p.pairKey)).toEqual(["1/a/context/2"]);
+    expect(excluded.map((p) => [p.pairKey, p.conflict])).toEqual([["1/a/context/1", conflict]]);
+    expect(staleConflicts(excluded, [conflict, unused])).toEqual([unused]);
+  });
+
+  test("the Saint-Mandé known conflicts match the current copy", () => {
+    const texts = buildClaims({ line: "1" }).filter((c) => c.stationId === "saint-mande");
+    for (const k of KNOWN_CONFLICTS) {
+      const field = texts.filter((c) => c.lineId === k.lineId && c.stationId === k.stationId && c.field === k.field);
+      expect(matchKnownConflict({ lineId: k.lineId, stationId: k.stationId, field: k.field, texts: field.map((c) => c.text) })).toBe(k);
+    }
   });
 });
 
@@ -231,12 +264,12 @@ describe("jev questions and report lines", () => {
       pairKey: "9/x/context/1", lineId: "9", stationId: "x", stationName: "X", field: "context", n: 1, aligned: true, counterpart: "", fieldText: "",
       numbers: [], fetchFailure: 0, riskParts: {}, passages: [{ id: "p1", url: "https://a", score: 1, text: "t" }],
     };
-    const en = { ...base, id: "9/x/context/en/1", locale: "en", text: "Opened in 1922.", unmatched: [], risk: 0.4,
+    const en = { ...base, id: "9/x/context/en/1", locale: "en", text: "Opened in 1922.", unmatched: [], risk: 0.4, riskParts: { unsupported: 0.4 },
       jev: { supported: 0.3, contradicted: 0.6, bestPassage: "p1", ms: 0, cached: false } } as unknown as ClaimRow;
     const fr = { ...base, id: "9/x/context/fr/1", locale: "fr", text: "Ouverte en 1922.", risk: 0.1,
       unmatched: [{ fact: { kind: "year", raw: "1922", key: "y:1922" }, matched: false }],
       jev: { supported: 0.9, contradicted: 0.1, bestPassage: "none", ms: 0, cached: false } } as unknown as ClaimRow;
-    const [pair] = rankPairs([en, fr]);
-    expect(compactLine(1, pair!)).toBe("1 | 9/x/context/en/1 | 0.46 | en 0.30 fr 0.90 | en 0.60 fr 0.10 | fr:1922 | Opened in 1922. | https://a");
+    const [pair] = rankPairs([en, fr]).pairs;
+    expect(compactLine(1, pair!)).toBe("1 | 9/x/context/en/1 | 0.40 | en 0.30 fr 0.90 | en 0.60 fr 0.10 | fr:1922 | Opened in 1922. | https://a");
   });
 });

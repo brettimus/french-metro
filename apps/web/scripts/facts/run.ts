@@ -22,7 +22,7 @@ import { join, resolve } from "node:path";
 import { buildClaims, type Claim } from "./claims";
 import { askJev, fieldLabel, loadApiKey, makeClient, MODEL, QUESTION_VERSION, type JevState } from "./jev";
 import { buildNumberIndex, extractNumbers, matchFact, type NumberIndex } from "./numbers";
-import { claimRisk, rankPairs, RISK_WEIGHTS, round, type ClaimRow, type PairRow } from "./rank";
+import { claimRisk, rankPairs, RISK_WEIGHTS, round, staleConflicts, type ClaimRow, type ExcludedPair, type PairRow } from "./rank";
 import { Bm25Index, buildQuery, chunkText, cleanSourceText, type Passage } from "./retrieve";
 import { failureKind, fetchAll, mapPool, stationRefs, stationUrls, type SourceDoc, type UrlRole } from "./sources";
 import { tokenize } from "./text";
@@ -161,7 +161,9 @@ async function main() {
     const { risk, parts } = claimRisk(base);
     return { ...base, risk, riskParts: parts };
   });
-  const pairs = rankPairs(rows);
+  const { pairs, excluded } = rankPairs(rows);
+  // With --line or --limit, entries for other stations are expected not to match.
+  const stale = args.line || args.limit ? [] : staleConflicts(excluded);
 
   // Stats.
   const live = answers.filter((a) => !a.cached && !a.error);
@@ -202,12 +204,14 @@ async function main() {
     },
     fetchFailures: failures,
     redirects,
+    knownConflicts: { excluded: excluded.map((p) => p.pairKey), stale: stale.map((k) => `${k.lineId}/${k.stationId}/${k.field}: ${k.contains[0]}`) },
   };
 
   mkdirSync(args.out, { recursive: true });
-  writeFileSync(join(args.out, "results.json"), JSON.stringify({ stats, weights: RISK_WEIGHTS, pairs }, null, 1));
-  writeFileSync(join(args.out, "ranked.md"), renderMarkdown(stats, pairs, args.top));
+  writeFileSync(join(args.out, "results.json"), JSON.stringify({ stats, weights: RISK_WEIGHTS, pairs, excluded }, null, 1));
+  writeFileSync(join(args.out, "ranked.md"), renderMarkdown(stats, pairs, excluded, args.top));
   console.log(JSON.stringify({ ...stats, fetchFailures: failures.length, redirects: redirects.length }, null, 1));
+  if (stale.length) console.warn(`known conflicts that matched no claim (check known-conflicts.ts): ${stale.length}`);
   console.log(`wrote ${join(args.out, "results.json")} and ranked.md`);
 }
 
@@ -225,7 +229,7 @@ export function compactLine(rank: number, p: PairRow): string {
   return `${rank} | ${ids.length > 2 ? p.pairKey : lead.id} | ${p.risk.toFixed(2)} | ${sup} | ${con} | ${unmatched} | ${oneLine(text)} | ${(urls.length ? urls : fallback).join(" ") || "no passages"}`;
 }
 
-function renderMarkdown(stats: Record<string, any>, pairs: PairRow[], top: number): string {
+function renderMarkdown(stats: Record<string, any>, pairs: PairRow[], excluded: ExcludedPair[], top: number): string {
   const out: string[] = [];
   out.push(`# Station fact check: claims ranked by risk`, "");
   out.push(`Model ${stats.model}, questions ${stats.questionVersion}, ${stats.generatedAt}.`, "");
@@ -246,9 +250,17 @@ function renderMarkdown(stats: Record<string, any>, pairs: PairRow[], top: numbe
     out.push("");
   }
   out.push(`## Weights`, "", "```json", JSON.stringify(RISK_WEIGHTS, null, 2), "```", "");
+  out.push(`## Known conflicts, left out of the ranking (${excluded.length})`, "", "These claims keep a value that a cited source contradicts, on purpose. See known-conflicts.ts.", "");
+  for (const p of excluded) {
+    out.push(`- **${p.pairKey}** (risk ${p.risk.toFixed(2)}): ${oneLine((p.en.length ? p.en : p.fr).map((c) => c.text).join(" "))}`);
+    out.push(`  Note: ${p.conflict.note} (${p.conflict.ref})`);
+  }
+  if (stats.knownConflicts.stale.length) out.push("", `Entries that matched no claim (the claim changed; check the entry): ${stats.knownConflicts.stale.join("; ")}`);
+  out.push("");
   out.push(`## Top ${Math.min(top, pairs.length)} pairs`, "");
   pairs.slice(0, top).forEach((p, i) => {
     out.push(`### ${i + 1}. ${p.pairKey} (risk ${p.risk.toFixed(2)}${p.disagreement >= 0.15 ? `, EN/FR differ by ${p.disagreement.toFixed(2)}` : ""})`, "");
+    out.push(`Risk parts: ${Object.entries(p.riskParts).map(([k, v]) => `${k} ${v.toFixed(2)}`).join(", ") || "none"}`, "");
     for (const r of [...p.en, ...p.fr]) {
       out.push(`- **${r.id}** risk ${r.risk.toFixed(2)} · supported ${fmt(r.jev.supported)} · contradicted ${fmt(r.jev.contradicted)} · best ${r.jev.bestPassage ?? "–"}${r.jev.error ? ` · error: ${r.jev.error}` : ""}`);
       out.push(`  ${r.text}`);

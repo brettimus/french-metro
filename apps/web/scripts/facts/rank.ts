@@ -1,28 +1,42 @@
 /**
- * Risk scoring. All weights live in RISK_WEIGHTS. A claim's risk adds up its signals; a pair (the EN and FR
- * sentences of one aligned group) takes the riskier locale and adds a term for EN/FR disagreement.
+ * Risk scoring. All weights live in RISK_WEIGHTS. A claim's risk adds up its weighted signals. A pair (the EN and
+ * FR sentences of one aligned group) takes, for each signal, the strongest value among its claims, and adds those up.
+ * The `unsupported` part of a pair is therefore w × (1 − the lowest `supported` of its claims).
+ *
+ * The weights come from the pass-1 review (docs/facts/2026-10-05-fact-check.md, 80 labelled pairs):
+ * - Low `supported` was the best signal for errors and for claims the cited sources do not state, so it dominates.
+ * - Unmatched numbers mostly meant a missing source (the date was in another article), not an error. Weaker weight.
+ * - `best_passage = none` was more frequent for unsourced claims (17 of 32) than for supported ones (8 of 39).
+ * - High `contradicted` was not predictive (25 of 39 supported pairs had ≥ 0.5) and EN/FR disagreement pointed to
+ *   false alarms (21 of 39 supported pairs, none of the confirmed problems). Both have weight 0; they are still
+ *   computed and shown in the report.
+ *
+ * Pairs that match a known source conflict (known-conflicts.ts) are left out of the ranking and returned apart.
  */
 import type { Claim } from "./claims";
 import type { JevAnswer } from "./jev";
+import { KNOWN_CONFLICTS, matchKnownConflict, type KnownConflict } from "./known-conflicts";
 import type { FactMatch } from "./numbers";
 
 export const RISK_WEIGHTS = {
-  /** × Jev `contradicted` (0–1). */
-  contradicted: 0.4,
   /** × (1 − Jev `supported`). */
-  unsupported: 0.3,
+  unsupported: 1,
+  /** × Jev `contradicted` (0–1). Not predictive in pass 1. */
+  contradicted: 0,
   /** Per unmatched number, year or date in the claim (number words count half), up to `unmatchedNumberCap`. */
-  unmatchedNumber: 0.15,
-  unmatchedNumberCap: 0.3,
+  unmatchedNumber: 0.1,
+  unmatchedNumberCap: 0.2,
   /** Jev chose "none" for best_passage, or retrieval found no passage. */
-  noPassage: 0.05,
+  noPassage: 0.1,
   /** A station source link is broken, blocked or unreadable (× 0.5 when only a people link failed). */
-  fetchFailure: 0.1,
-  /** No Jev answer (error): counts as unsupported and not contradicted, plus this. */
+  fetchFailure: 0.05,
+  /** No Jev answer (error): counts as fully unsupported and not contradicted, plus this. */
   jevError: 0.1,
-  /** × |risk(EN) − risk(FR)| for a pair with both locales. */
-  pairDisagreement: 0.2,
+  /** × |risk(EN) − risk(FR)| for a pair with both locales. Pointed to false alarms in pass 1. */
+  pairDisagreement: 0,
 } as const;
+
+export type RiskWeights = { readonly [K in keyof typeof RISK_WEIGHTS]: number };
 
 export type ClaimRow = Claim & {
   numbers: FactMatch[];
@@ -35,14 +49,14 @@ export type ClaimRow = Claim & {
   riskParts: Record<string, number>;
 };
 
-export function unmatchedPenalty(unmatched: FactMatch[], w = RISK_WEIGHTS): number {
+export function unmatchedPenalty(unmatched: FactMatch[], w: RiskWeights = RISK_WEIGHTS): number {
   const units = unmatched.reduce((sum, m) => sum + (m.fact.kind === "word" ? 0.5 : 1), 0);
   return Math.min(w.unmatchedNumberCap, units * w.unmatchedNumber);
 }
 
 export function claimRisk(
   row: Pick<ClaimRow, "unmatched" | "passages" | "jev" | "fetchFailure">,
-  w = RISK_WEIGHTS,
+  w: RiskWeights = RISK_WEIGHTS,
 ): { risk: number; parts: Record<string, number> } {
   const parts: Record<string, number> = {};
   const { jev } = row;
@@ -64,16 +78,26 @@ export function claimRisk(
 export type PairRow = {
   pairKey: string;
   risk: number;
+  /** For each signal, the strongest value among the pair's claims. */
+  riskParts: Record<string, number>;
+  /** |max risk(EN) − max risk(FR)|; shown in the report, weighted by `pairDisagreement`. */
   disagreement: number;
   en: ClaimRow[];
   fr: ClaimRow[];
 };
 
-/** Merge claims by pair key and rank, riskiest first. */
-export function rankPairs(rows: ClaimRow[], w = RISK_WEIGHTS): PairRow[] {
+export type ExcludedPair = PairRow & { conflict: KnownConflict };
+
+/** Merge claims by pair key, set aside known conflicts, and rank the rest, riskiest first. */
+export function rankPairs(
+  rows: ClaimRow[],
+  w: RiskWeights = RISK_WEIGHTS,
+  conflicts: KnownConflict[] = KNOWN_CONFLICTS,
+): { pairs: PairRow[]; excluded: ExcludedPair[] } {
   const byPair = new Map<string, ClaimRow[]>();
   for (const r of rows) byPair.set(r.pairKey, [...(byPair.get(r.pairKey) ?? []), r]);
   const pairs: PairRow[] = [];
+  const excluded: ExcludedPair[] = [];
   for (const [pairKey, group] of byPair) {
     const en = group.filter((r) => r.locale === "en");
     const fr = group.filter((r) => r.locale === "fr");
@@ -81,10 +105,24 @@ export function rankPairs(rows: ClaimRow[], w = RISK_WEIGHTS): PairRow[] {
     const re = maxOf(en);
     const rf = maxOf(fr);
     const disagreement = re !== undefined && rf !== undefined ? Math.abs(re - rf) : 0;
-    const base = Math.max(re ?? 0, rf ?? 0);
-    pairs.push({ pairKey, risk: round(base + w.pairDisagreement * disagreement), disagreement: round(disagreement), en, fr });
+    const parts: Record<string, number> = {};
+    for (const r of group) for (const [k, v] of Object.entries(r.riskParts)) parts[k] = Math.max(parts[k] ?? 0, v);
+    if (w.pairDisagreement * disagreement > 0) parts.disagreement = round(w.pairDisagreement * disagreement);
+    const risk = round(Object.values(parts).reduce((a, b) => a + b, 0));
+    const pair: PairRow = { pairKey, risk, riskParts: parts, disagreement: round(disagreement), en, fr };
+    const first = group[0]!;
+    const conflict = matchKnownConflict({ lineId: first.lineId, stationId: first.stationId, field: first.field, texts: group.map((r) => r.text) }, conflicts);
+    if (conflict) excluded.push({ ...pair, conflict });
+    else pairs.push(pair);
   }
-  return pairs.sort((a, b) => b.risk - a.risk || a.pairKey.localeCompare(b.pairKey));
+  const order = (a: PairRow, b: PairRow) => b.risk - a.risk || a.pairKey.localeCompare(b.pairKey);
+  return { pairs: pairs.sort(order), excluded: excluded.sort(order) };
+}
+
+/** Known conflicts that matched no pair: the claim was rewritten or removed, so the entry needs a check. */
+export function staleConflicts(excluded: ExcludedPair[], conflicts: KnownConflict[] = KNOWN_CONFLICTS): KnownConflict[] {
+  const used = new Set(excluded.map((e) => e.conflict));
+  return conflicts.filter((k) => !used.has(k));
 }
 
 export const round = (x: number, d = 3) => Math.round(x * 10 ** d) / 10 ** d;
