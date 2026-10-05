@@ -4,3 +4,5 @@ timestamp	config	config_sha	split	filters	items	positives	primary_ap	ap_ci	auc	c
 2026-10-05T14:48:06.239Z	baseline	f682829734	dev	noplanted	138	54	0.71	0.58–0.842	0.792	0.077	NaN	286	0	0	0.0000	0.1		baseline without planted errors
 2026-10-05T14:57:33.136Z	baseline	b47ca1e34e	dev	all	165	81	0.84	0.751–0.918	0.851	0	0.37	341	0	0	0.0000	0.1		tie-aware AP and recall@20
 2026-10-05T14:57:33.251Z	baseline	b47ca1e34e	dev	noplanted	138	54	0.709	0.589–0.838	0.792	0.077	NaN	286	0	0	0.0000	0.1		tie-aware AP and recall@20, no planted
+2026-10-05T15:00:13.984Z	overstated	410c0648f8	dev	all	165	81	0.842	0.753–0.921	0.847	0	0.37	682	340	583752	0.0245	5.9	0.649	
+2026-10-05T15:00:14.207Z	overstated	410c0648f8	dev	noplanted	138	54	0.713	0.591–0.846	0.786	0.077	NaN	572	0	0	0.0000	0.2	0.76	
