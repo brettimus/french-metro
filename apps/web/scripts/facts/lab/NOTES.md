@@ -175,3 +175,23 @@ One entry per loop iteration. Primary = AP on dev (all items); guard = AP on dev
   −0.004, planted −0.002. The small parts (`noPassage`, numbers, fetch) cannot move the ranking much at their
   current weights; the ranking is set by `unsupported`. Gains must come from a better `supported` value or from
   a combiner that sets the weights (idea 8).
+
+## Iteration 10: contra2 (KEEP)
+
+- **Hypothesis:** RISK_WEIGHTS gives `contradicted` weight 0, because it did not predict problems in pass 1. But per
+  claim on dev, the passage `contradicted` is 0.77 on planted errors (47 of 55 claims above 0.5) against 0.29 on
+  supported claims (27 of 173), and 0.28–0.36 on the real problem classes. So it adds a signal for single-detail
+  errors that `supported` ranks only partly.
+- **Change:** `configs/contra2.ts` = blendsrc, plus the passage answer's `contradicted` at weight 0.2 (pair takes the
+  max over its claims, as for the other small parts). No new Jev calls. A dry-run sweep on dev (not logged) showed a
+  plateau: weight 0.1 → AP 0.900, 0.2 → 0.907, 0.3 → 0.905. The blend weight of the whole-source answer (0.5, 0.6,
+  0.7) changed AP by at most 0.004, and the blended (passage + whole source) `contradicted` was not better than the
+  passage one.
+- **Result:** AP 0.878 → 0.907 (p_better 0.82). No planted: 0.792 → 0.805 (p_better 0.71). AUC 0.902 → 0.903 (no
+  planted 0.872 → 0.867). confR20 0 → 0 (no planted 0.077 → 0.077). plantR20 0.37 → 0.63, plantAuc 0.962 → 0.974.
+- **Decision:** KEEP (AP +0.029, guard improves by 0.013).
+- **Learned:** Mean pair score change: planted +0.161 (24 of 27 up by more than 0.1), supported +0.072, confirmed
+  +0.073, refuted +0.079, unsourced +0.057. Most of the gain is on planted errors, so the gain on real problems is
+  small and AUC with no planted errors goes down a little. Only 1 supported pair is in the top 20 (gare-de-l'est
+  etymology/2, pass 1 line 5). The val run must confirm that the planted gain is not specific to dev. Real confirmed
+  problems (wording faults) are still not found: `contradicted` does not see them either.
