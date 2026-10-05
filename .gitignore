@@ -17,3 +17,6 @@ apps/web/scripts/facts/out/
 # Browser bundle (built by `bun run build`, `dev` and `test`)
 apps/web/public/app-*.js
 apps/web/public/build.json
+
+# Agent worktrees
+.claude/
