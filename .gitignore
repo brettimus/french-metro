@@ -6,3 +6,6 @@ playwright-report/
 *.sqlite-*
 .env
 .DS_Store
+
+# Copy evaluator output
+apps/web/scripts/copy/out/
