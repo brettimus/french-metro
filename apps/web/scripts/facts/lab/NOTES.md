@@ -286,3 +286,20 @@ One entry per loop iteration. Primary = AP on dev (all items); guard = AP on dev
   passages for a third of the unsourced claims: for these, the reviewer did not accept the source as support for the
   claim as written. So the reviewer's "supported" is not "main fact stated"; the strict question is closer to the
   labels. Questions that change how strict 'supported' is (overstated, qualifier, support level, main fact) all fail.
+
+## Held-out check (val, --final, once per config)
+
+| config | AP | AP 95% CI | AUC | confR20 | plantR20 | plantAuc | no-planted AP* | no-planted AUC* |
+|---|---|---|---|---|---|---|---|---|
+| baseline | 0.862 | 0.749–0.948 | 0.811 | 0.667 | 0.692 | 0.877 | 0.745 | 0.758 |
+| contra2 | 0.890 | 0.795–0.960 | 0.842 | 0.333 | 0.769 | 0.942 | 0.747 | 0.760 |
+
+\* computed offline from lab/out/<config>.val.json (the harness allows one val row per config). Val has 53 items, 29
+positives: 24 supported, 11 unsourced, 3 confirmed, 2 refuted, 13 planted.
+
+- Paired bootstrap p_better(contra2 > baseline): 0.815 on all items, 0.54 with no planted errors.
+- Mean score change contra2 − baseline: planted +0.107; supported −0.121; refuted −0.140; real confirmed −0.178;
+  unsourced −0.008. contra2 had 10 Jev errors on val (whole-source states; the claim uses the passage answer).
+- **Decision:** ship contra2. It is not worse than baseline on val. The val gain is almost all on planted errors, as
+  on dev; on real problems with no planted errors it is equal to baseline (0.747 vs 0.745). confR20 falls 0.667 →
+  0.333, but val has only 3 real confirmed pairs, so this is one pair.

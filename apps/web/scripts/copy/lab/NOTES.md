@@ -56,3 +56,17 @@
 - **Result (dev):** primary 0.612 -> 0.593. S5 0.593 -> 0.540 (bias -0.03 -> -0.07). Side effect S2 0.719 -> 0.640; native 0.308 -> 0.288. Other dims unchanged. Tell F1 0.654 -> 0.692. Planted recall 7/15 (same).
 - **Decision:** DISCARD (primary falls).
 - **Learned:** the new level-2 text does separate the editors' level 2 from level 3 better: on the raw S5 scores, AUC label 2 vs 3 rose from 0.78 to 0.92 (Concorde 1.53 -> 1.04, Jasmin 1.48 -> 1.05, Exelmans 1.72 -> 1.30, Porte de Saint-Cloud FR 1.77 -> 1.38). But all scores moved down, many label-3 notes crossed the 1.5 cutoff (Cadet EN 1.29, Reuilly-Diderot FR 1.37, Nationale EN 1.44), and the label-1 context notes moved up (AUC 1 vs 3 fell from 0.87 to 0.66; Villejuif EN 0.40 higher). An offline cutoff grid with the length caps found no cutoff where the new question beats the old one. The S2 drop (-0.079) is a side effect of the S5 wording in the same request, like iter 3 and 6. If S5 is changed again, the level-2 structure criteria are worth keeping, but level 1 (no antecedent) must stay as strong as before; a separate S5 request would avoid the S2 side effect, but the lab config interface has one unit request.
+
+## Held-out check (test, --final, once per config)
+
+| config | primary | S1 | S2 | S3 | S4 | S5 | S6 | S7 | native | within1 | tell F1 | planted |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| baseline | 0.085 | 0.000 | 0.359 | 0.000 | 0.000 | 0.010 | 0.000 | 0.227 | 0.381 | 0.945 | 0.688 | 11/15 |
+| s4-wordy | 0.126 | 0.000 | 0.333 | 0.000 | 0.000 | 0.010 | 0.000 | 0.536 | 0.467 | 0.952 | 0.710 | 11/15 |
+
+- Test has 55 units. On S1, S3, S4 and S6 the QWK is 0 for both configs: exact agreement is 0.80 to 0.97, so the
+  labels are almost all one level and kappa has no information. The primary on test therefore depends on S2, S5 and S7.
+- The test gain (+0.041) is all from S7 (0.227 → 0.536, n = 20), which is the iteration 1 change (s7-opening). The
+  S4 change (iteration 2) has no measurable effect on test (S4 exact 0.97 in both). S2 falls a little (0.359 → 0.333).
+- **Decision:** ship s4-wordy (it includes s7-opening). It is not worse than baseline on test. The S4 wording is
+  not confirmed by test; only the S7 criteria are.
