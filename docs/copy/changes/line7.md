@@ -255,3 +255,36 @@ Fixed:
 - pont-neuf/etymology/en: “The name means “new bridge”, but it is now the oldest surviving bridge” made “it” refer to the name, not the bridge. Now: “Despite its name, which means “new bridge”, it is now the oldest surviving bridge in Paris. It was built without houses and with pavements for pedestrians.” This also matches FR « Malgré son nom ».
 
 No facts were lost or changed in the other units.
+
+
+## Fact check 2026-10-05
+
+No confirmed errors. Text is unchanged. Sources were added for five claims that were true but not supported by the cited sources.
+
+### place-ditalie/context (en/fr)
+- Claim: the platforms belonged to Line 10 in 1930 and transferred to Line 7 in 1931, when the tunnel beneath the Seine connected the sections.
+- Added source: Ligne 7 du métro de Paris · Wikipédia (https://fr.wikipedia.org/wiki/Ligne_7_du_m%C3%A9tro_de_Paris).
+- Evidence: « 26 avril 1931 : traversée de la Seine, raccordement à Place Monge au tronçon déjà construit et exploité par la ligne 10 et prolongement au sud jusqu'à Porte d'Ivry ». The station article gives the 1930 opening and the 1931 transfer but does not mention the tunnel.
+
+### place-monge/context (en/fr)
+- Claim: the station transferred to Line 7 in 1931 when the river crossing was completed.
+- Added source: Ligne 7 du métro de Paris · Wikipédia. The default station source is now listed explicitly because the entry needed a `sources` array.
+- Evidence: same 26 April 1931 line in the Line 7 timeline.
+
+### gare-de-lest/context (en/fr)
+- Claim: Line 7 arrived in 1910.
+- Added source: Ligne 7 du métro de Paris · Wikipédia.
+- Evidence: the first section, Opéra – Porte de la Villette, which includes Gare de l’Est, opened on 5 November 1910. The station article has no opening dates.
+
+### maison-blanche/context (en/fr)
+- Claim: the branch to Le Kremlin-Bicêtre opened in 1982; Line 14 added an interchange in 2024.
+- Added source: Le Kremlin-Bicêtre · Wikipédia (https://fr.wikipedia.org/wiki/Le_Kremlin-Bic%C3%AAtre_(m%C3%A9tro_de_Paris)). The default Maison Blanche source is now listed explicitly.
+- Evidence: « La station est ouverte le 10 décembre 1982, lors de la première phase de la création d'une branche de la ligne 7 qui se détache à Maison Blanche en direction de Villejuif. » The Maison Blanche article supports 2024 (« Le 24 juin 2024, la station est ouverte au public »).
+- Not changed: the reviewer suggested an optional note that 1982 was only the first section. The text already says “to Le Kremlin-Bicêtre”, which is correct.
+
+### mairie-divry/context (en/fr)
+- Claim: the other southern branch separates from this route at Maison Blanche.
+- Added source: Maison Blanche · Wikipédia (https://fr.wikipedia.org/wiki/Maison_Blanche_(m%C3%A9tro_de_Paris)).
+- Evidence: « il s'agit de la dernière station du tronc commun de la ligne avant que ne se séparent, grâce à un saut-de-mouton souterrain situé après la station, les branches vers Mairie d'Ivry et vers Villejuif - Louis Aragon. »
+
+Checks: `bun run typecheck` and `bun run test` pass (104 tests).

@@ -186,3 +186,7 @@ Remaining concerns:
 
 - `station/9/oberkampf` etymology now differs from `station/5/oberkampf` etymology (the 1760 and 1783 facts moved into the Line 5 etymology only). The Line 9 context still holds the 1760/1783 sentences and the evaluative textile-pattern sentence. The Line 9 owner must decide whether to align.
 - `station/5/ourcq/context/fr` mixes the historical present (« n'ouvre ») with the imperfect (« traversaient »). It is acceptable French, but a strict present-tense house style would use « traversent ».
+
+## Fact check 2026-10-05
+
+- republique: added "Place de la République · Wikipédia" (https://fr.wikipedia.org/wiki/Place_de_la_R%C3%A9publique_(Paris)), so Line 5 cites the same sources as Line 9 for the shared etymology: « porte depuis 1879 son nom actuel qui lui est donné dans le cadre du projet d'érection d'une statue de la République ». Copy not changed.

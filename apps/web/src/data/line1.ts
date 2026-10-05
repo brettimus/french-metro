@@ -47,6 +47,7 @@ const stations: Station[] = [
     "In 1997 the station took the shorter name La Défense, to match the adjoining RER station. It is Line 1’s western terminus, beside the district’s business towers.",
     "En 1997, la station prend le nom plus court de La Défense, pour correspondre à la station RER voisine. Elle est le terminus ouest de la ligne 1, au pied des tours du quartier d’affaires.",
     1992,
+    { sources: [source("Ligne 1 du métro de Paris · Wikipédia", wiki("Ligne 1 du métro de Paris"))] },
   ),
   station(
     "esplanade-de-la-defense",
@@ -91,11 +92,12 @@ const stations: Station[] = [
     "Porte Maillot",
     "Paris 16e / 17e",
     "gate",
-    "Called Porte Maillot for the historic gate of the Bois de Boulogne enclosure built under Henri II. The origin of the word Maillot is uncertain: perhaps an old mallet game, or more speculatively the 1382 Maillotins revolt.",
-    "La station doit son nom à la porte Maillot, ancienne porte de l’enceinte du Bois de Boulogne bâtie sous Henri II. L’origine du mot « Maillot » est incertaine : peut-être un ancien jeu de mail, ou plus spéculativement la révolte des Maillotins de 1382.",
+    "Called Porte Maillot for the historic gate of the Bois de Boulogne enclosure built under Henri II. The origin of the word Maillot is uncertain: perhaps an old mallet game played in the wood, or the 1382 Maillotins revolt.",
+    "La station doit son nom à la porte Maillot, ancienne porte de l’enceinte du Bois de Boulogne bâtie sous Henri II. L’origine du mot « Maillot » est incertaine : peut-être un ancien jeu de mail dans le bois, ou la révolte des Maillotins de 1382.",
     "Porte Maillot opened as a loop terminus on 19 July 1900, the line’s first day. In 1936 or 1937, a new station about 100 metres away replaced it, for the extension to Pont de Neuilly.",
     "Porte Maillot ouvre le 19 juillet 1900, premier jour de la ligne, comme terminus en boucle. En 1936 ou 1937, une nouvelle station, à une centaine de mètres, la remplace pour le prolongement vers Pont de Neuilly.",
     1900,
+    { sources: [source("Porte Maillot · Wikipédia", wiki("Porte Maillot"))] },
   ),
   station(
     "argentine",
@@ -249,8 +251,8 @@ const stations: Station[] = [
     "gate",
     "Called Bastille after the square marking the site of the Bastille fortress and prison, demolished after its storming during the French Revolution in 1789.",
     "La station doit son nom à la place qui occupe l’emplacement de la Bastille, forteresse devenue prison, démolie après sa prise pendant la Révolution française de 1789.",
-    "A bridge over the Canal Saint-Martin, at the north end of the Arsenal basin, carries the Line 1 platforms. This position was chosen to avoid the foundations of the July Column.",
-    "Un pont au-dessus du canal Saint-Martin, à l’extrémité nord du bassin de l’Arsenal, porte les quais de la ligne 1. Cet emplacement a été choisi pour éviter les fondations de la colonne de Juillet.",
+    "Part of the Line 1 platforms stands on a bridge over the Canal Saint-Martin, at the north end of the Arsenal basin. This position was chosen to avoid the foundations of the July Column.",
+    "Une partie des quais de la ligne 1 repose sur un pont au-dessus du canal Saint-Martin, à l’extrémité nord du bassin de l’Arsenal. Cet emplacement a été choisi pour éviter les fondations de la colonne de Juillet.",
     1900,
   ),
   station(
@@ -264,6 +266,7 @@ const stations: Station[] = [
     "Line 1’s platforms were built 100 metres long, against 75 elsewhere on the line. The station has four tracks and two central platforms, so that trains of the circular line of the time could also stop here. That never happened.",
     "Les quais de la ligne 1 mesurent 100 mètres, contre 75 ailleurs sur la ligne. La station compte quatre voies et deux quais centraux, pour que les trains de la ligne circulaire de l’époque s’y arrêtent aussi. Ce projet n’a jamais été réalisé.",
     1900,
+    { sources: [source("Paris-Gare-de-Lyon · Wikipédia", wiki("Paris-Gare-de-Lyon"))] },
   ),
   station(
     "reuilly-diderot",
@@ -289,6 +292,7 @@ const stations: Station[] = [
     "The square was renamed Place du Trône-Renversé from 1792. For Line 1’s automation project, the station’s platforms were raised over the weekend of 12 to 13 September 2009.",
     "La place devient place du Trône-Renversé à partir de 1792. Pour le projet d’automatisation de la ligne 1, les quais de la station sont rehaussés le week-end du 12 au 13 septembre 2009.",
     1900,
+    { sources: [source("Place de la Nation · Wikipédia", wiki("Place de la Nation (Paris)"))] },
   ),
   station(
     "porte-de-vincennes",
@@ -301,6 +305,12 @@ const stations: Station[] = [
     "The station opened on 19 July 1900 as the original eastern terminus, with a looping double-tunnel layout. It lost that role when the line reached Château de Vincennes in 1934.",
     "La station ouvre le 19 juillet 1900 comme terminus est d’origine, avec un double tunnel en boucle. Elle perd ce rôle lorsque la ligne atteint le château de Vincennes en 1934.",
     1900,
+    {
+      sources: [
+        source("Portes de Paris · Wikipédia", wiki("Portes de Paris")),
+        source("Enceinte de Thiers · Wikipédia", wiki("Enceinte de Thiers")),
+      ],
+    },
   ),
   station(
     "saint-mande",
@@ -308,11 +318,17 @@ const stations: Station[] = [
     "Saint-Mandé",
     "Saint-Mandé",
     "towers",
-    "Named for the neighbouring town of Saint-Mandé. The station opened on 24 March 1934 as Tourelle, for the Château de Vincennes’ outlying defensive towers, and became Saint-Mandé – Tourelle on 26 April 1937.",
-    "La station doit son nom à la commune voisine de Saint-Mandé. Ouverte le 24 mars 1934 sous le nom de Tourelle, d’après les tourelles défensives du château de Vincennes, elle devient Saint-Mandé – Tourelle le 26 avril 1937.",
+    "Named for the town of Saint-Mandé, where it stands, on the boundary with Vincennes. The station opened on 24 March 1934 as Tourelle, for the Château de Vincennes’ outlying defensive towers, and became Saint-Mandé – Tourelle on 26 April 1937.",
+    "La station doit son nom à la commune de Saint-Mandé, où elle se trouve, à la limite de Vincennes. Ouverte le 24 mars 1934 sous le nom de Tourelle, d’après les tourelles défensives du château de Vincennes, elle devient Saint-Mandé – Tourelle le 26 avril 1937.",
     "The 1937 rename followed a change on Line 6: its Saint-Mandé station became Picpus on 1 March 1937, which freed the name. Tourelle was dropped later, at some point between the late 1990s and 2002.",
     "Le changement de 1937 suit celui de la ligne 6 : sa station Saint-Mandé devient Picpus le 1er mars 1937, ce qui libère le nom. Tourelle est abandonné plus tard, entre la fin des années 1990 et 2002.",
     1934,
+    {
+      sources: [
+        source("Saint-Mandé station · Wikipedia", wiki("Saint-Mandé station", "en")),
+        source("Picpus · Wikipédia", wiki("Picpus (métro de Paris)")),
+      ],
+    },
   ),
   station(
     "berault",
@@ -325,7 +341,10 @@ const stations: Station[] = [
     "Opened in 1934, the station became the prototype for Line 1’s automation renovation. Its platforms were raised in July 2008, and it was the first on the line fitted with platform screen doors, in February 2009.",
     "Ouverte en 1934, la station devient le prototype de la rénovation liée à l’automatisation de la ligne 1. Ses quais sont rehaussés en juillet 2008, et elle est la première de la ligne équipée de portes palières, en février 2009.",
     1934,
-    { people: [biography("Michel Bérault", "Bérault station", "Place Bérault")] },
+    {
+      sources: [source("Ligne 1 du métro de Paris · Wikipédia", wiki("Ligne 1 du métro de Paris"))],
+      people: [biography("Michel Bérault", "Bérault station", "Place Bérault")],
+    },
   ),
   station(
     "chateau-de-vincennes",
@@ -338,6 +357,7 @@ const stations: Station[] = [
     "The station closed from 24 to 27 September 2009, during Line 1’s automation works. Bérault was the line’s temporary eastern terminus in that period.",
     "Pendant les travaux d’automatisation de la ligne 1, la station ferme du 24 au 27 septembre 2009. Bérault est alors le terminus est provisoire de la ligne.",
     1934,
+    { sources: [source("Ligne 1 du métro de Paris · Wikipédia", wiki("Ligne 1 du métro de Paris"))] },
   ),
 ];
 

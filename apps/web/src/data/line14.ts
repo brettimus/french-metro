@@ -79,6 +79,10 @@ export const line14: MetroLine = {
           url: "https://fr.wikipedia.org/wiki/Mairie_de_Saint-Ouen_(m%C3%A9tro_de_Paris)",
         },
         {
+          label: "Hôtel de ville de Saint-Ouen-sur-Seine · Wikipédia",
+          url: "https://fr.wikipedia.org/wiki/H%C3%B4tel_de_ville_de_Saint-Ouen-sur-Seine",
+        },
+        {
           label: "Saint-Ouen-sur-Seine · Histoire",
           url: "https://www.saint-ouen.fr/vie-quotidienne/culture-et-patrimoine/histoire-et-patrimoine/histoire-de-saint-ouen-sur-seine/",
         },
@@ -129,7 +133,7 @@ export const line14: MetroLine = {
     {
       id: "porte-de-clichy",
       name: "Porte de Clichy",
-      area: "Paris · 17e",
+      area: "Paris 17e",
       art: "gate",
       etymology: {
         en: "Called Porte de Clichy after the former city gate on the road towards Clichy. “Porte” means gate: the name preserves an entrance through the nineteenth-century fortifications of Paris and the town reached beyond it.",
@@ -153,7 +157,7 @@ export const line14: MetroLine = {
     {
       id: "pont-cardinet",
       name: "Pont Cardinet",
-      area: "Paris · 17e",
+      area: "Paris 17e",
       art: "station",
       etymology: {
         en: "Called Pont Cardinet after the bridge that carries Rue Cardinet over the railway tracks. The street bears the name of a local property owner, Philippe Cardinet.",
@@ -181,7 +185,7 @@ export const line14: MetroLine = {
     {
       id: "saint-lazare",
       name: "Saint-Lazare",
-      area: "Paris · 8e",
+      area: "Paris 8e",
       art: "hospital",
       etymology: {
         en: "Called Saint-Lazare after the nearby railway station and Rue Saint-Lazare. The street led to the Maison Saint-Lazare, a leper hospital dedicated to Saint Lazarus.",
@@ -209,7 +213,7 @@ export const line14: MetroLine = {
     {
       id: "madeleine",
       name: "Madeleine",
-      area: "Paris · 8e",
+      area: "Paris 8e",
       art: "temple",
       etymology: {
         en: "Called Madeleine after Place de la Madeleine and the church at its centre. The church is dedicated to Mary Magdalene, called Marie Madeleine in French.",
@@ -238,7 +242,7 @@ export const line14: MetroLine = {
     {
       id: "pyramides",
       name: "Pyramides",
-      area: "Paris · 1er",
+      area: "Paris 1er",
       art: "square",
       etymology: {
         en: "Called Pyramides after Rue des Pyramides, which commemorates Bonaparte’s victory over the Mamluks at the Battle of the Pyramids in 1798, during the French campaign in Egypt.",
@@ -267,7 +271,7 @@ export const line14: MetroLine = {
     {
       id: "chatelet",
       name: "Châtelet",
-      area: "Paris · 1er / 4e",
+      area: "Paris 1er / 4e",
       art: "gate",
       etymology: {
         en: "Called Châtelet after Place du Châtelet, laid out on the site of the Grand Châtelet. This fortress was a court and prison before its demolition in the early nineteenth century.",
@@ -291,7 +295,7 @@ export const line14: MetroLine = {
     {
       id: "gare-de-lyon",
       name: "Gare de Lyon",
-      area: "Paris · 12e",
+      area: "Paris 12e",
       art: "station",
       etymology: {
         en: "Called Gare de Lyon because it serves the railway terminus of that name. Lyon refers to the city its railway line was built to reach, in south-eastern France.",
@@ -319,7 +323,7 @@ export const line14: MetroLine = {
     {
       id: "bercy",
       name: "Bercy",
-      area: "Paris · 12e",
+      area: "Paris 12e",
       art: "market",
       etymology: {
         en: "Called Bercy after rue de Bercy and boulevard de Bercy, which meet at the station. Both preserve the name of the former settlement of Bercy, much of which became part of Paris in 1860.",
@@ -339,7 +343,7 @@ export const line14: MetroLine = {
     {
       id: "cour-saint-emilion",
       name: "Cour Saint-Émilion",
-      area: "Paris · 12e",
+      area: "Paris 12e",
       art: "market",
       etymology: {
         en: "Called Cour Saint-Émilion after the nearby courtyard in the former Bercy wine warehouses. Its name refers to Saint-Émilion, the Bordeaux wine-producing town and appellation. The courtyard name records the trade once carried on here.",
@@ -363,7 +367,7 @@ export const line14: MetroLine = {
     {
       id: "bibliotheque-francois-mitterrand",
       name: "Bibliothèque François-Mitterrand",
-      area: "Paris · 13e",
+      area: "Paris 13e",
       art: "towers",
       etymology: {
         en: "Called Bibliothèque François-Mitterrand after the nearby François-Mitterrand site of the Bibliothèque nationale de France. The site is named after President François Mitterrand, who initiated its construction.",
@@ -397,7 +401,7 @@ export const line14: MetroLine = {
     {
       id: "olympiades",
       name: "Olympiades",
-      area: "Paris · 13e",
+      area: "Paris 13e",
       art: "modern",
       etymology: {
         en: "Called Olympiades after the nearby housing development and its raised pedestrian deck. The development uses an Olympic theme: its towers bear names of cities that hosted the Olympic Games.",
@@ -417,7 +421,7 @@ export const line14: MetroLine = {
     {
       id: "maison-blanche",
       name: "Maison Blanche",
-      area: "Paris · 13e",
+      area: "Paris 13e",
       art: "house",
       etymology: {
         en: "Called Maison Blanche after the surrounding district. The district took its name from an inn called “Maison Blanche”, French for “white house”.",
@@ -444,13 +448,21 @@ export const line14: MetroLine = {
         fr: "La station doit son nom à l’hôpital Bicêtre qu’elle dessert. Bicêtre est une transformation française de Winchester : Jean de Pontoise, évêque de Winchester, avait acquis le domaine médiéval.",
       },
       context: {
-        en: "The hospital’s history traces the name through the forms Winchester, Bicestre and Bicêtre. The station’s project name was Kremlin-Bicêtre Hôpital. A public consultation in 2022 selected the shorter Hôpital Bicêtre, putting the medical institution first on the sign.",
-        fr: "L’histoire de l’hôpital rattache le nom aux formes Winchester, Bicestre et Bicêtre. Le projet de station portait d’abord le nom Kremlin-Bicêtre Hôpital. Une consultation publique en 2022 a retenu Hôpital Bicêtre, une forme plus courte qui place l’établissement médical en tête.",
+        en: "The name passed through the forms Winchester, Bicestre and Bicêtre. The station’s project name was Kremlin-Bicêtre Hôpital. A public consultation in 2022 selected the shorter Hôpital Bicêtre, putting the medical institution first on the sign.",
+        fr: "Le nom est passé par les formes Winchester, Bicestre et Bicêtre. Le projet de station portait d’abord le nom Kremlin-Bicêtre Hôpital. Une consultation publique en 2022 a retenu Hôpital Bicêtre, une forme plus courte qui place l’établissement médical en tête.",
       },
       sources: [
         {
           label: "Hôpital Bicêtre (métro de Paris) · Wikipédia",
           url: "https://fr.wikipedia.org/wiki/H%C3%B4pital_Bic%C3%AAtre_(m%C3%A9tro_de_Paris)",
+        },
+        {
+          label: "Bicêtre · Wikipédia",
+          url: "https://fr.wikipedia.org/wiki/Bic%C3%AAtre",
+        },
+        {
+          label: "Le Kremlin-Bicêtre · Wikipédia",
+          url: "https://fr.wikipedia.org/wiki/Le_Kremlin-Bic%C3%AAtre",
         },
         {
           label: "AP-HP · Hôpital Bicêtre",
@@ -487,6 +499,10 @@ export const line14: MetroLine = {
         {
           label: "Gustave Roussy · Histoire",
           url: "https://www.gustaveroussy.com/fr/histoire-linstitut",
+        },
+        {
+          label: "Gustave-Roussy · Wikipédia",
+          url: "https://fr.wikipedia.org/wiki/Gustave-Roussy",
         },
         {
           label: "Île-de-France Mobilités · Noms choisis en 2022",
@@ -569,17 +585,21 @@ export const line14: MetroLine = {
       area: "Thiais / Orly",
       art: "station",
       etymology: {
-        en: "Called Thiais – Orly to identify the two neighbouring municipalities served by the station. The compound name replaced the project name Pont de Rungis.",
-        fr: "La station doit son nom aux deux communes voisines de Thiais et d’Orly qu’elle dessert. Ce nom composé a remplacé le nom de projet Pont de Rungis.",
+        en: "Called Thiais – Orly after Thiais, where the station stands, and the neighbouring municipality of Orly. The compound name replaced the project name Pont de Rungis.",
+        fr: "La station doit son nom à Thiais, où elle se trouve, et à la commune voisine d’Orly. Ce nom composé a remplacé le nom de projet Pont de Rungis.",
       },
       context: {
-        en: "The name was confirmed in 2022 after local authorities requested changes to the southern extension’s station names. Pont de Rungis remains the name of the connecting RER C station. The two names therefore describe the same interchange through different local references.",
-        fr: "Le nom a été confirmé en 2022 après les demandes des collectivités concernant les stations du prolongement sud. Pont de Rungis reste le nom de la gare du RER C en correspondance. Les deux noms désignent ainsi un même pôle à partir de repères locaux différents.",
+        en: "The station was renamed in September 2022, after local elected officials objected to some of the southern extension’s station names. Pont de Rungis was kept as its subtitle and remains the name of the connecting RER C station. The two names therefore describe the same interchange through different local references.",
+        fr: "La station a été renommée en septembre 2022, après les objections d’élus locaux à certains noms de stations du prolongement sud. Pont de Rungis a été conservé en sous-titre et reste le nom de la gare du RER C en correspondance. Les deux noms désignent ainsi un même pôle à partir de repères locaux différents.",
       },
       sources: [
         {
           label: "Thiais - Orly (métro de Paris) · Wikipédia",
           url: "https://fr.wikipedia.org/wiki/Thiais_-_Orly_(m%C3%A9tro_de_Paris)",
+        },
+        {
+          label: "Thiais–Orly station · Wikipedia",
+          url: "https://en.wikipedia.org/wiki/Thiais%E2%80%93Orly_station",
         },
         {
           label: "Val-de-Marne · Noms des stations",

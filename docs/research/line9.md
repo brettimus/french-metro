@@ -132,7 +132,7 @@ Named for Rue de Miromesnil, honouring magistrate Armand Thomas Hue de Miromesni
 
 ### 18. Saint-Augustin
 
-Named for Place Saint-Augustin, itself named for the adjoining Église Saint-Augustin, dedicated to Augustine of Hippo (354-430). Opened 27 May 1923 as the line's north-eastern terminus; it held that role for only a week, until the extension to Chaussée d'Antin – La Fayette opened on 3 June 1923.
+Named for Place Saint-Augustin, itself named for the adjoining Église Saint-Augustin, dedicated to Augustine of Hippo (354-430). Opened 27 May 1923 as the line's north-eastern terminus; it held that role for only a week, until the extension to Chaussée d'Antin – La Fayette opened on 3 June 1923. The station lies under Boulevard Haussmann, east of Place Saint-Augustin, at the north of the Madeleine quartier on its administrative boundary with the Europe quartier. No administrative quartier is named Saint-Augustin (fact check 2026-10-05).
 
 - [Saint-Augustin · Wikipédia](https://fr.wikipedia.org/wiki/Saint-Augustin_(m%C3%A9tro_de_Paris))
 
@@ -236,7 +236,7 @@ Named for the former gate in the Thiers fortifications, which controlled the roa
 
 ### 35. Robespierre
 
-Named for Rue Robespierre, honouring lawyer and revolutionary Maximilien de Robespierre (1758-1794). Montreuil's Communist town council gave the name to the station, then under construction, in 1936, at the initiative of Jacques Duclos. (Corrected: the draft said the street was named in 1936; the source says the station.) Opened 14 October 1937 with the line's final extension, from Porte de Montreuil to Mairie de Montreuil. The English article lists two entrances and marks only the Rue Barbès entrance as Art Deco; the draft's "both entrances" is not supported.
+Named for Rue Robespierre, honouring lawyer and revolutionary Maximilien de Robespierre (1758-1794). Montreuil's Communist town council gave the name to the station, then under construction, in 1936, at the initiative of Jacques Duclos. (Corrected: the draft said the street was named in 1936; the source says the station.) Opened 14 October 1937 with the line's final extension, from Porte de Montreuil to Mairie de Montreuil. The French station article calls both entrances Art Deco édicules; the Rue Robespierre one is aligned with the neighbouring facade at no. 187 rue de Paris, rare on the network. (Fact check 2026-10-05: an earlier note here used only the English article, which marks only the Rue Barbès entrance.)
 
 - [Robespierre · Wikipédia](https://fr.wikipedia.org/wiki/Robespierre_(m%C3%A9tro_de_Paris))
 - [Robespierre station · Wikipedia](https://en.wikipedia.org/wiki/Robespierre_station)
@@ -297,7 +297,7 @@ Independent verification pass, 29 September 2026. Every station section above wa
 21. Rue des Boulets: added the intermediate name Boulets – Montreuil and the fact that the source gives three hypotheses for "Boulets".
 22. Nation: removed the 1968 turnstile test, which the source marks "référence nécessaire". Place-name history now uses exact dates from the Place de la Nation article (26 August 1660, 10 August 1792, 14 July 1880). An alternative context fact is proposed.
 23. Buzenval: the Palais Avron was not "demolished". The English article says the building has been a supermarket since 1977. The Palais Avron opening date is disputed between sources and must not be used.
-24. Robespierre: the draft said the street was named in 1936. The source says Montreuil's council gave the name to the station, then under construction, in 1936, at Jacques Duclos's initiative. The draft said "both entrances keep 1930s Art Deco styling"; only the Rue Barbès entrance is marked Art Deco in the English article.
+24. Robespierre: the draft said the street was named in 1936. The source says Montreuil's council gave the name to the station, then under construction, in 1936, at Jacques Duclos's initiative. The draft said "both entrances keep 1930s Art Deco styling". This correction was reversed by the fact check of 2026-10-05: the French station article calls both entrances Art Deco.
 25. Croix de Chavaux: the crossroads is today Place Jacques-Duclos. The "Chavaux" etymology is conditional in the source, and the qualifier is kept.
 26. Mairie de Montreuil: the draft said Croix de Chavaux and Robespierre share its blue Andreu-Motte decor. Croix de Chavaux is yellow, and no Robespierre source mentions Andreu-Motte. Corrected.
 27. Minor precision edits: Exelmans (south-western terminus 1922 to 1923; Point-du-Jour closed 23 July 1934), Michel-Ange – Molitor (1913 date), Maraîchers (23 July 1934), and removal of the stray "Bréguet is not on this line" text in the spelling note.

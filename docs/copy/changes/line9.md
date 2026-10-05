@@ -908,3 +908,21 @@ Remaining concerns:
 - jasmin/context/fr drops « de la ligne » after « premier tronçon » (EN keeps "the line’s"). This keeps it within the 55-word limit.
 - richelieu-drouot/context: EN says "1930s stations" and FR does not, as in the original.
 - Scores were not re-run after these fixes.
+
+## Fact check 2026-10-05
+
+Corrected:
+
+- robespierre/context (en, fr): the old text said that only the Rue Barbès entrance is Art Deco. That claim used only en.wikipedia, which labels only access 2. The fr station article calls both entrances Art Deco: « l'accès 1 « Rue Robespierre » comprenant un édicule de style Art déco établi en alignement avec la façade attenante du no 187 de la rue de Paris (cas rare sur le réseau) » and « l'accès 2 « Rue Barbès » consistant également en un édicule dans le style Art déco ». New EN: "Both of its entrances are Art Deco buildings. The one on Rue Robespierre is built into the line of the facade beside it, which is rare on the network." New FR: « Ses deux accès sont des édicules de style Art déco. Celui de la rue Robespierre s’aligne sur la façade voisine, un cas rare sur le réseau. » Evidence: https://fr.wikipedia.org/wiki/Robespierre_(m%C3%A9tro_de_Paris). This article was already in sources[] (added by the station() helper), so no source was added. This also reverses correction 24 in docs/research/line9.md.
+
+Sources added (text not changed):
+
+- trocadero/etymology: added "Place du Trocadéro-et-du-11-Novembre · Wikipédia" for the 1877 renaming and the earlier name Place du Roi-de-Rome: « Créée en 1869 sous le nom de « Place du Roi-de-Rome », elle fut rebaptisée en 1877 en souvenir de la bataille du Trocadéro ». Evidence: https://fr.wikipedia.org/wiki/Place_du_Trocad%C3%A9ro-et-du-11-Novembre
+- porte-de-montreuil/context: added "Ligne 9 du métro de Paris · Wikipédia" for the end of the terminus role: « 14 octobre 1937 : prolongement à l'est jusqu'à Mairie de Montreuil ». Evidence: https://fr.wikipedia.org/wiki/Ligne_9_du_m%C3%A9tro_de_Paris
+- pont-de-sevres/context: added "Boulogne-Billancourt, 4 avril 1943 · CPGenea" for the exact date (the station articles give only the year) and the 80 deaths at the station: « la station de métro Pont-de-Sèvres s'est effondrée. On y a déploré 80 morts ». Evidence: https://cpgenea.net/boulogne-billancourt-4-avril-1943/. The text keeps "about 300", which matches the station articles. Other accounts give 327 or 403. https://en.wikipedia.org/wiki/Bombing_of_France_during_World_War_II was not added because it gives a total of 403, which does not agree with the text.
+- republique/etymology: added "Place de la République · Wikipédia" for the link between the name and the monument project: « porte depuis 1879 son nom actuel qui lui est donné dans le cadre du projet d'érection d'une statue de la République ». Evidence: https://fr.wikipedia.org/wiki/Place_de_la_R%C3%A9publique_(Paris). The etymology text did not change. République is shared with other lines (line 5 has the same paris.fr source only).
+
+Corrected by the root pass (claim 50 was sent to a wrong target file):
+
+- saint-augustin/etymology (en, fr), claim 9/saint-augustin/etymology/2: the old second sentence said the square and church "give their name to the surrounding district in the 8th arrondissement". No source names a Saint-Augustin district, and the four administrative quartiers of the 8th are Champs-Élysées, Faubourg-du-Roule, Madeleine and Europe. The station article says: « La station est implantée au nord du quartier de la Madeleine à sa limite administrative avec le quartier de l'Europe. Elle se trouve sous le boulevard Haussmann, à l'est de la place Saint-Augustin. » New EN: "The station lies under Boulevard Haussmann, east of the square, on the boundary between the Madeleine and Europe districts." New FR: « Elle se trouve sous le boulevard Haussmann, à l’est de la place, à la limite des quartiers de la Madeleine et de l’Europe. » The FR first sentence now reads « qui tient le sien de l’église Saint-Augustin voisine » to stay within 45 words. Evidence: https://fr.wikipedia.org/wiki/Saint-Augustin_(m%C3%A9tro_de_Paris) (already in sources[] through the station() helper). Copy evaluator after the change: EN 0.98, FR 0.97 (ship).
+- docs/research/line9.md: correction 24 (Robespierre entrances) and the station 18 note (Saint-Augustin location) are updated to match.

@@ -50,6 +50,18 @@ const stations: Station[] = [
     "La station porte le nom d’une ancienne porte des fortifications de Paris. Celle-ci reprenait le nom de Clignancourt, un hameau qui appartenait à l’abbaye de Saint-Denis.",
     "The hamlet became part of Paris in 1860. The station’s additional name, Puces de Saint-Ouen, points to the flea market beyond the former city boundary.",
     "Le hameau est intégré à Paris en 1860. Le complément Puces de Saint-Ouen indique le marché situé au-delà de l’ancienne limite de la capitale.",
+    {
+      sources: [
+        source(
+          "Porte de Clignancourt · Wikipédia",
+          wiki("Porte de Clignancourt (métro de Paris)"),
+        ),
+        source(
+          "Quartier de Clignancourt · Wikipédia",
+          wiki("Quartier de Clignancourt"),
+        ),
+      ],
+    },
   ),
   stop(
     "simplon",
@@ -90,7 +102,23 @@ const stations: Station[] = [
     "La station reprend les noms des boulevards voisins. Ils rendent hommage au républicain Armand Barbès et à Marguerite de Rochechouart, abbesse de Montmartre au début du XVIIIe siècle.",
     "The station was first called Boulevard Barbès. Rochechouart was added in 1907, bringing a woman’s name onto the Métro map through the boulevard named after her.",
     "La station s’appelait d’abord Boulevard Barbès. Rochechouart est ajouté en 1907, faisant entrer un nom de femme sur le plan du métro par l’intermédiaire du boulevard.",
-    { people: [bio("Armand Barbès", "Armand Barbès")] },
+    {
+      sources: [
+        source(
+          "Barbès – Rochechouart · Wikipédia",
+          wiki("Barbès - Rochechouart (métro de Paris)"),
+        ),
+        source(
+          "Marguerite de Rochechouart · Wikipédia",
+          wiki("Marguerite de Rochechouart"),
+        ),
+        source(
+          "Boulevard Marguerite-de-Rochechouart · Wikipédia",
+          wiki("Boulevard Marguerite-de-Rochechouart"),
+        ),
+      ],
+      people: [bio("Armand Barbès", "Armand Barbès")],
+    },
   ),
   stop(
     "gare-du-nord",
@@ -133,6 +161,22 @@ const stations: Station[] = [
     "La station porte le nom de la rue du Château-d’Eau. Celle-ci rappelle une fontaine de Pierre-Simon Girard, installée sur l’actuelle place de la République, qui distribuait l’eau et avait donné son nom à la place.",
     "Girard’s fountain was moved to La Villette when the square was rebuilt. A picture of the old fountain inside the station preserves the connection.",
     "La fontaine de Girard est déplacée à La Villette lors du réaménagement de la place. Une représentation de l’ancienne fontaine dans la station rappelle cette origine.",
+    {
+      sources: [
+        source(
+          "Château d’Eau · Wikipédia",
+          wiki("Château d'Eau (métro de Paris)"),
+        ),
+        source(
+          "Fontaine du Château-d’Eau · Wikipédia",
+          wiki("Fontaine du Château d'eau (Pierre-Simon Girard)"),
+        ),
+        source(
+          "Place de la République · Wikipédia",
+          wiki("Place de la République (Paris)"),
+        ),
+      ],
+    },
   ),
   stop(
     "strasbourg-saint-denis",
@@ -316,7 +360,19 @@ const stations: Station[] = [
     "La station porte le nom de la rue et de l’église Saint-Sulpice. L’église est dédiée à Sulpice le Pieux, évêque de Bourges au VIIe siècle et aumônier du roi mérovingien Clotaire II.",
     "Construction of the present Saint-Sulpice church began in 1646. It replaced a medieval building that had become too small. Several architects worked on it in turn, in stages, for more than a century.",
     "La construction de l’église Saint-Sulpice actuelle commence en 1646. Elle remplace un édifice médiéval devenu trop petit. Plusieurs architectes se succèdent sur ce chantier, mené par étapes pendant plus d’un siècle.",
-    { people: [bio("Sulpice le Pieux", "Sulpitius the Pious")] },
+    {
+      sources: [
+        source(
+          "Saint-Sulpice · Wikipédia",
+          wiki("Saint-Sulpice (métro de Paris)"),
+        ),
+        source(
+          "Église Saint-Sulpice · Wikipédia",
+          wiki("Église Saint-Sulpice de Paris"),
+        ),
+      ],
+      people: [bio("Sulpice le Pieux", "Sulpitius the Pious")],
+    },
   ),
   stop(
     "saint-placide",
@@ -342,6 +398,14 @@ const stations: Station[] = [
         source(
           "RATP · Montparnasse-Bienvenüe",
           "https://www.ratp.fr/decouvrir/patrimoine/histoire-station-montparnasse-bienvenue",
+        ),
+        source(
+          "Quartier du Montparnasse · Wikipédia",
+          wiki("Quartier du Montparnasse"),
+        ),
+        source(
+          "Montparnasse · Wikipedia",
+          "https://en.wikipedia.org/wiki/Montparnasse",
         ),
       ],
       people: [bio("Fulgence Bienvenüe", "Fulgence Bienvenüe")],

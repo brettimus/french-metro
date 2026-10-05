@@ -131,7 +131,10 @@ const stations: Station[] = [
     "La station doit son nom à la rue Dupleix, dédiée à Joseph François Dupleix, administrateur colonial français devenu gouverneur général de la Compagnie française des Indes orientales en 1742.",
     "Dupleix station, opened on 24 April 1906, occupies the site of the former Grenelle wall, where executions took place from 1797 to 1815. A pillar supporting the elevated station carries what may be the last surviving public water-pressure gauge, used to detect leaks in the water supply.",
     "Ouverte le 24 avril 1906, la station Dupleix occupe l’emplacement de l’ancien mur d’enceinte de Grenelle, où des exécutions eurent lieu de 1797 à 1815. Un pilier soutenant la station aérienne porte peut-être le dernier manomètre public conservé, destiné à détecter les fuites du réseau d’eau.",
-    { people: [biography("Joseph François Dupleix")] },
+    {
+      sources: [source("Ligne 6 du métro de Paris · Wikipédia", wiki("Ligne 6 du métro de Paris"))],
+      people: [biography("Joseph François Dupleix")],
+    },
   ),
   station(
     "la-motte-picquet-grenelle",
@@ -200,7 +203,10 @@ const stations: Station[] = [
     "La station doit son nom au boulevard Edgar-Quinet, qui la surplombe et rend hommage à l’historien et homme politique Edgar Quinet.",
     "Edgar Quinet station has a single entrance, on the boulevard’s central strip at number 11. It is a fixed staircase with a railing and a Dervaux-style lamp post, just east of where the boulevard meets four other streets. The station opened on 24 April 1906, with the Line 2 Sud extension.",
     "La station Edgar Quinet n’a qu’un accès, sur le terre-plein central du boulevard, au numéro 11. C’est un escalier fixe avec rampe et lampadaire de style Dervaux, juste à l’est du carrefour où le boulevard croise quatre autres rues. Elle ouvre le 24 avril 1906, avec le prolongement de la ligne 2 Sud.",
-    { people: [biography("Edgar Quinet")] },
+    {
+      sources: [source("Boulevard Edgar-Quinet · Wikipédia", wiki("Boulevard Edgar-Quinet"))],
+      people: [biography("Edgar Quinet")],
+    },
   ),
   station(
     "raspail",
@@ -212,6 +218,7 @@ const stations: Station[] = [
     "La station porte le nom du boulevard Raspail. Celui-ci honore François-Vincent Raspail, savant et homme politique républicain du XIXe siècle, engagé à la fois dans la recherche et dans les luttes sociales.",
     "Raspail’s Line 6 platforms opened on 24 April 1906. Their entrance has a Hector Guimard balustrade. In 1958, the RATP gave the portico that surrounded it to New York’s Museum of Modern Art.",
     "À Raspail, les quais de la ligne 6 ouvrent le 24 avril 1906. Leur entrée porte une balustrade d’Hector Guimard. En 1958, la RATP offre le portique qui l’entourait au Museum of Modern Art de New York.",
+    { sources: [source("Ligne 6 du métro de Paris · Wikipédia", wiki("Ligne 6 du métro de Paris"))] },
   ),
   station(
     "denfert-rochereau",
@@ -240,6 +247,7 @@ const stations: Station[] = [
           "Rue du Faubourg-Saint-Jacques · Wikipédia",
           wiki("Rue du Faubourg-Saint-Jacques"),
         ),
+        source("Ligne 6 du métro de Paris · Wikipédia", wiki("Ligne 6 du métro de Paris")),
       ],
     },
   ),

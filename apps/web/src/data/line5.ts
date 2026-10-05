@@ -217,6 +217,7 @@ const stations: Station[] = [
           "Ville de Paris · Place de la République",
           "https://www.paris.fr/pages/1-lieu-3-histoires-la-place-de-la-republique-33595",
         ),
+        source("Place de la République · Wikipédia", wiki("Place de la République (Paris)")),
       ],
     },
   ),

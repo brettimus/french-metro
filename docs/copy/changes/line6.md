@@ -286,3 +286,15 @@ Fixes:
 Checked, no change:
 - chevaleret: "is judged more likely" became "is a more probable source". The attribution is gone, but the comparison still marks uncertainty, so R6 still holds.
 - All Line 6 FR strings: no plain space before ; : ! ? or inside « ». All Line 6 entries are within the word limits. Typecheck passes.
+
+## Fact check 2026-10-05
+
+No confirmed errors for Line 6. Three claims are true but the station article gives only the year of opening (« La station est ouverte en 1906 »). The full date is in the Line 6 article: « La ligne est ouverte d'Étoile à Place d'Italie le 24 avril 1906. » The copy does not change. Each station now cites that article.
+
+- **saint-jacques/context** (claim 6/saint-jacques/context/en/1): opening date 24 April 1906. Added source "Ligne 6 du métro de Paris · Wikipédia" (https://fr.wikipedia.org/wiki/Ligne_6_du_m%C3%A9tro_de_Paris). The station article supports the ground-level platforms and the canopies on central posts.
+- **dupleix/context** (claim 6/dupleix/context/en/1): opening date 24 April 1906. Added the same source. The station article supports the Grenelle wall and the executions from 1797 to 1815.
+- **raspail/context** (claim 6/raspail/context/fr/1): opening date 24 April 1906. Added the same source. The Étoile–Place d'Italie section (Line 2 Sud, later Line 6) includes Raspail.
+
+Added by the root pass (claim 43 was sent to a wrong target file):
+
+- **edgar-quinet/context** (claim 6/edgar-quinet/context/2, true but unsourced): "just east of where the boulevard meets four other streets". The station article names only Rue du Montparnasse and Rue de la Gaîté. Added "Boulevard Edgar-Quinet · Wikipédia" (https://fr.wikipedia.org/wiki/Boulevard_Edgar-Quinet): « Il est interrompu au niveau de l'intersection où convergent les rues d'Odessa, du Montparnasse, Delambre et de la Gaîté. » The station article (no. 11, fixed staircase, balustrade, Dervaux lamp post) was already cited through the station() helper. Copy not changed.

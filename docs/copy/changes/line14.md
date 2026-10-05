@@ -299,3 +299,51 @@ Fixes:
 - `14/saint-lazare/context` (en, fr): “A decree of 1794 made it a prison” overstated the source, which says the decree recognised Saint-Lazare as a prison (it had held prisoners since the 17th century). Now “recognised it as a prison” / « l’a reconnue comme prison ».
 - `14/chatelet/context` (en, fr): “a royal court, the court of the provosts of Paris, and prisons” could read as three separate items. The source names one court (the provosts of Paris). Now “the royal court of the provosts of Paris, as well as prisons” / « le tribunal royal des prévôts de Paris, ainsi que des prisons ».
 - `14/gare-de-lyon/context` (en, fr): “developed by the PLM company” was stronger than the source. The station opened in 1849, before the PLM existed (1857), and the PLM later enlarged it. Now “the Paris terminus of the PLM company” / « la tête de ligne parisienne de la Compagnie … (PLM) ».
+
+## Fact check 2026-10-05
+
+### 14/thiais-orly/context (en, fr): error corrected
+
+Reason: “confirmed” implied the name was already in use. The station was renamed (from Pont de Rungis) in September 2022 after local debate, with Pont de Rungis kept as a subtitle.
+
+- `14/thiais-orly/context/en`
+  - Before: The name was confirmed in 2022 after local authorities requested changes to the southern extension’s station names. Pont de Rungis remains the name of the connecting RER C station.
+  - After: The station was renamed in September 2022, after local elected officials objected to some of the southern extension’s station names. Pont de Rungis was kept as its subtitle and remains the name of the connecting RER C station.
+- `14/thiais-orly/context/fr`
+  - Before: Le nom a été confirmé en 2022 après les demandes des collectivités concernant les stations du prolongement sud. Pont de Rungis reste le nom de la gare du RER C en correspondance.
+  - After: La station a été renommée en septembre 2022, après les objections d’élus locaux à certains noms de stations du prolongement sud. Pont de Rungis a été conservé en sous-titre et reste le nom de la gare du RER C en correspondance.
+- Evidence: https://fr.wikipedia.org/wiki/Thiais_-_Orly_(m%C3%A9tro_de_Paris) (« En septembre 2022, à la suite de débats locaux, elle est renommée Thiais – Orly, avec la mention Pont de Rungis en sous-titre »), https://en.wikipedia.org/wiki/Thiais%E2%80%93Orly_station (mayors objected to the names). Added the en.wikipedia article as a source.
+
+### 14/thiais-orly/etymology (en, fr): source added, wording made exact
+
+Reason: the station stands in Thiais, not in Orly, so “qu’elle dessert” / “served by the station” overstated the link to Orly.
+
+- `14/thiais-orly/etymology/en`
+  - Before: Called Thiais – Orly to identify the two neighbouring municipalities served by the station.
+  - After: Called Thiais – Orly after Thiais, where the station stands, and the neighbouring municipality of Orly.
+- `14/thiais-orly/etymology/fr`
+  - Before: La station doit son nom aux deux communes voisines de Thiais et d’Orly qu’elle dessert.
+  - After: La station doit son nom à Thiais, où elle se trouve, et à la commune voisine d’Orly.
+- Evidence: https://en.wikipedia.org/wiki/Thiais%E2%80%93Orly_station (renamed to better represent its geographic position). Added as a source.
+
+### 14/hopital-bicetre/etymology and context (en, fr): sources added, context wording neutral
+
+Reason: the AP-HP hospital page supports only the purchase by Jean de Pontoise. The AP-HP booklet PDF could not be read, so “The hospital’s history traces” was not verifiable.
+
+- `14/hopital-bicetre/context/en`
+  - Before: The hospital’s history traces the name through the forms Winchester, Bicestre and Bicêtre.
+  - After: The name passed through the forms Winchester, Bicestre and Bicêtre.
+- `14/hopital-bicetre/context/fr`
+  - Before: L’histoire de l’hôpital rattache le nom aux formes Winchester, Bicestre et Bicêtre.
+  - After: Le nom est passé par les formes Winchester, Bicestre et Bicêtre.
+- Evidence: https://fr.wikipedia.org/wiki/Bic%C3%AAtre (Winchester > Winchestre > Bichestre > Bicestre > Bicêtre; land of Jean de Pontoise, bishop of Winchester), https://fr.wikipedia.org/wiki/Le_Kremlin-Bic%C3%AAtre (« le Petit Winchester, francisé Vincestre, puis Bicestre… »). Both added as sources. Etymology text unchanged.
+
+### 14/villejuif-gustave-roussy/context (en, fr): source added
+
+- Text unchanged. The 1926 founding date was not in the cited sources.
+- Evidence: https://fr.wikipedia.org/wiki/Gustave-Roussy (« L’institut est créé par Gustave Roussy en 1926 »). Added as a source.
+
+### 14/mairie-de-saint-ouen/etymology (en, fr): source added
+
+- Text unchanged. The station article does not say the town hall is at the station.
+- Evidence: https://fr.wikipedia.org/wiki/H%C3%B4tel_de_ville_de_Saint-Ouen-sur-Seine (town hall on place de la République; the station article puts the Line 13 station under that square). Added as a source.

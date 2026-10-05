@@ -189,6 +189,10 @@ const stations: Station[] = [
           label: "Avenue de Verdun · origine du nom",
           url: wiki("Avenue de Verdun (Paris)"),
         },
+        {
+          label: "Ligne 7 du métro de Paris · Wikipédia",
+          url: wiki("Ligne 7 du métro de Paris"),
+        },
       ],
     },
   ),
@@ -384,7 +388,19 @@ const stations: Station[] = [
     "La station doit son nom à la place et à la rue Monge, toutes deux dédiées au mathématicien Gaspard Monge. Monge est l’un des fondateurs de l’École polytechnique.",
     "The station first opened on Line 10 in 1930. It transferred to Line 7 in 1931 when the river crossing was completed. A connecting tunnel north of the platforms preserves the route used during that first year of operation.",
     "La station ouvre d’abord sur la ligne 10 en 1930. Elle passe à la ligne 7 en 1931, après l’achèvement de la traversée de la Seine. Un raccordement au nord des quais conserve le tracé utilisé pendant cette première année.",
-    { people: [biography("Gaspard Monge", "Gaspard Monge")] },
+    {
+      people: [biography("Gaspard Monge", "Gaspard Monge")],
+      sources: [
+        {
+          label: "Place Monge · Wikipédia",
+          url: wiki("Place Monge (métro de Paris)"),
+        },
+        {
+          label: "Ligne 7 du métro de Paris · Wikipédia",
+          url: wiki("Ligne 7 du métro de Paris"),
+        },
+      ],
+    },
   ),
   station(
     "censier-daubenton",
@@ -442,6 +458,10 @@ const stations: Station[] = [
           label: "Place d’Italie · Wikipédia",
           url: wiki("Place d'Italie (métro de Paris)"),
         },
+        {
+          label: "Ligne 7 du métro de Paris · Wikipédia",
+          url: wiki("Ligne 7 du métro de Paris"),
+        },
       ],
     },
   ),
@@ -473,6 +493,18 @@ const stations: Station[] = [
     "La station doit son nom au quartier de la Maison-Blanche. Ce quartier tient son nom d’une auberge appelée « Maison Blanche ».",
     "Maison Blanche is the last station shared by both southern branches of Line 7. Beyond it, tracks separate towards Mairie d’Ivry and Villejuif. The branch to Le Kremlin-Bicêtre opened in 1982; Line 14 added an interchange here in 2024.",
     "Maison Blanche est la dernière station commune aux deux branches sud de la ligne 7. Au-delà, les voies se séparent vers Mairie d’Ivry et Villejuif. La branche vers Le Kremlin-Bicêtre ouvre en 1982 ; la ligne 14 ajoute une correspondance en 2024.",
+    {
+      sources: [
+        {
+          label: "Maison Blanche · Wikipédia",
+          url: wiki("Maison Blanche (métro de Paris)"),
+        },
+        {
+          label: "Le Kremlin-Bicêtre · Wikipédia",
+          url: wiki("Le Kremlin-Bicêtre (métro de Paris)"),
+        },
+      ],
+    },
   ),
   station(
     "porte-ditalie",
@@ -556,6 +588,10 @@ const stations: Station[] = [
         {
           label: "Mairie d’Ivry · Wikipédia",
           url: wiki("Mairie d'Ivry (métro de Paris)"),
+        },
+        {
+          label: "Maison Blanche · Wikipédia",
+          url: wiki("Maison Blanche (métro de Paris)"),
         },
       ],
     },

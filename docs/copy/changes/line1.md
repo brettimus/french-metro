@@ -470,3 +470,23 @@ Fixes:
 - `line/1/summary/en` and `/fr`: "honour foreign allies, such as … Argentine" called Argentina an ally. The Argentine entry says the rename thanked Argentina for food aid, not an alliance. Now "honour foreign countries and leaders" / « honorent des pays et des dirigeants étrangers ».
 
 Checked and accepted: Porte Maillot "1936 or 1937" (research notes: FR station article 1937, EN line article 15 November 1936); George V modal hedge in place of the "according to" attribution; Concorde single hedge; removal of bare opening years; all FR punctuation spacing (U+202F before ; ! ?, U+00A0 before : and inside « »).
+
+## Fact check 2026-10-05
+
+Confirmed errors (both locales rewritten):
+
+- `porte-maillot/etymology`: removed the ranking "more speculatively" / « plus spéculativement ». The two origins are now given as equal, unproven proposals: "perhaps an old mallet game played in the wood, or the 1382 Maillotins revolt" / « peut-être un ancien jeu de mail dans le bois, ou la révolte des Maillotins de 1382 ». Evidence: https://fr.wikipedia.org/wiki/Porte_Maillot ("Origine du nom": the mallet game is what « On dit souvent »; the revolt is « beaucoup plus probable »); `docs/research/line1.md` says not to rank them. Added source "Porte Maillot · Wikipédia".
+- `bastille/context`: "A bridge … carries the Line 1 platforms" is now "Part of the Line 1 platforms stands on a bridge …" / « Une partie des quais de la ligne 1 repose sur un pont … ». Evidence: https://fr.wikipedia.org/wiki/Bastille_(m%C3%A9tro_de_Paris) (station « en partie souterraine et aérienne »; the 1960s extension is « sous un tablier en béton, directement sous la chaussée »). Existing source. Etymology not changed.
+- `saint-mande/etymology`: "neighbouring town" / « commune voisine » is now "the town of Saint-Mandé, where it stands, on the boundary with Vincennes" / « la commune de Saint-Mandé, où elle se trouve, à la limite de Vincennes ». Evidence: https://fr.wikipedia.org/wiki/Saint-Mand%C3%A9_(m%C3%A9tro_de_Paris) (« implantée sous l'amorce de l'avenue de Paris (D 120) à Saint-Mandé »; « située à la limite des communes de Saint-Mandé et de Vincennes »). Existing source. The rename date 26 April 1937 is kept (see below).
+
+True but unsourced (sources added, text not changed):
+
+- `saint-mande/etymology` (rename 26 April 1937) and `saint-mande/context` (Picpus rename 1 March 1937): added "Saint-Mandé station · Wikipedia" (https://en.wikipedia.org/wiki/Saint-Mand%C3%A9_station: "On 26 April 1937, the station was renamed Saint-Mandé – Tourelle") and "Picpus · Wikipédia" (https://fr.wikipedia.org/wiki/Picpus_(m%C3%A9tro_de_Paris): « Le 1er mars 1937, elle change de nom au profit de Picpus »).
+- `nation/etymology` (Place du Trône, 1660) and `nation/context` (Trône-Renversé, 1792): added "Place de la Nation · Wikipédia" (https://fr.wikipedia.org/wiki/Place_de_la_Nation_(Paris)).
+- `chateau-de-vincennes/etymology` (24 March 1934): added "Ligne 1 du métro de Paris · Wikipédia" (« Le 24 mars 1934, un premier prolongement en banlieue est mis en service jusqu'à Château de Vincennes »).
+- `berault/context` (first station with platform doors, February 2009): added "Ligne 1 du métro de Paris · Wikipédia" (« la station Bérault en est la première équipée en février 2009 »).
+- `gare-de-lyon/etymology` (name from the railway line to Lyon): added "Paris-Gare-de-Lyon · Wikipédia" (https://fr.wikipedia.org/wiki/Paris-Gare-de-Lyon; the first title chosen redirected here).
+- `porte-de-vincennes/etymology` (gate of the Thiers wall): added "Portes de Paris · Wikipédia" and "Enceinte de Thiers · Wikipédia" (https://fr.wikipedia.org/wiki/Portes_de_Paris, https://fr.wikipedia.org/wiki/Enceinte_de_Thiers).
+- `la-defense/context` (western terminus): added "Ligne 1 du métro de Paris · Wikipédia" (the line « relie aujourd'hui la station La Défense à l'ouest, à la station Château de Vincennes, à l'est »).
+
+Not changed: the La Défense location field ("Puteaux / Courbevoie"; the station article says Puteaux). This was a side note, not a confirmed error.

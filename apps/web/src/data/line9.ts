@@ -53,6 +53,10 @@ const stations: Station[] = [
           "Pont de Sèvres station · Wikipedia",
           wiki("Pont de Sèvres station", "en"),
         ),
+        source(
+          "Boulogne-Billancourt, 4 avril 1943 · CPGenea",
+          "https://cpgenea.net/boulogne-billancourt-4-avril-1943/",
+        ),
       ],
     },
   ),
@@ -204,6 +208,10 @@ const stations: Station[] = [
           "Bataille du Trocadéro · Wikipédia",
           wiki("Bataille du Trocadéro"),
         ),
+        source(
+          "Place du Trocadéro-et-du-11-Novembre · Wikipédia",
+          wiki("Place du Trocadéro-et-du-11-Novembre"),
+        ),
       ],
     },
   ),
@@ -289,8 +297,8 @@ const stations: Station[] = [
     "Saint-Augustin",
     "Paris 8e",
     "church",
-    "Named for Place Saint-Augustin, which takes its name from the adjoining Église Saint-Augustin, dedicated to Augustine of Hippo (354–430). The square and church give their name to the surrounding district in the 8th arrondissement.",
-    "La station doit son nom à la place Saint-Augustin, qui tient son nom de l’église Saint-Augustin voisine, dédiée à Augustin d’Hippone (354–430). La place et l’église donnent leur nom au quartier environnant, dans le 8e arrondissement.",
+    "Named for Place Saint-Augustin, which takes its name from the adjoining Église Saint-Augustin, dedicated to Augustine of Hippo (354–430). The station lies under Boulevard Haussmann, east of the square, on the boundary between the Madeleine and Europe districts.",
+    "La station doit son nom à la place Saint-Augustin, qui tient le sien de l’église Saint-Augustin voisine, dédiée à Augustin d’Hippone (354–430). Elle se trouve sous le boulevard Haussmann, à l’est de la place, à la limite des quartiers de la Madeleine et de l’Europe.",
     "Saint-Augustin opened on 27 May 1923 as the line’s north-eastern terminus, a role it held for only a week, until the extension to Chaussée d’Antin – La Fayette opened on 3 June 1923.",
     "Saint-Augustin ouvre le 27 mai 1923 comme terminus nord-est de la ligne, un rôle qu’elle conserve une semaine seulement, jusqu’au prolongement vers Chaussée d’Antin – La Fayette le 3 juin 1923.",
     1923,
@@ -416,6 +424,10 @@ const stations: Station[] = [
       source(
         "Ville de Paris · Place de la République",
         "https://www.paris.fr/pages/1-lieu-3-histoires-la-place-de-la-republique-33595",
+      ),
+      source(
+        "Place de la République · Wikipédia",
+        wiki("Place de la République (Paris)"),
       ),
     ],
   },
@@ -554,6 +566,14 @@ const stations: Station[] = [
     "Porte de Montreuil opened on 10 December 1933 as the line’s eastern terminus. It kept that role until the 1937 extension to Mairie de Montreuil. The station stands beside the Montreuil flea market, which occupies the gate’s former defensive glacis.",
     "Porte de Montreuil ouvre le 10 décembre 1933 comme terminus est de la ligne. Elle garde ce rôle jusqu’au prolongement de 1937 vers Mairie de Montreuil. La station se trouve près des puces de Montreuil, installées sur l’ancien glacis défensif de la porte.",
     1933,
+    {
+      sources: [
+        source(
+          "Ligne 9 du métro de Paris · Wikipédia",
+          wiki("Ligne 9 du métro de Paris"),
+        ),
+      ],
+    },
   ),
   station(
     "robespierre",
@@ -563,8 +583,8 @@ const stations: Station[] = [
     "portrait",
     "Named for Rue Robespierre, which honours the lawyer and revolutionary Maximilien de Robespierre (1758–1794). In 1936 Montreuil’s Communist town council gave the name to the station, then under construction, at the initiative of Jacques Duclos.",
     "La station doit son nom à la rue Robespierre, qui honore l’avocat et révolutionnaire Maximilien de Robespierre (1758–1794). En 1936, le conseil municipal communiste de Montreuil donne ce nom à la station, alors en construction, à l’initiative de Jacques Duclos.",
-    "Robespierre opened on 14 October 1937 with the line’s final extension, from Porte de Montreuil to Mairie de Montreuil. Of its two entrances, only the one on Rue Barbès is described as Art Deco.",
-    "Robespierre ouvre le 14 octobre 1937 avec le dernier prolongement de la ligne, de Porte de Montreuil à Mairie de Montreuil. Des deux entrées de la station, seule celle de la rue Barbès est qualifiée d’Art déco.",
+    "Robespierre opened on 14 October 1937 with the line’s final extension, from Porte de Montreuil to Mairie de Montreuil. Both of its entrances are Art Deco buildings. The one on Rue Robespierre is built into the line of the facade beside it, which is rare on the network.",
+    "Robespierre ouvre le 14 octobre 1937 avec le dernier prolongement de la ligne, de Porte de Montreuil à Mairie de Montreuil. Ses deux accès sont des édicules de style Art déco. Celui de la rue Robespierre s’aligne sur la façade voisine, un cas rare sur le réseau.",
     1937,
     {
       sources: [
