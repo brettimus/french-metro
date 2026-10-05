@@ -55,3 +55,22 @@ One entry per loop iteration. Primary = AP on dev (all items); guard = AP on dev
   with very low `supported` and unmatched numbers. A production change would be in `rankPairs` (rank.ts); that is
   outside the lab, so it is not done here. Next: other EN/FR combinations (for example a geometric mean, or a mix
   of mean and max), and per-passage checks.
+
+## Iteration 4: ensemble2 (DISCARD)
+
+- **Hypothesis:** Iteration 3 showed that much of the error on supported pairs is noise in one Jev answer. A second
+  phrasing of the `supported` question is a second sample, and the mean of the two answers has less noise.
+- **Change:** `configs/ensemble2.ts` = meanpair + one more request per claim with a `confirmable` Noul ("Can a reader
+  confirm every fact in `claim` using only `passages`?", with "same strength and precision" in the true option). The
+  claim's `supported` = mean of `supported` and `confirmable`. Pair scoring as in meanpair. 340 live requests, 574k
+  tokens, $0.024.
+- **Result:** AP 0.862 → 0.855 (p_better 0.12). No planted: 0.756 → 0.753 (p_better 0.36). AUC 0.888 → 0.887 (no
+  planted 0.848 → 0.848). confR20 0 → 0 (no planted 0 → 0).
+- **Decision:** DISCARD (AP goes down).
+- **Learned:** The second phrasing gives lower values than `supported` on all classes, by about the same amount: mean
+  pair score change +0.038 on supported, +0.035 on confirmed, +0.024 on unsourced, +0.04 on refuted, and only +0.007
+  on planted (their `supported` is already near 0). So it adds a shift, not new information, and planted errors lose
+  a little rank against supported pairs. The noise that meanpair removed comes from the EN/FR claim texts, not from
+  the question wording; a second wording on the same claim and passages gives a correlated answer. Ideas that add
+  new information (per-passage checks, wording features that do not read the passages, a different state) are more
+  promising than more samples of the same question.
