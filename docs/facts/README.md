@@ -108,7 +108,7 @@ The lab measures changes to the ranker (questions, state fields, retrieval, weig
 
 - **Tune on dev only.** Read the dev metrics as often as you like.
 - **Run val once, at the end.** `--split val` needs `--final`. The harness writes a row to `results.tsv` and refuses a second val run for the same config name. Do not change a config after its val run.
-- **Pass 3 is the held-out test.** The pass-3 review labels pairs that no config was tuned on. Measure the final ranker on them once, and do not tune after that.
+- **Pass 3 is the held-out test.** The pass-3 review labels pairs that no config was tuned on. Measure the final ranker on them once, and do not tune after that. `lab/holdout-pass3.json` freezes the pass-3 pairs before any verdict: the commit, both rankers, and for each unreviewed pair its texts and its `facts-3` and `facts-2` risks and ranks from the run `out/pass3` (`facts-2`: the passage answer only, with `FACTS2_RISK_WEIGHTS`). It also records how pairs that changed after review were counted. The verifiers do not see these scores.
 
 ### Dataset
 
