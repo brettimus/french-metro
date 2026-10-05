@@ -134,8 +134,8 @@ The build fails when a labelled pair is not in its run, a source cache file is m
 
 The positive class is "problem": `confirmed`, `refuted` or `unsourced`, plus the planted errors. The negative class is `supported`. Refuted pairs count as problems because the reviewer needed to check them.
 
-- **Primary:** average precision (AP) of the risk ranking, with a 95% bootstrap interval (2,000 resamples of the items). AP rewards problems at the top of the list, where reviewers start.
-- **Secondary:** ROC AUC; `confR20`, the share of the real confirmed problems in the top 20 of the split; `plantR20`, the share of the planted errors in the top 20; `plantAuc`, planted errors against supported pairs.
+- **Primary:** average precision (AP) of the risk ranking, with a 95% bootstrap interval (2,000 resamples of the items). AP rewards problems at the top of the list, where reviewers start. AP has one step per distinct score, as in scikit-learn: pairs with the same risk are one group, so the result does not depend on item ids. The baseline has many ties (57 distinct scores on 165 dev items).
+- **Secondary:** ROC AUC; `confR20`, the share of the real confirmed problems in the top 20 of the split (a tie group across rank 20 counts with the share of its places inside the top 20); `plantR20`, the share of the planted errors in the top 20; `plantAuc`, planted errors against supported pairs.
 - **Cost:** the number of requests, the live requests and their input tokens, and USD at $0.042 per million input tokens. Output tokens are free.
 
 Two pairs (1/saint-mande, pass 1) match known conflicts and are left out by the baseline.
@@ -147,7 +147,7 @@ bun apps/web/scripts/facts/lab/harness.ts --config baseline                     
 bun apps/web/scripts/facts/lab/harness.ts --config my-change --compare baseline   # adds p_better (paired bootstrap of AP)
 bun apps/web/scripts/facts/lab/harness.ts --config baseline --no-planted --pass 2  # filters
 bun apps/web/scripts/facts/lab/harness.ts --config baseline --dry-run --no-log    # cache only, no row
-bun apps/web/scripts/facts/lab/harness.ts --config my-change --split val --final  # once, at the end
+bun apps/web/scripts/facts/lab/harness.ts --config my-change --split val --final  # once, at the end (no --no-log or --dry-run)
 bun apps/web/scripts/facts/lab/harness.ts --config baseline --parity              # check against evaluate.ts
 ```
 
@@ -169,8 +169,8 @@ The production ranker: the `facts-2` questions, `RISK_WEIGHTS` and known conflic
 
 | Run | Items | AP (95% interval) | AUC | confR20 | plantR20 |
 |---|---|---|---|---|---|
-| dev | 165 | 0.840 (0.751–0.921) | 0.851 | 0.00 | 0.37 |
-| dev, no planted | 138 | 0.710 (0.580–0.842) | 0.792 | 0.08 | – |
+| dev | 165 | 0.840 (0.751–0.918) | 0.851 | 0.00 | 0.37 |
+| dev, no planted | 138 | 0.709 (0.589–0.838) | 0.792 | 0.08 | – |
 
 With planted errors, the top 20 of dev holds 10 planted errors and no real confirmed problem, so read `confR20` on runs with `--no-planted` too.
 

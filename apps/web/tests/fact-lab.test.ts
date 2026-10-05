@@ -26,16 +26,24 @@ describe("lab metrics", () => {
   test("average precision by hand", () => {
     // Positives at ranks 1, 3, 5: (1/1 + 2/3 + 3/5) / 3.
     expect(averagePrecision(xs)).toBeCloseTo((1 + 2 / 3 + 3 / 5) / 3, 12);
-    // Ties break by id, so input order does not matter.
+    // A tie group is one threshold: its positives get the precision of the whole group, whatever the ids.
     const tied = [s("z", 0.5, true), s("a", 0.5, false)];
     expect(averagePrecision(tied)).toBe(0.5);
-    expect(averagePrecision([...tied].reverse())).toBe(0.5);
+    expect(averagePrecision([s("a", 0.5, true), s("z", 0.5, false)])).toBe(0.5);
+    // a(+) 0.9 | e(-) 0.7 | b(+), c(-) 0.5 | d(-) 0.1: 1/2 * 1/1 + 1/2 * 2/4 = 0.75 (scikit-learn gives 0.75).
+    const t = [s("a", 0.9, true), s("e", 0.7, false), s("b", 0.5, true), s("c", 0.5, false), s("d", 0.1, false)];
+    expect(averagePrecision(t)).toBe(0.75);
+    expect(averagePrecision(t.map((x) => (x.id === "b" ? { ...x, id: "zz" } : x)))).toBe(0.75);
   });
 
   test("recall at k", () => {
     expect(recallAtK(xs, (id) => id === "a" || id === "e", 3)).toBe(0.5);
     expect(recallAtK(xs, (id) => id === "c", 2)).toBe(0);
     expect(recallAtK(xs, () => false, 2)).toBeNaN();
+    // A tie group of 4 across rank 2 (1 place of 4 inside the top 2): each tied target counts 1/4.
+    const t = [s("a", 0.9, false), s("b", 0.5, true), s("c", 0.5, false), s("d", 0.5, false), s("e", 0.5, true)];
+    expect(recallAtK(t, (id) => id === "b" || id === "e", 2)).toBe(0.25);
+    expect(recallAtK(t, (id) => id === "b" || id === "e", 5)).toBe(1);
   });
 
   test("bootstrap is deterministic, brackets the estimate, and a paired run against itself is 0.5", () => {
@@ -108,6 +116,7 @@ describe("harness guards", () => {
     expect(() => parseArgs(["--config", "x", "--final"])).toThrow(/only for --split val/);
     expect(() => parseArgs(["--config", "x", "--parity"])).toThrow(/baseline/);
     expect(() => parseArgs(["--config", "x", "--split", "val", "--final", "--no-log"])).toThrow(/always logged/);
+    expect(() => parseArgs(["--config", "x", "--split", "val", "--final", "--dry-run"])).toThrow(/--dry-run/);
     expect(parseArgs(["--config", "x", "--split", "val", "--final"]).split).toBe("val");
     expect(parseArgs(["--config", "x"]).split).toBe("dev");
   });

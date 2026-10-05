@@ -1,12 +1,10 @@
 /**
  * Ranking metrics for the fact-check lab. A higher score means "more likely a problem". Every function takes items
- * with a score and a boolean label, and sorts by score (high first) with the item id as tie-break, so results do not
- * depend on input order.
+ * with a score and a boolean label. Items with equal scores are one group: no metric depends on the item ids or on
+ * the input order. (The baseline risk has many ties: 57 distinct scores on 165 dev items.)
  */
 
 export type Scored = { id: string; score: number; positive: boolean };
-
-const ranked = (xs: Scored[]) => [...xs].sort((a, b) => b.score - a.score || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
 
 /** Area under the ROC curve: the chance that a random positive scores above a random negative. Ties count half. */
 export function auc(xs: Scored[]): number {
@@ -18,26 +16,54 @@ export function auc(xs: Scored[]): number {
   return wins / (pos.length * neg.length);
 }
 
-/** Average precision: the mean of precision@k over the ranks k where a positive appears. */
-export function averagePrecision(xs: Scored[]): number {
-  const order = ranked(xs);
-  const total = order.filter((x) => x.positive).length;
-  if (!total) return NaN;
-  let hits = 0;
-  let sum = 0;
-  order.forEach((x, i) => {
-    if (!x.positive) return;
-    hits++;
-    sum += hits / (i + 1);
-  });
-  return sum / total;
+/** Groups of equal score, highest score first. */
+function tieGroups(xs: Scored[]): Scored[][] {
+  const order = [...xs].sort((a, b) => b.score - a.score);
+  const groups: Scored[][] = [];
+  for (const x of order) {
+    const last = groups[groups.length - 1];
+    if (last && last[0]!.score === x.score) last.push(x);
+    else groups.push([x]);
+  }
+  return groups;
 }
 
-/** Share of the items in `target` that rank in the top k of all `xs`. */
+/**
+ * Average precision with one threshold per distinct score: the sum over thresholds of (gain in recall) x (precision
+ * at that threshold), as in scikit-learn's average_precision_score. A tie group counts as one step, so its positives
+ * get the precision of the whole group.
+ */
+export function averagePrecision(xs: Scored[]): number {
+  const total = xs.filter((x) => x.positive).length;
+  if (!total) return NaN;
+  let seen = 0;
+  let hits = 0;
+  let sum = 0;
+  for (const g of tieGroups(xs)) {
+    const pos = g.filter((x) => x.positive).length;
+    seen += g.length;
+    hits += pos;
+    sum += (pos / total) * (hits / seen);
+  }
+  return sum;
+}
+
+/**
+ * Share of the items in `target` that rank in the top k of all `xs`. A tie group that crosses rank k counts with the
+ * share of its places that fall inside the top k (the expected value under a random order of the ties).
+ */
 export function recallAtK(xs: Scored[], target: (id: string) => boolean, k: number): number {
   const all = xs.filter((x) => target(x.id)).length;
   if (!all) return NaN;
-  return ranked(xs).slice(0, k).filter((x) => target(x.id)).length / all;
+  let left = k;
+  let found = 0;
+  for (const g of tieGroups(xs)) {
+    if (left <= 0) break;
+    const take = Math.min(left, g.length);
+    found += (g.filter((x) => target(x.id)).length * take) / g.length;
+    left -= take;
+  }
+  return found / all;
 }
 
 /** Deterministic PRNG (mulberry32), so a bootstrap gives the same interval on every run. */
@@ -58,7 +84,7 @@ const resample = (n: number, next: () => number) => Array.from({ length: n }, ()
 /**
  * Percentile bootstrap interval for a metric: resample the items with replacement `n` times and take the 2.5% and
  * 97.5% quantiles. Resamples where the metric is NaN (no positive or no negative) are skipped. Resampled items get a
- * suffix on their id, so duplicates keep a stable tie-break.
+ * suffix on their id, so ids stay unique.
  */
 export function bootstrapCi(xs: Scored[], metric: (xs: Scored[]) => number, n = 2000, seed = 1): { lo: number; hi: number } {
   const next = rng(seed);

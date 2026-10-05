@@ -9,7 +9,8 @@
  *
  *   --config      a file name in lab/configs/ (without .ts)
  *   --split       dev (default) or val. val needs --final and runs once per config name: the harness refuses when
- *                 results.tsv already has a val row for the config. Tune on dev only.
+ *                 results.tsv already has a val row for the config. Tune on dev only. A --final run cannot use
+ *                 --no-log or --dry-run.
  *   --pass        only labels from review pass 1 or 2 (planted copies follow their original's pass)
  *   --no-planted  leave out the planted errors
  *   --compare     paired bootstrap against the saved scores of another config on the same split and filters
@@ -20,9 +21,11 @@
  *                 counted half and with evaluate.ts's tie-break (rank order, then pair key). No log row.
  *
  * Metrics (positive class "problem" = confirmed, refuted or unsourced, plus planted errors; negative = supported):
- *   primary   average precision (AP) of the risk ranking; 95% bootstrap interval over items (2,000 resamples)
+ *   primary   average precision (AP) of the risk ranking, one step per distinct score (ties are one group);
+ *             95% bootstrap interval over items (2,000 resamples)
  *   auc       ROC AUC
- *   confR20   share of the real confirmed problems in the top 20 of the split
+ *   confR20   share of the real confirmed problems in the top 20 of the split (a tie group across rank 20 counts
+ *             with the share of its places inside the top 20)
  *   plantR20  share of the planted errors in the top 20 (when planted items are in)
  *   plantAuc  AUC of planted errors against supported pairs
  * Cost: requests (all), live (sent to Jev), live input tokens, and USD at $0.042 per million input tokens.
@@ -76,6 +79,7 @@ export function parseArgs(argv: string[]): HarnessArgs {
   if (split === "val" && !final) throw new Error("--split val needs --final: val is for one last check per config, not for tuning");
   if (split === "dev" && final) throw new Error("--final is only for --split val");
   if (final && argv.includes("--no-log")) throw new Error("--final runs are always logged; --no-log is not allowed");
+  if (final && argv.includes("--dry-run")) throw new Error("--final runs call Jev; --dry-run is not allowed (it would use up the one val run)");
   const parity = argv.includes("--parity");
   if (parity && config !== "baseline") throw new Error("--parity is only for the baseline config");
   return {
