@@ -13,3 +13,7 @@ apps/web/scripts/copy/out/
 # Fact checker cache and output
 apps/web/scripts/facts/cache/
 apps/web/scripts/facts/out/
+
+# Browser bundle (built by `bun run build`, `dev` and `test`)
+apps/web/public/app-*.js
+apps/web/public/build.json

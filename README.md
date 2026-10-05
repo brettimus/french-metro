@@ -49,10 +49,11 @@ docs/               outline, deployment guide
 
 ```sh
 bun install
-bun run --cwd apps/web build # rebuild the browser bundle after frontend changes
-bun run dev                 # local dev server on :3000
-bun test && bun run typecheck
+bun run dev                 # builds the browser bundle, then serves on :3000
+bun run test && bun run typecheck
 ```
+
+The browser bundle (`apps/web/public/app-*.js` and `build.json`) is not in git. `dev` and `test` build it automatically. Run `bun run --cwd apps/web build` before `bun run start`. `dev` builds once at start-up; run the build again after frontend changes.
 
 ## Deploy
 
