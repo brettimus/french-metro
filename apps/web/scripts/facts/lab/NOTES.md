@@ -261,3 +261,28 @@ One entry per loop iteration. Primary = AP on dev (all items); guard = AP on dev
   fetch 0.17, contradicted 0.07, no passage 0.05, max unsupported 0.01. The model gives the unmatched-number part
   much more weight than the hand weights do, and less to `contradicted`; on held-out stations this ranks fewer
   planted errors in the top 20. The weights are not the limit: better signals are needed, not a better mix.
+
+## Iteration 14: mainfact (DISCARD)
+
+- **Hypothesis:** The reviewer accepts claims that add small details when the sources state the main fact
+  (iteration 11: Jev puts 90 of 173 supported claims at "adds a detail"). The strict `supported` noul is low on
+  these claims. A lenient question about the main fact only could separate supported claims from unsourced ones,
+  whose main fact has no source.
+- **Change:** `configs/mainfact.ts` = contra2, plus a `main_fact` noul ("Do the passages state the main fact of the
+  claim? Ignore small added details, wording and emphasis"), asked in separate requests on the passage state and on
+  the whole-source state. Each claim's `supported` = (blended supported + w × mean main_fact) / (1 + w).
+  `MAINFACT_W` sets w (default 1), `MAINFACT_SRC` = both | passage | whole, `MAINFACT_DUMP` prints per-claim values.
+  656 live requests (2.6M tokens, $0.11); the 20 long whole-source states failed again (max_tokens_exceeded) and use
+  the other answers.
+- **Result:** AP 0.907 → 0.868 (p_better 0.000). No planted: 0.805 → 0.738 (p_better 0.000). AUC 0.903 → 0.854 (no
+  planted 0.867 → 0.797). confR20 0 → 0 (no planted 0.077 → 0.154). plantR20 0.63 → 0.52, plantAuc 0.974 → 0.970.
+  Dry-run sweep (not logged), w = 0.25 / 0.5 / 1: both 0.892 / 0.883 / 0.868, passage 0.892 / 0.883 / 0.868, whole
+  0.890 / 0.881 / 0.866. Each step down.
+- **Decision:** DISCARD (AP −0.039, guard fails).
+- **Learned:** Per-claim means (share above 0.5): supported: passage noul 0.39, whole noul 0.49, main_fact passage
+  0.61 (117 of 173), main_fact whole 0.69 (122). Unsourced: 0.16, 0.19, 0.39 (27 of 77), 0.43 (29). The lenient
+  question moves all classes up by about the same amount, so the supported−unsourced gap does not grow (0.22 and 0.25
+  against 0.23 and 0.30 for the strict nouls), and the answers have more spread. Jev finds the main fact in the
+  passages for a third of the unsourced claims: for these, the reviewer did not accept the source as support for the
+  claim as written. So the reviewer's "supported" is not "main fact stated"; the strict question is closer to the
+  labels. Questions that change how strict 'supported' is (overstated, qualifier, support level, main fact) all fail.
