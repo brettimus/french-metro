@@ -1,0 +1,4 @@
+timestamp	config	config_sha	split	filters	items	positives	primary_ap	ap_ci	auc	conf_recall20	planted_recall20	n_calls	live_calls	live_tokens	usd	secs	p_better	note
+2026-10-05T14:48:01.271Z	baseline	f682829734	dev	all	165	81	0.84	0.751–0.921	0.851	0	0.37	341	54	109499	0.0046	1.1		baseline, first run (planted claims live)
+2026-10-05T14:48:06.111Z	baseline	f682829734	dev	all	165	81	0.84	0.751–0.921	0.851	0	0.37	341	0	0	0.0000	0.1		baseline, cached rerun
+2026-10-05T14:48:06.239Z	baseline	f682829734	dev	noplanted	138	54	0.71	0.58–0.842	0.792	0.077	NaN	286	0	0	0.0000	0.1		baseline without planted errors

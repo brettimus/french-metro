@@ -7,7 +7,7 @@ import { createHash } from "node:crypto";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { choice, noul, TypeSafeClient, type Questions } from "@typesafe-ai/sdk";
-import { cachedSystemOne, type JevCacheEntry, type JevCacheRequest } from "../jev-cache";
+import { cachedSystemOne, type JevCacheEntry, type JevCacheOptions, type JevCacheRequest, type JevCacheResult } from "../jev-cache";
 
 export const MODEL = "jev-1.13.0";
 /** Label for the question set in results.json and the legacy cache key. The cache key itself includes the question text. */
@@ -94,8 +94,11 @@ export const jevRequest = (state: JevState): JevCacheRequest => ({
   state,
 });
 
-export async function askJev(client: TypeSafeClient | undefined, state: JevState, dir?: string): Promise<JevAnswer> {
-  const r = await cachedSystemOne(client, jevRequest(state), { dir, legacy: { key: legacyCacheKey(state), decode: decodeLegacy } });
+/** Cache options for a fact request: the old-key fallback for files written before the content-addressed cache. */
+export const jevCacheOptions = (state: JevState, dir?: string): JevCacheOptions => ({ dir, legacy: { key: legacyCacheKey(state), decode: decodeLegacy } });
+
+/** A cache result as the JevAnswer that rank.ts scores. */
+export function toJevAnswer(r: JevCacheResult): JevAnswer {
   if (!r.ok) return { ms: r.ms, cached: false, requestId: r.requestId, error: r.error };
   const { entry } = r;
   const a = entry.answers as RawAnswers;
@@ -110,6 +113,10 @@ export async function askJev(client: TypeSafeClient | undefined, state: JevState
     ms: entry.ms,
     cached: r.cached,
   };
+}
+
+export async function askJev(client: TypeSafeClient | undefined, state: JevState, dir?: string): Promise<JevAnswer> {
+  return toJevAnswer(await cachedSystemOne(client, jevRequest(state), jevCacheOptions(state, dir)));
 }
 
 export function loadApiKey(): string | undefined {
