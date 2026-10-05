@@ -560,6 +560,10 @@ const stations: Station[] = [
       branch: "ivry",
       sources: [
         {
+          label: "Porte de Choisy · Wikipédia",
+          url: wiki("Porte de Choisy (métro de Paris)"),
+        },
+        {
           label: "Sully – Morland · Wikipédia",
           url: wiki("Sully - Morland (métro de Paris)"),
         },
