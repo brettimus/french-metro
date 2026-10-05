@@ -96,3 +96,27 @@ One entry per loop iteration. Primary = AP on dev (all items); guard = AP on dev
   qualifier signal and the wording regex both find the same 5 confirmed pairs. With 13 confirmed dev pairs, a
   wording feature does not raise AP; it could be a separate review list ("claims with qualifiers") instead of a part
   of the risk score. Next: ideas that change what Jev reads (per-passage checks, whole source text) or the combiner.
+
+## Iteration 6: wholesrc (DISCARD)
+
+- **Hypothesis:** Many supported pairs rank high with a very low `supported` because retrieval did not give Jev the
+  passage that states the fact. The reviewer judged against the whole station sources, and an "unsourced" label
+  means the whole sources do not state the claim. If Jev reads the whole sources, `supported` goes up on supported
+  pairs and stays low on unsourced pairs.
+- **Change:** `configs/wholesrc.ts` = meanpair, but the Jev state has one `passages` entry per fetched station source
+  (the whole cleaned text, ids s1, s2, ...) instead of the 5 retrieved passages. Same questions and pair scoring.
+  The config checks each text against `textSha1` in dataset.json. When the request fails, the claim uses the cached
+  passage answer. 317 live requests, 2.1M tokens, $0.089. 20 requests failed with `max_tokens_exceeded` (states of
+  128k characters or more: Chaussée d'Antin, Madeleine, Pasteur, Bibliothèque François-Mitterrand, Robespierre).
+- **Result:** AP 0.862 → 0.870 (p_better 0.69). No planted: 0.756 → 0.792 (p_better 0.87). AUC 0.888 → 0.889 (no
+  planted 0.848 → 0.863). confR20 0 → 0 (no planted 0 → 0.077). plantAuc 0.968 → 0.940.
+- **Decision:** DISCARD (AP gain 0.008, below 0.01; the guard improves).
+- **Learned:** This is the first change that adds new information for real problems. Mean pair score change: −0.097
+  on supported (34 of 84 pairs go down by more than 0.1), −0.023 on unsourced, −0.066 on confirmed, +0.016 on
+  refuted. So retrieval misses are a large part of the false alarms. The cost is on planted errors (−0.048; 4 of 27
+  go down by more than 0.1, for example a changed date "three weeks" vs "three months", "1909" vs another year):
+  in a long text Jev finds a close match and misses the one changed detail more often than with 5 short passages.
+  Ideas for next iterations: the mean (or min) of the passage `supported` and the whole-source `supported` (both
+  answers are in the cache, so no new calls); keep the whole-source answer only for `supported` and take
+  `contradicted` or `best_passage` from the passages; or cut long sources to the paragraphs around the retrieved
+  passages so that no request fails.
