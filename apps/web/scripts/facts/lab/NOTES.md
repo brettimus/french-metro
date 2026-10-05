@@ -120,3 +120,20 @@ One entry per loop iteration. Primary = AP on dev (all items); guard = AP on dev
   answers are in the cache, so no new calls); keep the whole-source answer only for `supported` and take
   `contradicted` or `best_passage` from the passages; or cut long sources to the paragraphs around the retrieved
   passages so that no request fails.
+
+## Iteration 7: blendsrc (KEEP)
+
+- **Hypothesis:** The whole-source answer (wholesrc) fixes retrieval misses on supported pairs, and the passage
+  answer keeps the planted single-detail changes visible. The mean of the two `supported` values keeps part of both.
+- **Change:** `configs/blendsrc.ts` = meanpair, but each claim's `supported` is the mean of the passage answer and the
+  whole-source answer. `contradicted` and `best_passage` come from the passage answer. When the whole-source request
+  failed (20 cached `max_tokens_exceeded` errors), the claim uses the passage answer only. No new Jev calls (all
+  answers cached from iteration 6).
+- **Result:** AP 0.862 → 0.878 (p_better 0.91). No planted: 0.756 → 0.792 (p_better 0.97). AUC 0.888 → 0.902 (no
+  planted 0.848 → 0.872). confR20 0 → 0 (no planted 0 → 0.077). plantAuc 0.968 → 0.962 (wholesrc: 0.940).
+- **Decision:** KEEP (AP +0.016, guard improves).
+- **Learned:** Mean pair score change vs meanpair: supported −0.046 (14 of 84 down by more than 0.1), confirmed
+  −0.029, planted −0.022 (3 of 27 down by more than 0.1), unsourced −0.012, refuted −0.002. The blend keeps most of
+  the wholesrc gain on real problems (no-planted AP equal to wholesrc) and loses less on planted errors (planted
+  −0.022 vs −0.048). Next: other blend weights (for example 0.3/0.7) or min instead of mean; cut long sources to the
+  paragraphs around the retrieved passages so that the 20 failed requests also get a whole-source answer.
