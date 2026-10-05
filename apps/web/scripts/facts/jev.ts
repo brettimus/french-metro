@@ -1,15 +1,16 @@
 /**
- * Jev questions for one claim and its retrieved passages, plus a request runner with a disk cache
- * (cache/jev/<sha1 of model + question version + state>.json), so a rerun only pays for changed claims.
+ * Jev questions for one claim and its retrieved passages, plus a request runner that uses the content-addressed
+ * cache in ../jev-cache.ts (key: model + questions + state), so a rerun only pays for changed claims or questions.
+ * Files under the old key (model + QUESTION_VERSION + state) are still read.
  */
 import { createHash } from "node:crypto";
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
-import { APIError, choice, noul, TypeSafeClient, type Questions } from "@typesafe-ai/sdk";
-import { CACHE_DIR } from "./sources";
+import { choice, noul, TypeSafeClient, type Questions } from "@typesafe-ai/sdk";
+import { cachedSystemOne, type JevCacheEntry, type JevCacheRequest } from "../jev-cache";
 
 export const MODEL = "jev-1.13.0";
-/** Change this when the questions change, so cached answers are not reused. */
+/** Label for the question set in results.json and the legacy cache key. The cache key itself includes the question text. */
 export const QUESTION_VERSION = "facts-2";
 
 export type JevState = {
@@ -65,39 +66,50 @@ export type JevAnswer = {
   error?: string;
 };
 
-const JEV_CACHE = join(CACHE_DIR, "jev");
-const cacheKey = (state: JevState) =>
+/** The pre-content-address key (model + QUESTION_VERSION + state); kept so the files written under it still hit. */
+export const legacyCacheKey = (state: JevState) =>
   createHash("sha1").update(JSON.stringify([MODEL, QUESTION_VERSION, state])).digest("hex");
 
-export async function askJev(client: TypeSafeClient | undefined, state: JevState): Promise<JevAnswer> {
-  const path = join(JEV_CACHE, `${cacheKey(state)}.json`);
-  if (existsSync(path)) return { ...(JSON.parse(readFileSync(path, "utf8")) as JevAnswer), cached: true };
-  if (!client) return { ms: 0, cached: false, error: "no API key (dry run)" };
-  const t0 = performance.now();
-  try {
-    const { data, requestId } = await client
-      .systemOne({ state: state as never, questions: buildQuestions(state.passages.map((p) => p.id), state.previous_sentence !== undefined), model: MODEL })
-      .withResponse();
-    const a = data.answers as Record<string, { noul?: number; choice?: string; confidence?: number }>;
-    const answer: JevAnswer = {
-      supported: a.supported?.noul,
-      contradicted: a.contradicted?.noul,
-      bestPassage: a.best_passage?.choice,
-      bestPassageConfidence: a.best_passage?.confidence,
-      requestId,
-      usage: { input_tokens: data.usage.input_tokens, output_tokens: data.usage.output_tokens },
-      model: data.model,
-      ms: Math.round(performance.now() - t0),
-      cached: false,
-    };
-    mkdirSync(JEV_CACHE, { recursive: true });
-    writeFileSync(path, JSON.stringify(answer));
-    return answer;
-  } catch (e) {
-    const ms = Math.round(performance.now() - t0);
-    if (e instanceof APIError) return { ms, cached: false, requestId: e.requestId, error: `${e.status ?? ""} ${e.message}`.trim() };
-    return { ms, cached: false, error: e instanceof Error ? e.message : String(e) };
-  }
+type RawAnswers = { supported?: { noul?: number }; contradicted?: { noul?: number }; best_passage?: { choice?: string; confidence?: number } };
+
+/** A legacy file holds a JevAnswer; turn it into a cache entry with raw answers. */
+function decodeLegacy(raw: unknown): JevCacheEntry {
+  const a = raw as JevAnswer;
+  return {
+    model: a.model,
+    requestId: a.requestId,
+    usage: a.usage,
+    ms: a.ms,
+    answers: {
+      supported: { type: "noul", noul: a.supported },
+      contradicted: { type: "noul", noul: a.contradicted },
+      best_passage: { type: "choice", choice: a.bestPassage, confidence: a.bestPassageConfidence },
+    },
+  };
+}
+
+export const jevRequest = (state: JevState): JevCacheRequest => ({
+  model: MODEL,
+  questions: buildQuestions(state.passages.map((p) => p.id), state.previous_sentence !== undefined),
+  state,
+});
+
+export async function askJev(client: TypeSafeClient | undefined, state: JevState, dir?: string): Promise<JevAnswer> {
+  const r = await cachedSystemOne(client, jevRequest(state), { dir, legacy: { key: legacyCacheKey(state), decode: decodeLegacy } });
+  if (!r.ok) return { ms: r.ms, cached: false, requestId: r.requestId, error: r.error };
+  const { entry } = r;
+  const a = entry.answers as RawAnswers;
+  return {
+    supported: a.supported?.noul,
+    contradicted: a.contradicted?.noul,
+    bestPassage: a.best_passage?.choice,
+    bestPassageConfidence: a.best_passage?.confidence,
+    requestId: entry.requestId,
+    usage: entry.usage,
+    model: entry.model,
+    ms: entry.ms,
+    cached: r.cached,
+  };
 }
 
 export function loadApiKey(): string | undefined {

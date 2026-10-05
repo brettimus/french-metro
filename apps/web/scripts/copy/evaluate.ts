@@ -9,11 +9,13 @@
  * --limit and --sample count EN/FR pairs, so N pairs give 2N units (pair checks need both).
  * --dry-run runs only the deterministic checks (no network).
  * Reads TYPESAFE_API_KEY from the environment, or from the repo-root .env.
+ * Jev answers are cached by model + questions + state (../jev-cache.ts), so a rerun only pays for changed requests.
  * Writes <out>/<run>/results.json and <out>/<run>/summary.md. Default out: apps/web/scripts/copy/out.
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
-import { APIError, TypeSafeClient, VERSION as SDK_VERSION, type Questions } from "@typesafe-ai/sdk";
+import { TypeSafeClient, VERSION as SDK_VERSION, type Questions } from "@typesafe-ai/sdk";
+import { cachedSystemOne } from "../jev-cache";
 import { lines } from "../../src/data/lines";
 import { buildCorpus, type CopyUnit } from "./corpus";
 import { uiUsage } from "./ui-usage";
@@ -267,24 +269,12 @@ async function mapPool<T, R>(items: T[], limit: number, fn: (x: T, i: number) =>
   return out;
 }
 
-async function runRequest(client: TypeSafeClient, req: JevRequest): Promise<JevResult> {
-  const t0 = performance.now();
+async function runRequest(client: TypeSafeClient, model: string, req: JevRequest): Promise<JevResult> {
   const base = { key: req.key, scope: req.scope, unitIds: req.unitIds };
-  try {
-    const { data, requestId } = await client.systemOne({ state: req.state as never, questions: req.questions }).withResponse();
-    return {
-      ...base,
-      model: data.model,
-      requestId,
-      usage: { input_tokens: data.usage.input_tokens, output_tokens: data.usage.output_tokens },
-      ms: Math.round(performance.now() - t0),
-      answers: data.answers as unknown as Record<string, Answer>,
-    };
-  } catch (e) {
-    const ms = Math.round(performance.now() - t0);
-    if (e instanceof APIError) return { ...base, ms, requestId: e.requestId, error: `${e.status ?? ""} ${e.message}`.trim() };
-    return { ...base, ms, error: e instanceof Error ? e.message : String(e) };
-  }
+  const r = await cachedSystemOne(client, { model, questions: req.questions, state: req.state });
+  if (!r.ok) return { ...base, ms: r.ms, requestId: r.requestId, error: r.error };
+  const { entry } = r;
+  return { ...base, model: entry.model, requestId: entry.requestId, usage: entry.usage, ms: entry.ms, answers: entry.answers as Record<string, Answer> };
 }
 
 // ---------- assembly ----------
@@ -642,7 +632,7 @@ async function main() {
     const client = new TypeSafeClient({ apiKey, defaultModel: args.model, timeout: 20_000, retry: { maxRetries: 4 } });
     let done = 0;
     results = await mapPool(requests, args.concurrency, async (req) => {
-      const r = await runRequest(client, req);
+      const r = await runRequest(client, args.model, req);
       done++;
       if (done % 50 === 0 || done === requests.length) process.stderr.write(`\r${done}/${requests.length} requests`);
       return r;
