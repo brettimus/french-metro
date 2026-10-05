@@ -42,6 +42,8 @@ bun apps/web/scripts/facts/sources.ts --refresh  # refetch instead of reading th
 
 The output lists each URL that is not ok (`broken`, `blocked` or `unreadable`) and each Wikipedia title that redirects. `blocked` (HTTP 401, 403 or 503) usually means the site refuses scripts; open the link in a browser before you change it. `unreadable` means the page returned too little text (it needs JavaScript) or is a PDF.
 
+Some links work in a browser but not for scripts (a JavaScript page, a PDF, a Cloudflare block). They are in `KNOWN_UNREADABLE` in `sources.ts`, with a reason. The output and `ranked.md` list them as known, not as failures, and they add no `fetchFailure` risk. Add a link to that list only after you open it in a browser, and only when the station also cites a readable source for the same facts. A test fails when a listed link is no longer cited. Requests use the generic agent `french-metro-factcheck/1.0`.
+
 ## Run the checker
 
 ```sh

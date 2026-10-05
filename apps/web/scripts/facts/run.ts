@@ -25,7 +25,7 @@ import { askJev, askJevWholeSource, blendAnswers, fieldLabel, loadApiKey, makeCl
 import { buildNumberIndex, extractNumbers, matchFact, type NumberIndex } from "./numbers";
 import { claimRisk, RANKER_VERSION, rankPairs, RISK_WEIGHTS, round, staleConflicts, type ClaimRow, type ExcludedPair, type PairRow } from "./rank";
 import { Bm25Index, buildQuery, chunkText, cleanSourceText, type Passage } from "./retrieve";
-import { failureKind, fetchAll, mapPool, stationRefs, stationUrls, type SourceDoc, type UrlRole } from "./sources";
+import { failureKind, fetchAll, isKnownUnreadable, KNOWN_UNREADABLE, mapPool, stationRefs, stationUrls, type SourceDoc, type UrlRole } from "./sources";
 import { tokenize } from "./text";
 
 export const TOP_PASSAGES = 5;
@@ -108,7 +108,8 @@ async function main() {
   >();
   for (const [key, urls] of urlRoles) {
     const ok = urls.filter((u) => docs.get(u.url)?.status === "ok");
-    const failures = urls.filter((u) => docs.get(u.url)?.status !== "ok");
+    // Links in KNOWN_UNREADABLE work in a browser; they are not a finding, so they add no risk.
+    const failures = urls.filter((u) => docs.get(u.url)?.status !== "ok" && !isKnownUnreadable(u.url));
     stationInfo.set(key, {
       passages: ok.flatMap((u) => passagesByUrl.get(u.url) ?? []),
       sources: ok.map((u) => ({ source: sourceLabel(docs.get(u.url)!), text: cleanSourceText(docs.get(u.url)!.text) })),
@@ -180,7 +181,10 @@ async function main() {
   const live = requests.filter((a) => !a.cached && !a.error);
   const usage = requests.reduce((s, a) => ({ input: s.input + (a.usage?.input_tokens ?? 0), output: s.output + (a.usage?.output_tokens ?? 0) }), { input: 0, output: 0 });
   const liveUsage = live.reduce((s, a) => s + (a.usage?.input_tokens ?? 0), 0);
-  const failures = [...docs.values()].filter((d) => d.status !== "ok").map((d) => ({ kind: failureKind(d), httpStatus: d.httpStatus, url: d.url, error: d.error, stations: [...urlRoles].filter(([, us]) => us.some((u) => u.url === d.url)).map(([k, us]) => `${k} (${us.find((u) => u.url === d.url)!.role})`) }));
+  const notOk = [...docs.values()].filter((d) => d.status !== "ok");
+  const stationsOf = (url: string) => [...urlRoles].filter(([, us]) => us.some((u) => u.url === url)).map(([k, us]) => `${k} (${us.find((u) => u.url === url)!.role})`);
+  const knownUnreadable = notOk.filter((d) => isKnownUnreadable(d.url)).map((d) => ({ kind: failureKind(d), httpStatus: d.httpStatus, url: d.url, reason: KNOWN_UNREADABLE.find((k) => k.url === d.url)!.reason, stations: stationsOf(d.url) }));
+  const failures = notOk.filter((d) => !isKnownUnreadable(d.url)).map((d) => ({ kind: failureKind(d), httpStatus: d.httpStatus, url: d.url, error: d.error, stations: stationsOf(d.url) }));
   const redirects = [...docs.values()].filter((d) => d.redirectedTo).map((d) => ({ url: d.url, redirectedTo: d.redirectedTo }));
   const jevRows = rows.filter((r) => r.jev.supported !== undefined);
   const bucket = (xs: number[]) => {
@@ -217,6 +221,7 @@ async function main() {
       numbersChecked: rows.reduce((s, r) => s + r.numbers.length, 0),
     },
     fetchFailures: failures,
+    knownUnreadable,
     redirects,
     knownConflicts: { excluded: excluded.map((p) => p.pairKey), stale: stale.map((k) => `${k.lineId}/${k.stationId}/${k.field}: ${k.contains[0]}`) },
   };
@@ -224,7 +229,7 @@ async function main() {
   mkdirSync(args.out, { recursive: true });
   writeFileSync(join(args.out, "results.json"), JSON.stringify({ stats, weights: RISK_WEIGHTS, pairs, excluded }, null, 1));
   writeFileSync(join(args.out, "ranked.md"), renderMarkdown(stats, pairs, excluded, args.top));
-  console.log(JSON.stringify({ ...stats, fetchFailures: failures.length, redirects: redirects.length }, null, 1));
+  console.log(JSON.stringify({ ...stats, fetchFailures: failures.length, knownUnreadable: knownUnreadable.length, redirects: redirects.length }, null, 1));
   if (stale.length) console.warn(`known conflicts that matched no claim (check known-conflicts.ts): ${stale.length}`);
   console.log(`wrote ${join(args.out, "results.json")} and ranked.md`);
 }
@@ -259,6 +264,9 @@ function renderMarkdown(stats: Record<string, any>, pairs: PairRow[], excluded: 
   out.push(`## Fetch failures (${stats.fetchFailures.length})`, "", `| Kind | HTTP | URL | Stations | Error |`, `|---|---|---|---|---|`);
   for (const f of stats.fetchFailures) out.push(`| ${f.kind} | ${f.httpStatus} | ${f.url} | ${f.stations.join(", ")} | ${oneLine(f.error ?? "")} |`);
   out.push("", "`blocked` means the server refused the script (401/403/503); check those links in a browser.", "");
+  out.push(`## Known unreadable links (${stats.knownUnreadable.length})`, "", "These links work in a browser but not for scripts (KNOWN_UNREADABLE in sources.ts). They add no risk.", "", `| Kind | HTTP | URL | Stations | Reason |`, `|---|---|---|---|---|`);
+  for (const f of stats.knownUnreadable) out.push(`| ${f.kind} | ${f.httpStatus} | ${f.url} | ${f.stations.join(", ")} | ${oneLine(f.reason)} |`);
+  out.push("");
   if (stats.redirects.length) {
     out.push(`## Wikipedia redirects (${stats.redirects.length})`, "", "The cited title redirects to another article; check that it is the intended page.", "");
     for (const r of stats.redirects) out.push(`- ${r.url} → ${r.redirectedTo}`);

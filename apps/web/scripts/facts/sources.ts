@@ -13,8 +13,8 @@ import { lines } from "../../src/data/lines";
 import type { Station } from "../../src/data/types";
 
 export const CACHE_DIR = join(import.meta.dir, "cache");
-export const USER_AGENT =
-  "french-metro-fact-checker/0.1 (https://github.com/brettimus/french-metro; source check for station copy, cached) Bun";
+/** A generic agent: no personal names, emails or account handles in requests. */
+export const USER_AGENT = "french-metro-factcheck/1.0";
 /** Some sites refuse non-browser agents. A second try with this agent tells a bot block from a broken link. */
 const BROWSER_AGENT =
   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36";
@@ -44,6 +44,37 @@ export type SourceDoc = {
   browserAgent?: boolean;
   fetchedAt: string;
 };
+
+/**
+ * Links that work in a browser but that a script cannot read (checked by hand in a browser on 2026-10-05). The run
+ * reports them as known, not as failures, and they add no `fetchFailure` risk. When a cached copy of the page is ok,
+ * its text is still used. Each station that cites one also cites a readable source for the same facts.
+ */
+export type KnownUnreadable = { url: string; reason: string };
+export const KNOWN_UNREADABLE: KnownUnreadable[] = [
+  {
+    url: "https://quotidien-parisiens-sous-occupation.paris.fr/en/detail_419.html",
+    reason: "Ville de Paris page that builds its text with JavaScript; Jacques Bonsergent · Wikipédia covers the facts",
+  },
+  {
+    url: "https://www.saint-ouen.fr/vie-quotidienne/culture-et-patrimoine/histoire-et-patrimoine/histoire-de-saint-ouen-sur-seine/",
+    reason: "JavaScript proof-of-work page; Saint-Ouen-sur-Seine · Wikipédia covers the history",
+  },
+  {
+    url: "https://www.aphp.fr/sites/default/files/w_livret_accueil_enfant_bicetre.pdf",
+    reason: "PDF; the checker reads HTML and text only",
+  },
+  {
+    url: "https://www.iledefrance-mobilites.fr/actualites/metro-ligne-14-noms-futures-stations",
+    reason: "Cloudflare refuses scripts (HTTP 403); an earlier cached copy may be ok",
+  },
+  {
+    url: "https://www.iledefrance-mobilites.fr/actualites/lucie-aubrac-et-barbara-seront-les-noms-des-prochaines-stations-de-la-ligne-4-du-metro",
+    reason: "Cloudflare refuses scripts (HTTP 403); an earlier cached copy may be ok",
+  },
+];
+const KNOWN_UNREADABLE_URLS = new Set(KNOWN_UNREADABLE.map((k) => k.url));
+export const isKnownUnreadable = (url: string) => KNOWN_UNREADABLE_URLS.has(url);
 
 export type StationRef = { lineId: string; station: Station };
 export type UrlRole = "source" | "people";
@@ -244,9 +275,13 @@ if (import.meta.main) {
   const refs = stationRefs(li >= 0 ? argv[li + 1] : undefined);
   const urls = refs.flatMap((r) => stationUrls(r.station).map((u) => u.url));
   const docs = await fetchAll(urls, { refresh: argv.includes("--refresh"), log: true });
-  const bad = [...docs.values()].filter((d) => d.status !== "ok");
-  console.log(`${docs.size} URLs, ${bad.length} not ok`);
+  const notOk = [...docs.values()].filter((d) => d.status !== "ok");
+  const bad = notOk.filter((d) => !isKnownUnreadable(d.url));
+  const known = notOk.filter((d) => isKnownUnreadable(d.url));
+  console.log(`${docs.size} URLs, ${bad.length} not ok, ${known.length} known unreadable`);
   for (const d of bad) console.log(`  ${d.status}\t${d.httpStatus}\t${d.url}\t${d.error ?? ""}`);
+  if (known.length) console.log("Known unreadable (KNOWN_UNREADABLE; they work in a browser):");
+  for (const d of known) console.log(`  ${d.status}\t${d.httpStatus}\t${d.url}\t${KNOWN_UNREADABLE.find((k) => k.url === d.url)!.reason}`);
   const redirects = [...docs.values()].filter((d) => d.redirectedTo);
   console.log(`${redirects.length} Wikipedia redirects`);
   for (const d of redirects) console.log(`  ${d.url} -> ${d.redirectedTo}`);

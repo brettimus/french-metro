@@ -6,7 +6,7 @@ import { claimRisk, FACTS2_RISK_WEIGHTS, rankPairs, RISK_WEIGHTS, staleConflicts
 import { KNOWN_CONFLICTS, matchKnownConflict } from "../scripts/facts/known-conflicts";
 import { compactLine } from "../scripts/facts/run";
 import { Bm25Index, buildQuery, chunkText, cleanSourceText, type Passage } from "../scripts/facts/retrieve";
-import { htmlToText, wikiTitle } from "../scripts/facts/sources";
+import { htmlToText, isKnownUnreadable, KNOWN_UNREADABLE, stationRefs, stationUrls, USER_AGENT, wikiTitle } from "../scripts/facts/sources";
 import { countWords, fold, splitSentences, tokenize } from "../scripts/facts/text";
 
 const keys = (s: string) => extractNumbers(s).map((f) => f.key);
@@ -182,6 +182,17 @@ describe("sources helpers", () => {
 
   test("htmlToText drops scripts and decodes entities", () => {
     expect(htmlToText("<html><script>x()</script><p>Caf&eacute; &amp; gare</p><p>B&#233;rault</p></html>")).toBe("Café & gare\nBérault");
+  });
+
+  test("every known unreadable link is still cited by a station", () => {
+    const cited = new Set(stationRefs().flatMap((r) => stationUrls(r.station).map((u) => u.url)));
+    for (const k of KNOWN_UNREADABLE) expect(cited.has(k.url)).toBe(true);
+    expect(isKnownUnreadable(KNOWN_UNREADABLE[0]!.url)).toBe(true);
+    expect(isKnownUnreadable("https://fr.wikipedia.org/wiki/Nation")).toBe(false);
+  });
+
+  test("the user agent is generic", () => {
+    expect(USER_AGENT).toBe("french-metro-factcheck/1.0");
   });
 });
 
