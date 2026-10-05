@@ -236,3 +236,28 @@ One entry per loop iteration. Primary = AP on dev (all items); guard = AP on dev
   refuted −0.027. Many supported claims combine details from two or more passages, so no single passage supports
   them in full. The hypothesis is false: joining the passages does not lower `supported` on supported claims. More
   context helps Jev (as the whole-source blend showed); less context hurts.
+
+## Iteration 13: lrcombo (DISCARD)
+
+- **Hypothesis (plan idea 8):** The hand weights of contra2 (unsupported 1, contradicted 0.2, small parts 0.1) may
+  not be the best mix. A fitted mix could give better weights to the passage and whole-source `supported`, the max
+  over claims, `contradicted` and the small parts.
+- **Change:** `configs/lrcombo.ts` = contra2's requests (no new Jev calls) and 8 pair features: mean (1 − passage
+  supported), mean (1 − whole-source supported), max of the blended unsupported, max passage `contradicted`,
+  no-passage flag, unmatched-number part, fetch failure, Jev error. An L2-regularized logistic regression on
+  standardized features, trained on dev from the cache only. Each dev item gets the score of the model fitted
+  without its station (leave-one-station-out, 86 folds; planted copies stay with their originals). A val item would
+  use the model fitted on all of dev. `LRCOMBO_L2` sets the penalty (default 1), `LRCOMBO_PRINT` prints the
+  slopes, `LRCOMBO_INSAMPLE` scores dev with the all-dev model (for analysis only; added after the logged run).
+- **Result:** AP 0.907 → 0.864 (p_better 0.004). No planted: 0.805 → 0.767 (p_better 0.008). AUC 0.903 → 0.882 (no
+  planted 0.867 → 0.839). confR20 0 → 0 (no planted 0.077 → 0.077). plantR20 0.63 → 0.52, plantAuc 0.974 → 0.966.
+  Dry-run sweep of the L2 penalty (not logged): 0.1 → AP 0.862, 1 → 0.864, 3 → 0.867, 10 → 0.874, 30 → 0.884. AP
+  goes up as the penalty pushes the model toward equal weights, but stays below contra2.
+- **Decision:** DISCARD (AP −0.043, guard fails).
+- **Learned:** Fitted on all of dev (in-sample), the model gets AP 0.901, still below contra2's 0.907. So the log
+  loss does not find a better mix than the hand weights, even without the cross-validation loss; and the 0.037 gap
+  between in-sample and leave-one-station-out shows overfitting with 165 items. Slopes of the all-dev model (score
+  change per +0.1 of a feature): passage unsupported 0.52, whole-source unsupported 0.45, unmatched numbers 0.33,
+  fetch 0.17, contradicted 0.07, no passage 0.05, max unsupported 0.01. The model gives the unmatched-number part
+  much more weight than the hand weights do, and less to `contradicted`; on held-out stations this ranks fewer
+  planted errors in the top 20. The weights are not the limit: better signals are needed, not a better mix.
