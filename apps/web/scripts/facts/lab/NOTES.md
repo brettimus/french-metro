@@ -137,3 +137,23 @@ One entry per loop iteration. Primary = AP on dev (all items); guard = AP on dev
   the wholesrc gain on real problems (no-planted AP equal to wholesrc) and loses less on planted errors (planted
   −0.022 vs −0.048). Next: other blend weights (for example 0.3/0.7) or min instead of mean; cut long sources to the
   paragraphs around the retrieved passages so that the 20 failed requests also get a whole-source answer.
+
+## Iteration 8: blendwin (DISCARD)
+
+- **Hypothesis:** In blendsrc, 20 claims (5 dev stations) have no whole-source answer because the state was too
+  long (`max_tokens_exceeded`), so they do not get the blendsrc gain. If the long sources are cut to the text around
+  the retrieved passages, these claims also get a whole-source answer.
+- **Change:** `configs/blendwin.ts` = blendsrc, but when the station sources together are longer than 115k
+  characters, each source longer than its share of a 90k budget is cut to windows of 4,000 characters on each side
+  of the retrieved passages from that source (merged; the head of the source when no passage comes from it).
+  Shorter states are unchanged, so only the 20 failed requests were sent again. 20 live requests, 300k tokens,
+  $0.013, 0 errors.
+- **Result:** AP 0.878 → 0.880 (p_better 0.69). No planted: 0.792 → 0.794 (p_better 0.62). AUC 0.902 → 0.906 (no
+  planted 0.872 → 0.878). confR20 0 → 0 (no planted 0.077 → 0.077). plantAuc 0.962 → 0.963.
+- **Decision:** DISCARD (AP gain 0.002, below 0.01).
+- **Learned:** Only 10 dev pairs change. 5 supported pairs go down (Chaussée d'Antin context/3 −0.30 on two lines,
+  Madeleine etymology/2 −0.135, BFM context/3 −0.068), as in blendsrc. But 3 problem pairs also go down (Madeleine
+  unsourced −0.138, Pasteur confirmed −0.115, Robespierre confirmed −0.012), and 2 supported pairs go up. So the
+  windows work (no request fails), but the effect is too small to measure on this split. The whole-source signal
+  is now available for all claims; further gains must come from somewhere else (blend weights, the combiner, or a
+  different question).
