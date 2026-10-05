@@ -195,3 +195,25 @@ One entry per loop iteration. Primary = AP on dev (all items); guard = AP on dev
   small and AUC with no planted errors goes down a little. Only 1 supported pair is in the top 20 (gare-de-l'est
   etymology/2, pass 1 line 5). The val run must confirm that the planted gain is not specific to dev. Real confirmed
   problems (wording faults) are still not found: `contradicted` does not see them either.
+
+## Iteration 11: suplevel (DISCARD)
+
+- **Hypothesis:** A noul near 0.5 means "unsure", not "partly supported". A 5-level score question gives a graded
+  value: the main fact is missing / a key name or date is missing or different / the main fact is stated but a
+  detail or qualifier is added / every detail is stated but one is worded more strongly / everything is stated at
+  the same strength. Such a value could separate wording faults (confirmed) and planted single-detail errors from
+  supported claims.
+- **Change:** `configs/suplevel.ts` = contra2, plus a `support_level` score question (5 levels) on the passage
+  state, sent as a separate request (340 live requests, 642k tokens, $0.027). Each claim's `supported` = the mean of
+  the passage noul, the whole-source noul and level/4 (`SUPLEVEL_W` sets the level's weight, default 1).
+- **Result:** AP 0.907 → 0.888 (p_better 0.009). No planted: 0.805 → 0.774 (p_better 0.015). AUC 0.903 → 0.887 (no
+  planted 0.867 → 0.844). confR20 0 → 0 (no planted 0.077 → 0.154). plantR20 0.63 → 0.56, plantAuc 0.974 → 0.974.
+  Dry-run sweep of the level weight (not logged): 0.3 → AP 0.899, 1 → 0.888, 3 → 0.874. Each step down.
+- **Decision:** DISCARD (AP −0.019, guard fails).
+- **Learned:** Per-claim means of level/4: supported 0.519, confirmed 0.421, refuted 0.360, unsourced 0.326,
+  planted 0.268. The gap between supported and unsourced is 0.19 (passage noul: 0.23) and between supported and
+  planted 0.25 (noul: 0.32), so the level separates the classes less than the noul does. Jev puts 90 of 173 supported
+  claims at level 2 ("the claim adds a detail the passages do not give") and only 7 at level 4. So, as with the
+  'overstated' and 'qualifier' questions, Jev finds an added detail in almost every claim, and the reviewer accepts
+  most of these details. The level question finds 2 more confirmed pairs in the top 20 with no planted errors, but it
+  moves many supported pairs up. Questions about the degree of support repeat the `supported` signal with more noise.
