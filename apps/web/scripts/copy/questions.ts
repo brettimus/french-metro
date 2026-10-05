@@ -12,7 +12,7 @@
 import { noul, score } from "@typesafe-ai/sdk";
 
 /** Bump when any question wording changes, so stored results can be compared. */
-export const QUESTION_SET_VERSION = "2026-10-05.6";
+export const QUESTION_SET_VERSION = "2026-10-05.7";
 
 // ---------- station unit (etymology and context) ----------
 // State: { station, field, locale, text } (+ `etymology` for context units).
@@ -52,8 +52,14 @@ const S4_PARTS = {
       false: "Each sentence adds at least one new name, date, place, event or cause. The first sentence of a note that explains a name adds a fact. A sentence that states how certain a claim is ('The attribution is traditional rather than certain') adds a fact",
     },
   ),
+  // Set 2026-10-05.7 (copy lab s4-wordy): also counts a wordy periphrasis, with true/false criteria.
+  // Dev S4 QWK 0.468 -> 0.514; test S4 QWK 0 in both sets (labels almost all one level), so unconfirmed.
   filler_phrase: noul(
-    "Does `text` contain a filler word or phrase that adds no fact: an intensifier or signpost ('simply', 'actually', 'it is worth noting', « tout simplement », « il convient de souligner »), a persistence phrase ('still today', « aujourd’hui encore »), or a comparison with the opening of the metro ('long before the metro arrived', 'two years before this Métro station opened', « bien avant l’arrivée du métro », « depuis son ouverture »)?",
+    "Does `text` contain a filler word or phrase that adds no fact? Count three kinds: (1) an intensifier or signpost ('simply', 'actually', 'it is worth noting', « tout simplement », « il convient de souligner »); (2) a persistence phrase ('still today', « aujourd’hui encore ») or a comparison with the opening of the metro ('long before the metro arrived', 'two years before this Métro station opened', « bien avant l’arrivée du métro », « depuis son ouverture »); (3) a wordy periphrasis, where several words say what one verb or a shorter phrase says ('carried out the construction of' for 'built', 'took the decision to rename' for 'renamed', « procède à l’inauguration de » for « inaugure », « exerce ses fonctions de maire » for « est maire », « au sein de » where « dans » says the same, « en ce qui concerne »).",
+    {
+      true: "At least one such word or phrase: if you delete it or replace it with one shorter word, the sentence keeps every fact",
+      false: "Each word carries a name, date, place, event, cause or needed link. A phrase that states how certain a claim is, or a short connective that links two facts, is not filler",
+    },
   ),
 } as const;
 
@@ -78,16 +84,19 @@ const S1_lead = score(
 
 /**
  * S7 rule (2026-10-05 decision): context about the namesake is acceptable when it gives a new fact
- * that `etymology` does not already state. Level 3 holds a new namesake fact or a station fact with
- * filler; level 4 needs a station-specific fact stated directly.
+ * that `etymology` does not already state. Level 3 holds a new namesake fact, or one station-specific
+ * fact next to generic ones; level 4 needs a station-specific fact stated directly.
+ * Set 2026-10-05.7 (copy lab s7-opening): concrete criteria for generic facts. A note whose only
+ * station facts are opening dates (station, platforms, line section) is level 2 at most, and a
+ * renovation in a network-wide tiling style is generic. Dev S7 QWK 0.146 -> 0.863, test 0.227 -> 0.536.
  */
 const S7_context = score(
-  "`text` is the context note for the metro station `station`. `etymology` is the separate note that explains its name. Does `text` add a fact that `etymology` does not already state, and is that fact about this station? Compare `text` with `etymology` sentence by sentence before you choose.",
+  "`text` is the context note for the metro station `station`. `etymology` is the separate note that explains its name. Does `text` add a fact that `etymology` does not already state, and is that fact specific to this station? Compare `text` with `etymology` sentence by sentence. Then list the station facts in `text` and ask of each one: could the same sentence be written about most other metro stations by changing only the names and dates? Opening dates are such facts: when the station opened, when each of its platforms opened, when the line section that reached it opened and between which termini. A renovation in a tiling style used across the network (Andreu-Motte, Mouton-Duvernet, 'Ouï-dire') is also such a fact.",
   [
-    "`text` repeats or paraphrases what `etymology` already says (the same person, office, date or event, in other words), or it only says when the station opened ('The station opened in 1900', « La station ouvre en 1900 »)",
-    "`text` gives a generic station fact (a renovation, traffic, a temporary decoration also used at other stations, a standard tiling) or a fact about another station or line",
-    "`text` gives a new fact about the person, place or event that `etymology` explains (a later career step, a work, an outcome, a date not in `etymology`); or it gives a fact specific to this station but opens with a filler sentence or ends with an unrelated fact",
-    "`text` gives a fact specific to this station (a former name, a rename, its construction, a physical feature, its layout, branch history), stated directly",
+    "`text` repeats or paraphrases what `etymology` already says (the same person, office, date or event, in other words), or its only fact is the opening date of the station ('The station opened in 1910', « La station ouvre en 1910 »)",
+    "Every station fact in `text` could be written about most other stations: opening dates of the station, its platforms or its line section, even when several are given ('The Line 3 platform opened in 1904; the Line 11 platform followed in 1935, when the line ran from Châtelet to Porte des Lilas'), a renovation or a standard tiling style, traffic figures, a temporary decoration also used elsewhere; or the facts are about another station or line",
+    "`text` gives a new fact about the person, place or event that `etymology` explains (a later career step, a work, an outcome, a date not in `etymology`); or it gives one fact specific to this station next to generic facts (a renovation or an opening date) that take up most of the note",
+    "`text` gives a fact that is true of this station only (a former name, a rename, an unusual event at its opening, a physical feature such as an entrance, a viaduct or a decoration made for it, its layout, branch history), stated directly",
   ],
 );
 

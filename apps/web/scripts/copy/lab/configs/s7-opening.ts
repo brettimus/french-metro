@@ -5,9 +5,10 @@
  * generic fact. The example sentences are new; they do not copy dev texts.
  */
 import { score } from "@typesafe-ai/sdk";
-import { assembleRow, pairRequest, unitRequest } from "../../evaluate";
-import { QUESTION_SET_VERSION, TELL_ID } from "../../questions";
+import { assembleRow, pairRequest } from "../../evaluate";
+import { TELL_ID } from "../../questions";
 import type { CopyLabConfig } from "../config";
+import { v6UnitRequest, V6_QUESTION_SET_VERSION } from "../v6";
 import { LEVELS } from "../dataset";
 import { toLevel } from "../metrics";
 
@@ -25,9 +26,9 @@ const S7_context = score(
 
 const config: CopyLabConfig = {
   name: "s7-opening",
-  description: `baseline (question set ${QUESTION_SET_VERSION}) with S7 criteria for opening-date-only and renovation-only context notes`,
+  description: `baseline (question set ${V6_QUESTION_SET_VERSION}) with S7 criteria for opening-date-only and renovation-only context notes`,
   unitRequest(u, ctx) {
-    const req = unitRequest(u, ctx.byId, ctx.lineTitles, ctx.corpus);
+    const req = v6UnitRequest(u, ctx);
     if (u.kind === "station" && u.field === "context" && req.questions.S7) req.questions = { ...req.questions, S7: S7_context };
     return req;
   },

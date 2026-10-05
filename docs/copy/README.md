@@ -153,7 +153,7 @@ bun apps/web/scripts/copy/lab/harness.ts --config <name> --split test --final
 
 Other flags: `--dry-run` (no Jev calls; cache misses are errors), `--concurrency 16`, `--note "text"`, `--no-log`. A `--final` run cannot use `--no-log` or `--dry-run`, because the once-per-config rule reads the rows in `results.tsv`.
 
-A config is a file in `lab/configs/` whose default export implements `CopyLabConfig` (`lab/config.ts`): `unitRequest`, `pairRequest` and `assess`. `configs/baseline.ts` uses the requests and `assembleRow` of `evaluate.ts`, so it measures the production evaluator with the current `questions.ts`. To try a change, copy `baseline.ts`, change one thing, and run it on dev. All requests go through the Jev cache (`scripts/jev-cache.ts`), so a rerun of a config costs nothing and a question change can never get an old answer.
+A config is a file in `lab/configs/` whose default export implements `CopyLabConfig` (`lab/config.ts`): `unitRequest`, `pairRequest` and `assess`. `configs/production.ts` uses the requests and `assembleRow` of `evaluate.ts`, so it measures the production evaluator with the current `questions.ts`. `configs/baseline.ts` and the configs tried before the port use `lab/v6.ts`, which puts back the two questions of set `2026-10-05.6` that set `.7` replaced, so their numbers stay the ones in `lab/NOTES.md`. To try a change, copy `production.ts`, change one thing, and run it on dev. Compare its row in `results.tsv` with the `production` row. All requests go through the Jev cache (`scripts/jev-cache.ts`), so a rerun of a config costs nothing and a question change can never get an old answer.
 
 ### Metrics
 
@@ -182,3 +182,33 @@ Primary 0.501 (QWK on all 7 dimensions). Within one level: 0.965 on average. Tel
 | native | 40 | 0.295 | 0.60 | 0.95 | +0.25 |
 
 Planted recall by tell: t9 3/3, t5 2/3, t13 1/3, t14 1/3, t16 0/3. Most labels are at the top level, so exact agreement is high even where kappa is low. S7 has dev labels from round 3 only (14 units).
+
+### Question set 2026-10-05.7 (`configs/s4-wordy.ts`, in production)
+
+The lab tried 11 configs on dev (`lab/NOTES.md`, `lab/results.tsv`). Two were kept, and set `2026-10-05.7` in `questions.ts` has both:
+
+1. **S7 for context notes (s7-opening):** concrete criteria for generic facts. A note whose only station facts are opening dates (of the station, its platforms or its line section) is level 2 at most. A renovation in a tiling style used across the network is a generic fact. New example sentences.
+2. **filler_phrase (s4-wordy):** the S4 level-3 Noul also counts a wordy periphrasis (several words where one verb or a shorter phrase says the same), with true/false criteria and new example phrases.
+
+`evaluate.ts` did not change: the levels come from the same code.
+
+| Metric | dev baseline | dev .7 | test baseline | test .7 |
+|---|---|---|---|---|
+| primary (mean QWK) | 0.501 | 0.612 | 0.085 | 0.126 |
+| S2 | 0.633 | 0.719 | 0.359 | 0.333 |
+| S4 | 0.468 | 0.514 | 0.000 | 0.000 |
+| S5 | 0.638 | 0.593 | 0.010 | 0.010 |
+| S7 | 0.146 | 0.863 | 0.227 | 0.536 |
+| native | 0.295 | 0.308 | 0.381 | 0.467 |
+| tell F1 (all) | 0.692 | 0.654 | 0.688 | 0.710 |
+| planted recall | 7/15 | 7/15 | 11/15 | 11/15 |
+
+Test has 55 units. On test, S1, S3, S4 and S6 have QWK 0 in both sets: their labels are almost all one level (exact agreement 0.80–0.97), so kappa gives no information, and the test primary depends on S2, S5 and S7. All of the test gain is from S7 (0.227 to 0.536, n = 20), the s7-opening change. Test does not show that the filler_phrase change helps. The harness gives no interval, and with 55 units the +0.041 is probably inside the noise.
+
+What did not help: changes to S1, S5 and S6, where the editor labels do not agree with each other (Simplon, La Défense and Kremlin-Bicêtre) or one level has almost all labels, and an extra state field with the other-language note. A change to one question moves the other Scores in the same request (mostly S2, by 0.04 to 0.11), so a dev change of about 0.01 is usually this side effect. To measure the next change, get more labels at levels other than the top one.
+
+`configs/production.ts` gives the same dev numbers as `s4-wordy` (primary 0.612, the same level for every item), and its unit requests are the same as those of `s4-wordy` for all 178 dev and test units:
+
+```sh
+bun apps/web/scripts/copy/lab/harness.ts --config production --dry-run --no-log
+```

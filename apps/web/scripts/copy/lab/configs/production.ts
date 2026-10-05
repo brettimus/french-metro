@@ -1,22 +1,22 @@
 /**
- * Baseline: the production copy evaluator before the s4-wordy port (question set 2026-10-05.6, through lab/v6.ts;
- * requests and assembly from evaluate.ts).
+ * production: the production copy evaluator as it is now (questions.ts, current QUESTION_SET_VERSION; requests and
+ * assembly from evaluate.ts). Since set 2026-10-05.7 it must give the same numbers as s4-wordy, the config it was
+ * ported from.
  * Levels come from the row dims (1 + round(norm * (L - 1))), so the code caps (S5 sentence length, S3 code tells,
  * S4 and S6 derived from Nouls) apply as in production. `native` comes from the raw FR hint score.
  */
-import { assembleRow, pairRequest } from "../../evaluate";
-import { TELL_ID } from "../../questions";
+import { assembleRow, pairRequest, unitRequest } from "../../evaluate";
+import { QUESTION_SET_VERSION, TELL_ID } from "../../questions";
 import type { CopyLabConfig } from "../config";
-import { v6UnitRequest, V6_QUESTION_SET_VERSION } from "../v6";
 import { LEVELS } from "../dataset";
 import { toLevel } from "../metrics";
 
 const TELL_NAME = Object.fromEntries(Object.entries(TELL_ID).map(([name, id]) => [id, name]));
 
 const config: CopyLabConfig = {
-  name: "baseline",
-  description: `production copy evaluator, question set ${V6_QUESTION_SET_VERSION}`,
-  unitRequest: (u, ctx) => v6UnitRequest(u, ctx),
+  name: "production",
+  description: `production copy evaluator, question set ${QUESTION_SET_VERSION}`,
+  unitRequest: (u, ctx) => unitRequest(u, ctx.byId, ctx.lineTitles, ctx.corpus),
   pairRequest: (en, fr) => pairRequest(en, fr),
   assess(u, findings, results, sharedText) {
     const row = assembleRow(u, findings, results, sharedText);

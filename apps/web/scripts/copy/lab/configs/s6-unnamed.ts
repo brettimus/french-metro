@@ -12,9 +12,10 @@
  * generic fact. The example sentences are new; they do not copy dev texts.
  */
 import { noul, score } from "@typesafe-ai/sdk";
-import { assembleRow, pairRequest, unitRequest } from "../../evaluate";
+import { assembleRow, pairRequest } from "../../evaluate";
 import { TELL_ID } from "../../questions";
 import type { CopyLabConfig } from "../config";
+import { v6UnitRequest } from "../v6";
 import { LEVELS } from "../dataset";
 import { toLevel } from "../metrics";
 
@@ -50,7 +51,7 @@ const config: CopyLabConfig = {
   name: "s6-unnamed",
   description: `s4-wordy with an unnamed_place pair Noul that sets S6 to level 1`,
   unitRequest(u, ctx) {
-    const req = unitRequest(u, ctx.byId, ctx.lineTitles, ctx.corpus);
+    const req = v6UnitRequest(u, ctx);
     if (u.kind === "station" && u.field === "context" && req.questions.S7) req.questions = { ...req.questions, S7: S7_context };
     if (req.questions.filler_phrase) req.questions = { ...req.questions, filler_phrase };
     return req;
