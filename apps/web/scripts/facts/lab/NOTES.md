@@ -157,3 +157,21 @@ One entry per loop iteration. Primary = AP on dev (all items); guard = AP on dev
   windows work (no request fails), but the effect is too small to measure on this split. The whole-source signal
   is now available for all claims; further gains must come from somewhere else (blend weights, the combiner, or a
   different question).
+
+## Iteration 9: blendnone (DISCARD)
+
+- **Hypothesis:** The cached whole-source answers also have a `best_passage` choice. On dev, the whole-source
+  answer chooses "none" less often on supported claims (0.056) than the passage answer (0.092), and about as often
+  on unsourced (0.440 vs 0.442) and planted claims (0.491 vs 0.564). If the `noPassage` part is blended like
+  `supported`, part of the retrieval-miss false alarms leaves this part too.
+- **Change:** `configs/blendnone.ts` = blendsrc, but when both answers exist, `noPassage` = 0.1 × the mean of the two
+  "best_passage is none" flags (passage and whole source) instead of the passage flag only. Pair still takes the max
+  over claims. Weight unchanged. No new Jev calls.
+- **Result:** AP 0.878 → 0.879 (p_better 0.62). No planted: 0.792 → 0.796 (p_better 0.73). AUC 0.902 → 0.903 (no
+  planted 0.872 → 0.874). confR20 0 → 0 (no planted 0.077 → 0.077). plantAuc 0.962 → 0.961.
+- **Decision:** DISCARD (AP gain 0.001, below 0.01).
+- **Learned:** Only 18 dev pairs change, each by at most 0.05, because the pair takes the max over its claims and
+  most pairs have the same flag in at least one claim. Mean change: supported −0.002, unsourced −0.001, confirmed
+  −0.004, planted −0.002. The small parts (`noPassage`, numbers, fetch) cannot move the ranking much at their
+  current weights; the ranking is set by `unsupported`. Gains must come from a better `supported` value or from
+  a combiner that sets the weights (idea 8).
