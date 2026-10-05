@@ -1,13 +1,5 @@
-import type { Art, MetroLine, Source, Station } from "./types";
-
-// Checked name origins and editorial limits: docs/research/line5.md.
-const wiki = (title: string, language = "fr") =>
-  `https://${language}.wikipedia.org/wiki/${encodeURIComponent(title.replaceAll(" ", "_"))}`;
-const source = (label: string, url: string): Source => ({ label, url });
-const biography = (name: string, en = name, fr = name) => ({
-  name,
-  url: { en: wiki(en, "en"), fr: wiki(fr) },
-});
+import { wiki, source, biography } from "./helpers";
+import type { Art, MetroLine, Station } from "./types";
 const station = (
   id: string,
   name: string,
