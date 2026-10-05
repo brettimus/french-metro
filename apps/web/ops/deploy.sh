@@ -14,7 +14,9 @@ revision=$(git rev-parse --verify "${2:-HEAD}^{commit}")
 # The checks run against the working tree, which is HEAD. Another revision
 # deploys only with SKIP_CHECKS=1.
 if [[ "$revision" == "$(git rev-parse HEAD)" ]]; then
-  bun run test && bun run typecheck
+  # Separate commands: under set -e, a failure on the left of && does not exit.
+  bun run test
+  bun run typecheck
 elif [[ "${SKIP_CHECKS:-}" != 1 ]]; then
   echo "Checks run on HEAD only. Set SKIP_CHECKS=1 to deploy $revision without them." >&2
   exit 1
