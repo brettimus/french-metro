@@ -1,0 +1,105 @@
+// Usage: bun agree.ts <results.json>
+// Compares a run against both editors' grades. Scores use the final row dims (level = 1 + norm*(L-1)).
+const S = "/private/tmp/claude-501/-Users-brettbeutell-fiber-french-metro/48ab2d32-bbcf-43be-9eed-2b238b868894/scratchpad";
+const R = await Bun.file(process.argv[2]!).json();
+const EN = await Bun.file(`${S}/mine.json`).json();
+const FR = await Bun.file(`${S}/fr-calib-grader/mine.json`).json();
+const rows = new Map<string, any>(R.rows.map((r: any) => [r.id, r]));
+const LEVELS: Record<string, number> = { S1: 4, S2: 4, S3: 4, S4: 4, S5: 3, S6: 4, S7: 4, L1: 4, L2: 4, L3: 3, U1: 3, U3: 3 };
+const TELLS = ["t2_inflated","t4_praise","t5_neg_parallel","t6_tricolon","t7_vague_attribution","t9_closer","t12_false_range","t13_stock_metaphor","t14_grandiosity","t16_synonym_cycling"];
+type Item = { who: "en" | "fr"; unit: string; q: string; kind: "score" | "noul"; mine: number; jev: number | undefined; raw?: number };
+const items: Item[] = [];
+const dimLevel = (row: any, q: string) => (row?.dims?.[q] === undefined ? undefined : 1 + row.dims[q] * (LEVELS[q]! - 1));
+const rawLevel = (row: any, k: string) => { const a = row?.jev?.[k]; return a?.type === "score" ? a.score + 1 : undefined; };
+const noul = (row: any, k: string) => { const a = row?.jev?.[k]; return a?.type === "noul" ? a.noul : undefined; };
+const codeCalque = (row: any) => (row?.findings ?? []).some((f: any) => f.check === "fr.calquePattern" || f.check === "parity.frCalque") ? 1 : 0;
+
+for (const [who, G] of [["en", EN], ["fr", FR]] as const) {
+  for (const [id, g] of Object.entries<any>(G.units)) {
+    const row = rows.get(id);
+    for (const q of Object.keys(LEVELS)) if (g[q] !== undefined) items.push({ who, unit: id, q, kind: "score", mine: g[q], jev: dimLevel(row, q), raw: rawLevel(row, `unit.${q}`) });
+    if (g.tells) for (const t of TELLS) if (row?.jev?.[`unit.${t}`]) items.push({ who, unit: id, q: t, kind: "noul", mine: g.tells.includes(t) ? 1 : 0, jev: noul(row, `unit.${t}`) });
+    if (g.native !== undefined) items.push({ who, unit: id, q: "native", kind: "score", mine: g.native, jev: rawLevel(row, "unit.native") });
+    if (g.calque !== undefined) {
+      items.push({ who, unit: id, q: "t19_calque(jev)", kind: "noul", mine: g.calque, jev: noul(row, "unit.t19_calque") });
+      items.push({ who, unit: id, q: "calque(code)", kind: "noul", mine: g.calque, jev: codeCalque(row) });
+      if (row?.jev?.["unit.metonymy"]) items.push({ who, unit: id, q: "calque(jev t19|metonymy|code)", kind: "noul", mine: g.calque, jev: Math.max(noul(row, "unit.t19_calque") ?? 0, noul(row, "unit.metonymy") ?? 0, codeCalque(row)) });
+    }
+  }
+  for (const [pid, g] of Object.entries<any>(G.pairs)) {
+    const row = rows.get(`${pid}/en`);
+    const s6 = g.S6_judged ?? g.S6;
+    if (s6 !== undefined) {
+      items.push({ who, unit: pid, q: "S6(derived)", kind: "score", mine: s6, jev: dimLevel(row, "S6") });
+      items.push({ who, unit: pid, q: "S6_judged", kind: "score", mine: s6, jev: rawLevel(row, "pair.S6_judged") });
+    }
+    if (g.U3 !== undefined) items.push({ who, unit: pid, q: "U3", kind: "score", mine: g.U3, jev: dimLevel(row, "U3") });
+    for (const q of ["fr_missing", "en_missing", "conflict", "hedge_mismatch", "fr_calque"]) {
+      const m = who === "en" ? (g.yes ? (g.yes.includes(q) ? 1 : 0) : undefined) : g[q === "hedge_mismatch" ? "hedge" : q];
+      const j = noul(row, `pair.${q}`);
+      if (m !== undefined && j !== undefined) items.push({ who, unit: pid, q: `pair.${q}`, kind: "noul", mine: m, jev: j });
+    }
+  }
+}
+
+// Flagged (unit, question) pairs, re-derived from the two editors' reports.
+const F: [string, string, string][] = [
+  // EN editor
+  ["en","station/9/oberkampf/context/en","S4"],["en","station/9/oberkampf/context/en","t9_closer"],["en","station/9/oberkampf/context/en","t2_inflated"],
+  ["en","station/7/cadet/etymology/en","S2"],["en","station/9/mairie-de-montreuil/etymology/en","S3"],
+  ["en","station/1/reuilly-diderot/etymology","S6_judged"],["en","station/9/jasmin/context","S6_judged"],
+  ["en","station/1/reuilly-diderot/etymology","pair.fr_calque"],["en","station/9/jasmin/context","pair.fr_calque"],
+  ["en","station/4/simplon/context/en","S7"],["en","station/9/jasmin/context/en","S7"],["en","station/4/saint-placide/context/en","S5"],
+  ["en","line/1/title","S6_judged"],["en","line/14/imageAlt","S6_judged"],["en","line/1/summary","S6_judged"],
+  ["en","station/4/vavin/context/en","S3"],
+  ["en","station/1/reuilly-diderot/etymology/en","S1"],["en","station/14/chevilly-larue/etymology/en","S1"],["en","station/7/le-kremlin-bicetre/etymology/en","S1"],["en","station/9/mairie-de-montreuil/etymology/en","S1"],
+  ["en","station/5/jacques-bonsergent/etymology/en","t4_praise"],["en","station/9/exelmans/etymology/en","t2_inflated"],["en","station/4/etienne-marcel/context/en","t2_inflated"],
+  ["en","line/1/summary/en","t12_false_range"],["en","line/1/summary/en","t6_tricolon"],["en","station/4/saint-placide/etymology","pair.fr_missing"],["en","line/9/imageAlt","pair.fr_missing"],["en","station/4/vavin/context","pair.en_missing"],
+  // FR editor
+  ["fr","station/9/mairie-de-montreuil/etymology/fr","S3"],["fr","station/9/mairie-de-montreuil/etymology/fr","native"],
+  ["fr","station/9/jasmin/context/fr","S4"],["fr","station/9/jasmin/context/fr","native"],["fr","station/9/jasmin/context","S6(derived)"],
+  ["fr","station/1/reuilly-diderot/etymology/fr","native"],["fr","station/1/reuilly-diderot/etymology","S6(derived)"],
+  ["fr","station/9/mairie-de-montreuil/etymology","S6(derived)"],
+  ["fr","station/9/rue-des-boulets/context/fr","native"],
+  ["fr","station/4/simplon/context/fr","S7"],["fr","station/4/simplon/context/fr","S5"],["fr","station/4/saint-placide/context/fr","S5"],
+  ["fr","station/4/saint-placide/context","pair.fr_missing"],
+  ["fr","station/9/oberkampf/context/fr","t9_closer"],["fr","station/9/oberkampf/context/fr","t2_inflated"],
+  ["fr","station/9/exelmans/etymology/fr","S3"],["fr","station/9/exelmans/etymology/fr","t7_vague_attribution"],["fr","station/4/etienne-marcel/context/fr","S3"],
+  ["fr","line/1/summary/fr","S3"],["fr","line/1/summary/fr","t12_false_range"],["fr","line/1/summary/fr","t4_praise"],
+  ["fr","station/7/cadet/etymology/fr","S2"],["fr","station/4/saint-placide/etymology","pair.fr_missing"],
+  ...["station/9/mairie-de-montreuil/etymology/fr","station/9/jasmin/context/fr","station/1/reuilly-diderot/etymology/fr","station/9/rue-des-boulets/context/fr","station/9/michel-ange-auteuil/etymology/fr"].flatMap((u) => [["fr",u,"t19_calque(jev)"],["fr",u,"calque(code)"],["fr",u,"calque(jev t19|metonymy|code)"]] as [string,string,string][]),
+  ...["station/9/mairie-de-montreuil/etymology","station/9/jasmin/context","station/1/reuilly-diderot/etymology","station/9/rue-des-boulets/context","station/9/michel-ange-auteuil/etymology"].map((u) => ["fr",u,"pair.fr_calque"] as [string,string,string]),
+];
+const flagged = new Set(F.map((x) => x.join("|")));
+
+function stats(list: Item[]) {
+  const by = new Map<string, Item[]>();
+  for (const it of list) if (it.jev !== undefined) by.set(`${it.who}:${it.q}`, [...(by.get(`${it.who}:${it.q}`) ?? []), it]);
+  const out: Record<string, string> = {};
+  for (const [k, xs] of [...by].sort()) {
+    if (xs[0]!.kind === "score") {
+      const mad = xs.reduce((a, x) => a + Math.abs(x.jev! - x.mine), 0) / xs.length;
+      const bias = xs.reduce((a, x) => a + (x.jev! - x.mine), 0) / xs.length;
+      const exact = xs.filter((x) => Math.round(x.jev!) === x.mine).length;
+      out[k] = `n=${xs.length} MAD=${mad.toFixed(2)} exact=${exact}/${xs.length} bias=${bias.toFixed(2)}`;
+    } else {
+      const agree = xs.filter((x) => (x.jev! >= 0.5 ? 1 : 0) === x.mine).length;
+      const tp = xs.filter((x) => x.mine && x.jev! >= 0.5).length, pos = xs.filter((x) => x.mine).length;
+      const fp = xs.filter((x) => !x.mine && x.jev! >= 0.5).length;
+      out[k] = `n=${xs.length} agree=${agree}/${xs.length} TP=${tp}/${pos} FP=${fp}`;
+    }
+  }
+  return out;
+}
+const mode = process.argv[3] ?? "all";
+if (mode === "json") {
+  console.log(JSON.stringify({ full: stats(items), flagged: stats(items.filter((it) => flagged.has(`${it.who}|${it.unit}|${it.q}`))), detail: items.filter((it) => flagged.has(`${it.who}|${it.unit}|${it.q}`)).map((it) => ({ ...it, jev: it.jev === undefined ? null : +it.jev.toFixed(2) })) }, null, 1));
+} else {
+  console.log("== full sample"); for (const [k, v] of Object.entries(stats(items))) console.log(k.padEnd(40), v);
+  const fl = items.filter((it) => flagged.has(`${it.who}|${it.unit}|${it.q}`));
+  console.log("\n== flagged units"); for (const [k, v] of Object.entries(stats(fl))) console.log(k.padEnd(40), v);
+  const hit = (it: Item) => it.jev === undefined ? "n/a" : it.kind === "score" ? (Math.abs(it.jev - it.mine) < 0.75 ? "ok" : "MISS") : ((it.jev >= 0.5 ? 1 : 0) === it.mine ? "ok" : "MISS");
+  console.log("\n== flagged detail"); for (const it of fl) console.log(`${hit(it).padEnd(5)} ${it.who} ${it.q.padEnd(30)} ${it.unit.padEnd(48)} me=${it.mine} jev=${it.jev?.toFixed(2)}${it.raw !== undefined ? ` raw=${it.raw.toFixed(2)}` : ""}`);
+  const okN = fl.filter((it) => hit(it) === "ok").length, n = fl.filter((it) => it.jev !== undefined).length;
+  console.log(`\nflagged hit rate: ${okN}/${n}`);
+}

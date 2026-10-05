@@ -1,0 +1,1428 @@
+[
+ {
+  "rank": 1,
+  "key": "14/madeleine/context/1",
+  "en": "The dedication is older than the present church.",
+  "fr": "La dédicace est plus ancienne que l’église actuelle.",
+  "supported": 0.02,
+  "sources": "https://en.wikipedia.org/wiki/Mary_Magdalene",
+  "newRank": 3,
+  "risk": 1.08,
+  "parts": {
+   "unsupported": 0.98,
+   "noPassage": 0.1
+  },
+  "none": true
+ },
+ {
+  "rank": 2,
+  "key": "6/montparnasse-bienvenue/etymology/2",
+  "en": "Montparnasse began as a students’ joke: they gave the name of Mount Parnassus, the Greek mountain associated with poetry, to a local heap of rubble.",
+  "fr": "Montparnasse vient d’une plaisanterie d’étudiants, qui avaient donné à une butte de gravats le nom du mont Parnasse, montagne grecque associée à la poésie.",
+  "supported": 0.02,
+  "sources": "https://fr.wikipedia.org/wiki/Montparnasse_-_Bienven%C3%BCe_(m%C3%A9tro_de_Paris)",
+  "newRank": 4,
+  "risk": 1.08,
+  "parts": {
+   "unsupported": 0.98,
+   "noPassage": 0.1
+  },
+  "none": true
+ },
+ {
+  "rank": 3,
+  "key": "4/chatelet/context/1",
+  "en": "The Grand Châtelet guarded the northern approach to the Pont au Change.",
+  "fr": "Le Grand Châtelet gardait l’accès nord du pont au Change.",
+  "supported": 0.03,
+  "sources": "https://fr.wikipedia.org/wiki/Ch%C3%A2telet_(m%C3%A9tro_de_Paris)",
+  "newRank": 6,
+  "risk": 1.07,
+  "parts": {
+   "unsupported": 0.97,
+   "noPassage": 0.1
+  },
+  "none": true
+ },
+ {
+  "rank": 4,
+  "key": "7/aubervilliers-pantin-quatre-chemins/context/2",
+  "en": "Earlier tram routes also met here.",
+  "fr": "D’anciennes lignes de tramway s’y croisaient aussi.",
+  "supported": 0.03,
+  "sources": "https://fr.wikipedia.org/wiki/Aubervilliers_-_Pantin_-_Quatre_Chemins_(m%C3%A9tro_de_Paris)",
+  "newRank": 7,
+  "risk": 1.07,
+  "parts": {
+   "unsupported": 0.97,
+   "noPassage": 0.1
+  },
+  "none": true
+ },
+ {
+  "rank": 5,
+  "key": "14/chatelet/context/1",
+  "en": "The Grand Châtelet stood at the northern approach to the Pont au Change.",
+  "fr": "Le Grand Châtelet occupait l’accès nord du pont au Change.",
+  "supported": 0.04,
+  "sources": "https://fr.wikipedia.org/wiki/Ch%C3%A2telet_(m%C3%A9tro_de_Paris)",
+  "newRank": 8,
+  "risk": 1.06,
+  "parts": {
+   "unsupported": 0.96,
+   "noPassage": 0.1
+  },
+  "none": true
+ },
+ {
+  "rank": 6,
+  "key": "7/villejuif-louis-aragon/context/3",
+  "en": "The two routes share all stations north of their fork at Maison Blanche.",
+  "fr": "Les deux itinéraires partagent les stations au nord de Maison Blanche.",
+  "supported": 0.05,
+  "sources": "https://fr.wikipedia.org/wiki/Villejuif_-_Louis_Aragon_(m%C3%A9tro_de_Paris) https://fr.wikipedia.org/wiki/Louis_Aragon",
+  "newRank": 10,
+  "risk": 1.05,
+  "parts": {
+   "unsupported": 0.95,
+   "noPassage": 0.1
+  },
+  "none": true
+ },
+ {
+  "rank": 7,
+  "key": "6/pasteur/context/3",
+  "en": "The two companies’ decorative styles coexist here, as at only two other stations.",
+  "fr": "Les décors des deux compagnies y coexistent, comme dans deux autres stations seulement.",
+  "supported": 0.06,
+  "sources": "https://fr.wikipedia.org/wiki/Pasteur_(m%C3%A9tro_de_Paris)",
+  "newRank": 12,
+  "risk": 1.04,
+  "parts": {
+   "unsupported": 0.94,
+   "noPassage": 0.1
+  },
+  "none": true
+ },
+ {
+  "rank": 8,
+  "key": "4/alesia/context/2",
+  "en": "Roman fortifications enclosed the Gallic forces, and a second line of defences faced the army coming to relieve them.",
+  "fr": "Les fortifications romaines encerclaient les Gaulois, et une seconde ligne de défense faisait face à l’armée venue les secourir.",
+  "supported": 0.07,
+  "sources": "https://alesia.com/histoire-du-site/ https://fr.wikipedia.org/wiki/Vercing%C3%A9torix",
+  "newRank": 13,
+  "risk": 1.03,
+  "parts": {
+   "unsupported": 0.93,
+   "noPassage": 0.1
+  },
+  "none": true
+ },
+ {
+  "rank": 9,
+  "key": "9/iena/etymology/2",
+  "en": "The station shares this classical battle-naming pattern with nearby Trocadéro and Alma – Marceau.",
+  "fr": "La station partage ce principe de nom de bataille avec Trocadéro et Alma – Marceau, à proximité.",
+  "supported": 0.1,
+  "sources": "https://fr.wikipedia.org/wiki/I%C3%A9na_(m%C3%A9tro_de_Paris)",
+  "newRank": 16,
+  "risk": 1,
+  "parts": {
+   "unsupported": 0.9,
+   "noPassage": 0.1
+  },
+  "none": true
+ },
+ {
+  "rank": 10,
+  "key": "7/gare-de-lest/etymology/1",
+  "en": "Called Gare de l’Est because it serves the railway terminus for eastern France.",
+  "fr": "La station porte le nom de la gare de l’Est, qu’elle dessert, terminus ferroviaire vers l’est de la France.",
+  "supported": 0.12,
+  "sources": "https://fr.wikipedia.org/wiki/Gare_de_l'Est_(m%C3%A9tro_de_Paris)",
+  "newRank": 17,
+  "risk": 0.98,
+  "parts": {
+   "unsupported": 0.88,
+   "noPassage": 0.1
+  },
+  "none": true
+ },
+ {
+  "rank": 11,
+  "key": "5/gare-de-lest/etymology/1",
+  "en": "Called Gare de l’Est because it serves the railway terminus for eastern France.",
+  "fr": "La station porte le nom de la gare de l’Est, qu’elle dessert, terminus ferroviaire vers l’est de la France.",
+  "supported": 0.13,
+  "sources": "https://fr.wikipedia.org/wiki/Gare_de_l'Est_(m%C3%A9tro_de_Paris)",
+  "newRank": 18,
+  "risk": 0.97,
+  "parts": {
+   "unsupported": 0.87,
+   "noPassage": 0.1
+  },
+  "none": true
+ },
+ {
+  "rank": 12,
+  "key": "7/le-kremlin-bicetre/context/3",
+  "en": "The junction with the Ivry branch lies just south of Maison Blanche.",
+  "fr": "La bifurcation avec la branche d’Ivry se trouve juste au sud de Maison Blanche.",
+  "supported": 0.13,
+  "sources": "https://fr.wikipedia.org/wiki/Le_Kremlin-Bic%C3%AAtre_(m%C3%A9tro_de_Paris) https://www.kremlinbicetre.fr/ma-ville/decouvrir-le-kremlin-bicetre/lhistoire-du-kremlin-bicetre-dont-archives/",
+  "newRank": 19,
+  "risk": 0.97,
+  "parts": {
+   "unsupported": 0.87,
+   "noPassage": 0.1
+  },
+  "none": true
+ },
+ {
+  "rank": 13,
+  "key": "9/bonne-nouvelle/etymology/1",
+  "en": "Named for the Bonne-Nouvelle district, which takes its name from the neighbouring Église Notre-Dame-de-Bonne-Nouvelle. Bonne nouvelle means “good news” in French.",
+  "fr": "La station doit son nom au quartier de la Bonne-Nouvelle, qui tient son nom de l’église Notre-Dame-de-Bonne-Nouvelle voisine.",
+  "supported": 0.13,
+  "sources": "https://fr.wikipedia.org/wiki/Bonne_Nouvelle_(m%C3%A9tro_de_Paris)",
+  "newRank": 20,
+  "risk": 0.97,
+  "parts": {
+   "unsupported": 0.87,
+   "noPassage": 0.1
+  },
+  "none": true
+ },
+ {
+  "rank": 14,
+  "key": "1/chatelet/context/1",
+  "en": "For several weeks after the line’s opening day, trains passed through the unfinished station without stopping.",
+  "fr": "Pendant plusieurs semaines après l’ouverture de la ligne, les trains traversent la station inachevée sans s’y arrêter.",
+  "supported": 0.14,
+  "sources": "https://fr.wikipedia.org/wiki/Ch%C3%A2telet_(m%C3%A9tro_de_Paris)",
+  "newRank": 21,
+  "risk": 0.96,
+  "parts": {
+   "unsupported": 0.86,
+   "noPassage": 0.1
+  },
+  "none": true
+ },
+ {
+  "rank": 15,
+  "key": "4/porte-dorleans/etymology/1",
+  "en": "Called Porte d’Orléans after the former city gate on the road to Orléans.",
+  "fr": "La station porte le nom d’une ancienne porte des fortifications, au sud de Paris.",
+  "supported": 0.14,
+  "sources": "https://fr.wikipedia.org/wiki/Porte_d'Orl%C3%A9ans_(m%C3%A9tro_de_Paris)",
+  "newRank": 22,
+  "risk": 0.96,
+  "parts": {
+   "unsupported": 0.86,
+   "noPassage": 0.1
+  },
+  "none": true
+ },
+ {
+  "rank": 16,
+  "key": "7/place-ditalie/context/1",
+  "en": "Lines 5, 6 and 7 meet below this major road junction.",
+  "fr": "Les lignes 5, 6 et 7 se rencontrent sous ce grand carrefour.",
+  "supported": 0.15,
+  "sources": "https://fr.wikipedia.org/wiki/Place_d'Italie_(m%C3%A9tro_de_Paris)",
+  "newRank": 25,
+  "risk": 0.95,
+  "parts": {
+   "unsupported": 0.85,
+   "noPassage": 0.1
+  },
+  "none": true
+ },
+ {
+  "rank": 17,
+  "key": "14/madeleine/etymology/2",
+  "en": "The church is dedicated to Mary Magdalene, called Marie Madeleine in French.",
+  "fr": "Celle-ci est dédiée à sainte Marie Madeleine.",
+  "supported": 0.17,
+  "sources": "https://fr.wikipedia.org/wiki/Madeleine_(m%C3%A9tro_de_Paris)",
+  "newRank": 26,
+  "risk": 0.93,
+  "parts": {
+   "unsupported": 0.83,
+   "noPassage": 0.1
+  },
+  "none": true
+ },
+ {
+  "rank": 18,
+  "key": "6/bel-air/etymology/1",
+  "en": "Called Bel-Air after the Bel-Air district.",
+  "fr": "La station doit son nom au quartier du Bel-Air.",
+  "supported": 0.19,
+  "sources": "https://fr.wikipedia.org/wiki/Bel-Air_(m%C3%A9tro_de_Paris)",
+  "newRank": 27,
+  "risk": 0.91,
+  "parts": {
+   "unsupported": 0.81,
+   "noPassage": 0.1
+  },
+  "none": true
+ },
+ {
+  "rank": 19,
+  "key": "6/boissiere/context/2",
+  "en": "It is one of the network’s few stations with only one street entrance.",
+  "fr": "Elle est l’une des rares stations du réseau à n’avoir qu’un seul accès en surface.",
+  "supported": 0.1,
+  "sources": "https://fr.wikipedia.org/wiki/Boissi%C3%A8re_(m%C3%A9tro_de_Paris)",
+  "newRank": 29,
+  "risk": 0.9,
+  "parts": {
+   "unsupported": 0.9
+  },
+  "none": false
+ },
+ {
+  "rank": 20,
+  "key": "7/chaussee-dantin-la-fayette/context/3",
+  "en": "Their subjects include La Fayette, liberty and the American Revolution.",
+  "fr": "Elles représentent notamment La Fayette, la liberté et la Révolution américaine.",
+  "supported": 0.1,
+  "sources": "https://en.wikipedia.org/wiki/Gilbert_du_Motier%2C_Marquis_de_Lafayette https://fr.wikipedia.org/wiki/Chauss%C3%A9e_d'Antin_-_La_Fayette_(m%C3%A9tro_de_Paris)",
+  "newRank": 30,
+  "risk": 0.9,
+  "parts": {
+   "unsupported": 0.9
+  },
+  "none": false
+ },
+ {
+  "rank": 21,
+  "key": "9/chaussee-dantin-la-fayette/context/3",
+  "en": "Their subjects include La Fayette, liberty and the American Revolution.",
+  "fr": "Elles représentent notamment La Fayette, la liberté et la Révolution américaine.",
+  "supported": 0.1,
+  "sources": "https://en.wikipedia.org/wiki/Gilbert_du_Motier%2C_Marquis_de_Lafayette https://fr.wikipedia.org/wiki/Chauss%C3%A9e_d'Antin_-_La_Fayette_(m%C3%A9tro_de_Paris)",
+  "newRank": 32,
+  "risk": 0.9,
+  "parts": {
+   "unsupported": 0.9
+  },
+  "none": false
+ },
+ {
+  "rank": 22,
+  "key": "14/aeroport-d-orly/etymology/1",
+  "en": "Called Aéroport d’Orly because it serves Paris-Orly airport.",
+  "fr": "La station doit son nom à l’aéroport de Paris-Orly qu’elle dessert.",
+  "supported": 0.21,
+  "sources": "https://fr.wikipedia.org/wiki/A%C3%A9roport_d%27Orly_(m%C3%A9tro_de_Paris)",
+  "newRank": 34,
+  "risk": 0.89,
+  "parts": {
+   "unsupported": 0.79,
+   "noPassage": 0.1
+  },
+  "none": true
+ },
+ {
+  "rank": 23,
+  "key": "4/les-halles/etymology/2",
+  "en": "Its covered halls supplied the city and gave the neighbourhood its lasting name.",
+  "fr": "Ses pavillons approvisionnaient la capitale et ont laissé leur nom au quartier.",
+  "supported": 0.21,
+  "sources": "https://archives.paris.fr/archives-numerisees/photographies/le-quartier-des-halles https://fr.wikipedia.org/wiki/Les_Halles_(m%C3%A9tro_de_Paris)",
+  "newRank": 36,
+  "risk": 0.89,
+  "parts": {
+   "unsupported": 0.79,
+   "noPassage": 0.1
+  },
+  "none": true
+ },
+ {
+  "rank": 24,
+  "key": "6/glaciere/context/1",
+  "en": "Glacière stands above Boulevard Auguste-Blanqui, on one of several elevated stretches built on this section of the line in 1906.",
+  "fr": "Glacière surplombe le boulevard Auguste-Blanqui, sur l’un des tronçons aériens construits en 1906 sur cette section de la ligne.",
+  "supported": 0.11,
+  "sources": "https://fr.wikipedia.org/wiki/Glaci%C3%A8re_(m%C3%A9tro_de_Paris)",
+  "newRank": 37,
+  "risk": 0.89,
+  "parts": {
+   "unsupported": 0.89
+  },
+  "none": false
+ },
+ {
+  "rank": 25,
+  "key": "7/villejuif-louis-aragon/context/1",
+  "en": "The terminus opened in 1985 when the branch extended beyond Le Kremlin-Bicêtre through Villejuif.",
+  "fr": "Le terminus ouvre en 1985 lorsque la branche dépasse Le Kremlin-Bicêtre et traverse Villejuif.",
+  "supported": 0.11,
+  "sources": "https://fr.wikipedia.org/wiki/Villejuif_-_Louis_Aragon_(m%C3%A9tro_de_Paris)",
+  "newRank": 38,
+  "risk": 0.89,
+  "parts": {
+   "unsupported": 0.89
+  },
+  "none": false
+ },
+ {
+  "rank": 26,
+  "key": "7/porte-divry/context/3",
+  "en": "Its three platform tracks retain the layout of that earlier terminus.",
+  "fr": "Ses trois voies à quai conservent la disposition de cet ancien terminus.",
+  "supported": 0.24,
+  "sources": "https://fr.wikipedia.org/wiki/Porte_d'Ivry_(m%C3%A9tro_de_Paris)",
+  "newRank": 40,
+  "risk": 0.86,
+  "parts": {
+   "unsupported": 0.76,
+   "noPassage": 0.1
+  },
+  "none": true
+ },
+ {
+  "rank": 27,
+  "key": "7/riquet/context/3",
+  "en": "The station lies beneath Avenue de Flandre, close to the Bassin de la Villette.",
+  "fr": "La station se trouve sous l’avenue de Flandre, près du bassin de la Villette.",
+  "supported": 0.14,
+  "sources": "https://fr.wikipedia.org/wiki/Riquet_(m%C3%A9tro_de_Paris)",
+  "newRank": 41,
+  "risk": 0.86,
+  "parts": {
+   "unsupported": 0.86
+  },
+  "none": false
+ },
+ {
+  "rank": 28,
+  "key": "14/villejuif-gustave-roussy/etymology/2",
+  "en": "The institute bears the name of its founder, Gustave Roussy, a French-Swiss doctor who worked in neurology, pathology and cancer treatment.",
+  "fr": "Cet institut porte le nom de son fondateur, Gustave Roussy, médecin franco-suisse spécialiste de neurologie, d’anatomie pathologique et de cancérologie.",
+  "supported": 0.15,
+  "sources": "https://en.wikipedia.org/wiki/Gustave_Roussy https://fr.wikipedia.org/wiki/Gustave_Roussy",
+  "newRank": 42,
+  "risk": 0.85,
+  "parts": {
+   "unsupported": 0.85
+  },
+  "none": false
+ },
+ {
+  "rank": 29,
+  "key": "4/odeon/etymology/2",
+  "en": "The theatre’s name refers to the odeons of ancient Greece, buildings used for musical performances and recitations.",
+  "fr": "Le mot odéon vient des édifices de la Grèce antique consacrés aux spectacles musicaux et aux récitations.",
+  "supported": 0.15,
+  "sources": "https://fr.wikipedia.org/wiki/Od%C3%A9on_(m%C3%A9tro_de_Paris)",
+  "newRank": 43,
+  "risk": 0.85,
+  "parts": {
+   "unsupported": 0.85
+  },
+  "none": false
+ },
+ {
+  "rank": 30,
+  "key": "7/villejuif-paul-vaillant-couturier/context/1",
+  "en": "The station opened in 1985 as part of the extension to Louis Aragon.",
+  "fr": "La station ouvre en 1985 dans le cadre du prolongement à Louis Aragon.",
+  "supported": 0.15,
+  "sources": "https://fr.wikipedia.org/wiki/Villejuif_-_Paul_Vaillant-Couturier_(m%C3%A9tro_de_Paris)",
+  "newRank": 45,
+  "risk": 0.85,
+  "parts": {
+   "unsupported": 0.85
+  },
+  "none": false
+ },
+ {
+  "rank": 31,
+  "key": "14/porte-de-clichy/etymology/2",
+  "en": "“Porte” means gate: the name preserves an entrance through the nineteenth-century fortifications of Paris and the town reached beyond it.",
+  "fr": "Le mot « porte » rappelle une entrée des fortifications du XIXe siècle, tandis que « Clichy » désigne la ville située au-delà.",
+  "supported": 0.16,
+  "sources": "https://fr.wikipedia.org/wiki/Porte_de_Clichy",
+  "newRank": 47,
+  "risk": 0.84,
+  "parts": {
+   "unsupported": 0.84
+  },
+  "none": false
+ },
+ {
+  "rank": 32,
+  "key": "5/saint-marcel/context/3",
+  "en": "The present statue is a nineteenth-century copy.",
+  "fr": "La statue actuelle est une copie du XIXe siècle.",
+  "supported": 0.17,
+  "sources": "https://theophile-centrechastel.inist.fr/s/theophile/item/68737",
+  "newRank": 48,
+  "risk": 0.83,
+  "parts": {
+   "unsupported": 0.83
+  },
+  "none": false
+ },
+ {
+  "rank": 33,
+  "key": "14/villejuif-gustave-roussy/etymology/1",
+  "en": "Called Villejuif – Gustave Roussy after the town and the nearby cancer institute.",
+  "fr": "La station doit son nom à la ville de Villejuif et au centre de lutte contre le cancer voisin.",
+  "supported": 0.18,
+  "sources": "https://fr.wikipedia.org/wiki/Gustave_Roussy",
+  "newRank": 52,
+  "risk": 0.82,
+  "parts": {
+   "unsupported": 0.82
+  },
+  "none": false
+ },
+ {
+  "rank": 34,
+  "key": "7/porte-de-la-villette/etymology/2",
+  "en": "The gate’s name recalls the independent village of La Villette, later incorporated into Paris.",
+  "fr": "Le nom de cette porte rappelle le village, puis la commune indépendante de La Villette, ensuite annexée à Paris.",
+  "supported": 0.18,
+  "sources": "https://fr.wikipedia.org/wiki/Porte_de_la_Villette_(m%C3%A9tro_de_Paris)",
+  "newRank": 53,
+  "risk": 0.82,
+  "parts": {
+   "unsupported": 0.82
+  },
+  "none": false
+ },
+ {
+  "rank": 35,
+  "key": "14/bercy/context/2",
+  "en": "A seigneurial estate, and later a separate commune, bore the name.",
+  "fr": "Une seigneurie, puis une commune distincte, ont porté ce nom.",
+  "supported": 0.19,
+  "sources": "https://fr.wikipedia.org/wiki/Bercy_(m%C3%A9tro_de_Paris)",
+  "newRank": 54,
+  "risk": 0.81,
+  "parts": {
+   "unsupported": 0.81
+  },
+  "none": false
+ },
+ {
+  "rank": 36,
+  "key": "6/raspail/etymology/2",
+  "en": "It honours François-Vincent Raspail, a nineteenth-century scientist and republican politician whose work combined research with campaigns for social change.",
+  "fr": "Celui-ci honore François-Vincent Raspail, savant et homme politique républicain du XIXe siècle, engagé à la fois dans la recherche et dans les luttes sociales.",
+  "supported": 0.19,
+  "sources": "https://fr.wikipedia.org/wiki/Raspail_(m%C3%A9tro_de_Paris)",
+  "newRank": 55,
+  "risk": 0.81,
+  "parts": {
+   "unsupported": 0.81
+  },
+  "none": false
+ },
+ {
+  "rank": 37,
+  "key": "9/michel-ange-auteuil/etymology/2",
+  "en": "As at the neighbouring station, Rue Michel-Ange honours the Italian artist Michelangelo.",
+  "fr": "Comme à la station voisine, la rue Michel-Ange honore l’artiste italien Michel-Ange.",
+  "supported": 0.19,
+  "sources": "https://fr.wikipedia.org/wiki/Michel-Ange_-_Auteuil_(m%C3%A9tro_de_Paris)",
+  "newRank": 56,
+  "risk": 0.81,
+  "parts": {
+   "unsupported": 0.81
+  },
+  "none": false
+ },
+ {
+  "rank": 38,
+  "key": "1/chateau-de-vincennes/etymology/1",
+  "en": "Named for the adjoining royal château of Vincennes, whose towers and keep still stand beside the station.",
+  "fr": "La station doit son nom au château royal de Vincennes voisin, dont les tours et le donjon subsistent près de la station.",
+  "supported": 0.2,
+  "sources": "https://fr.wikipedia.org/wiki/Ch%C3%A2teau_de_Vincennes_(m%C3%A9tro_de_Paris)",
+  "newRank": 57,
+  "risk": 0.8,
+  "parts": {
+   "unsupported": 0.8
+  },
+  "none": false
+ },
+ {
+  "rank": 39,
+  "key": "14/saint-lazare/context/1",
+  "en": "The leper hospital stood farther east, on Rue du Faubourg-Saint-Denis.",
+  "fr": "La léproserie se trouvait plus à l’est, rue du Faubourg-Saint-Denis.",
+  "supported": 0.22,
+  "sources": "https://fr.wikipedia.org/wiki/Prison_Saint-Lazare",
+  "newRank": 62,
+  "risk": 0.78,
+  "parts": {
+   "unsupported": 0.78
+  },
+  "none": false
+ },
+ {
+  "rank": 40,
+  "key": "4/mairie-de-montrouge/etymology/1",
+  "en": "Called Mairie de Montrouge because it serves the town hall of Montrouge. Mairie means town hall.",
+  "fr": "La station porte le nom de la mairie de Montrouge, qu’elle dessert.",
+  "supported": 0.32,
+  "sources": "https://fr.wikipedia.org/wiki/Mairie_de_Montrouge_(m%C3%A9tro_de_Paris)",
+  "newRank": 63,
+  "risk": 0.78,
+  "parts": {
+   "unsupported": 0.68,
+   "noPassage": 0.1
+  },
+  "none": true
+ },
+ {
+  "rank": 41,
+  "key": "7/villejuif-paul-vaillant-couturier/context/3",
+  "en": "The Métro follows the old Route nationale 7 corridor through this part of Villejuif.",
+  "fr": "Le métro suit l’axe de l’ancienne route nationale 7 dans cette partie de Villejuif.",
+  "supported": 0.22,
+  "sources": "https://fr.wikipedia.org/wiki/Villejuif_-_Paul_Vaillant-Couturier_(m%C3%A9tro_de_Paris)",
+  "newRank": 64,
+  "risk": 0.78,
+  "parts": {
+   "unsupported": 0.78
+  },
+  "none": false
+ },
+ {
+  "rank": 42,
+  "key": "4/gare-de-lest/context/2",
+  "en": "Its later name followed the Compagnie des chemins de fer de l’Est, which operated the growing network.",
+  "fr": "Son nouveau nom reprend celui de la Compagnie des chemins de fer de l’Est, qui exploite le réseau en expansion.",
+  "supported": 0.23,
+  "sources": "https://malignep.transilien.com/2021/05/04/si-la-gare-de-lest-vous-etait-contee/",
+  "newRank": 65,
+  "risk": 0.77,
+  "parts": {
+   "unsupported": 0.77
+  },
+  "none": false
+ },
+ {
+  "rank": 43,
+  "key": "4/porte-de-clignancourt/context/2",
+  "en": "The station’s additional name, Puces de Saint-Ouen, points to the flea market beyond the former city boundary.",
+  "fr": "Le complément Puces de Saint-Ouen indique le marché situé au-delà de l’ancienne limite de la capitale.",
+  "supported": 0.23,
+  "sources": "https://fr.wikipedia.org/wiki/Porte_de_Clignancourt_(m%C3%A9tro_de_Paris)",
+  "newRank": 66,
+  "risk": 0.77,
+  "parts": {
+   "unsupported": 0.77
+  },
+  "none": false
+ },
+ {
+  "rank": 44,
+  "key": "7/mairie-divry/context/1",
+  "en": "The station opened on 1 May 1946 with the extension beyond Porte d’Ivry.",
+  "fr": "La station ouvre le 1er mai 1946 avec le prolongement au-delà de Porte d’Ivry.",
+  "supported": 0.23,
+  "sources": "https://fr.wikipedia.org/wiki/Mairie_d'Ivry_(m%C3%A9tro_de_Paris)",
+  "newRank": 69,
+  "risk": 0.77,
+  "parts": {
+   "unsupported": 0.77
+  },
+  "none": false
+ },
+ {
+  "rank": 45,
+  "key": "7/porte-divry/context/2",
+  "en": "The extension to Mairie d’Ivry then took trains beyond the Paris boundary.",
+  "fr": "Le prolongement vers Mairie d’Ivry conduit ensuite les trains au-delà de la limite de Paris.",
+  "supported": 0.23,
+  "sources": "https://fr.wikipedia.org/wiki/Porte_d'Ivry_(m%C3%A9tro_de_Paris)",
+  "newRank": 70,
+  "risk": 0.77,
+  "parts": {
+   "unsupported": 0.77
+  },
+  "none": false
+ },
+ {
+  "rank": 46,
+  "key": "14/pont-cardinet/context/1",
+  "en": "The bridge crosses the tracks approaching Saint-Lazare.",
+  "fr": "Le pont franchit les voies qui mènent à Saint-Lazare.",
+  "supported": 0.24,
+  "sources": "https://fr.wikipedia.org/wiki/Rue_Cardinet",
+  "newRank": 71,
+  "risk": 0.76,
+  "parts": {
+   "unsupported": 0.76
+  },
+  "none": false
+ },
+ {
+  "rank": 47,
+  "key": "14/aeroport-d-orly/context/3",
+  "en": "The Métro terminus is inside the airport site, near the terminals, so the name identifies the transport destination rather than the municipality beneath the platforms.",
+  "fr": "Le terminus du métro se trouve dans l’enceinte aéroportuaire, près des terminaux. Son nom indique donc la destination plutôt que la commune où se trouvent les quais.",
+  "supported": 0.25,
+  "sources": "https://fr.wikipedia.org/wiki/A%C3%A9roport_d%27Orly_(m%C3%A9tro_de_Paris)",
+  "newRank": 72,
+  "risk": 0.75,
+  "parts": {
+   "unsupported": 0.75
+  },
+  "none": false
+ },
+ {
+  "rank": 48,
+  "key": "14/saint-denis-pleyel/context/1",
+  "en": "The town of Saint-Denis takes its name from Denis, the first bishop of Paris, whose burial place became a religious centre.",
+  "fr": "La ville de Saint-Denis porte le nom de Denis, premier évêque de Paris, dont le lieu de sépulture est devenu un centre religieux.",
+  "supported": 0.25,
+  "sources": "https://www.tourisme93.com/document.php?pagendx=376",
+  "newRank": 73,
+  "risk": 0.75,
+  "parts": {
+   "unsupported": 0.75
+  },
+  "none": false
+ },
+ {
+  "rank": 49,
+  "key": "5/bobigny-pantin-raymond-queneau/context/2",
+  "en": "The station opened in 1985 beside the Ourcq canal, on the extension from Pantin to Bobigny.",
+  "fr": "La station ouvre en 1985 près du canal de l’Ourcq, sur le prolongement de Pantin à Bobigny.",
+  "supported": 0.25,
+  "sources": "https://fr.wikipedia.org/wiki/Bobigny_-_Pantin_-_Raymond_Queneau_(m%C3%A9tro_de_Paris)",
+  "newRank": 74,
+  "risk": 0.75,
+  "parts": {
+   "unsupported": 0.75
+  },
+  "none": false
+ },
+ {
+  "rank": 50,
+  "key": "7/mairie-divry/etymology/1",
+  "en": "Called Mairie d’Ivry because it serves the town hall of Ivry-sur-Seine. Mairie is the French word for town hall.",
+  "fr": "La station doit son nom à la mairie d’Ivry-sur-Seine qu’elle dessert.",
+  "supported": 0.25,
+  "sources": "https://fr.wikipedia.org/wiki/Mairie_d'Ivry_(m%C3%A9tro_de_Paris)",
+  "newRank": 75,
+  "risk": 0.75,
+  "parts": {
+   "unsupported": 0.75
+  },
+  "none": false
+ },
+ {
+  "rank": 51,
+  "key": "4/odeon/context/2",
+  "en": "Charles de Wailly and Marie-Joseph Peyre designed the neoclassical building, with its columns and pediment.",
+  "fr": "Charles de Wailly et Marie-Joseph Peyre ont conçu ce bâtiment néoclassique, avec ses colonnes et son fronton.",
+  "supported": 0.26,
+  "sources": "https://www.theatre-odeon.eu/fr/lodeon",
+  "newRank": 77,
+  "risk": 0.74,
+  "parts": {
+   "unsupported": 0.74
+  },
+  "none": false
+ },
+ {
+  "rank": 52,
+  "key": "14/cour-saint-emilion/context/2",
+  "en": "The neighbouring warehouse courts used wine-region names.",
+  "fr": "Les cours des entrepôts voisins portaient des noms viticoles.",
+  "supported": 0.27,
+  "sources": "https://fr.wikipedia.org/wiki/Cour_Saint-%C3%89milion_(m%C3%A9tro_de_Paris)",
+  "newRank": 80,
+  "risk": 0.73,
+  "parts": {
+   "unsupported": 0.73
+  },
+  "none": false
+ },
+ {
+  "rank": 53,
+  "key": "4/gare-de-lest/context/1",
+  "en": "The railway station began as the Embarcadère de Strasbourg.",
+  "fr": "La gare ferroviaire s’appelait d’abord Embarcadère de Strasbourg.",
+  "supported": 0.27,
+  "sources": "https://malignep.transilien.com/2021/05/04/si-la-gare-de-lest-vous-etait-contee/",
+  "newRank": 81,
+  "risk": 0.73,
+  "parts": {
+   "unsupported": 0.73
+  },
+  "none": false
+ },
+ {
+  "rank": 54,
+  "key": "7/villejuif-leo-lagrange/context/3",
+  "en": "The platforms lie below Avenue de Paris, with entrances on both sides of this main road.",
+  "fr": "Les quais se trouvent sous l’avenue de Paris, avec des accès répartis des deux côtés de cette grande voie.",
+  "supported": 0.27,
+  "sources": "https://fr.wikipedia.org/wiki/Villejuif_-_L%C3%A9o_Lagrange_(m%C3%A9tro_de_Paris)",
+  "newRank": 82,
+  "risk": 0.73,
+  "parts": {
+   "unsupported": 0.73
+  },
+  "none": false
+ },
+ {
+  "rank": 55,
+  "key": "14/pont-cardinet/context/2",
+  "en": "The nearby suburban railway station also takes its name from this crossing.",
+  "fr": "La gare de banlieue voisine porte elle aussi le nom de ce passage.",
+  "supported": 0.28,
+  "sources": "https://fr.wikipedia.org/wiki/Gare_de_Pont-Cardinet",
+  "newRank": 83,
+  "risk": 0.72,
+  "parts": {
+   "unsupported": 0.72
+  },
+  "none": false
+ },
+ {
+  "rank": 56,
+  "key": "4/cite/context/2",
+  "en": "Line 4 crosses both arms of the Seine here, with Châtelet on one bank and Saint-Michel on the other.",
+  "fr": "La ligne 4 traverse ici les deux bras de la Seine, entre Châtelet sur une rive et Saint-Michel sur l’autre.",
+  "supported": 0.28,
+  "sources": "https://fr.wikipedia.org/wiki/Cit%C3%A9_(m%C3%A9tro_de_Paris)",
+  "newRank": 84,
+  "risk": 0.72,
+  "parts": {
+   "unsupported": 0.72
+  },
+  "none": false
+ },
+ {
+  "rank": 57,
+  "key": "6/bercy/context/1",
+  "en": "The underground Line 6 station opened on 1 March 1909, with the line’s first section, beneath Boulevard de Bercy.",
+  "fr": "La station souterraine de la ligne 6 ouvre le 1er mars 1909, avec le premier tronçon de la ligne, sous le boulevard de Bercy.",
+  "supported": 0.28,
+  "sources": "https://fr.wikipedia.org/wiki/Bercy_(m%C3%A9tro_de_Paris)",
+  "newRank": 85,
+  "risk": 0.72,
+  "parts": {
+   "unsupported": 0.72
+  },
+  "none": false
+ },
+ {
+  "rank": 58,
+  "key": "7/censier-daubenton/context/3",
+  "en": "Tanneries and related trades had settled along the Bièvre, the small river that once flowed through this district.",
+  "fr": "Tanneurs et métiers voisins s’étaient installés le long de la Bièvre, rivière qui traversait autrefois ce secteur.",
+  "supported": 0.28,
+  "sources": "https://fr.wikipedia.org/wiki/Censier_-_Daubenton_(m%C3%A9tro_de_Paris)",
+  "newRank": 86,
+  "risk": 0.72,
+  "parts": {
+   "unsupported": 0.72
+  },
+  "none": false
+ },
+ {
+  "rank": 59,
+  "key": "7/fort-daubervilliers/etymology/2",
+  "en": "This nineteenth-century fortification guarded the route de Flandre on the northeastern approach to Paris.",
+  "fr": "Cet ouvrage militaire contrôlait la route de Flandre, sur les voies d’accès à Paris depuis le nord-est.",
+  "supported": 0.28,
+  "sources": "https://fr.wikipedia.org/wiki/Fort_d'Aubervilliers_(m%C3%A9tro_de_Paris)",
+  "newRank": 87,
+  "risk": 0.72,
+  "parts": {
+   "unsupported": 0.72
+  },
+  "none": false
+ },
+ {
+  "rank": 60,
+  "key": "5/quai-de-la-rapee/context/2",
+  "en": "Southbound trains cross the Seine on the Austerlitz viaduct.",
+  "fr": "Vers le sud, les trains franchissent la Seine sur le viaduc d’Austerlitz.",
+  "supported": 0.29,
+  "sources": "https://fr.wikipedia.org/wiki/Quai_de_la_Rap%C3%A9e_(m%C3%A9tro_de_Paris)",
+  "newRank": 88,
+  "risk": 0.71,
+  "parts": {
+   "unsupported": 0.71
+  },
+  "none": false
+ },
+ {
+  "rank": 61,
+  "key": "7/porte-de-la-villette/context/2",
+  "en": "The line retained its turning loops here after the 1979 extension.",
+  "fr": "Ses boucles de retournement subsistent après le prolongement de 1979.",
+  "supported": 0.29,
+  "sources": "https://fr.wikipedia.org/wiki/Porte_de_la_Villette_(m%C3%A9tro_de_Paris)",
+  "newRank": 89,
+  "risk": 0.71,
+  "parts": {
+   "unsupported": 0.71
+  },
+  "none": false
+ },
+ {
+  "rank": 62,
+  "key": "14/pont-cardinet/etymology/1",
+  "en": "Called Pont Cardinet after the bridge that carries Rue Cardinet over the railway tracks.",
+  "fr": "La station doit son nom au pont qui porte la rue Cardinet au-dessus des voies ferrées.",
+  "supported": 0.3,
+  "sources": "https://fr.wikipedia.org/wiki/Gare_de_Pont-Cardinet",
+  "newRank": 90,
+  "risk": 0.7,
+  "parts": {
+   "unsupported": 0.7
+  },
+  "none": false
+ },
+ {
+  "rank": 63,
+  "key": "4/odeon/context/1",
+  "en": "The Odéon theatre opened in 1782.",
+  "fr": "Le théâtre de l’Odéon ouvre en 1782.",
+  "supported": 0.3,
+  "sources": "https://www.theatre-odeon.eu/fr/lodeon",
+  "newRank": 93,
+  "risk": 0.7,
+  "parts": {
+   "unsupported": 0.7
+  },
+  "none": false
+ },
+ {
+  "rank": 64,
+  "key": "4/saint-germain-des-pres/context/2",
+  "en": "Germain’s burial there in 576 helped make it a pilgrimage site, and his name gradually replaced the earlier dedication.",
+  "fr": "La sépulture de Germain, en 576, contribue à en faire un lieu de pèlerinage ; son nom remplace progressivement la dédicace initiale.",
+  "supported": 0.3,
+  "sources": "https://mairie06.paris.fr/pages/des-origines-au-xiie-siecle-9592",
+  "newRank": 94,
+  "risk": 0.7,
+  "parts": {
+   "unsupported": 0.7
+  },
+  "none": false
+ },
+ {
+  "rank": 65,
+  "key": "14/gare-de-lyon/context/1",
+  "en": "The main-line station was the Paris terminus of the PLM company (Chemins de fer de Paris à Lyon et à la Méditerranée).",
+  "fr": "La gare était la tête de ligne parisienne de la Compagnie des chemins de fer de Paris à Lyon et à la Méditerranée (PLM).",
+  "supported": 0.31,
+  "sources": "https://fr.wikipedia.org/wiki/Paris-Gare-de-Lyon",
+  "newRank": 96,
+  "risk": 0.69,
+  "parts": {
+   "unsupported": 0.69
+  },
+  "none": false
+ },
+ {
+  "rank": 66,
+  "key": "4/porte-dorleans/etymology/2",
+  "en": "The name preserves the direction of travel through the southern fortifications of Paris.",
+  "fr": "Cette porte s’ouvrait sur la route d’Orléans.",
+  "supported": 0.31,
+  "sources": "https://www.paris.fr/pages/de-porte-en-porte-paris-se-raconte-16658",
+  "newRank": 97,
+  "risk": 0.69,
+  "parts": {
+   "unsupported": 0.69
+  },
+  "none": false
+ },
+ {
+  "rank": 67,
+  "key": "1/palais-royal-musee-du-louvre/etymology/1",
+  "en": "Called Palais-Royal after the adjoining former royal residence.",
+  "fr": "La station doit son nom au Palais-Royal voisin, ancienne résidence royale.",
+  "supported": 0.32,
+  "sources": "https://fr.wikipedia.org/wiki/Palais-Royal_-_Mus%C3%A9e_du_Louvre_(m%C3%A9tro_de_Paris)",
+  "newRank": 100,
+  "risk": 0.68,
+  "parts": {
+   "unsupported": 0.68
+  },
+  "none": false
+ },
+ {
+  "rank": 68,
+  "key": "14/bercy/etymology/2",
+  "en": "Both preserve the name of the former settlement of Bercy, much of which became part of Paris in 1860.",
+  "fr": "Ces voies conservent le nom de l’ancienne commune de Bercy, en grande partie rattachée à Paris en 1860.",
+  "supported": 0.32,
+  "sources": "https://fr.wikipedia.org/wiki/Bercy_(m%C3%A9tro_de_Paris)",
+  "newRank": 101,
+  "risk": 0.68,
+  "parts": {
+   "unsupported": 0.68
+  },
+  "none": false
+ },
+ {
+  "rank": 69,
+  "key": "14/maison-blanche/etymology/2",
+  "en": "The district took its name from an inn called “Maison Blanche”, French for “white house”.",
+  "fr": "Ce quartier tient son nom d’une auberge appelée « Maison Blanche ».",
+  "supported": 0.32,
+  "sources": "https://fr.wikipedia.org/wiki/Maison_Blanche_(m%C3%A9tro_de_Paris)",
+  "newRank": 102,
+  "risk": 0.68,
+  "parts": {
+   "unsupported": 0.68
+  },
+  "none": false
+ },
+ {
+  "rank": 70,
+  "key": "6/bercy/etymology/2",
+  "en": "Both preserve the name of the former settlement of Bercy, much of which became part of Paris in 1860.",
+  "fr": "Ces voies conservent le nom de l’ancienne commune de Bercy, en grande partie rattachée à Paris en 1860.",
+  "supported": 0.32,
+  "sources": "https://fr.wikipedia.org/wiki/Bercy_(m%C3%A9tro_de_Paris)",
+  "newRank": 103,
+  "risk": 0.68,
+  "parts": {
+   "unsupported": 0.68
+  },
+  "none": false
+ },
+ {
+  "rank": 71,
+  "key": "7/crimee/context/2",
+  "en": "Rue de Crimée crosses the 19th arrondissement.",
+  "fr": "La rue de Crimée traverse le 19e arrondissement.",
+  "supported": 0.32,
+  "sources": "https://fr.wikipedia.org/wiki/Crim%C3%A9e_(m%C3%A9tro_de_Paris)",
+  "newRank": 104,
+  "risk": 0.68,
+  "parts": {
+   "unsupported": 0.68
+  },
+  "none": false
+ },
+ {
+  "rank": 72,
+  "key": "7/maison-blanche/etymology/2",
+  "en": "The district took its name from an inn called “Maison Blanche”, French for “white house”.",
+  "fr": "Ce quartier tient son nom d’une auberge appelée « Maison Blanche ».",
+  "supported": 0.32,
+  "sources": "https://fr.wikipedia.org/wiki/Maison_Blanche_(m%C3%A9tro_de_Paris)",
+  "newRank": 105,
+  "risk": 0.68,
+  "parts": {
+   "unsupported": 0.68
+  },
+  "none": false
+ },
+ {
+  "rank": 73,
+  "key": "7/palais-royal-musee-du-louvre/etymology/1",
+  "en": "Called Palais-Royal after the adjoining former royal residence.",
+  "fr": "La station doit son nom au Palais-Royal voisin, ancienne résidence royale.",
+  "supported": 0.32,
+  "sources": "https://fr.wikipedia.org/wiki/Palais-Royal_-_Mus%C3%A9e_du_Louvre_(m%C3%A9tro_de_Paris)",
+  "newRank": 106,
+  "risk": 0.68,
+  "parts": {
+   "unsupported": 0.68
+  },
+  "none": false
+ },
+ {
+  "rank": 74,
+  "key": "9/porte-de-montreuil/etymology/1",
+  "en": "Named for the former gate in the Thiers fortifications, which controlled the road, then departmental route 41, leading from Paris towards Rosny.",
+  "fr": "La station doit son nom à l’ancienne porte de l’enceinte de Thiers, qui contrôlait la route, alors route départementale 41, menant de Paris vers Rosny.",
+  "supported": 0.32,
+  "sources": "https://fr.wikipedia.org/wiki/Porte_de_Montreuil_(m%C3%A9tro_de_Paris)",
+  "newRank": 107,
+  "risk": 0.68,
+  "parts": {
+   "unsupported": 0.68
+  },
+  "none": false
+ },
+ {
+  "rank": 75,
+  "key": "9/ranelagh/context/1",
+  "en": "Ranelagh opened on 8 November 1922 with the line’s first section. That section ran between the provisional termini of Trocadéro and Exelmans, on the western edge of Paris.",
+  "fr": "Ranelagh ouvre le 8 novembre 1922 avec le premier tronçon de la ligne, entre les terminus provisoires de Trocadéro et Exelmans, à l’ouest de Paris.",
+  "supported": 0.32,
+  "sources": "https://fr.wikipedia.org/wiki/Ranelagh_(m%C3%A9tro_de_Paris)",
+  "newRank": 108,
+  "risk": 0.68,
+  "parts": {
+   "unsupported": 0.68
+  },
+  "none": false
+ },
+ {
+  "rank": 76,
+  "key": "14/gare-de-lyon/etymology/2",
+  "en": "Lyon refers to the city its railway line was built to reach, in south-eastern France.",
+  "fr": "Lyon désigne la ville que dessert cette ligne ferroviaire, dans le sud-est de la France.",
+  "supported": 0.33,
+  "sources": "https://en.wikipedia.org/wiki/Gare_de_Lyon",
+  "newRank": 109,
+  "risk": 0.67,
+  "parts": {
+   "unsupported": 0.67
+  },
+  "none": false
+ },
+ {
+  "rank": 77,
+  "key": "5/richard-lenoir/context/1",
+  "en": "The boulevard’s gardens sit above a covered stretch of the Canal Saint-Martin.",
+  "fr": "Les jardins du boulevard recouvrent une partie du canal Saint-Martin.",
+  "supported": 0.33,
+  "sources": "https://fr.wikipedia.org/wiki/Richard-Lenoir_(m%C3%A9tro_de_Paris) https://www.paris.fr/lieux/promenade-richard-lenoir-square-richard-lenoir-2837",
+  "newRank": 110,
+  "risk": 0.67,
+  "parts": {
+   "unsupported": 0.67
+  },
+  "none": false
+ },
+ {
+  "rank": 78,
+  "key": "7/chateau-landon/etymology/1",
+  "en": "Called Château-Landon after Rue du Château-Landon.",
+  "fr": "La station doit son nom à la rue du Château-Landon.",
+  "supported": 0.33,
+  "sources": "https://fr.wikipedia.org/wiki/Ch%C3%A2teau-Landon_(m%C3%A9tro_de_Paris)",
+  "newRank": 111,
+  "risk": 0.67,
+  "parts": {
+   "unsupported": 0.67
+  },
+  "none": false
+ },
+ {
+  "rank": 79,
+  "key": "7/le-kremlin-bicetre/etymology/3",
+  "en": "Kremlin recalls an inn associated with veterans of Napoleon’s Russian campaign, treated at the local hospital.",
+  "fr": "Kremlin rappelle un cabaret associé aux vétérans de la campagne de Russie de Napoléon, soignés à l’hôpital voisin.",
+  "supported": 0.33,
+  "sources": "https://www.kremlinbicetre.fr/ma-ville/decouvrir-le-kremlin-bicetre/lhistoire-du-kremlin-bicetre-dont-archives/",
+  "newRank": 112,
+  "risk": 0.67,
+  "parts": {
+   "unsupported": 0.67
+  },
+  "none": false
+ },
+ {
+  "rank": 80,
+  "key": "7/porte-de-choisy/context/2",
+  "en": "The following year it became a through station on Line 7, as the line crossed the Seine and extended one stop farther to Porte d’Ivry.",
+  "fr": "L’année suivante, elle devient une station de passage de la ligne 7, qui traverse alors la Seine et se prolonge d’une station jusqu’à Porte d’Ivry.",
+  "supported": 0.33,
+  "sources": "https://fr.wikipedia.org/wiki/Porte_de_Choisy_(m%C3%A9tro_de_Paris)",
+  "newRank": 113,
+  "risk": 0.67,
+  "parts": {
+   "unsupported": 0.67
+  },
+  "none": false
+ },
+ {
+  "rank": 81,
+  "key": "14/porte-de-clichy/context/2",
+  "en": "The wall has disappeared, but the road crossing keeps the name Porte de Clichy.",
+  "fr": "Les fortifications ont disparu, mais le carrefour routier a gardé le nom de porte de Clichy.",
+  "supported": 0.34,
+  "sources": "https://fr.wikipedia.org/wiki/Porte_de_Clichy",
+  "newRank": 114,
+  "risk": 0.66,
+  "parts": {
+   "unsupported": 0.66
+  },
+  "none": false
+ },
+ {
+  "rank": 82,
+  "key": "7/louis-blanc/context/1",
+  "en": "The station was built on two levels for the original northern fork of Line 7.",
+  "fr": "La station est construite sur deux niveaux pour l’ancienne bifurcation nord de la ligne 7.",
+  "supported": 0.34,
+  "sources": "https://fr.wikipedia.org/wiki/Louis_Blanc_(m%C3%A9tro_de_Paris)",
+  "newRank": 115,
+  "risk": 0.66,
+  "parts": {
+   "unsupported": 0.66
+  },
+  "none": false
+ },
+ {
+  "rank": 83,
+  "key": "5/gare-du-nord/context/2",
+  "en": "In 1942, new platforms allowed trains to continue towards Pantin.",
+  "fr": "En 1942, de nouveaux quais permettent de poursuivre vers Pantin.",
+  "supported": 0.35,
+  "sources": "https://fr.wikipedia.org/wiki/Gare_du_Nord_(m%C3%A9tro_de_Paris)",
+  "newRank": 121,
+  "risk": 0.65,
+  "parts": {
+   "unsupported": 0.65
+  },
+  "none": false
+ },
+ {
+  "rank": 84,
+  "key": "5/ourcq/etymology/2",
+  "en": "The canal takes its name from the river whose water it carries towards Paris.",
+  "fr": "Celui-ci porte le nom de la rivière dont il conduit l’eau vers Paris.",
+  "supported": 0.35,
+  "sources": "https://fr.wikipedia.org/wiki/Canal_de_l'Ourcq",
+  "newRank": 122,
+  "risk": 0.65,
+  "parts": {
+   "unsupported": 0.65
+  },
+  "none": false
+ },
+ {
+  "rank": 85,
+  "key": "7/chateau-landon/context/1",
+  "en": "A passage beneath the railway tracks connects the station with Gare de l’Est.",
+  "fr": "Un passage sous les voies ferrées relie la station à la gare de l’Est.",
+  "supported": 0.35,
+  "sources": "https://fr.wikipedia.org/wiki/Ch%C3%A2teau-Landon_(m%C3%A9tro_de_Paris)",
+  "newRank": 123,
+  "risk": 0.65,
+  "parts": {
+   "unsupported": 0.65
+  },
+  "none": false
+ },
+ {
+  "rank": 86,
+  "key": "1/les-sablons/context/1",
+  "en": "On 3 December 2014, former government minister Jacques Barrot collapsed on the platform of this station and died suddenly.",
+  "fr": "Le 3 décembre 2014, l’ancien ministre Jacques Barrot s’effondre sur le quai de cette station et meurt subitement.",
+  "supported": 0.36,
+  "sources": "https://fr.wikipedia.org/wiki/Les_Sablons_(m%C3%A9tro_de_Paris)",
+  "newRank": 124,
+  "risk": 0.64,
+  "parts": {
+   "unsupported": 0.64
+  },
+  "none": false
+ },
+ {
+  "rank": 87,
+  "key": "7/le-peletier/etymology/2",
+  "en": "He was a prévôt des marchands, a senior municipal official responsible for the affairs of Paris before the Revolution.",
+  "fr": "Il fut prévôt des marchands, une fonction majeure dans l’administration de Paris avant la Révolution française.",
+  "supported": 0.36,
+  "sources": "https://fr.wikipedia.org/wiki/Le_Peletier_(m%C3%A9tro_de_Paris)",
+  "newRank": 126,
+  "risk": 0.64,
+  "parts": {
+   "unsupported": 0.64
+  },
+  "none": false
+ },
+ {
+  "rank": 88,
+  "key": "9/franklin-d-roosevelt/context/3",
+  "en": "In the 1950s the platforms were decorated with gemmail, a modernised stained-glass technique, inaugurated in 1957.",
+  "fr": "Dans les années 1950, les quais sont décorés de gemmail, technique de vitrail modernisée, inaugurée en 1957.",
+  "supported": 0.36,
+  "sources": "https://fr.wikipedia.org/wiki/Franklin_D._Roosevelt_(m%C3%A9tro_de_Paris)",
+  "newRank": 127,
+  "risk": 0.64,
+  "parts": {
+   "unsupported": 0.64
+  },
+  "none": false
+ },
+ {
+  "rank": 89,
+  "key": "14/bibliotheque-francois-mitterrand/context/3",
+  "en": "Dominique Perrault designed its four towers around a central garden.",
+  "fr": "Dominique Perrault a conçu ses quatre tours autour d’un jardin central.",
+  "supported": 0.38,
+  "sources": "https://www.bnf.fr/fr/le-site-francois-mitterrand",
+  "newRank": 130,
+  "risk": 0.62,
+  "parts": {
+   "unsupported": 0.62
+  },
+  "none": false
+ },
+ {
+  "rank": 90,
+  "key": "1/palais-royal-musee-du-louvre/context/1",
+  "en": "One entrance, on Place Colette, is topped by Jean-Michel Othoniel’s Kiosque des Noctambules: two cupolas of Murano glass beads made for the Métro’s centenary.",
+  "fr": "Sur la place Colette, l’une des entrées de la station est surmontée du Kiosque des Noctambules de Jean-Michel Othoniel : deux coupoles de perles de verre de Murano réalisées pour le centenaire du métro.",
+  "supported": 0.39,
+  "sources": "https://fr.wikipedia.org/wiki/Palais-Royal_-_Mus%C3%A9e_du_Louvre_(m%C3%A9tro_de_Paris)",
+  "newRank": 131,
+  "risk": 0.61,
+  "parts": {
+   "unsupported": 0.61
+  },
+  "none": false
+ },
+ {
+  "rank": 91,
+  "key": "4/porte-dorleans/context/2",
+  "en": "The extension to Mairie de Montrouge in 2013 finally carried the line beyond the city boundary.",
+  "fr": "Le prolongement à Mairie de Montrouge, en 2013, a permis à la ligne de franchir la limite de Paris.",
+  "supported": 0.39,
+  "sources": "https://fr.wikipedia.org/wiki/Porte_d'Orl%C3%A9ans_(m%C3%A9tro_de_Paris)",
+  "newRank": 132,
+  "risk": 0.61,
+  "parts": {
+   "unsupported": 0.61
+  },
+  "none": false
+ },
+ {
+  "rank": 92,
+  "key": "4/saint-germain-des-pres/etymology/2",
+  "en": "Germain was a sixth-century bishop of Paris; des prés recalls the meadows that once surrounded the abbey.",
+  "fr": "Germain était évêque de Paris au VIe siècle ; « des Prés » rappelle les prairies qui entouraient autrefois l’abbaye.",
+  "supported": 0.49,
+  "unmatched": "fr:VIe",
+  "sources": "https://mairie06.paris.fr/pages/des-origines-au-xiie-siecle-9592",
+  "newRank": 133,
+  "risk": 0.61,
+  "parts": {
+   "unsupported": 0.51,
+   "numbers": 0.1
+  },
+  "none": false
+ },
+ {
+  "rank": 93,
+  "key": "1/bastille/etymology/1",
+  "en": "Called Bastille after the square marking the site of the Bastille fortress and prison, demolished after its storming during the French Revolution in 1789.",
+  "fr": "La station doit son nom à la place qui occupe l’emplacement de la Bastille, forteresse devenue prison, démolie après sa prise pendant la Révolution française de 1789.",
+  "supported": 0.4,
+  "sources": "https://fr.wikipedia.org/wiki/Bastille_(m%C3%A9tro_de_Paris)",
+  "newRank": 134,
+  "risk": 0.6,
+  "parts": {
+   "unsupported": 0.6
+  },
+  "none": false
+ },
+ {
+  "rank": 94,
+  "key": "14/gare-de-lyon/context/2",
+  "en": "The Line 14 platforms lie along Rue de Bercy, while the older Line 1 platforms are under Boulevard Diderot.",
+  "fr": "Les quais de la ligne 14 longent la rue de Bercy. Ceux de la ligne 1, plus anciens, se trouvent sous le boulevard Diderot.",
+  "supported": 0.4,
+  "sources": "https://fr.wikipedia.org/wiki/Paris-Gare-de-Lyon https://fr.wikipedia.org/wiki/Gare_de_Lyon_(m%C3%A9tro_de_Paris)",
+  "newRank": 135,
+  "risk": 0.6,
+  "parts": {
+   "unsupported": 0.6
+  },
+  "none": false
+ },
+ {
+  "rank": 95,
+  "key": "14/pyramides/context/2",
+  "en": "The Line 14 platforms opened on 15 October 1998 under the same name.",
+  "fr": "Les quais de la ligne 14 ont ouvert sous le même nom le 15 octobre 1998.",
+  "supported": 0.4,
+  "sources": "https://fr.wikipedia.org/wiki/Pyramides_(m%C3%A9tro_de_Paris)",
+  "newRank": 136,
+  "risk": 0.6,
+  "parts": {
+   "unsupported": 0.6
+  },
+  "none": false
+ },
+ {
+  "rank": 96,
+  "key": "5/bastille/context/2",
+  "en": "Some of this masonry is preserved beside the platform, inside the station.",
+  "fr": "Une partie de cette maçonnerie est conservée près du quai, dans la station.",
+  "supported": 0.4,
+  "sources": "https://fr.wikipedia.org/wiki/Bastille_(m%C3%A9tro_de_Paris)",
+  "newRank": 137,
+  "risk": 0.6,
+  "parts": {
+   "unsupported": 0.6
+  },
+  "none": false
+ },
+ {
+  "rank": 97,
+  "key": "5/bastille/etymology/1",
+  "en": "Called Bastille after the square marking the site of the Bastille fortress and prison, demolished after its storming during the French Revolution in 1789.",
+  "fr": "La station doit son nom à la place qui occupe l’emplacement de la Bastille, forteresse devenue prison, démolie après sa prise pendant la Révolution française de 1789.",
+  "supported": 0.4,
+  "sources": "https://fr.wikipedia.org/wiki/Bastille_(m%C3%A9tro_de_Paris)",
+  "newRank": 138,
+  "risk": 0.6,
+  "parts": {
+   "unsupported": 0.6
+  },
+  "none": false
+ },
+ {
+  "rank": 98,
+  "key": "9/pont-de-sevres/etymology/1",
+  "en": "Named for the nearby Pont de Sèvres, the Seine bridge that leads towards the town of Sèvres.",
+  "fr": "La station doit son nom au pont de Sèvres, qui franchit la Seine en direction de la ville de Sèvres.",
+  "supported": 0.4,
+  "sources": "https://en.wikipedia.org/wiki/Pont_de_S%C3%A8vres_station",
+  "newRank": 139,
+  "risk": 0.6,
+  "parts": {
+   "unsupported": 0.6
+  },
+  "none": false
+ },
+ {
+  "rank": 99,
+  "key": "14/mairie-de-saint-ouen/etymology/2",
+  "en": "The town takes its name from Ouen, a seventh-century bishop of Rouen who also served the Merovingian royal court.",
+  "fr": "La ville porte le nom d’Ouen, évêque de Rouen au VIIe siècle, qui fut aussi un dignitaire de la cour mérovingienne.",
+  "supported": 0.46,
+  "sources": "https://fr.wikipedia.org/wiki/Ouen_de_Rouen",
+  "newRank": 140,
+  "risk": 0.59,
+  "parts": {
+   "unsupported": 0.54,
+   "fetch": 0.05
+  },
+  "none": false
+ },
+ {
+  "rank": 100,
+  "key": "14/saint-ouen/etymology/2",
+  "en": "That name refers to the town of Saint-Ouen, which takes its name from Ouen, a seventh-century bishop of Rouen.",
+  "fr": "Ce nom est celui de la ville de Saint-Ouen, qui doit le sien à Ouen, évêque de Rouen au VIIe siècle.",
+  "supported": 0.46,
+  "sources": "https://fr.wikipedia.org/wiki/Ouen_de_Rouen",
+  "newRank": 141,
+  "risk": 0.59,
+  "parts": {
+   "unsupported": 0.54,
+   "fetch": 0.05
+  },
+  "none": false
+ }
+]
