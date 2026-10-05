@@ -93,7 +93,7 @@ check_health() {
 }
 cleanup() {
   result=$?
-  rm -f "$base/current.next" "$base/current.previous"
+  rm -f "$base/current.next" "$base/current.previous" "$base/previous.next"
   if [[ "$result" -ne 0 && "${switched:-}" == true ]]; then
     restore_previous
   fi
@@ -105,6 +105,10 @@ check_health
 # Prove that systemd can start the release again, not only on first activation.
 sudo systemctl restart french-metro.service
 check_health
+# Record the release this deploy replaced, for rollback and for the prune command.
+if [[ -n "$previous" && "$previous" != "$release" ]]; then
+  ln -sfn "$previous" "$base/previous.next" && mv -Tf "$base/previous.next" "$base/previous"
+fi
 printf 'Service active: %s\n' "$revision"
 REMOTE
 curl --fail --silent --show-error --max-time 20 "https://$host/healthz"

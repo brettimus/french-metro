@@ -71,14 +71,24 @@ different revision, set `SKIP_CHECKS=1`; the script then skips the checks.
 Without it, the script refuses a revision that is not HEAD.
 
 The script prints the deployed revision and verifies the public
-`/healthz` commit matches. Old releases are kept for rollback. Prune
-everything except the active and one previous release with:
+`/healthz` commit matches. After a successful deploy, the script sets the
+`/home/exedev/french-metro/previous` symlink to the release it replaced.
+
+Old releases are kept for rollback. To prune them, run the command below. It
+keeps the active release, the `previous` release, and the 2 newest other
+releases (by modification time). It also deletes `.staging-*` directories that
+failed deploys leave behind, because the `*/` glob does not match them.
 
 ```sh
-ssh french-metro.exe.xyz 'cd /home/exedev/french-metro/releases && \
-  keep=$(readlink ../current | xargs basename); prev=$(readlink ../previous 2>/dev/null | xargs basename || true); \
-  for d in */; do d=${d%/}; [[ "$d" == "$keep" || "$d" == "$prev" ]] || rm -rf "$d"; done'
+ssh french-metro.exe.xyz 'set -eu; cd /home/exedev/french-metro/releases
+  cur=$(basename "$(readlink ../current)"); prev=$(basename "$(readlink ../previous 2>/dev/null || echo none)")
+  ls -1dt -- */ | sed "s:/\$::" | grep -vx -e "$cur" -e "$prev" | tail -n +3 | xargs -r rm -rf --
+  rm -rf -- .staging-*'
 ```
+
+Do not prune while a deploy runs; staging uploads happen before the lock. For
+the first run, replace `xargs -r rm -rf --` with `cat` to see the list before
+you delete anything.
 
 ## Status, logs, restart
 
@@ -95,6 +105,14 @@ timeout. A normal `systemctl stop` leaves it stopped.
 
 ## Rollback
 
+Find the release that the last deploy replaced:
+
+```sh
+ssh french-metro.exe.xyz 'readlink /home/exedev/french-metro/previous'
+```
+
+Then switch to it:
+
 ```sh
 ssh french-metro.exe.xyz \
   'ln -sfn /home/exedev/french-metro/releases/<previous-revision> /home/exedev/french-metro/current && sudo systemctl restart french-metro'
@@ -106,6 +124,8 @@ Then verify the public `/healthz` reports the expected commit.
 
 - `/home/exedev/french-metro/releases/<revision>` — immutable releases.
 - `/home/exedev/french-metro/current` — symlink to the active release.
+- `/home/exedev/french-metro/previous` — symlink to the release that the last
+  successful deploy replaced.
 - `/home/exedev/french-metro/shared/` — persistent state, outside the code dir
   (empty today; reserved for future data so releases stay immutable).
 
