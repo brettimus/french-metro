@@ -2,8 +2,7 @@
   "name": "@french-metro/root",
   "private": true,
   "workspaces": [
-    "apps/*",
-    "packages/*"
+    "apps/*"
   ],
   "scripts": {
     "dev": "bun run --cwd apps/web dev",

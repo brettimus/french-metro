@@ -1,4 +1,4 @@
-import { describe, expect, test } from "bun:test";
+import { describe, expect, spyOn, test } from "bun:test";
 import { mkdtemp, writeFile, mkdir, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
@@ -116,12 +116,15 @@ describe("createHandler", () => {
 
   test("index.html without build.json fails loudly", async () => {
     const dir2 = await mkdtemp(join(tmpdir(), "french-metro-nobuild-"));
+    const spy = spyOn(console, "error").mockImplementation(() => {});
     try {
       await writeFile(join(dir2, "index.html"), "<html></html>");
       const handler = createHandler(dir2);
       const res = await handler(new Request("http://localhost/"));
       expect(res.status).toBe(500);
+      expect(spy).toHaveBeenCalled();
     } finally {
+      spy.mockRestore();
       await rm(dir2, { recursive: true, force: true });
     }
   });
