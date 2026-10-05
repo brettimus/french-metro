@@ -279,7 +279,9 @@ function render() {
   const m = t(state.locale);
   const key = `${state.locale}:${state.lineId || "home"}:${valid}`;
   document.documentElement.lang = state.locale;
-  document.title = `${station ? station.name + " · " : ""}${line ? m.line + " " + line.id : m.title} | Métro / Noms`;
+  document.title = valid
+    ? `${station ? station.name + " · " : ""}${line ? m.line + " " + line.id : m.title} | Métro / Noms`
+    : `404 · ${m.unknown} | Métro / Noms`;
   document.querySelector<HTMLMetaElement>('meta[name="description"]')!.content =
     station?.etymology[state.locale] ||
     line?.summary[state.locale] ||
