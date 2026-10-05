@@ -9,3 +9,7 @@ playwright-report/
 
 # Copy evaluator output
 apps/web/scripts/copy/out/
+
+# Fact checker cache and output
+apps/web/scripts/facts/cache/
+apps/web/scripts/facts/out/

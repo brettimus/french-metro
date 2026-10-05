@@ -103,6 +103,6 @@ Bands: **ship** ≥ 0.85, **edit** 0.65–0.84, **rewrite** < 0.65. A **hard fai
 - Jev scores were calibrated against two editors on 36 pairs. The least reliable are S5 (both locales) and S4 (FR). The tells t5, t13, t14 and t16 have not been tested on true cases.
 - UI scores (U1, U2) are not calibrated. U1 gets the string's usage note from `ui-usage.ts`. U2 is judged per string against the sibling strings of the same role, so a conflict lowers only the strings involved.
 - T21 ignores an etymology repeated on the same station id (a station on two lines). A repeated context sentence on the same station id is the REVIEW hint `corpus.duplicateSameStation`, not a tell.
-- The evaluator does not check facts against sources (T22). That needs a separate fact-check pass.
+- The evaluator does not check facts against sources (T22). Use the fact checker for that: [`../facts/README.md`](../facts/README.md).
 
 When you change `questions.ts`, change `QUESTION_SET_VERSION` too, so reports can say which questions produced them.
