@@ -37,3 +37,21 @@ One entry per loop iteration. Primary = AP on dev (all items); guard = AP on dev
   are cleaner (5 confirmed, 3 supported, 1 unsourced). Next tries: EN-only matching, or a smaller weight (0.05–0.1)
   that breaks ties in the middle of the list and does not move supported pairs above high-risk problems. With 13
   confirmed dev pairs, a word list tuned on dev overfits easily; keep the list short and general.
+
+## Iteration 3: meanpair (KEEP)
+
+- **Hypothesis:** In the baseline dev ranking, many supported pairs have one locale with a low `supported` and the
+  other high (for example 0.11/0.64, 0.15/0.59, 0.32/0.96): Jev misses the fact in one language. Real problems are
+  mostly low in both. The pair takes the max of (1 − `supported`), so one bad locale is enough to rank a supported
+  pair high. The mean over the pair's claims uses both answers.
+- **Change:** `configs/meanpair.ts` = baseline, but the pair's `unsupported` part is the mean of its claims'
+  (1 − `supported`). The other parts (numbers, noPassage, fetch, jevError) still take the max. No new Jev calls.
+- **Result:** AP 0.840 → 0.862 (p_better 0.993). No planted: 0.709 → 0.756 (p_better 0.997). AUC 0.851 → 0.888
+  (no planted 0.792 → 0.848). confR20 0 → 0 (no planted 0.077 → 0).
+- **Decision:** KEEP (+0.022 AP; the guard improves).
+- **Learned:** EN/FR disagreement on `supported` is mostly Jev noise on one locale, not a sign of a problem (this
+  agrees with pass 1, where `pairDisagreement` pointed to false alarms). Confirmed recall@20 is still 0: the
+  confirmed wording faults have middle `supported` values and the top 20 is full of unsourced and planted pairs
+  with very low `supported` and unmatched numbers. A production change would be in `rankPairs` (rank.ts); that is
+  outside the lab, so it is not done here. Next: other EN/FR combinations (for example a geometric mean, or a mix
+  of mean and max), and per-passage checks.
