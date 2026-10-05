@@ -4,10 +4,6 @@ Source: read-only audit on 29 September 2026 (five areas: code, tests, build and
 
 All numbered items from the audit are done (October 2026). The items below remain.
 
-## Check after the next deploy
-
-- `ssh french-metro.exe.xyz 'readlink /home/exedev/french-metro/previous'` must print the release that the deploy replaced. Then run the prune command in `docs/deployment.md` once with `cat` in place of `xargs -r rm -rf --` and check the list.
-
 ## Known, no action now
 
 These items are real, but they are not worth the work now. Do them when the given condition occurs.
