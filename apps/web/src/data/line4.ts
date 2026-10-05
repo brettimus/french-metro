@@ -1,16 +1,7 @@
-import type { Art, MetroLine, Source, Station } from "./types";
+import type { Art, MetroLine, Station } from "./types";
 
 // Name origins, source limits and route audit: docs/research/line4.md.
-const wiki = (title: string) =>
-  `https://fr.wikipedia.org/wiki/${encodeURIComponent(title.replaceAll(" ", "_"))}`;
-const source = (label: string, url: string): Source => ({ label, url });
-const bio = (name: string, en: string, fr = name) => ({
-  name,
-  url: {
-    en: `https://en.wikipedia.org/wiki/${encodeURIComponent(en.replaceAll(" ", "_"))}`,
-    fr: wiki(fr),
-  },
-});
+import { wiki, source, biography } from "./helpers";
 function stop(
   id: string,
   name: string,
@@ -127,7 +118,7 @@ const stations: Station[] = [
           wiki("Boulevard Marguerite-de-Rochechouart"),
         ),
       ],
-      people: [bio("Armand Barbès", "Armand Barbès")],
+      people: [biography("Armand Barbès", "Armand Barbès")],
     },
   ),
   stop(
@@ -221,7 +212,7 @@ const stations: Station[] = [
     "La station ouvre sous le nom de Rue Saint-Denis sur la ligne 3. Elle reçoit son nom actuel en 1907, avant l’arrivée de la ligne 4 l’année suivante.",
     {
       people: [
-        bio(
+        biography(
           "René-Antoine Ferchault de Réaumur",
           "René Antoine Ferchault de Réaumur",
           "René-Antoine Ferchault de Réaumur",
@@ -246,7 +237,7 @@ const stations: Station[] = [
         ),
         source("Étienne Marcel · Biographie", wiki("Étienne Marcel")),
       ],
-      people: [bio("Étienne Marcel", "Étienne Marcel")],
+      people: [biography("Étienne Marcel", "Étienne Marcel")],
     },
   ),
   stop(
@@ -369,7 +360,7 @@ const stations: Station[] = [
           "https://mairie06.paris.fr/pages/des-origines-au-xiie-siecle-9592",
         ),
       ],
-      people: [bio("Germain de Paris", "Germain of Paris")],
+      people: [biography("Germain de Paris", "Germain of Paris")],
     },
   ),
   stop(
@@ -392,7 +383,7 @@ const stations: Station[] = [
           wiki("Église Saint-Sulpice de Paris"),
         ),
       ],
-      people: [bio("Sulpice le Pieux", "Sulpicius the Pious")],
+      people: [biography("Sulpice le Pieux", "Sulpicius the Pious")],
     },
   ),
   stop(
@@ -441,7 +432,7 @@ const stations: Station[] = [
           "https://en.wikipedia.org/wiki/Montparnasse",
         ),
       ],
-      people: [bio("Fulgence Bienvenüe", "Fulgence Bienvenüe")],
+      people: [biography("Fulgence Bienvenüe", "Fulgence Bienvenüe")],
     },
   ),
   stop(
@@ -489,7 +480,7 @@ const stations: Station[] = [
           "https://www.assemblee-nationale.fr/dyn/histoire-et-patrimoine/monarchie-de-juillet/revolution-de-fevrier",
         ),
       ],
-      people: [bio("François-Vincent Raspail", "François-Vincent Raspail")],
+      people: [biography("François-Vincent Raspail", "François-Vincent Raspail")],
     },
   ),
   stop(
@@ -517,7 +508,7 @@ const stations: Station[] = [
         ),
       ],
       people: [
-        bio(
+        biography(
           "Pierre Philippe Denfert-Rochereau",
           "Pierre Philippe Denfert-Rochereau",
           "Aristide Denfert-Rochereau",
@@ -550,7 +541,7 @@ const stations: Station[] = [
         ),
       ],
       people: [
-        bio(
+        biography(
           "Régis Barthélemy Mouton-Duvernet",
           "Régis Barthélemy Mouton-Duvernet",
         ),
@@ -579,7 +570,7 @@ const stations: Station[] = [
         ),
         source("Siège d’Alésia · Wikipédia", wiki("Siège d'Alésia")),
       ],
-      people: [bio("Vercingétorix", "Vercingetorix")],
+      people: [biography("Vercingétorix", "Vercingetorix")],
     },
   ),
   stop(
@@ -647,7 +638,7 @@ const stations: Station[] = [
           "https://www.iledefrance-mobilites.fr/actualites/lucie-aubrac-et-barbara-seront-les-noms-des-prochaines-stations-de-la-ligne-4-du-metro",
         ),
       ],
-      people: [bio("Barbara", "Barbara (singer)", "Barbara")],
+      people: [biography("Barbara", "Barbara (singer)", "Barbara")],
     },
   ),
   stop(
@@ -670,7 +661,7 @@ const stations: Station[] = [
           "https://www.iledefrance-mobilites.fr/actualites/lucie-aubrac-et-barbara-seront-les-noms-des-prochaines-stations-de-la-ligne-4-du-metro",
         ),
       ],
-      people: [bio("Lucie Aubrac", "Lucie Aubrac")],
+      people: [biography("Lucie Aubrac", "Lucie Aubrac")],
     },
   ),
 ];

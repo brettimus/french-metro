@@ -1,14 +1,7 @@
 import type { Art, MetroLine, Station } from "./types";
 
-const wiki = (title: string) =>
-  `https://fr.wikipedia.org/wiki/${encodeURIComponent(title.replaceAll(" ", "_"))}`;
-const biography = (name: string, en: string, fr = name) => ({
-  name,
-  url: {
-    en: `https://en.wikipedia.org/wiki/${encodeURIComponent(en.replaceAll(" ", "_"))}`,
-    fr: wiki(fr),
-  },
-});
+import { wiki, biography } from "./helpers";
+
 function station(
   id: string,
   name: string,

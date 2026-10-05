@@ -9,7 +9,6 @@ All numbered items from the audit are done (October 2026). The items below remai
 These items are real, but they are not worth the work now. Do them when the given condition occurs.
 
 - **Line 7 branches are hardcoded.** `types.ts:40-41`, `map.ts:40-57` and `app.ts:61-63` (`id === "7"`) contain the names "ivry" and "villejuif". Make branches generic when you add a second line with branches (for example Line 13).
-- **Each line file has its own copy of the helpers.** `wiki`, `source` and `biography` are the same in lines 1, 5, 6 and 9. Lines 4 and 7 have different versions, and Line 14 has none. Move them to a shared module when you next add a line, and use them in the new line.
 - **The design PNG originals are most of the git size** (about 32 MB on disk, 24 MB packed). `docs/four-line-plan.md:32` says to keep them on purpose. If the repo size becomes a problem, move them to Git LFS or to storage outside git.
 - **No lint or format tool.** The project has a strict `tsc` and tests. Add Biome only if the style starts to drift.
 - **Lines 3bis and 7bis are not in the coming-soon list.** Add them after you check that the badge layout works with four-character labels.
