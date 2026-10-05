@@ -1,7 +1,10 @@
 /**
  * Verify a public deployment without changing anything.
  * Usage: bun apps/web/ops/verify-deployment.ts https://french-metro.exe.xyz <full-commit>
+ * Runs locally from the repo; the routes and illustrations come from the line data.
  */
+import { lines } from "../src/data/lines";
+
 const base = process.argv[2];
 const commit = process.argv[3];
 if (!base || !commit || !/^[a-f0-9]{40}$/.test(commit)) {
@@ -49,15 +52,11 @@ if (!assetRes.ok) fail(`Asset ${asset} failed with ${assetRes.status}`);
 if (!assetRes.headers.get("content-type")?.includes("javascript"))
   fail("Browser bundle has the wrong content type");
 if (!html.includes('id="app"')) fail("App container missing");
-for (const route of [
-  "/fr/lines/1/stations/argentine",
-  "/fr/lines/4/stations/saint-sulpice",
-  "/en/lines/5/stations/oberkampf",
-  "/en/lines/6/stations/bir-hakeim",
-  "/fr/lines/7/stations/les-gobelins",
-  "/en/lines/9/stations/trocadero",
-  "/en/lines/14/stations/saint-denis-pleyel",
-]) {
+const routes = lines.flatMap((line) => [
+  `/fr/lines/${line.id}`,
+  `/en/lines/${line.id}/stations/${line.stations[0]!.id}`,
+]);
+for (const route of routes) {
   const res = await fetch(`${base}${route}`, {
     redirect: "error",
     signal: AbortSignal.timeout(10_000),
@@ -65,15 +64,7 @@ for (const route of [
   if (!res.ok || !(await res.text()).includes('id="app"'))
     fail(`Deep route failed: ${route}`);
 }
-for (const path of [
-  "/illustrations/line-1.webp",
-  "/illustrations/line-4.webp",
-  "/illustrations/line-5.webp",
-  "/illustrations/line-6.webp",
-  "/illustrations/line-7.webp",
-  "/illustrations/line-9.webp",
-  "/illustrations/line-14.webp",
-]) {
+for (const path of lines.map((line) => line.image)) {
   const res = await fetch(`${base}${path}`, {
     method: "HEAD",
     redirect: "error",
