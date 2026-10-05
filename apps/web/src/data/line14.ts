@@ -362,8 +362,8 @@ export const line14: MetroLine = {
       area: "Paris 12e",
       art: "market",
       etymology: {
-        en: "Called Cour Saint-Émilion after the nearby courtyard in the former Bercy wine warehouses. Its name refers to Saint-Émilion, the Bordeaux wine-producing town and appellation. The courtyard name records the trade once carried on here.",
-        fr: "La station doit son nom à la cour Saint-Émilion, dans les anciens entrepôts de vins de Bercy. Ce nom renvoie à la ville viticole et à l’appellation bordelaise de Saint-Émilion. Il rappelle le commerce autrefois installé dans cette cour.",
+        en: "Called Cour Saint-Émilion after the nearby courtyard in the former Bercy wine warehouses. Its name refers to Saint-Émilion, the Bordeaux wine appellation. The courtyard name records the trade once carried on here.",
+        fr: "La station doit son nom à la cour Saint-Émilion, dans les anciens entrepôts de vins de Bercy. Ce nom renvoie à l’appellation bordelaise de Saint-Émilion. Il rappelle le commerce autrefois installé dans cette cour.",
       },
       context: {
         en: "The station occupies part of the former Bercy goods yard, where trains brought wine from southern France. The neighbouring warehouse courts used wine-region names.",
@@ -545,8 +545,8 @@ export const line14: MetroLine = {
         fr: "La station doit son nom à la ville qu’elle dessert. L’Haÿ a ajouté « les-Roses » à son nom en 1914 en raison de la renommée de sa roseraie.",
       },
       context: {
-        en: "The town council requested the new name, citing the visitors the rose garden brought and telephone confusion with Lagny. The Métro project first used the name Chevilly – Trois Communes. A public consultation in 2022 chose the town’s name, L’Haÿ-les-Roses.",
-        fr: "Le conseil municipal a demandé ce nouveau nom en invoquant les visiteurs attirés par la roseraie et les confusions téléphoniques avec Lagny. Le projet de métro utilisait d’abord le nom Chevilly – Trois Communes. Une consultation publique en 2022 a retenu le nom de la commune, L’Haÿ-les-Roses.",
+        en: "The town council requested the new name, citing the rose garden’s value to local trade and telephone confusion with Lagny. The Métro project first used the name Chevilly – Trois Communes. A public consultation in 2022 chose the town’s name, L’Haÿ-les-Roses.",
+        fr: "Le conseil municipal a demandé ce nouveau nom en invoquant l’apport de la roseraie au commerce local et les confusions téléphoniques avec Lagny. Le projet de métro utilisait d’abord le nom Chevilly – Trois Communes. Une consultation publique en 2022 a retenu le nom de la commune, L’Haÿ-les-Roses.",
       },
       sources: [
         {
@@ -577,8 +577,8 @@ export const line14: MetroLine = {
         fr: "La station doit son nom à la commune où elle se trouve. Ce nom composé associe Chevilly à l’ancien hameau de Larue. Larue a été ajouté au nom officiel de la commune en 1920.",
       },
       context: {
-        en: "The Métro project originally called this station Porte de Thiais. Local authorities sought names that better identified the towns served. Chevilly-Larue was confirmed in 2022.",
-        fr: "Le projet de métro appelait initialement cette station Porte de Thiais. Les collectivités ont demandé des noms identifiant mieux les communes desservies. Chevilly-Larue a été confirmé en 2022.",
+        en: "The Métro project originally called this station Porte de Thiais. Local authorities sought names that better identified the towns served. Chevilly-Larue was adopted in September 2022.",
+        fr: "Le projet de métro appelait initialement cette station Porte de Thiais. Les collectivités ont demandé des noms identifiant mieux les communes desservies. Chevilly-Larue a été adopté en septembre 2022.",
       },
       sources: [
         {
@@ -612,6 +612,10 @@ export const line14: MetroLine = {
         {
           label: "Thiais–Orly station · Wikipedia",
           url: "https://en.wikipedia.org/wiki/Thiais%E2%80%93Orly_station",
+        },
+        {
+          label: "Thiais · Wikipédia",
+          url: "https://fr.wikipedia.org/wiki/Thiais",
         },
       ],
     },

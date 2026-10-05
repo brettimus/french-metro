@@ -191,7 +191,7 @@ const stations: Station[] = [
     "Called Jacques Bonsergent after the square honouring the French engineer executed by the German occupation authorities in December 1940.",
     "La station doit son nom à la place dédiée à Jacques Bonsergent, ingénieur français fusillé par les autorités allemandes d’occupation en décembre 1940.",
     "The station opened as Lancry in 1906 and received its present name in 1946. Posters announcing Bonsergent’s execution were displayed across occupied Paris.",
-    "Ouverte sous le nom de Lancry en 1906, la station prend son nom actuel en 1946. Des affiches annonçant l’exécution de Bonsergent avaient été placardées dans Paris occupé.",
+    "Ouverte sous le nom de Lancry en 1906, la station prend son nom actuel en 1946. Des affiches annonçant l’exécution de Bonsergent avaient été placardées dans tout le Paris occupé.",
     {
       sources: [
         source(
@@ -199,6 +199,7 @@ const stations: Station[] = [
           "https://quotidien-parisiens-sous-occupation.paris.fr/en/detail_419.html",
         ),
         source("Jacques Bonsergent · Wikipédia", wiki("Jacques Bonsergent")),
+        source("Jacques Bonsergent · Wikipedia", wiki("Jacques Bonsergent", "en")),
       ],
       people: [biography("Jacques Bonsergent")],
     },

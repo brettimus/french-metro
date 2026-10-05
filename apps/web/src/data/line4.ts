@@ -74,8 +74,14 @@ const stations: Station[] = [
     "gate",
     "Called Simplon after nearby Rue du Simplon, which takes its name from the Alpine pass linking the Swiss canton of Valais with northern Italy.",
     "La station porte le nom de la rue du Simplon, qui rappelle le col alpin reliant la Suisse à l’Italie.",
-    "Napoleon had a road built across the Simplon Pass in 1807, and a railway tunnel beneath it opened in 1906. On the night of 20 to 21 April 1944, an Allied air raid on the La Chapelle depot hit the station. Its vault fell onto the track and platforms.",
-    "Napoléon fait construire une route par le col du Simplon en 1807, et un tunnel ferroviaire le traverse depuis 1906. Dans la nuit du 20 au 21 avril 1944, un bombardement allié visant le dépôt de La Chapelle touche la station. Sa voûte s’effondre sur la voie et les quais.",
+    "Napoleon had a road built across the Simplon Pass between 1801 and 1805, and a railway tunnel beneath it opened in 1906. On the night of 20 to 21 April 1944, an Allied air raid on the La Chapelle depot hit the station. Its vault fell onto the track and platforms.",
+    "Napoléon fait construire une route par le col du Simplon entre 1801 et 1805, et un tunnel ferroviaire le traverse depuis 1906. Dans la nuit du 20 au 21 avril 1944, un bombardement allié visant le dépôt de La Chapelle touche la station. Sa voûte s’effondre sur la voie et les quais.",
+    {
+      sources: [
+        source("Simplon · Wikipédia", wiki("Simplon (métro de Paris)")),
+        source("Col du Simplon · Wikipédia", wiki("Col du Simplon")),
+      ],
+    },
   ),
   stop(
     "marcadet-poissonniers",
@@ -312,6 +318,10 @@ const stations: Station[] = [
           "Place Saint-Michel · Wikipédia",
           wiki("Place Saint-Michel (Paris)"),
         ),
+        source(
+          "Chapelle Saint-Michel-du-Palais · Wikipédia",
+          wiki("Chapelle Saint-Michel-du-Palais"),
+        ),
       ],
     },
   ),
@@ -394,6 +404,18 @@ const stations: Station[] = [
     "La station porte le nom de la rue Saint-Placide, dédiée à un disciple de saint Benoît. Elle adopte ce nom en 1913 pour éviter une confusion avec un autre arrêt.",
     "Opened in 1910, the station was first called Vaugirard, after Rue de Vaugirard. Another Vaugirard station opened on what is now Line 12, so this stop needed a different name.",
     "Ouverte en 1910, la station s’appelait d’abord Vaugirard, comme la rue voisine. L’ouverture d’une autre station Vaugirard, sur l’actuelle ligne 12, impose ensuite un nom différent.",
+    {
+      sources: [
+        source(
+          "Saint-Placide · Wikipédia",
+          wiki("Saint-Placide (métro de Paris)"),
+        ),
+        source(
+          "Ligne 4 du métro de Paris · Wikipédia",
+          wiki("Ligne 4 du métro de Paris"),
+        ),
+      ],
+    },
   ),
   stop(
     "montparnasse-bienvenue",
@@ -477,8 +499,8 @@ const stations: Station[] = [
     "portrait",
     "Called Denfert-Rochereau after the square honouring Colonel Pierre Philippe Denfert-Rochereau. He commanded the defence of Belfort during the Franco-Prussian War of 1870 and 1871.",
     "La station porte le nom de la place dédiée au colonel Pierre Philippe Denfert-Rochereau. Il commande la défense de Belfort pendant la guerre franco-prussienne de 1870 et 1871.",
-    "The square was formerly called Place d’Enfer. Its bronze lion is a smaller version of Bartholdi’s Lion of Belfort, linking the Paris square to the defended city.",
-    "La place s’appelait auparavant place d’Enfer. Son lion de bronze est une version réduite du Lion de Belfort de Bartholdi, qui relie la place parisienne à la ville défendue.",
+    "The square was formerly called Place d’Enfer. Its copper lion is a smaller version of Bartholdi’s Lion of Belfort, linking the Paris square to the defended city.",
+    "La place s’appelait auparavant place d’Enfer. Son lion de cuivre est une version réduite du Lion de Belfort de Bartholdi, qui relie la place parisienne à la ville défendue.",
     {
       sources: [
         source(
@@ -488,6 +510,10 @@ const stations: Station[] = [
         source(
           "Paris · La place Denfert-Rochereau",
           "https://www.paris.fr/pages/1-lieu-3-histoires-la-place-denfert-rochereau-33149",
+        ),
+        source(
+          "Lion de Belfort (Paris) · Wikipédia",
+          wiki("Lion de Belfort (Paris)"),
         ),
       ],
       people: [
@@ -518,6 +544,10 @@ const stations: Station[] = [
           "BnF · Mouton-Duvernet",
           "https://catalogue.bnf.fr/ark:/12148/cb14637636q",
         ),
+        source(
+          "Régis Barthélemy Mouton-Duvernet · Wikipédia",
+          wiki("Régis Barthélemy Mouton-Duvernet"),
+        ),
       ],
       people: [
         bio(
@@ -543,6 +573,11 @@ const stations: Station[] = [
           "MuséoParc Alésia · Histoire du site",
           "https://alesia.com/histoire-du-site/",
         ),
+        source(
+          "Battle of Alesia · Wikipedia",
+          "https://en.wikipedia.org/wiki/Battle_of_Alesia",
+        ),
+        source("Siège d’Alésia · Wikipédia", wiki("Siège d'Alésia")),
       ],
       people: [bio("Vercingétorix", "Vercingetorix")],
     },

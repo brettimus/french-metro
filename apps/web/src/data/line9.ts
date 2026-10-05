@@ -128,7 +128,10 @@ const stations: Station[] = [
     "Michel-Ange – Molitor first opened on 30 September 1913 on Line 8, whose platform here passed to Line 10 in July 1937. The Line 9 platform opened on 8 November 1922.",
     "Michel-Ange – Molitor ouvre d’abord le 30 septembre 1913 sur la ligne 8, dont le quai passe à la ligne 10 en juillet 1937. Le quai de la ligne 9 ouvre le 8 novembre 1922.",
     1922,
-    { people: [biography("Michelangelo", "Michelangelo", "Michel-Ange")] },
+    {
+      people: [biography("Michelangelo", "Michelangelo", "Michel-Ange")],
+      sources: [source("Michelangelo · Wikipedia", wiki("Michelangelo", "en"))],
+    },
   ),
   station(
     "michel-ange-auteuil",
@@ -348,6 +351,12 @@ const stations: Station[] = [
           "Gilbert du Motier de La Fayette",
         ),
       ],
+      sources: [
+        source(
+          "Marquis de Lafayette · Wikipedia",
+          wiki("Marquis de Lafayette", "en"),
+        ),
+      ],
     },
   ),
   station(
@@ -486,8 +495,8 @@ const stations: Station[] = [
     "Voltaire",
     "Paris 11e",
     "portrait",
-    "Named for Boulevard Voltaire and the philosopher Voltaire, born François-Marie Arouet (1694–1778). The Léon Blum subtitle was added after the adjoining square was renamed for the socialist statesman in 1957.",
-    "La station doit son nom au boulevard Voltaire et au philosophe Voltaire, né François-Marie Arouet (1694–1778). Le sous-titre Léon Blum est ajouté après que le square voisin a pris, en 1957, le nom de cet homme d’État socialiste.",
+    "Named for Boulevard Voltaire and the philosopher Voltaire, born François-Marie Arouet (1694–1778). The Léon Blum subtitle was added after the square above the station was renamed for the socialist statesman in 1957.",
+    "La station doit son nom au boulevard Voltaire et au philosophe Voltaire, né François-Marie Arouet (1694–1778). Le sous-titre Léon Blum est ajouté après que la place au-dessus de la station a pris, en 1957, le nom de cet homme d’État socialiste.",
     "Voltaire opened on 10 December 1933 with the extension to Porte de Montreuil. From 1974 it was one of three prototype stations for the Andreu-Motte decor, with Pont-Neuf and Ledru-Rollin. It became the model for the stations treated in yellow.",
     "Voltaire ouvre le 10 décembre 1933 avec le prolongement vers Porte de Montreuil. À partir de 1974, elle est l’une des trois stations prototypes du décor Andreu-Motte, avec Pont-Neuf et Ledru-Rollin. Elle devient le modèle des stations traitées en jaune.",
     1933,
@@ -553,6 +562,10 @@ const stations: Station[] = [
         source(
           "Buzenval station · Wikipedia",
           wiki("Buzenval station", "en"),
+        ),
+        source(
+          "Bataille de Buzenval (1871) · Wikipédia",
+          wiki("Bataille de Buzenval (1871)"),
         ),
       ],
     },

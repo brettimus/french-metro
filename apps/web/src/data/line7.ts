@@ -96,8 +96,8 @@ const stations: Station[] = [
     "gate",
     "Called Porte de la Villette because it serves the former city gate at La Villette. The gate’s name recalls the independent village of La Villette, later incorporated into Paris.",
     "La station doit son nom à l’ancienne porte de Paris située à La Villette. Le nom de cette porte rappelle le village, puis la commune indépendante de La Villette, ensuite annexée à Paris.",
-    "This was the northeastern terminus when Line 7 opened in 1910. The line retained its turning loops here after the 1979 extension. A track connection leads to the La Villette workshops, which maintain equipment for Métro track work.",
-    "La station est le terminus nord-est de la ligne 7 à son ouverture en 1910. Ses boucles de retournement subsistent après le prolongement de 1979. Un raccordement mène aux ateliers de La Villette, spécialisés dans les travaux des voies du métro.",
+    "This was the northeastern terminus when Line 7 opened in 1910. The line retained its turning loops here after the 1979 extension. A track connection leads to the La Villette workshops, which specialise in Métro track maintenance.",
+    "La station est le terminus nord-est de la ligne 7 à son ouverture en 1910. Ses boucles de retournement subsistent après le prolongement de 1979. Un raccordement mène aux ateliers de La Villette, spécialisés dans l’entretien des voies du métro.",
   ),
   station(
     "corentin-cariou",
@@ -117,8 +117,20 @@ const stations: Station[] = [
     "gate",
     "Called Crimée because it lies near Rue de Crimée, a street named to commemorate the Crimean War.",
     "La station doit son nom à la rue de Crimée, qui commémore la guerre de Crimée.",
-    "Crimée belonged to the first section of Line 7, opened in 1910 between Opéra and Porte de la Villette. Rue de Crimée crosses the 19th arrondissement. The station’s street entrance includes a historic Hector Guimard surround.",
+    "Crimée belonged to the first section of Line 7, opened in 1910 between Opéra and Porte de la Villette. Rue de Crimée crosses the 19th arrondissement. One of the station’s entrances keeps a historic Hector Guimard surround.",
     "Crimée appartient au premier tronçon de la ligne 7, ouvert en 1910 entre Opéra et Porte de la Villette. La rue de Crimée traverse le 19e arrondissement. L’une des entrées de la station conserve un entourage historique d’Hector Guimard.",
+    {
+      sources: [
+        {
+          label: "Crimée · Wikipédia",
+          url: wiki("Crimée (métro de Paris)"),
+        },
+        {
+          label: "Métropolitain, station Crimée · POP Mérimée",
+          url: "https://pop.culture.gouv.fr/notice/merimee/PA00086769",
+        },
+      ],
+    },
   ),
   station(
     "riquet",
@@ -263,6 +275,10 @@ const stations: Station[] = [
           label: "Chaussée d’Antin – La Fayette · Wikipédia",
           url: wiki("Chaussée d'Antin - La Fayette (métro de Paris)"),
         },
+        {
+          label: "Marquis de Lafayette · Wikipedia",
+          url: "https://en.wikipedia.org/wiki/Marquis_de_Lafayette",
+        },
       ],
       people: [
         biography(
@@ -283,6 +299,16 @@ const stations: Station[] = [
     "Opéra was the southern terminus of Line 7 when the line opened in 1910. It remained a terminus until the extension to Palais-Royal in 1916. Lines 3, 7 and 8 cross here at different underground levels.",
     "Opéra est le terminus sud de la ligne 7 à son ouverture en 1910. Elle conserve ce rôle jusqu’au prolongement vers Palais-Royal en 1916. Les lignes 3, 7 et 8 se croisent ici à différents niveaux souterrains.",
     {
+      sources: [
+        {
+          label: "Opéra · Wikipédia",
+          url: wiki("Opéra (métro de Paris)"),
+        },
+        {
+          label: "Opéra Garnier · Wikipédia",
+          url: wiki("Opéra Garnier"),
+        },
+      ],
       people: [
         biography(
           "Charles Garnier",
@@ -680,6 +706,20 @@ const stations: Station[] = [
     "La station ouvre en 1985 avec le prolongement du Kremlin-Bicêtre à Louis Aragon. Son nom de projet était Villejuif 1. Les quais se trouvent sous l’avenue de Paris, avec des accès répartis des deux côtés de cette grande voie.",
     {
       branch: "villejuif",
+      sources: [
+        {
+          label: "Villejuif – Léo Lagrange · Wikipédia",
+          url: wiki("Villejuif - Léo Lagrange (métro de Paris)"),
+        },
+        {
+          label: "Léo Lagrange · Wikipédia",
+          url: wiki("Léo Lagrange"),
+        },
+        {
+          label: "Le Kremlin-Bicêtre · Wikipédia",
+          url: wiki("Le Kremlin-Bicêtre (métro de Paris)"),
+        },
+      ],
       people: [biography("Léo Lagrange", "Léo Lagrange")],
     },
   ),
