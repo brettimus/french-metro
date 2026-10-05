@@ -142,7 +142,7 @@ function parseArgs(argv: string[]): Args {
   };
 }
 
-function loadApiKey(): string | undefined {
+export function loadApiKey(): string | undefined {
   if (process.env.TYPESAFE_API_KEY) return process.env.TYPESAFE_API_KEY;
   const envPath = join(import.meta.dir, "../../../../.env");
   if (!existsSync(envPath)) return undefined;
@@ -184,7 +184,7 @@ export type Answer =
   | { type: "score"; score: number; confidence: number; probabilities: Record<string, number>; legend: Record<string, unknown> }
   | { type: "choice"; choice: string; confidence: number; probabilities: Record<string, number> };
 
-type JevRequest = {
+export type JevRequest = {
   key: string;
   scope: "unit" | "pair";
   /** Unit ids the answers apply to. */
@@ -245,7 +245,7 @@ export function unitRequest(u: CopyUnit, byId: Map<string, CopyUnit>, lineTitles
   return { key: `unit:${u.id}`, scope: "unit", unitIds: [u.id], state, questions };
 }
 
-function pairRequest(en: CopyUnit, fr: CopyUnit): JevRequest | undefined {
+export function pairRequest(en: CopyUnit, fr: CopyUnit): JevRequest | undefined {
   if (en.text === fr.text) return undefined; // shared, unlocalised string; handled by code
   const ids = [en.id, fr.id];
   if (en.kind === "station")
@@ -255,7 +255,7 @@ function pairRequest(en: CopyUnit, fr: CopyUnit): JevRequest | undefined {
   return { key: `pair:${en.pairId}`, scope: "pair", unitIds: ids, state: { key: en.field, en: en.text, fr: fr.text }, questions: UI_PAIR_QUESTIONS };
 }
 
-async function mapPool<T, R>(items: T[], limit: number, fn: (x: T, i: number) => Promise<R>): Promise<R[]> {
+export async function mapPool<T, R>(items: T[], limit: number, fn: (x: T, i: number) => Promise<R>): Promise<R[]> {
   const out = new Array<R>(items.length);
   let next = 0;
   await Promise.all(
