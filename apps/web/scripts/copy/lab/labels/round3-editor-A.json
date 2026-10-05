@@ -1,0 +1,1152 @@
+{
+ "units": {
+  "station/9/porte-de-saint-cloud/etymology/en": {
+   "S1": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "t25_explains_name": 1,
+   "tells": []
+  },
+  "station/9/porte-de-saint-cloud/etymology/fr": {
+   "S1": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "t25": 1,
+   "calque": 0,
+   "native": 3,
+   "tells": []
+  },
+  "station/5/gare-dausterlitz/context/en": {
+   "S7": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 1,
+   "tells": []
+  },
+  "station/5/gare-dausterlitz/context/fr": {
+   "S7": 4,
+   "S2": 3,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "calque": 0,
+   "native": 3,
+   "tells": []
+  },
+  "station/1/louvre-rivoli/context/en": {
+   "S7": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "tells": []
+  },
+  "station/1/louvre-rivoli/context/fr": {
+   "S7": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "calque": 0,
+   "native": 3,
+   "tells": []
+  },
+  "station/6/raspail/etymology/en": {
+   "S1": 4,
+   "S2": 3,
+   "S3": 4,
+   "S4": 4,
+   "S5": 2,
+   "t25_explains_name": 1,
+   "tells": []
+  },
+  "station/6/raspail/etymology/fr": {
+   "S1": 4,
+   "S2": 3,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "t25": 1,
+   "calque": 0,
+   "native": 4,
+   "tells": []
+  },
+  "station/5/ourcq/etymology/en": {
+   "S1": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "t25_explains_name": 1,
+   "tells": []
+  },
+  "station/5/ourcq/etymology/fr": {
+   "S1": 2,
+   "S2": 3,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "t25": 1,
+   "calque": 0,
+   "native": 3,
+   "tells": []
+  },
+  "station/7/porte-de-choisy/context/en": {
+   "S7": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "tells": []
+  },
+  "station/7/porte-de-choisy/context/fr": {
+   "S7": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "calque": 0,
+   "native": 4,
+   "tells": []
+  },
+  "station/7/stalingrad/context/en": {
+   "S7": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "tells": []
+  },
+  "station/7/stalingrad/context/fr": {
+   "S7": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "calque": 0,
+   "native": 3,
+   "tells": []
+  },
+  "station/9/charonne/context/en": {
+   "S7": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "tells": []
+  },
+  "station/9/charonne/context/fr": {
+   "S7": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "calque": 0,
+   "native": 4,
+   "tells": []
+  },
+  "line/7/summary/en": {
+   "L1": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "tells": []
+  },
+  "line/7/summary/fr": {
+   "L1": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "calque": 0,
+   "native": 3,
+   "tells": []
+  },
+  "station/4/porte-de-clignancourt/context/en": {
+   "S7": 4,
+   "S2": 4,
+   "S3": 3,
+   "S4": 4,
+   "S5": 1,
+   "tells": []
+  },
+  "station/4/porte-de-clignancourt/context/fr": {
+   "S7": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 1,
+   "calque": 0,
+   "native": 4,
+   "tells": []
+  },
+  "station/7/pont-neuf/etymology/en": {
+   "S1": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "t25_explains_name": 1,
+   "tells": []
+  },
+  "station/7/pont-neuf/etymology/fr": {
+   "S1": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "t25": 1,
+   "calque": 0,
+   "native": 4,
+   "tells": []
+  },
+  "station/1/franklin-d-roosevelt/etymology/en": {
+   "S1": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 1,
+   "t25_explains_name": 1,
+   "tells": []
+  },
+  "station/1/franklin-d-roosevelt/etymology/fr": {
+   "S1": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 2,
+   "t25": 1,
+   "calque": 0,
+   "native": 3,
+   "tells": []
+  },
+  "station/5/quai-de-la-rapee/context/en": {
+   "S7": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "tells": []
+  },
+  "station/5/quai-de-la-rapee/context/fr": {
+   "S7": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "calque": 0,
+   "native": 4,
+   "tells": []
+  },
+  "line/6/summary/en": {
+   "L1": 2,
+   "S2": 3,
+   "S3": 2,
+   "S4": 4,
+   "tells": []
+  },
+  "line/6/summary/fr": {
+   "L1": 2,
+   "S2": 3,
+   "S3": 2,
+   "S4": 4,
+   "calque": 0,
+   "native": 3,
+   "tells": []
+  },
+  "station/1/saint-mande/etymology/en": {
+   "S1": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "t25_explains_name": 1,
+   "tells": []
+  },
+  "station/1/saint-mande/etymology/fr": {
+   "S1": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "t25": 1,
+   "calque": 1,
+   "native": 2,
+   "tells": []
+  },
+  "station/5/campo-formio/context/en": {
+   "S7": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "tells": []
+  },
+  "station/5/campo-formio/context/fr": {
+   "S7": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "calque": 0,
+   "native": 3,
+   "tells": []
+  },
+  "station/4/mairie-de-montrouge/etymology/en": {
+   "S1": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 1,
+   "S5": 3,
+   "t25_explains_name": 1,
+   "tells": []
+  },
+  "station/4/mairie-de-montrouge/etymology/fr": {
+   "S1": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "t25": 1,
+   "calque": 0,
+   "native": 4,
+   "tells": []
+  },
+  "line/9/summary/en": {
+   "L1": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "tells": []
+  },
+  "line/9/summary/fr": {
+   "L1": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "calque": 0,
+   "native": 4,
+   "tells": []
+  },
+  "station/5/breguet-sabin/etymology/en": {
+   "S1": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "t25_explains_name": 1,
+   "tells": []
+  },
+  "station/5/breguet-sabin/etymology/fr": {
+   "S1": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "t25": 1,
+   "calque": 0,
+   "native": 4,
+   "tells": []
+  },
+  "station/1/concorde/context/en": {
+   "S7": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 2,
+   "tells": []
+  },
+  "station/1/concorde/context/fr": {
+   "S7": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 2,
+   "calque": 0,
+   "native": 4,
+   "tells": []
+  },
+  "line/14/summary/en": {
+   "L1": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "tells": []
+  },
+  "line/14/summary/fr": {
+   "L1": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "calque": 0,
+   "native": 3,
+   "tells": []
+  },
+  "station/7/chaussee-dantin-la-fayette/etymology/en": {
+   "S1": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "t25_explains_name": 1,
+   "tells": []
+  },
+  "station/7/chaussee-dantin-la-fayette/etymology/fr": {
+   "S1": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "t25": 1,
+   "calque": 0,
+   "native": 4,
+   "tells": []
+  },
+  "station/1/la-defense/etymology/en": {
+   "S1": 4,
+   "S2": 3,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "t25_explains_name": 1,
+   "tells": []
+  },
+  "station/1/la-defense/etymology/fr": {
+   "S1": 4,
+   "S2": 3,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "t25": 1,
+   "calque": 0,
+   "native": 4,
+   "tells": []
+  },
+  "station/6/edgar-quinet/context/en": {
+   "S7": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "tells": []
+  },
+  "station/6/edgar-quinet/context/fr": {
+   "S7": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "calque": 0,
+   "native": 4,
+   "tells": []
+  },
+  "station/6/picpus/context/en": {
+   "S7": 3,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "tells": []
+  },
+  "station/6/picpus/context/fr": {
+   "S7": 3,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "calque": 0,
+   "native": 4,
+   "tells": []
+  },
+  "station/4/saint-germain-des-pres/context/en": {
+   "S7": 3,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 1,
+   "tells": []
+  },
+  "station/4/saint-germain-des-pres/context/fr": {
+   "S7": 3,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 1,
+   "calque": 0,
+   "native": 4,
+   "tells": []
+  },
+  "station/14/pyramides/context/en": {
+   "S7": 1,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "tells": []
+  },
+  "station/14/pyramides/context/fr": {
+   "S7": 1,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "calque": 0,
+   "native": 4,
+   "tells": []
+  },
+  "line/4/summary/en": {
+   "L1": 4,
+   "S2": 3,
+   "S3": 4,
+   "S4": 4,
+   "tells": []
+  },
+  "line/4/summary/fr": {
+   "L1": 4,
+   "S2": 3,
+   "S3": 4,
+   "S4": 4,
+   "calque": 0,
+   "native": 3,
+   "tells": []
+  },
+  "station/6/passy/etymology/en": {
+   "S1": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 2,
+   "t25_explains_name": 1,
+   "tells": []
+  },
+  "station/6/passy/etymology/fr": {
+   "S1": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "t25": 1,
+   "calque": 0,
+   "native": 3,
+   "tells": []
+  },
+  "line/5/summary/en": {
+   "L1": 3,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "tells": []
+  },
+  "line/5/summary/fr": {
+   "L1": 3,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "calque": 0,
+   "native": 4,
+   "tells": []
+  },
+  "station/14/saint-lazare/etymology/en": {
+   "S1": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "t25_explains_name": 1,
+   "tells": []
+  },
+  "station/14/saint-lazare/etymology/fr": {
+   "S1": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "t25": 1,
+   "calque": 0,
+   "native": 4,
+   "tells": []
+  },
+  "station/9/michel-ange-molitor/etymology/en": {
+   "S1": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "t25_explains_name": 1,
+   "tells": []
+  },
+  "station/9/michel-ange-molitor/etymology/fr": {
+   "S1": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "t25": 1,
+   "calque": 0,
+   "native": 4,
+   "tells": []
+  },
+  "station/4/saint-sulpice/etymology/en": {
+   "S1": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "t25_explains_name": 1,
+   "tells": []
+  },
+  "station/4/saint-sulpice/etymology/fr": {
+   "S1": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "t25": 1,
+   "calque": 0,
+   "native": 4,
+   "tells": []
+  },
+  "station/14/thiais-orly/etymology/en": {
+   "S1": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "t25_explains_name": 1,
+   "tells": []
+  },
+  "station/14/thiais-orly/etymology/fr": {
+   "S1": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "t25": 1,
+   "calque": 0,
+   "native": 4,
+   "tells": []
+  },
+  "station/9/michel-ange-auteuil/context/en": {
+   "S7": 2,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 2,
+   "tells": []
+  },
+  "station/9/michel-ange-auteuil/context/fr": {
+   "S7": 2,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 2,
+   "calque": 0,
+   "native": 4,
+   "tells": []
+  },
+  "station/14/chatelet/etymology/en": {
+   "S1": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "t25_explains_name": 1,
+   "tells": []
+  },
+  "station/14/chatelet/etymology/fr": {
+   "S1": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "t25": 1,
+   "calque": 0,
+   "native": 4,
+   "tells": []
+  },
+  "station/9/la-muette/context/en": {
+   "S7": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 1,
+   "tells": []
+  },
+  "station/9/la-muette/context/fr": {
+   "S7": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 1,
+   "calque": 0,
+   "native": 4,
+   "tells": []
+  },
+  "station/14/villejuif-gustave-roussy/context/en": {
+   "S7": 3,
+   "S2": 3,
+   "S3": 4,
+   "S4": 4,
+   "S5": 1,
+   "tells": []
+  },
+  "station/14/villejuif-gustave-roussy/context/fr": {
+   "S7": 3,
+   "S2": 3,
+   "S3": 4,
+   "S4": 4,
+   "S5": 1,
+   "calque": 0,
+   "native": 3,
+   "tells": []
+  },
+  "station/5/eglise-de-pantin/etymology/en": {
+   "S1": 3,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "t25_explains_name": 1,
+   "tells": []
+  },
+  "station/5/eglise-de-pantin/etymology/fr": {
+   "S1": 3,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 3,
+   "t25": 1,
+   "calque": 0,
+   "native": 4,
+   "tells": []
+  },
+  "station/7/porte-divry/context/en": {
+   "S7": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 2,
+   "tells": []
+  },
+  "station/7/porte-divry/context/fr": {
+   "S7": 4,
+   "S2": 4,
+   "S3": 4,
+   "S4": 4,
+   "S5": 2,
+   "calque": 0,
+   "native": 4,
+   "tells": []
+  }
+ },
+ "pairs": {
+  "station/9/porte-de-saint-cloud/etymology": {
+   "S6_judged": 4,
+   "yes": [],
+   "S6": 4,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  },
+  "station/5/gare-dausterlitz/context": {
+   "S6_judged": 3,
+   "yes": [],
+   "S6": 3,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  },
+  "station/1/louvre-rivoli/context": {
+   "S6_judged": 4,
+   "yes": [],
+   "S6": 4,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  },
+  "station/6/raspail/etymology": {
+   "S6_judged": 4,
+   "yes": [],
+   "S6": 4,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  },
+  "station/5/ourcq/etymology": {
+   "S6_judged": 1,
+   "yes": [
+    "fr_missing"
+   ],
+   "S6": 1,
+   "conflict": 0,
+   "fr_missing": 1,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  },
+  "station/7/porte-de-choisy/context": {
+   "S6_judged": 4,
+   "yes": [],
+   "S6": 4,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  },
+  "station/7/stalingrad/context": {
+   "S6_judged": 4,
+   "yes": [],
+   "S6": 4,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  },
+  "station/9/charonne/context": {
+   "S6_judged": 4,
+   "yes": [],
+   "S6": 4,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  },
+  "line/7/summary": {
+   "S6_judged": 4,
+   "yes": [],
+   "S6": 4,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  },
+  "station/4/porte-de-clignancourt/context": {
+   "S6_judged": 4,
+   "yes": [],
+   "S6": 4,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  },
+  "station/7/pont-neuf/etymology": {
+   "S6_judged": 4,
+   "yes": [],
+   "S6": 4,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  },
+  "station/1/franklin-d-roosevelt/etymology": {
+   "S6_judged": 4,
+   "yes": [],
+   "S6": 4,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  },
+  "station/5/quai-de-la-rapee/context": {
+   "S6_judged": 4,
+   "yes": [],
+   "S6": 4,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  },
+  "line/6/summary": {
+   "S6_judged": 4,
+   "yes": [],
+   "S6": 4,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  },
+  "station/1/saint-mande/etymology": {
+   "S6_judged": 2,
+   "yes": [
+    "fr_calque"
+   ],
+   "S6": 2,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 1
+  },
+  "station/5/campo-formio/context": {
+   "S6_judged": 4,
+   "yes": [],
+   "S6": 4,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  },
+  "station/4/mairie-de-montrouge/etymology": {
+   "S6_judged": 4,
+   "yes": [],
+   "S6": 4,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  },
+  "line/9/summary": {
+   "S6_judged": 4,
+   "yes": [],
+   "S6": 4,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  },
+  "station/5/breguet-sabin/etymology": {
+   "S6_judged": 4,
+   "yes": [],
+   "S6": 4,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  },
+  "station/1/concorde/context": {
+   "S6_judged": 4,
+   "yes": [],
+   "S6": 4,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  },
+  "line/14/summary": {
+   "S6_judged": 4,
+   "yes": [],
+   "S6": 4,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  },
+  "station/7/chaussee-dantin-la-fayette/etymology": {
+   "S6_judged": 4,
+   "yes": [],
+   "S6": 4,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  },
+  "station/1/la-defense/etymology": {
+   "S6_judged": 4,
+   "yes": [],
+   "S6": 4,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  },
+  "station/6/edgar-quinet/context": {
+   "S6_judged": 4,
+   "yes": [],
+   "S6": 4,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  },
+  "station/6/picpus/context": {
+   "S6_judged": 4,
+   "yes": [],
+   "S6": 4,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  },
+  "station/4/saint-germain-des-pres/context": {
+   "S6_judged": 4,
+   "yes": [],
+   "S6": 4,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  },
+  "station/14/pyramides/context": {
+   "S6_judged": 4,
+   "yes": [],
+   "S6": 4,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  },
+  "line/4/summary": {
+   "S6_judged": 4,
+   "yes": [],
+   "S6": 4,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  },
+  "station/6/passy/etymology": {
+   "S6_judged": 4,
+   "yes": [],
+   "S6": 4,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  },
+  "line/5/summary": {
+   "S6_judged": 4,
+   "yes": [],
+   "S6": 4,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  },
+  "station/14/saint-lazare/etymology": {
+   "S6_judged": 4,
+   "yes": [],
+   "S6": 4,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  },
+  "station/9/michel-ange-molitor/etymology": {
+   "S6_judged": 4,
+   "yes": [],
+   "S6": 4,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  },
+  "station/4/saint-sulpice/etymology": {
+   "S6_judged": 4,
+   "yes": [],
+   "S6": 4,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  },
+  "station/14/thiais-orly/etymology": {
+   "S6_judged": 4,
+   "yes": [],
+   "S6": 4,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  },
+  "station/9/michel-ange-auteuil/context": {
+   "S6_judged": 4,
+   "yes": [],
+   "S6": 4,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  },
+  "station/14/chatelet/etymology": {
+   "S6_judged": 4,
+   "yes": [],
+   "S6": 4,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  },
+  "station/9/la-muette/context": {
+   "S6_judged": 4,
+   "yes": [],
+   "S6": 4,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  },
+  "station/14/villejuif-gustave-roussy/context": {
+   "S6_judged": 4,
+   "yes": [],
+   "S6": 4,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  },
+  "station/5/eglise-de-pantin/etymology": {
+   "S6_judged": 4,
+   "yes": [],
+   "S6": 4,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  },
+  "station/7/porte-divry/context": {
+   "S6_judged": 4,
+   "yes": [],
+   "S6": 4,
+   "conflict": 0,
+   "fr_missing": 0,
+   "en_missing": 0,
+   "hedge": 0,
+   "fr_calque": 0
+  }
+ }
+}
