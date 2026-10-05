@@ -74,3 +74,25 @@ One entry per loop iteration. Primary = AP on dev (all items); guard = AP on dev
   the question wording; a second wording on the same claim and passages gives a correlated answer. Ideas that add
   new information (per-passage checks, wording features that do not read the passages, a different state) are more
   promising than more samples of the same question.
+
+## Iteration 5: qualifier (DISCARD)
+
+- **Hypothesis:** Confirmed problems are mostly wording faults (only, few, several, one of, first, comparisons) with
+  middle `supported` values. Iteration 1's general `overstated` question repeated `supported`, and iteration 2's
+  regex flagged normal French words. A narrow, passage-aware Jev question can do better: it asks only whether the
+  claim has such a qualifier that the passages do not state with the same strength, and claims without a qualifier
+  must get "false".
+- **Change:** `configs/qualifier.ts` = meanpair + 0.25 × the mean over the pair's claims of a `qualifier` Noul (one
+  more request per claim, same state). Weight chosen before the run. 339 live requests, 589k tokens, $0.025.
+- **Result:** AP 0.862 → 0.868 (p_better 0.49). No planted: 0.756 → 0.756 (p_better 0.37). AUC 0.888 → 0.868 (no
+  planted 0.848 → 0.817). confR20 0 → 0 (no planted 0 → 0.231).
+- **Decision:** DISCARD (AP gain below 0.01, AUC goes down).
+- **Learned:** The question does not repeat `supported` (mean value 0.18 on unsourced, 0.11 on refuted), and it
+  finds 5 of 13 confirmed pairs (value > 0.5; mean 0.36 on confirmed). With no planted errors it moves 3 confirmed
+  pairs into the top 20. But it also gives > 0.5 to 14 of 84 supported pairs (mean 0.22): many supported claims have
+  a real qualifier that the reviewer accepted (the first section, one of several elevated stretches, the only
+  platforms not on a curve, a single name) and Jev cannot tell that the passages state it. So the signal is a
+  "has a qualifier" detector, as the regex was, with the same trade: confirmed recall goes up, AUC goes down. The
+  qualifier signal and the wording regex both find the same 5 confirmed pairs. With 13 confirmed dev pairs, a
+  wording feature does not raise AP; it could be a separate review list ("claims with qualifiers") instead of a part
+  of the risk score. Next: ideas that change what Jev reads (per-passage checks, whole source text) or the combiner.
