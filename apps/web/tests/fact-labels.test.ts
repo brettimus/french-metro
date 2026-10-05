@@ -1,6 +1,8 @@
 import { describe, expect, test } from "bun:test";
 import { pooledAuc } from "../scripts/facts/evaluate";
-import { ALL_REVIEWED, PASS1_REVIEWED, PASS2_REVIEWED, type ReviewedPair, type Verdict } from "../scripts/facts/reviewed";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+import { ALL_REVIEWED, PASS1_REVIEWED, PASS2_REVIEWED, PASS3_NOT_REVIEWED, PASS3_REVIEWED, type ReviewedPair, type Verdict } from "../scripts/facts/reviewed";
 
 const counts = (ls: ReviewedPair[]) => {
   const c: Record<Verdict, number> = { confirmed: 0, refuted: 0, unsourced: 0, supported: 0 };
@@ -28,6 +30,35 @@ describe("review labels", () => {
     expect(new Set(ALL_REVIEWED.map((l) => l.pairKey)).size).toBe(180);
     for (const l of ALL_REVIEWED) expect(l.en.length + l.fr.length).toBeGreaterThan(0);
     expect(ALL_REVIEWED.filter((l) => l.pass === 2)).toHaveLength(100);
+  });
+});
+
+describe("pass-3 labels", () => {
+  const holdout = JSON.parse(readFileSync(join(import.meta.dir, "../scripts/facts/lab/holdout-pass3.json"), "utf8")) as { pairs: { pairKey: string; en: string[]; fr: string[] }[] };
+  const saved = JSON.parse(readFileSync(join(import.meta.dir, "../scripts/facts/lab/labels/pass3.json"), "utf8")) as { verdicts: { pairKey: string; verdict: Verdict; category?: string }[] };
+
+  test("712 pairs: 26 confirmed, 1 refuted, 18 unsourced, 667 supported", () => {
+    expect(counts(PASS3_REVIEWED)).toEqual({ confirmed: 26, refuted: 1, unsourced: 18, supported: 667 });
+  });
+
+  test("every holdout pair has one verdict, with the holdout texts; no pass-3 text was labelled in pass 1 or 2", () => {
+    expect(PASS3_NOT_REVIEWED).toEqual([]);
+    expect(PASS3_REVIEWED.map((l) => l.pairKey).sort()).toEqual(holdout.pairs.map((p) => p.pairKey).sort());
+    const byKey = new Map(holdout.pairs.map((p) => [p.pairKey, p]));
+    for (const l of PASS3_REVIEWED) expect([l.en, l.fr]).toEqual([byKey.get(l.pairKey)!.en, byKey.get(l.pairKey)!.fr]);
+    expect(PASS3_REVIEWED.map((l) => l.rank)).toEqual(PASS3_REVIEWED.map((_, i) => i + 1));
+    // A pair key can repeat when its text changed after review (see the holdout's selection rule), but not its text.
+    const reviewed = new Set(ALL_REVIEWED.map((l) => `${l.pairKey}|${l.en.join(" ")}|${l.fr.join(" ")}`));
+    expect(PASS3_REVIEWED.filter((l) => reviewed.has(`${l.pairKey}|${l.en.join(" ")}|${l.fr.join(" ")}`))).toEqual([]);
+  });
+
+  test("reviewed.ts matches labels/pass3.json, and every confirmed pair has a category", () => {
+    const fromJson = new Map(saved.verdicts.map((v) => [v.pairKey, v]));
+    for (const l of PASS3_REVIEWED) {
+      expect(l.verdict).toBe(fromJson.get(l.pairKey)!.verdict);
+      if (l.verdict === "confirmed") expect(l.category).toBe(fromJson.get(l.pairKey)!.category as ReviewedPair["category"]);
+      else expect(l.category).toBeUndefined();
+    }
   });
 });
 

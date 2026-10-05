@@ -6,6 +6,7 @@ Reports:
 
 - [2026-10-05-fact-check.md](2026-10-05-fact-check.md): first full run, review of the top 80 pairs, fixes, and an evaluation of the ranking.
 - [2026-10-05-fact-check-pass2.md](2026-10-05-fact-check-pass2.md): new risk weights and known conflicts, their measured effect on the pass-1 labels, review of the next 100 pairs, and fixes.
+- [2026-10-05-fact-check-pass3.md](2026-10-05-fact-check-pass3.md): review of all 712 holdout pairs, the held-out test of `facts-2` and `facts-3`, and the list of errors and missing sources (not yet applied).
 
 Run all commands from the repository root.
 
@@ -21,7 +22,7 @@ Run all commands from the repository root.
 | `apps/web/scripts/facts/jev.ts` | The Jev questions and the model id, the whole-source state (`wholeSourceState`) and the blend of the two answers (`blendAnswers`). Requests go through the shared cache in `apps/web/scripts/jev-cache.ts` |
 | `apps/web/scripts/facts/rank.ts` | Risk weights (`RISK_WEIGHTS`), the ranker label (`RANKER_VERSION`, now `facts-3`) and the ranking. A pair takes the mean of its claims' `unsupported` parts and the strongest value of each other signal. `FACTS2_RISK_WEIGHTS` keeps the earlier rules for the lab baseline |
 | `apps/web/scripts/facts/known-conflicts.ts` | Claims that keep a value a cited source contradicts, on purpose (for example the Saint-Mandé rename date). They are left out of the ranking and listed with their note in `ranked.md` |
-| `apps/web/scripts/facts/reviewed.ts` | Review labels: `PASS1_REVIEWED` (80 pairs), `PASS2_REVIEWED` (100 pairs) and `ALL_REVIEWED`, with verdicts and texts at review time |
+| `apps/web/scripts/facts/reviewed.ts` | Review labels: `PASS1_REVIEWED` (80 pairs), `PASS2_REVIEWED` (100 pairs) and `ALL_REVIEWED` (both, the lab's labels), with verdicts and texts at review time. `PASS3_REVIEWED` (712 holdout pairs) is the held-out test and is not in `ALL_REVIEWED` |
 | `apps/web/scripts/facts/evaluate.ts` | Re-scores a review run with the current weights (no Jev calls) and measures the ranking against the labels (`--labels pass1\|pass2\|all`) |
 | `apps/web/scripts/facts/lab/` | The lab: a frozen labelled dataset and a harness that measures ranker configs on it (see [Lab](#lab)) |
 | `apps/web/scripts/facts/text.ts` | Accent folding, tokens, sentence splitting, word counts |
@@ -108,7 +109,8 @@ The lab measures changes to the ranker (questions, state fields, retrieval, weig
 
 - **Tune on dev only.** Read the dev metrics as often as you like.
 - **Run val once, at the end.** `--split val` needs `--final`. The harness writes a row to `results.tsv` and refuses a second val run for the same config name. Do not change a config after its val run.
-- **Pass 3 is the held-out test.** The pass-3 review labels pairs that no config was tuned on. Measure the final ranker on them once, and do not tune after that. `lab/holdout-pass3.json` freezes the pass-3 pairs before any verdict: the commit, both rankers, and for each unreviewed pair its texts and its `facts-3` and `facts-2` risks and ranks from the run `out/pass3` (`facts-2`: the passage answer only, with `FACTS2_RISK_WEIGHTS`). It also records how pairs that changed after review were counted. The verifiers do not see these scores.
+- **Pass 3 is the held-out test.** It ran on 2026-10-05 (`lab/holdout-test.ts`, labels in `lab/labels/pass3.json`, report [2026-10-05-fact-check-pass3.md](2026-10-05-fact-check-pass3.md)). On the 712 holdout pairs, `facts-3` (problem AP 0.120, AUC 0.735) did not beat `facts-2` (AP 0.125, AUC 0.747); the base rate is 0.062. Do not tune on the pass-3 labels against this result; a new ranker needs a new holdout.
+- **Pass 3, as frozen.** The pass-3 review labels pairs that no config was tuned on. Measure the final ranker on them once, and do not tune after that. `lab/holdout-pass3.json` freezes the pass-3 pairs before any verdict: the commit, both rankers, and for each unreviewed pair its texts and its `facts-3` and `facts-2` risks and ranks from the run `out/pass3` (`facts-2`: the passage answer only, with `FACTS2_RISK_WEIGHTS`). It also records how pairs that changed after review were counted. The verifiers do not see these scores.
 
 ### Dataset
 
