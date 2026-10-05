@@ -151,7 +151,7 @@ bun apps/web/scripts/copy/lab/harness.ts --config baseline --errors 15     # dev
 bun apps/web/scripts/copy/lab/harness.ts --config <name> --split test --final
 ```
 
-Other flags: `--dry-run` (no Jev calls; cache misses are errors), `--concurrency 16`, `--note "text"`, `--no-log`.
+Other flags: `--dry-run` (no Jev calls; cache misses are errors), `--concurrency 16`, `--note "text"`, `--no-log`. A `--final` run cannot use `--no-log` or `--dry-run`, because the once-per-config rule reads the rows in `results.tsv`.
 
 A config is a file in `lab/configs/` whose default export implements `CopyLabConfig` (`lab/config.ts`): `unitRequest`, `pairRequest` and `assess`. `configs/baseline.ts` uses the requests and `assembleRow` of `evaluate.ts`, so it measures the production evaluator with the current `questions.ts`. To try a change, copy `baseline.ts`, change one thing, and run it on dev. All requests go through the Jev cache (`scripts/jev-cache.ts`), so a rerun of a config costs nothing and a question change can never get an old answer.
 

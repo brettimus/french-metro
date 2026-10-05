@@ -8,7 +8,8 @@
  *
  *   --config       a file name in lab/configs/ (without .ts)
  *   --split        dev (default) or test. test needs --final and runs once per config name: the harness refuses
- *                  when results.tsv already has a test row for the config. Tune on dev only.
+ *                  when results.tsv already has a test row for the config. Tune on dev only. A --final run
+ *                  cannot use --no-log or --dry-run.
  *   --errors N     print the N largest disagreements (unit, dimension, label, Jev level, text). dev only: the
  *                  harness refuses to print per-item labels of the test split.
  *   --dry-run      no Jev calls: cache misses count as errors and their items are left out
@@ -73,10 +74,15 @@ export function parseArgs(argv: string[]): HarnessArgs {
   if (!config) throw new Error("--config <name> is required");
   const split = (get("split") ?? "dev") as Split;
   if (split !== "dev" && split !== "test") throw new Error(`--split must be dev or test, not ${split}`);
+  const final = argv.includes("--final");
+  if (split === "dev" && final) throw new Error("--final is only for --split test");
+  // The once-per-config rule reads results.tsv, so a test run must always add its row and must call Jev.
+  if (final && argv.includes("--no-log")) throw new Error("--final runs are always logged; --no-log is not allowed");
+  if (final && argv.includes("--dry-run")) throw new Error("--final runs call Jev; --dry-run is not allowed (it would use up the one test run)");
   return {
     config,
     split,
-    final: argv.includes("--final"),
+    final,
     errors: Number(get("errors") ?? 0),
     dryRun: argv.includes("--dry-run"),
     concurrency: Number(get("concurrency") ?? 16),

@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { checkTestGuard, computeMetrics, errorReport, TSV_HEADER, type UnitOutcome } from "../scripts/copy/lab/harness";
+import { checkTestGuard, computeMetrics, errorReport, parseArgs, TSV_HEADER, type UnitOutcome } from "../scripts/copy/lab/harness";
 import { loadDataset, splitRound3, type DatasetPair, type DatasetUnit } from "../scripts/copy/lab/dataset";
 import { dimAgreement, quadraticKappa, spearman, toLevel } from "../scripts/copy/lab/metrics";
 import { PLANTED } from "../scripts/copy/lab/planted";
@@ -91,6 +91,14 @@ describe("copy lab guards", () => {
     expect(() => checkTestGuard({ config: "a", split: "test", final: true, errors: 0 }, tsv + row("a", "test"))).toThrow("already");
     expect(() => checkTestGuard({ config: "a", split: "test", final: true, errors: 0 }, tsv + row("a", "dev") + "\n" + row("b", "test"))).not.toThrow();
     expect(() => checkTestGuard({ config: "a", split: "dev", final: false, errors: 5 }, tsv)).not.toThrow();
+  });
+
+  test("a test run is always logged and calls Jev, so it cannot repeat without a results.tsv row", () => {
+    expect(() => parseArgs(["--config", "a", "--split", "test", "--final", "--no-log"])).toThrow("always logged");
+    expect(() => parseArgs(["--config", "a", "--split", "test", "--final", "--dry-run"])).toThrow("--dry-run");
+    expect(() => parseArgs(["--config", "a", "--final"])).toThrow("only for --split test");
+    expect(parseArgs(["--config", "a", "--split", "test", "--final"])).toMatchObject({ split: "test", final: true, log: true });
+    expect(parseArgs(["--config", "a", "--no-log", "--dry-run"])).toMatchObject({ split: "dev", log: false, dryRun: true });
   });
 
   test("errorReport refuses the test split", () => {
