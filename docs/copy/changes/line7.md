@@ -288,3 +288,26 @@ No confirmed errors. Text is unchanged. Sources were added for five claims that 
 - Evidence: « il s'agit de la dernière station du tronc commun de la ligne avant que ne se séparent, grâce à un saut-de-mouton souterrain situé après la station, les branches vers Mairie d'Ivry et vers Villejuif - Louis Aragon. »
 
 Checks: `bun run typecheck` and `bun run test` pass (104 tests).
+
+## Fact check pass 2 (2026-10-05)
+
+Review of the next 100 pairs after the new ranking. Report: [docs/facts/2026-10-05-fact-check-pass2.md](../../facts/2026-10-05-fact-check-pass2.md).
+
+Wording change with a source (true but unsourced, FR imprecise):
+
+- `villejuif-louis-aragon/context` (rank 6): the fork is just after Maison Blanche, so Maison Blanche is shared. FR « au nord de Maison Blanche » left it out. Both locales now say the same thing.
+  - Before: "The two routes share all stations north of their fork at Maison Blanche." / « Les deux itinéraires partagent les stations au nord de Maison Blanche. »
+  - After: "The two routes share every station as far as Maison Blanche, where they fork." / « Les deux itinéraires partagent toutes les stations jusqu’à Maison Blanche, où ils se séparent. »
+  - Evidence: https://fr.wikipedia.org/wiki/Ligne_7_du_m%C3%A9tro_de_Paris (« C'est après cette station [Maison Blanche] que se situe l'ouvrage de séparation des voies des deux branches »). Added as a source. The Transilien page in the review returns HTTP 403 to scripts and was not used.
+
+True but unsourced (sources added, text not changed):
+
+- `aubervilliers-pantin-quatre-chemins/context` (rank 4, earlier tram routes met here): added "Société des transports en commun de la région parisienne · Wikipédia" (https://fr.wikipedia.org/wiki/Soci%C3%A9t%C3%A9_des_transports_en_commun_de_la_r%C3%A9gion_parisienne: in the list of tram lines in 1921, line 72 runs « par Pantin (Quatre Chemins) », line 74 is « Pantin (Église) - Pantin (Quatre Chemins) » and line 107 is « Aubervilliers (mairie) - Pantin - Quatre-Chemins - Porte des Lilas »). The review's link (histoiredestations.centerblog.net) now returns HTTP 200 but has only a menu, no article text.
+- `porte-divry/context` (rank 26, three tracks from the former terminus): added "Ligne 7 du métro de Paris · Wikipédia" (« Le nouveau terminus à trois voies », about Porte d'Ivry in 1931). The review's en.wikipedia link does not mention the three tracks, so it was not used.
+- `riquet/context` (rank 27, near the Bassin de la Villette): added "Rue Riquet · Wikipédia" (https://fr.wikipedia.org/wiki/Rue_Riquet_(Paris): the street starts at the quai de la Seine, on the basin).
+- `palais-royal-musee-du-louvre/etymology` (rank 73): added "Palais-Royal · Wikipédia" (https://fr.wikipedia.org/wiki/Palais-Royal), as on Line 1.
+- `porte-de-choisy/context` (rank 80, the Seine crossing in 1931): added "Sully – Morland · Wikipédia" (https://fr.wikipedia.org/wiki/Sully_-_Morland_(m%C3%A9tro_de_Paris): « achèvement de la traversée sous-fluviale jusqu'à Jussieu. Celui-ci permet aux trains de poursuivre jusqu'à Porte d'Ivry »).
+
+Not changed: `le-kremlin-bicetre/etymology/3` (imprecise verdict refuted).
+
+Copy evaluator after the change: villejuif-louis-aragon/context EN 0.98, FR 0.98. Ship, no FAIL.

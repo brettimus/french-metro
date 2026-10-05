@@ -48,8 +48,8 @@ const stations: Station[] = [
     "gate",
     "Called Porte de Clignancourt after a gate in the former fortifications of Paris. The gate took the name of Clignancourt, a hamlet that belonged to the abbey of Saint-Denis.",
     "La station porte le nom d’une ancienne porte des fortifications de Paris. Celle-ci reprenait le nom de Clignancourt, un hameau qui appartenait à l’abbaye de Saint-Denis.",
-    "The hamlet became part of Paris in 1860. The station’s additional name, Puces de Saint-Ouen, points to the flea market beyond the former city boundary.",
-    "Le hameau est intégré à Paris en 1860. Le complément Puces de Saint-Ouen indique le marché situé au-delà de l’ancienne limite de la capitale.",
+    "The hamlet became part of Paris in 1860. The station’s additional name, Puces de Saint-Ouen, points to the flea market just outside Paris, in Saint-Ouen.",
+    "Le hameau est intégré à Paris en 1860. Le complément Puces de Saint-Ouen désigne le marché aux puces situé juste au-delà de la limite de Paris, à Saint-Ouen.",
     {
       sources: [
         source(
@@ -59,6 +59,10 @@ const stations: Station[] = [
         source(
           "Quartier de Clignancourt · Wikipédia",
           wiki("Quartier de Clignancourt"),
+        ),
+        source(
+          "Marché aux puces de Saint-Ouen · Wikipédia",
+          wiki("Marché aux puces de Saint-Ouen"),
         ),
       ],
     },
@@ -244,8 +248,8 @@ const stations: Station[] = [
     "Les Halles",
     "Paris 1er",
     "market",
-    "Called Les Halles after the wholesale food market that once occupied this part of central Paris. Its covered halls supplied the city and gave the neighbourhood its lasting name.",
-    "La station porte le nom des halles, l’ancien marché alimentaire de gros du centre de Paris. Ses pavillons approvisionnaient la capitale et ont laissé leur nom au quartier.",
+    "Called Les Halles after the wholesale food market that once occupied this part of central Paris. Its covered halls supplied the city and gave the neighbourhood its name.",
+    "La station porte le nom des halles, l’ancien marché alimentaire de gros du centre de Paris. Ses halles couvertes approvisionnaient la capitale et ont donné leur nom au quartier.",
     "The food market began moving to Rungis in 1969. In 1977, the Métro station moved slightly east to connect more directly with the new RER station.",
     "Le transfert du marché alimentaire vers Rungis commence en 1969. En 1977, la station de métro est déplacée vers l’est pour faciliter la correspondance avec la nouvelle gare du RER.",
     {
@@ -255,6 +259,7 @@ const stations: Station[] = [
           "Archives de Paris · Les Halles",
           "https://archives.paris.fr/archives-numerisees/photographies/le-quartier-des-halles",
         ),
+        source("Halles de Paris · Wikipédia", wiki("Halles de Paris")),
       ],
     },
   ),
@@ -274,6 +279,7 @@ const stations: Station[] = [
           "Paris · Le Grand Châtelet",
           "https://parcoursrevolution.paris.fr/fr/points-interet/54-le-grand-chatelet-geole-de-l-ancien-regime",
         ),
+        source("Grand Châtelet · Wikipédia", wiki("Grand Châtelet")),
       ],
     },
   ),
@@ -316,8 +322,8 @@ const stations: Station[] = [
     "square",
     "Called Odéon after the nearby crossroads and theatre. The theatre’s name refers to the odeons of ancient Greece, buildings used for musical performances and recitations.",
     "La station porte le nom du carrefour et du théâtre voisins. Le mot odéon vient des édifices de la Grèce antique consacrés aux spectacles musicaux et aux récitations.",
-    "The Odéon theatre opened in 1782. Charles de Wailly and Marie-Joseph Peyre designed the neoclassical building, with its columns and pediment.",
-    "Le théâtre de l’Odéon ouvre en 1782. Charles de Wailly et Marie-Joseph Peyre ont conçu ce bâtiment néoclassique, avec ses colonnes et son fronton.",
+    "The Odéon theatre opened in 1782. Charles de Wailly and Marie-Joseph Peyre designed the neoclassical building, with its portico of eight Doric columns.",
+    "Le théâtre de l’Odéon ouvre en 1782. Charles de Wailly et Marie-Joseph Peyre ont conçu ce bâtiment néoclassique, précédé d’un portique de huit colonnes doriques.",
     {
       sources: [
         source("Odéon · Wikipédia", wiki("Odéon (métro de Paris)")),
@@ -325,6 +331,11 @@ const stations: Station[] = [
           "Odéon · Histoire du théâtre",
           "https://www.theatre-odeon.eu/fr/lodeon",
         ),
+        source(
+          "Paris Promeneurs · Le théâtre de l’Odéon",
+          "https://paris-promeneurs.com/le-theatre-de-l-odeon/",
+        ),
+        source("Odéon (édifice) · Wikipédia", wiki("Odéon (édifice)")),
       ],
     },
   ),
@@ -541,7 +552,7 @@ const stations: Station[] = [
     "Porte d’Orléans",
     "Paris 14e",
     "gate",
-    "Called Porte d’Orléans after the former city gate on the road to Orléans. The name preserves the direction of travel through the southern fortifications of Paris.",
+    "Called Porte d’Orléans after the former city gate on the road to Orléans. The gate stood in the southern fortifications of Paris.",
     "La station porte le nom d’une ancienne porte des fortifications, au sud de Paris. Cette porte s’ouvrait sur la route d’Orléans.",
     "This was Line 4’s southern terminus for more than a century. The extension to Mairie de Montrouge in 2013 finally carried the line beyond the city boundary.",
     "Cet arrêt a été le terminus sud de la ligne 4 pendant plus d’un siècle. Le prolongement à Mairie de Montrouge, en 2013, a permis à la ligne de franchir la limite de Paris.",
@@ -554,6 +565,10 @@ const stations: Station[] = [
         source(
           "Paris · Les portes de la ville",
           "https://www.paris.fr/pages/de-porte-en-porte-paris-se-raconte-16658",
+        ),
+        source(
+          "Porte d’Orléans (porte de Paris) · Wikipédia",
+          wiki("Porte d'Orléans"),
         ),
       ],
     },

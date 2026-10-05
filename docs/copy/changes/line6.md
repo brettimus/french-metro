@@ -298,3 +298,27 @@ No confirmed errors for Line 6. Three claims are true but the station article gi
 Added by the root pass (claim 43 was sent to a wrong target file):
 
 - **edgar-quinet/context** (claim 6/edgar-quinet/context/2, true but unsourced): "just east of where the boulevard meets four other streets". The station article names only Rue du Montparnasse and Rue de la Gaîté. Added "Boulevard Edgar-Quinet · Wikipédia" (https://fr.wikipedia.org/wiki/Boulevard_Edgar-Quinet): « Il est interrompu au niveau de l'intersection où convergent les rues d'Odessa, du Montparnasse, Delambre et de la Gaîté. » The station article (no. 11, fixed staircase, balustrade, Dervaux lamp post) was already cited through the station() helper. Copy not changed.
+
+## Fact check pass 2 (2026-10-05)
+
+Review of the next 100 pairs after the new ranking. Report: [docs/facts/2026-10-05-fact-check-pass2.md](../../facts/2026-10-05-fact-check-pass2.md).
+
+Confirmed problems (both locales rewritten):
+
+- `pasteur/context` (error, rank 7): the source’s “one of three stations” statement is about the Line 12 platforms, which mix the surviving Nord-Sud tiling with the orange Andreu-Motte style (1976). It does not say that only three stations have both companies’ styles. Many interchanges have both.
+  - Before: "…The station later also served a line of the rival Nord-Sud company, now Line 12. The two companies’ decorative styles coexist here, as at only two other stations." / « …La station dessert plus tard aussi une ligne de la compagnie rivale du Nord-Sud, aujourd’hui la ligne 12. Les décors des deux compagnies y coexistent, comme dans deux autres stations seulement. »
+  - After: "…The Line 12 platforms, built by the rival Nord-Sud company, keep their original tiling beside the orange Andreu-Motte style added in 1976. Only two other stations, Porte de Versailles and Porte de Clichy, mix these two styles." / « …Ceux de la ligne 12, construits par la compagnie rivale du Nord-Sud, gardent leur carrelage d’origine à côté du style « Andreu-Motte » orange posé en 1976. Seules deux autres stations, Porte de Versailles et Porte de Clichy, mêlent ces deux styles. »
+  - The reviewer's text (4 sentences, 58 EN words) was over the 55-word context limit, so the second and third sentences were merged (EN 49 words, FR 55).
+  - Evidence: https://fr.wikipedia.org/wiki/Pasteur_(m%C3%A9tro_de_Paris) (« la station de la ligne 12 est avec Porte de Versailles … et Porte de Clichy … l'une des trois stations du réseau à mêler ces deux styles décoratifs »; « ceux de la ligne 12 sont rénovés en 1976 en style « Motte » »). Existing source. `docs/research/line6.md` (Pasteur) corrected too.
+- `boissiere/context` (imprecise, rank 19): no source says single-entrance stations are rare. The comparison sentence is removed; the sourced single entrance and listing date stay.
+  - Before: "…on 12 February 2016. It is one of the network’s few stations with only one street entrance." / « …le 12 février 2016. Elle est l’une des rares stations du réseau à n’avoir qu’un seul accès en surface. »
+  - After: "…on 12 February 2016." / « …le 12 février 2016. »
+  - Evidence: https://fr.wikipedia.org/wiki/Boissi%C3%A8re_(m%C3%A9tro_de_Paris) (« La station dispose d'un unique accès »). Existing source.
+
+True but unsourced (sources added, text not changed):
+
+- `montparnasse-bienvenue/etymology` (rank 2, students’ Parnassus joke): added "Montparnasse · Wikipedia" (https://en.wikipedia.org/wiki/Montparnasse), the source Line 4 already cites for the same shared etymology.
+- `bel-air/etymology` (rank 18): added "Bel-Air station · Wikipedia" (https://en.wikipedia.org/wiki/Bel-Air_station_(Paris_Metro): "It is named after the Bel-Air quarter.").
+- `raspail/etymology` (rank 36, republican politician and social campaigns): added "François-Vincent Raspail · Wikipédia" (https://fr.wikipedia.org/wiki/Fran%C3%A7ois-Vincent_Raspail: « un journal d'opposition républicaine »; « Préoccupé de questions sociales »). Line 4 already links this page through `people`.
+
+Copy evaluator after the change: pasteur/context EN 0.94, FR 0.95 (one REVIEW: station names Porte de Versailles and Porte de Clichy flagged as capitalised place words); boissiere/context EN 0.97, FR 0.98. All ship, no FAIL.

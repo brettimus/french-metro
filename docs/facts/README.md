@@ -5,6 +5,7 @@ The fact checker ranks the sentences of the station copy (`apps/web/src/data/lin
 Reports:
 
 - [2026-10-05-fact-check.md](2026-10-05-fact-check.md): first full run, review of the top 80 pairs, fixes, and an evaluation of the ranking.
+- [2026-10-05-fact-check-pass2.md](2026-10-05-fact-check-pass2.md): new risk weights and known conflicts, their measured effect on the pass-1 labels, review of the next 100 pairs, and fixes.
 
 Run all commands from the repository root.
 
@@ -18,7 +19,10 @@ Run all commands from the repository root.
 | `apps/web/scripts/facts/retrieve.ts` | Cuts source texts into passages and ranks them per claim with BM25 |
 | `apps/web/scripts/facts/numbers.ts` | Extracts numbers, years and dates and compares them with the sources, in code |
 | `apps/web/scripts/facts/jev.ts` | The Jev questions, the model id and the answer cache |
-| `apps/web/scripts/facts/rank.ts` | Risk weights (`RISK_WEIGHTS`) and the ranking |
+| `apps/web/scripts/facts/rank.ts` | Risk weights (`RISK_WEIGHTS`) and the ranking. A pair takes the strongest value of each signal among its claims, so low `supported` in one locale is enough |
+| `apps/web/scripts/facts/known-conflicts.ts` | Claims that keep a value a cited source contradicts, on purpose (for example the Saint-Mandé rename date). They are left out of the ranking and listed with their note in `ranked.md` |
+| `apps/web/scripts/facts/reviewed.ts` | Pass-1 labels: the 80 reviewed pairs, their verdicts and their texts at review time |
+| `apps/web/scripts/facts/evaluate.ts` | Re-scores a `results.json` with the current weights (no Jev calls) and measures the ranking against the pass-1 labels |
 | `apps/web/scripts/facts/text.ts` | Accent folding, tokens, sentence splitting, word counts |
 | `apps/web/tests/facts.test.ts` | Tests for splitting, numbers, retrieval, risk and question building |
 
@@ -78,6 +82,10 @@ The 2026-10-05 run showed which signals to trust (see the report for the numbers
 - **Unmatched numbers** usually mean that the date is in another article (often the line article), not that it is wrong. Find the source and add it.
 - **High `contradicted`** alone is weak. Most of these claims were correct, and the passage was about a related fact. Two of the top pairs were errors in the source article, not in the copy.
 - **EN/FR disagreement** was mostly noise.
+
+The weights in `rank.ts` follow these findings: `unsupported` has weight 1, an unmatched number 0.1 (at most 0.2), `best_passage = none` 0.1, and `contradicted` and EN/FR disagreement 0. Run `bun apps/web/scripts/facts/evaluate.ts` after a change to the weights.
+
+When a claim keeps a value that a cited source gets wrong, and the research notes record why, add it to `known-conflicts.ts`. An entry matches on a text fragment of the claim. When the claim is rewritten, the entry stops matching and the run lists it as stale.
 
 For each pair, decide one verdict: `error`, `imprecise`, `true_but_unsourced` or `supported`. Before you change copy for an `error` or `imprecise` verdict, try to prove the claim correct from other sources. Then:
 

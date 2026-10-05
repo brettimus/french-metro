@@ -76,6 +76,14 @@ const stations: Station[] = [
     "La station doit son nom aux communes d’Aubervilliers et de Pantin, dont elle dessert la limite, et au carrefour des Quatre Chemins. Ce lieu-dit désigne le croisement de l’ancienne route des Flandres avec deux avenues transversales.",
     "The crossing joins the former Route nationale 2 with Avenue de la République and Avenue Édouard-Vaillant. Earlier tram routes also met here. The Métro station opened in 1979 on the extension from Porte de la Villette.",
     "Le carrefour réunit l’ancienne route nationale 2, l’avenue de la République et l’avenue Édouard-Vaillant. D’anciennes lignes de tramway s’y croisaient aussi. Le métro y arrive en 1979, lors du prolongement depuis Porte de la Villette.",
+    {
+      sources: [
+        {
+          label: "Société des transports en commun de la région parisienne · Wikipédia",
+          url: wiki("Société des transports en commun de la région parisienne"),
+        },
+      ],
+    },
   ),
   station(
     "porte-de-la-villette",
@@ -118,6 +126,12 @@ const stations: Station[] = [
     "Riquet opened one day after the rest of the first Line 7 section in November 1910. Trains initially passed through without stopping. The station lies beneath Avenue de Flandre, close to the Bassin de la Villette.",
     "Riquet ouvre un jour après le reste du premier tronçon de la ligne 7, en novembre 1910. Les trains la traversent d’abord sans arrêt. La station se trouve sous l’avenue de Flandre, près du bassin de la Villette.",
     {
+      sources: [
+        {
+          label: "Rue Riquet · Wikipédia",
+          url: wiki("Rue Riquet (Paris)"),
+        },
+      ],
       people: [
         biography(
           "Pierre-Paul Riquet",
@@ -289,6 +303,14 @@ const stations: Station[] = [
     "La station doit son nom au Palais-Royal voisin, ancienne résidence royale. Le complément Musée du Louvre est ajouté en 1989, pour signaler la nouvelle entrée du musée par la Pyramide.",
     "The original station name was Palais-Royal. Line 7 reached it in 1916, and it remained the southern terminus until the extension along the Seine in 1926. The combined name distinguishes it from nearby Louvre – Rivoli.",
     "La station s’appelait à l’origine Palais-Royal. La ligne 7 l’atteint en 1916 et y termine son parcours jusqu’au prolongement le long de la Seine en 1926. Le nom composé la distingue de la station voisine Louvre – Rivoli.",
+    {
+      sources: [
+        {
+          label: "Palais-Royal · Wikipédia",
+          url: wiki("Palais-Royal"),
+        },
+      ],
+    },
   ),
   station(
     "pont-neuf",
@@ -534,7 +556,15 @@ const stations: Station[] = [
     "La station doit son nom à la porte de Paris donnant vers Choisy-le-Roi. L’avenue de Choisy et l’avenue de la Porte-de-Choisy voisines reprennent cette référence à la commune rejointe par la route.",
     "Porte de Choisy opened as a temporary terminus of Line 10 in 1930. The following year it became a through station on Line 7, as the line crossed the Seine and extended one stop farther to Porte d’Ivry.",
     "Porte de Choisy ouvre comme terminus provisoire de la ligne 10 en 1930. L’année suivante, elle devient une station de passage de la ligne 7, qui traverse alors la Seine et se prolonge d’une station jusqu’à Porte d’Ivry.",
-    { branch: "ivry" },
+    {
+      branch: "ivry",
+      sources: [
+        {
+          label: "Sully – Morland · Wikipédia",
+          url: wiki("Sully - Morland (métro de Paris)"),
+        },
+      ],
+    },
   ),
   station(
     "porte-divry",
@@ -553,6 +583,10 @@ const stations: Station[] = [
           url: wiki("Porte d'Ivry (métro de Paris)"),
         },
         { label: "Porte d’Ivry · porte de Paris", url: wiki("Porte d'Ivry") },
+        {
+          label: "Ligne 7 du métro de Paris · Wikipédia",
+          url: wiki("Ligne 7 du métro de Paris"),
+        },
       ],
     },
   ),
@@ -654,10 +688,16 @@ const stations: Station[] = [
     "portrait",
     "Called Villejuif – Louis Aragon after the town and a nearby road named for the French writer Louis Aragon.",
     "La station doit son nom à Villejuif et à une voie voisine dédiée à l’écrivain français Louis Aragon.",
-    "The terminus opened in 1985 when the branch extended beyond Le Kremlin-Bicêtre through Villejuif. It is one of Line 7’s two southern endpoints, alongside Mairie d’Ivry. The two routes share all stations north of their fork at Maison Blanche.",
-    "Le terminus ouvre en 1985 lorsque la branche dépasse Le Kremlin-Bicêtre et traverse Villejuif. C’est l’une des deux extrémités sud de la ligne 7, avec Mairie d’Ivry. Les deux itinéraires partagent les stations au nord de Maison Blanche.",
+    "The terminus opened in 1985 when the branch extended beyond Le Kremlin-Bicêtre through Villejuif. It is one of Line 7’s two southern endpoints, alongside Mairie d’Ivry. The two routes share every station as far as Maison Blanche, where they fork.",
+    "Le terminus ouvre en 1985 lorsque la branche dépasse Le Kremlin-Bicêtre et traverse Villejuif. C’est l’une des deux extrémités sud de la ligne 7, avec Mairie d’Ivry. Les deux itinéraires partagent toutes les stations jusqu’à Maison Blanche, où ils se séparent.",
     {
       branch: "villejuif",
+      sources: [
+        {
+          label: "Ligne 7 du métro de Paris · Wikipédia",
+          url: wiki("Ligne 7 du métro de Paris"),
+        },
+      ],
       people: [biography("Louis Aragon", "Louis Aragon")],
     },
   ),

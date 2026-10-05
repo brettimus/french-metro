@@ -356,3 +356,32 @@ No confirmed errors on Line 4. Five claims are true but the cited sources did no
 - barbes-rochechouart/etymology (abbess of Montmartre, early eighteenth century): added "Marguerite de Rochechouart · Wikipédia" and "Boulevard Marguerite-de-Rochechouart · Wikipédia". The station article does not say she was abbess. Both articles say she was abbess of Montmartre from 1713 (other sources give 1717 or 1718) to her death in 1727. https://fr.wikipedia.org/wiki/Marguerite_de_Rochechouart, https://fr.wikipedia.org/wiki/Boulevard_Marguerite-de-Rochechouart
 
 Porte de Clignancourt, Château d’Eau, Saint-Sulpice and Barbès – Rochechouart had no `sources` override, so each now has an explicit list with the station article first. Montparnasse – Bienvenüe already had an override without the station article; that was not changed.
+
+## Fact check pass 2 (2026-10-05)
+
+Review of the next 100 pairs after the new ranking. Report: [docs/facts/2026-10-05-fact-check-pass2.md](../../facts/2026-10-05-fact-check-pass2.md).
+
+Confirmed problems (both locales rewritten):
+
+- `odeon/context` (error, rank 51): the Odéon façade has a portico of eight Doric columns under a flat entablature, with no pediment.
+  - Before: "…designed the neoclassical building, with its columns and pediment." / « …ont conçu ce bâtiment néoclassique, avec ses colonnes et son fronton. »
+  - After: "…designed the neoclassical building, with its portico of eight Doric columns." / « …ont conçu ce bâtiment néoclassique, précédé d’un portique de huit colonnes doriques. »
+  - Evidence: https://paris-promeneurs.com/le-theatre-de-l-odeon/ (« L'entrée du bâtiment est précédée d'un portique reposant sur huit colonnes doriques »), https://www.theatre-odeon.eu/fr/lodeon. Added source "Paris Promeneurs · Le théâtre de l’Odéon".
+- `les-halles/etymology` (imprecise, rank 23): FR « pavillons » means the Baltard pavilions of the 1850s; the name les Halles is centuries older. EN and FR now match.
+  - Before: "Its covered halls supplied the city and gave the neighbourhood its lasting name." / « Ses pavillons approvisionnaient la capitale et ont laissé leur nom au quartier. »
+  - After: "Its covered halls supplied the city and gave the neighbourhood its name." / « Ses halles couvertes approvisionnaient la capitale et ont donné leur nom au quartier. »
+  - Evidence: https://fr.wikipedia.org/wiki/Halles_de_Paris (first halls under Philippe Auguste, 12th century). Added source "Halles de Paris · Wikipédia".
+- `porte-de-clignancourt/context` (imprecise, rank 43): "beyond the former city boundary" could be read as inside today’s Paris. The flea market is in Saint-Ouen-sur-Seine.
+  - Before: "…points to the flea market beyond the former city boundary." / « Le complément Puces de Saint-Ouen indique le marché situé au-delà de l’ancienne limite de la capitale. »
+  - After: "…points to the flea market just outside Paris, in Saint-Ouen." / « Le complément Puces de Saint-Ouen désigne le marché aux puces situé juste au-delà de la limite de Paris, à Saint-Ouen. »
+  - Evidence: https://fr.wikipedia.org/wiki/March%C3%A9_aux_puces_de_Saint-Ouen (« dans un quartier de la ville de Saint-Ouen-sur-Seine en bordure de Paris »). Added as a source.
+
+True but unsourced (sources added, text not changed):
+
+- `chatelet/context` (rank 3, Grand Châtelet guarded the northern approach to the bridge): added "Grand Châtelet · Wikipédia" (https://fr.wikipedia.org/wiki/Grand_Ch%C3%A2telet: « le Grand Châtelet, au nord, pour défendre l'accès au Grand Pont (devenu le pont au Change) »). Also added on Line 14.
+- `porte-dorleans/etymology` (rank 15, gate of the fortifications on the road to Orléans): added "Porte d’Orléans (porte de Paris) · Wikipédia" (https://fr.wikipedia.org/wiki/Porte_d'Orl%C3%A9ans).
+- `odeon/etymology` (rank 29, use of ancient odeons): added "Odéon (édifice) · Wikipédia" (https://fr.wikipedia.org/wiki/Od%C3%A9on_(%C3%A9difice): « édifice … affecté aux exercices de chants, aux représentations musicales, aux concours de poésie »). The reviewer's link, https://fr.wikipedia.org/wiki/Od%C3%A9on, is a disambiguation page, so it was not used.
+
+Not changed: `porte-dorleans/etymology/2` (imprecise verdict refuted: the EN names the Orléans road in sentence 1, the FR in sentence 2).
+
+Copy evaluator after the change: odeon/context EN 0.96, FR 0.97; les-halles/etymology EN 0.90, FR 0.94; porte-de-clignancourt/context EN 0.92, FR 0.89. All ship, no FAIL.

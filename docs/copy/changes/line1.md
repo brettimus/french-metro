@@ -490,3 +490,25 @@ True but unsourced (sources added, text not changed):
 - `la-defense/context` (western terminus): added "Ligne 1 du métro de Paris · Wikipédia" (the line « relie aujourd'hui la station La Défense à l'ouest, à la station Château de Vincennes, à l'est »).
 
 Not changed: the La Défense location field ("Puteaux / Courbevoie"; the station article says Puteaux). This was a side note, not a confirmed error.
+
+## Fact check pass 2 (2026-10-05)
+
+Review of the next 100 pairs after the new ranking. Report: [docs/facts/2026-10-05-fact-check-pass2.md](../../facts/2026-10-05-fact-check-pass2.md).
+
+Confirmed imprecise (both locales rewritten):
+
+- `chatelet/context` (pass-2 rank 14): "several weeks" was 18 days (Line 1 opened on 19 July 1900; the Châtelet platforms on 6 August 1900).
+  - Before: "For several weeks after the line’s opening day, trains passed through the unfinished station without stopping." / « Pendant plusieurs semaines après l’ouverture de la ligne, les trains traversent la station inachevée sans s’y arrêter. »
+  - After: "For two and a half weeks after the line opened on 19 July 1900, trains passed through the unfinished station without stopping." / « Pendant deux semaines et demie après l’ouverture de la ligne, le 19 juillet 1900, les trains traversent la station inachevée sans s’y arrêter. »
+  - Evidence: https://fr.wikipedia.org/wiki/Ch%C3%A2telet_(m%C3%A9tro_de_Paris) (« ouverte le 6 août 1900, soit plus de deux semaines après la mise en service du premier tronçon de la ligne 1 »). Added source "Ligne 1 du métro de Paris · Wikipédia" for the date 19 July 1900 (« Le 19 juillet 1900 à 13 heures, la ligne est ouverte au public »).
+- `les-sablons/context` (rank 86): no source says Jacques Barrot collapsed "on the platform".
+  - Before: "…Jacques Barrot collapsed on the platform of this station and died suddenly." / « …Jacques Barrot s’effondre sur le quai de cette station et meurt subitement. »
+  - After: "…Jacques Barrot was taken ill in this station and died suddenly." / « …Jacques Barrot est victime d’un malaise dans cette station et meurt subitement. »
+  - Evidence: station article (« à la suite d'un malaise survenu alors qu'il se trouvait dans la station »). Existing source.
+
+True but unsourced (sources added, text not changed):
+
+- `palais-royal-musee-du-louvre/etymology` (rank 67, former royal residence): added "Palais-Royal · Wikipédia" (https://fr.wikipedia.org/wiki/Palais-Royal: the Palais-Cardinal « sert de résidence à la régente Anne d'Autriche … et devient le Palais-Royal »). The same source was added on Line 7.
+- `chateau-de-vincennes/etymology` (rank 38, towers and keep): added "Château de Vincennes (monument) · Wikipédia" (https://fr.wikipedia.org/wiki/Ch%C3%A2teau_de_Vincennes).
+
+Copy evaluator after the change: chatelet/context EN 0.97, FR 0.98; les-sablons/context EN 0.89, FR 0.89. All ship, no FAIL.

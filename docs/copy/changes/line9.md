@@ -926,3 +926,24 @@ Corrected by the root pass (claim 50 was sent to a wrong target file):
 
 - saint-augustin/etymology (en, fr), claim 9/saint-augustin/etymology/2: the old second sentence said the square and church "give their name to the surrounding district in the 8th arrondissement". No source names a Saint-Augustin district, and the four administrative quartiers of the 8th are Champs-Élysées, Faubourg-du-Roule, Madeleine and Europe. The station article says: « La station est implantée au nord du quartier de la Madeleine à sa limite administrative avec le quartier de l'Europe. Elle se trouve sous le boulevard Haussmann, à l'est de la place Saint-Augustin. » New EN: "The station lies under Boulevard Haussmann, east of the square, on the boundary between the Madeleine and Europe districts." New FR: « Elle se trouve sous le boulevard Haussmann, à l’est de la place, à la limite des quartiers de la Madeleine et de l’Europe. » The FR first sentence now reads « qui tient le sien de l’église Saint-Augustin voisine » to stay within 45 words. Evidence: https://fr.wikipedia.org/wiki/Saint-Augustin_(m%C3%A9tro_de_Paris) (already in sources[] through the station() helper). Copy evaluator after the change: EN 0.98, FR 0.97 (ship).
 - docs/research/line9.md: correction 24 (Robespierre entrances) and the station 18 note (Saint-Augustin location) are updated to match.
+
+## Fact check pass 2 (2026-10-05)
+
+Review of the next 100 pairs after the new ranking. Report: [docs/facts/2026-10-05-fact-check-pass2.md](../../facts/2026-10-05-fact-check-pass2.md).
+
+Confirmed imprecise (rewritten):
+
+- `iena/etymology` (rank 9): the battles are nineteenth-century, not "classical", and only the Alma part of Alma – Marceau is a battle.
+  - Before: "The station shares this classical battle-naming pattern with nearby Trocadéro and Alma – Marceau." / « La station partage ce principe de nom de bataille avec Trocadéro et Alma – Marceau, à proximité. »
+  - After: "Nearby Trocadéro and the Alma part of Alma – Marceau also take their names from nineteenth-century battles." / « Non loin, Trocadéro et la partie « Alma » d’Alma – Marceau rappellent aussi des batailles du XIXe siècle. »
+  - Evidence: https://fr.wikipedia.org/wiki/Alma_-_Marceau_(m%C3%A9tro_de_Paris) (bataille de l'Alma, 1854; avenue Marceau after the general) and https://en.wikipedia.org/wiki/Trocad%C3%A9ro_station (Battle of Trocadero, 1823). Added both as sources. The fr Trocadéro station article names the battle but not its year, so the en article was used.
+- `bonne-nouvelle/etymology` (rank 13): FR only. The district is « quartier de Bonne-Nouvelle », without the article.
+  - Before: « La station doit son nom au quartier de la Bonne-Nouvelle, … »
+  - After: « La station doit son nom au quartier de Bonne-Nouvelle, … »
+  - Evidence: station article (« au nord du quartier de Bonne-Nouvelle »). Existing source.
+- `franklin-d-roosevelt/context` (rank 88): "inaugurated in 1957" attached to the technique (FR « technique … modernisée, inaugurée » agrees with « technique »). Gemmail dates from the 1930s; the 1957 inauguration was the station decoration.
+  - Before: "In the 1950s the platforms were decorated with gemmail, a modernised stained-glass technique, inaugurated in 1957." / « Dans les années 1950, les quais sont décorés de gemmail, technique de vitrail modernisée, inaugurée en 1957. »
+  - After: "In the 1950s the platforms were decorated with gemmail, a modernised form of stained glass. The new decoration was inaugurated in March 1957." / « Dans les années 1950, les quais sont décorés de gemmail, une forme modernisée du vitrail. Cette décoration est inaugurée en mars 1957. »
+  - Evidence: station article (« le gemmail, qui est une sorte de vitrail modernisé »; « dans la nuit du 1er au 2 mars 1957 »). Existing source. FR context is now 55 words, at the limit.
+
+Copy evaluator after the change: iena/etymology EN 0.94, FR 0.97; bonne-nouvelle/etymology EN 0.91, FR 0.90; franklin-d-roosevelt/context EN 0.95, FR 0.95. All ship, no FAIL.

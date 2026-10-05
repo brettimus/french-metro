@@ -347,3 +347,18 @@ Reason: the AP-HP hospital page supports only the purchase by Jean de Pontoise. 
 
 - Text unchanged. The station article does not say the town hall is at the station.
 - Evidence: https://fr.wikipedia.org/wiki/H%C3%B4tel_de_ville_de_Saint-Ouen-sur-Seine (town hall on place de la République; the station article puts the Line 13 station under that square). Added as a source.
+
+## Fact check pass 2 (2026-10-05)
+
+Review of the next 100 pairs after the new ranking. Report: [docs/facts/2026-10-05-fact-check-pass2.md](../../facts/2026-10-05-fact-check-pass2.md).
+
+True but unsourced (sources added, text not changed):
+
+- `madeleine/context` (rank 1, the dedication is older than the present church): added "Église de la Madeleine · Wikipédia" (https://fr.wikipedia.org/wiki/%C3%89glise_de_la_Madeleine: first stone of the present church on 3 August 1763, a church from 1845). The 13th-century chapel is in the station article.
+- `chatelet/context` (rank 5, Grand Châtelet at the northern approach to the bridge): added "Grand Châtelet · Wikipédia" (https://fr.wikipedia.org/wiki/Grand_Ch%C3%A2telet), as on Line 4.
+
+No change needed:
+
+- `pont-cardinet/etymology` (rank 62): the cited "Rue Cardinet · Wikipédia" already says « Elle passe ensuite au-dessus des voies ferroviaires conduisant à la gare Saint-Lazare ». The checker did not retrieve that passage. The source is already listed.
+
+Not changed: `villejuif-gustave-roussy/etymology/1` and `cour-saint-emilion/context/2` (imprecise verdicts refuted).

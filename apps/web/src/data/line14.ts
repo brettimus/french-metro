@@ -228,6 +228,10 @@ export const line14: MetroLine = {
           label: "Madeleine (métro de Paris) · Wikipédia",
           url: "https://fr.wikipedia.org/wiki/Madeleine_(m%C3%A9tro_de_Paris)",
         },
+        {
+          label: "Église de la Madeleine · Wikipédia",
+          url: "https://fr.wikipedia.org/wiki/%C3%89glise_de_la_Madeleine",
+        },
       ],
       people: [
         {
@@ -289,6 +293,10 @@ export const line14: MetroLine = {
         {
           label: "Paris · Le Grand Châtelet",
           url: "https://parcoursrevolution.paris.fr/fr/points-interet/54-le-grand-chatelet-geole-de-l-ancien-regime",
+        },
+        {
+          label: "Grand Châtelet · Wikipédia",
+          url: "https://fr.wikipedia.org/wiki/Grand_Ch%C3%A2telet",
         },
       ],
     },
@@ -582,15 +590,15 @@ export const line14: MetroLine = {
     {
       id: "thiais-orly",
       name: "Thiais – Orly",
-      area: "Thiais / Orly",
+      area: "Thiais",
       art: "station",
       etymology: {
         en: "Called Thiais – Orly after Thiais, where the station stands, and the neighbouring municipality of Orly. The compound name replaced the project name Pont de Rungis.",
         fr: "La station doit son nom à Thiais, où elle se trouve, et à la commune voisine d’Orly. Ce nom composé a remplacé le nom de projet Pont de Rungis.",
       },
       context: {
-        en: "The station was renamed in September 2022, after local elected officials objected to some of the southern extension’s station names. Pont de Rungis was kept as its subtitle and remains the name of the connecting RER C station. The two names therefore describe the same interchange through different local references.",
-        fr: "La station a été renommée en septembre 2022, après les objections d’élus locaux à certains noms de stations du prolongement sud. Pont de Rungis a été conservé en sous-titre et reste le nom de la gare du RER C en correspondance. Les deux noms désignent ainsi un même pôle à partir de repères locaux différents.",
+        en: "The station was renamed in September 2022, after local elected officials objected to some of the southern extension’s station names. Pont de Rungis was kept as its subtitle and remains the name of the connecting RER C station.",
+        fr: "La station a été renommée en septembre 2022, après les objections d’élus locaux à certains noms de stations du prolongement sud. Pont de Rungis a été conservé en sous-titre et reste le nom de la gare du RER C en correspondance.",
       },
       sources: [
         {

@@ -180,6 +180,7 @@ const stations: Station[] = [
     "La station porte le nom de la gare de l’Est, qu’elle dessert, terminus ferroviaire vers l’est de la France. La gare ferroviaire adopte ce nom en 1854, lorsque son réseau s’étend au-delà de Strasbourg.",
     "Lines 5 and 7 share a broad underground space here, with their tracks beside one another. Line 4 passes below them, so three metro lines meet at the station. The full name, Gare de l’Est – Verdun, refers to nearby Avenue de Verdun.",
     "Les lignes 5 et 7 partagent ici un vaste espace souterrain, avec leurs voies côte à côte. La ligne 4 passe au-dessous et complète cette correspondance entre trois lignes. Le nom complet, Gare de l’Est – Verdun, renvoie à l’avenue de Verdun voisine.",
+    { sources: [source("Gare de Paris-Est · Wikipédia", wiki("Gare de Paris-Est"))] },
   ),
   station(
     "jacques-bonsergent",

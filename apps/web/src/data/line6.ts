@@ -73,8 +73,8 @@ const stations: Station[] = [
     "church",
     "Called Boissière after the old Croix Boissière, a wayside cross decorated with boxwood on feast days such as Palm Sunday. The station opened on 2 October 1900, on the branch that later became Line 6.",
     "La station doit son nom à l’ancienne croix Boissière, décorée de buis lors de fêtes comme le dimanche des Rameaux. Elle ouvre le 2 octobre 1900, sur l’antenne devenue plus tard la ligne 6.",
-    "The station keeps its original single entrance, a Guimard édicule that received historic-monument protection on 12 February 2016. It is one of the network’s few stations with only one street entrance.",
-    "La station conserve son entrée unique d’origine, un édicule Guimard inscrit aux monuments historiques le 12 février 2016. Elle est l’une des rares stations du réseau à n’avoir qu’un seul accès en surface.",
+    "The station keeps its original single entrance, a Guimard édicule that received historic-monument protection on 12 February 2016.",
+    "La station conserve son entrée unique d’origine, un édicule Guimard inscrit aux monuments historiques le 12 février 2016.",
   ),
   station(
     "trocadero",
@@ -178,8 +178,8 @@ const stations: Station[] = [
     "portrait",
     "Called Pasteur after the chemist and biologist Louis Pasteur, founder of microbiology and developer of pasteurization and a rabies vaccine. The station lies where Rue de Vaugirard meets Boulevard Pasteur.",
     "La station porte le nom du chimiste et biologiste Louis Pasteur, fondateur de la microbiologie, inventeur de la pasteurisation et d’un vaccin contre la rage. Elle se trouve au croisement de la rue de Vaugirard et du boulevard Pasteur.",
-    "Pasteur’s Line 6 platforms opened in 1906, built by the CMP company. The station later also served a line of the rival Nord-Sud company, now Line 12. The two companies’ decorative styles coexist here, as at only two other stations.",
-    "À Pasteur, les quais de la ligne 6 ouvrent en 1906, construits par la CMP. La station dessert plus tard aussi une ligne de la compagnie rivale du Nord-Sud, aujourd’hui la ligne 12. Les décors des deux compagnies y coexistent, comme dans deux autres stations seulement.",
+    "Pasteur’s Line 6 platforms opened in 1906, built by the CMP company. The Line 12 platforms, built by the rival Nord-Sud company, keep their original tiling beside the orange Andreu-Motte style added in 1976. Only two other stations, Porte de Versailles and Porte de Clichy, mix these two styles.",
+    "À Pasteur, les quais de la ligne 6 ouvrent en 1906, construits par la CMP. Ceux de la ligne 12, construits par la compagnie rivale du Nord-Sud, gardent leur carrelage d’origine à côté du style « Andreu-Motte » orange posé en 1976. Seules deux autres stations, Porte de Versailles et Porte de Clichy, mêlent ces deux styles.",
     { people: [biography("Louis Pasteur")] },
   ),
   station(
@@ -192,6 +192,7 @@ const stations: Station[] = [
     "La station associe le nom du quartier de la gare à celui de l’ingénieur Fulgence Bienvenüe. Montparnasse vient d’une plaisanterie d’étudiants, qui avaient donné à une butte de gravats le nom du mont Parnasse, montagne grecque associée à la poésie.",
     "This stop opened on 24 April 1906 as Avenue du Maine, on Line 2 Sud. As a Line 5 stop, it took the name Bienvenüe on 30 June 1933, years before its 1942 merger with the neighbouring Montparnasse station formed today’s interchange.",
     "Cet arrêt ouvre le 24 avril 1906 sous le nom d’Avenue du Maine, sur la ligne 2 Sud. Devenu arrêt de la ligne 5, il prend le nom de Bienvenüe le 30 juin 1933, des années avant sa fusion de 1942 avec la station Montparnasse voisine, qui forme la correspondance actuelle.",
+    { sources: [source("Montparnasse · Wikipedia", wiki("Montparnasse", "en"))] },
   ),
   station(
     "edgar-quinet",
@@ -218,7 +219,12 @@ const stations: Station[] = [
     "La station porte le nom du boulevard Raspail. Celui-ci honore François-Vincent Raspail, savant et homme politique républicain du XIXe siècle, engagé à la fois dans la recherche et dans les luttes sociales.",
     "Raspail’s Line 6 platforms opened on 24 April 1906. Their entrance has a Hector Guimard balustrade. In 1958, the RATP gave the portico that surrounded it to New York’s Museum of Modern Art.",
     "À Raspail, les quais de la ligne 6 ouvrent le 24 avril 1906. Leur entrée porte une balustrade d’Hector Guimard. En 1958, la RATP offre le portique qui l’entourait au Museum of Modern Art de New York.",
-    { sources: [source("Ligne 6 du métro de Paris · Wikipédia", wiki("Ligne 6 du métro de Paris"))] },
+    {
+      sources: [
+        source("Ligne 6 du métro de Paris · Wikipédia", wiki("Ligne 6 du métro de Paris")),
+        source("François-Vincent Raspail · Wikipédia", wiki("François-Vincent Raspail")),
+      ],
+    },
   ),
   station(
     "denfert-rochereau",
@@ -366,6 +372,7 @@ const stations: Station[] = [
     "La station doit son nom au quartier du Bel-Air. Elle se trouve sur le boulevard de Picpus, entre les quartiers de Picpus et du Bel-Air.",
     "Opened in 1909, the station closed for the war in 1939 and did not reopen until 7 January 1963. It sits at surface level between two tunnel sections, crossing the former Vincennes railway cutting, now the Coulée verte René-Dumont.",
     "Ouverte en 1909, la station ferme pendant la guerre en 1939 et ne rouvre que le 7 janvier 1963. Elle se trouve en surface entre deux tronçons souterrains, au-dessus de l’ancienne tranchée de la ligne de Vincennes, aujourd’hui la coulée verte René-Dumont.",
+    { sources: [source("Bel-Air station · Wikipedia", wiki("Bel-Air station (Paris Metro)", "en"))] },
   ),
   station(
     "picpus",

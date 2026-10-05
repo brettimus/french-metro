@@ -190,3 +190,11 @@ Remaining concerns:
 ## Fact check 2026-10-05
 
 - republique: added "Place de la République · Wikipédia" (https://fr.wikipedia.org/wiki/Place_de_la_R%C3%A9publique_(Paris)), so Line 5 cites the same sources as Line 9 for the shared etymology: « porte depuis 1879 son nom actuel qui lui est donné dans le cadre du projet d'érection d'une statue de la République ». Copy not changed.
+
+## Fact check pass 2 (2026-10-05)
+
+Review of the next 100 pairs after the new ranking. Report: [docs/facts/2026-10-05-fact-check-pass2.md](../../facts/2026-10-05-fact-check-pass2.md).
+
+True but unsourced (source added, text not changed):
+
+- `gare-de-lest/etymology` (rank 11, terminus for eastern France): added "Gare de Paris-Est · Wikipédia" (https://fr.wikipedia.org/wiki/Gare_de_Paris-Est: « l'une des six grandes gares terminus du réseau de la SNCF à Paris »; it also gives the 1854 name change: « Elle prendra le nom de « gare de l'Est » en 1854 »). The etymology is shared with Lines 4 and 7 and is not changed.

@@ -82,8 +82,8 @@ const stations: Station[] = [
     "square",
     "Called Les Sablons after the boulevard and the former Porte des Sablons, recalling sand deposits and quarries once worked here to supply construction across Paris.",
     "La station doit son nom au boulevard et à l’ancienne porte des Sablons, qui rappellent les dépôts de sable et les carrières exploitées ici pour la construction parisienne.",
-    "On 3 December 2014, former government minister Jacques Barrot collapsed on the platform of this station and died suddenly.",
-    "Le 3 décembre 2014, l’ancien ministre Jacques Barrot s’effondre sur le quai de cette station et meurt subitement.",
+    "On 3 December 2014, former government minister Jacques Barrot was taken ill in this station and died suddenly.",
+    "Le 3 décembre 2014, l’ancien ministre Jacques Barrot est victime d’un malaise dans cette station et meurt subitement.",
     1937,
   ),
   station(
@@ -194,6 +194,7 @@ const stations: Station[] = [
     "One entrance, on Place Colette, is topped by Jean-Michel Othoniel’s Kiosque des Noctambules: two cupolas of Murano glass beads made for the Métro’s centenary. The kiosk was inaugurated in October 2000.",
     "Sur la place Colette, l’une des entrées de la station est surmontée du Kiosque des Noctambules de Jean-Michel Othoniel : deux coupoles de perles de verre de Murano réalisées pour le centenaire du métro. Le kiosque est inauguré en octobre 2000.",
     1900,
+    { sources: [source("Palais-Royal · Wikipédia", wiki("Palais-Royal"))] },
   ),
   station(
     "louvre-rivoli",
@@ -215,9 +216,10 @@ const stations: Station[] = [
     "gate",
     "Called Châtelet after Place du Châtelet, laid out on the site of the Grand Châtelet. This fortress was a court and prison before its demolition in the early nineteenth century.",
     "La station doit son nom à la place du Châtelet, aménagée à l’emplacement du Grand Châtelet. Cette forteresse était un tribunal et une prison avant sa démolition au début du XIXe siècle.",
-    "For several weeks after the line’s opening day, trains passed through the unfinished station without stopping. Line 1’s platforms here opened on 6 August 1900.",
-    "Pendant plusieurs semaines après l’ouverture de la ligne, les trains traversent la station inachevée sans s’y arrêter. Les quais de la ligne 1 n’ouvrent que le 6 août 1900.",
+    "For two and a half weeks after the line opened on 19 July 1900, trains passed through the unfinished station without stopping. Line 1’s platforms here opened on 6 August 1900.",
+    "Pendant deux semaines et demie après l’ouverture de la ligne, le 19 juillet 1900, les trains traversent la station inachevée sans s’y arrêter. Les quais de la ligne 1 n’ouvrent que le 6 août 1900.",
     1900,
+    { sources: [source("Ligne 1 du métro de Paris · Wikipédia", wiki("Ligne 1 du métro de Paris"))] },
   ),
   station(
     "hotel-de-ville",
@@ -357,7 +359,12 @@ const stations: Station[] = [
     "The station closed from 24 to 27 September 2009, during Line 1’s automation works. Bérault was the line’s temporary eastern terminus in that period.",
     "Pendant les travaux d’automatisation de la ligne 1, la station ferme du 24 au 27 septembre 2009. Bérault est alors le terminus est provisoire de la ligne.",
     1934,
-    { sources: [source("Ligne 1 du métro de Paris · Wikipédia", wiki("Ligne 1 du métro de Paris"))] },
+    {
+      sources: [
+        source("Ligne 1 du métro de Paris · Wikipédia", wiki("Ligne 1 du métro de Paris")),
+        source("Château de Vincennes (monument) · Wikipédia", wiki("Château de Vincennes")),
+      ],
+    },
   ),
 ];
 
