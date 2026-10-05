@@ -1,5 +1,5 @@
 /**
- * contra2: blendsrc, plus the passage answer's `contradicted` with weight 0.2 (RISK_WEIGHTS has 0). The pair takes
+ * contra2: blendsrc, plus the passage answer's `contradicted` with weight 0.2 (FACTS2_RISK_WEIGHTS has 0). The pair takes
  * the max over its claims, as for the other small parts.
  * Hypothesis: `contradicted` separates planted single-detail errors from supported pairs (mean 0.77 vs 0.29 per
  * claim) and does not hurt the real problems. No new Jev calls.
@@ -7,7 +7,7 @@
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { jevCacheOptions, jevRequest, toJevAnswer, type JevAnswer, type JevState } from "../../jev";
-import { claimRisk, rankPairs, RISK_WEIGHTS, type ClaimRow } from "../../rank";
+import { claimRisk, rankPairs, FACTS2_RISK_WEIGHTS, type ClaimRow } from "../../rank";
 import { cleanSourceText } from "../../retrieve";
 import { cachePath, type SourceDoc } from "../../sources";
 import { stateFor, stationKey, type Dataset, type DatasetClaim, type DatasetItem } from "../build-dataset";
@@ -43,7 +43,7 @@ function wholeState(ds: Dataset, item: DatasetItem, claim: DatasetClaim): JevSta
   return passages.length ? { ...base, passages } : undefined;
 }
 
-const WEIGHTS = { ...RISK_WEIGHTS, contradicted: 0.2 };
+const WEIGHTS = { ...FACTS2_RISK_WEIGHTS, contradicted: 0.2 };
 
 const config: LabConfig = {
   name: "contra2",

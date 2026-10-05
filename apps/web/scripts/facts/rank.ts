@@ -1,15 +1,22 @@
 /**
- * Risk scoring. All weights live in RISK_WEIGHTS. A claim's risk adds up its weighted signals. A pair (the EN and
- * FR sentences of one aligned group) takes, for each signal, the strongest value among its claims, and adds those up.
- * The `unsupported` part of a pair is therefore w × (1 − the lowest `supported` of its claims).
+ * Risk scoring (ranker facts-3). All weights live in RISK_WEIGHTS. A claim's risk adds up its weighted signals. A
+ * pair (the EN and FR sentences of one aligned group) takes the mean of its claims' `unsupported` parts and, for each
+ * other signal, the strongest value among its claims, and adds those up.
  *
- * The weights come from the pass-1 review (docs/facts/2026-10-05-fact-check.md, 80 labelled pairs):
+ * Each claim's Jev `supported` is the mean of the passage answer and the whole-source answer (jev.ts, `blendAnswers`).
+ *
+ * facts-2 weights came from the pass-1 review (docs/facts/2026-10-05-fact-check.md, 80 labelled pairs):
  * - Low `supported` was the best signal for errors and for claims the cited sources do not state, so it dominates.
  * - Unmatched numbers mostly meant a missing source (the date was in another article), not an error. Weaker weight.
  * - `best_passage = none` was more frequent for unsourced claims (17 of 32) than for supported ones (8 of 39).
- * - High `contradicted` was not predictive (25 of 39 supported pairs had ≥ 0.5) and EN/FR disagreement pointed to
- *   false alarms (21 of 39 supported pairs, none of the confirmed problems). Both have weight 0; they are still
- *   computed and shown in the report.
+ * - EN/FR disagreement pointed to false alarms (21 of 39 supported pairs, none of the confirmed problems). Weight 0;
+ *   it is still computed and shown in the report.
+ *
+ * facts-3 changes, tuned in the fact lab (lab/NOTES.md; dev AP 0.840 → 0.907, val AP 0.862 → 0.890):
+ * - The pair's `unsupported` part is the mean over its claims, not the max: a low `supported` in one locale only is
+ *   mostly Jev noise (iteration 3, +0.022 AP).
+ * - `contradicted` has weight 0.2. It separates changed single details (planted errors) from supported claims; on
+ *   real problems it gives no gain (iteration 10, +0.029 AP on dev, planted errors only on val).
  *
  * Pairs that match a known source conflict (known-conflicts.ts) are left out of the ranking and returned apart.
  */
@@ -18,11 +25,16 @@ import type { JevAnswer } from "./jev";
 import { KNOWN_CONFLICTS, matchKnownConflict, type KnownConflict } from "./known-conflicts";
 import type { FactMatch } from "./numbers";
 
+/** Label for the ranking rules (weights, pair rule, blended answers) in results.json and ranked.md. */
+export const RANKER_VERSION = "facts-3";
+
 export const RISK_WEIGHTS = {
   /** × (1 − Jev `supported`). */
   unsupported: 1,
-  /** × Jev `contradicted` (0–1). Not predictive in pass 1. */
-  contradicted: 0,
+  /** Share of the mean in the pair's `unsupported` part: 1 = mean over the pair's claims, 0 = max (facts-2). */
+  unsupportedPairMean: 1,
+  /** × Jev `contradicted` (0–1) of the passage answer. */
+  contradicted: 0.2,
   /** Per unmatched number, year or date in the claim (number words count half), up to `unmatchedNumberCap`. */
   unmatchedNumber: 0.1,
   unmatchedNumberCap: 0.2,
@@ -37,6 +49,9 @@ export const RISK_WEIGHTS = {
 } as const;
 
 export type RiskWeights = { readonly [K in keyof typeof RISK_WEIGHTS]: number };
+
+/** The facts-2 weights (max over the pair's claims, `contradicted` 0). The fact lab's baseline config uses them. */
+export const FACTS2_RISK_WEIGHTS: RiskWeights = { ...RISK_WEIGHTS, unsupportedPairMean: 0, contradicted: 0 };
 
 export type ClaimRow = Claim & {
   numbers: FactMatch[];
@@ -78,7 +93,7 @@ export function claimRisk(
 export type PairRow = {
   pairKey: string;
   risk: number;
-  /** For each signal, the strongest value among the pair's claims. */
+  /** `unsupported`: mean (or max, see `unsupportedPairMean`) over the pair's claims; other signals: the strongest value. */
   riskParts: Record<string, number>;
   /** |max risk(EN) − max risk(FR)|; shown in the report, weighted by `pairDisagreement`. */
   disagreement: number;
@@ -107,8 +122,13 @@ export function rankPairs(
     const disagreement = re !== undefined && rf !== undefined ? Math.abs(re - rf) : 0;
     const parts: Record<string, number> = {};
     for (const r of group) for (const [k, v] of Object.entries(r.riskParts)) parts[k] = Math.max(parts[k] ?? 0, v);
+    const unsupportedMean = group.reduce((s, r) => s + (r.riskParts.unsupported ?? 0), 0) / group.length;
+    const unsupported = w.unsupportedPairMean * unsupportedMean + (1 - w.unsupportedPairMean) * (parts.unsupported ?? 0);
+    // 4 decimals: the mean of two 3-decimal claim parts is exact, so the ranking keeps their order.
+    if (unsupported > 0) parts.unsupported = round(unsupported, 4);
+    else delete parts.unsupported;
     if (w.pairDisagreement * disagreement > 0) parts.disagreement = round(w.pairDisagreement * disagreement);
-    const risk = round(Object.values(parts).reduce((a, b) => a + b, 0));
+    const risk = round(Object.values(parts).reduce((a, b) => a + b, 0), 4);
     const pair: PairRow = { pairKey, risk, riskParts: parts, disagreement: round(disagreement), en, fr };
     const first = group[0]!;
     const conflict = matchKnownConflict({ lineId: first.lineId, stationId: first.stationId, field: first.field, texts: group.map((r) => r.text) }, conflicts);

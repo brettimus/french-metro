@@ -1,8 +1,8 @@
 import { describe, expect, test } from "bun:test";
 import { alignSentences, buildClaims, splitField } from "../scripts/facts/claims";
 import { buildNumberIndex, extractNumbers, matchFact, parseNumber, romanToInt } from "../scripts/facts/numbers";
-import { buildQuestions, MODEL } from "../scripts/facts/jev";
-import { claimRisk, rankPairs, RISK_WEIGHTS, staleConflicts, type ClaimRow } from "../scripts/facts/rank";
+import { blendAnswers, buildQuestions, MODEL, wholeSourceState } from "../scripts/facts/jev";
+import { claimRisk, FACTS2_RISK_WEIGHTS, rankPairs, RISK_WEIGHTS, staleConflicts, type ClaimRow } from "../scripts/facts/rank";
 import { KNOWN_CONFLICTS, matchKnownConflict } from "../scripts/facts/known-conflicts";
 import { compactLine } from "../scripts/facts/run";
 import { Bm25Index, buildQuery, chunkText, cleanSourceText, type Passage } from "../scripts/facts/retrieve";
@@ -208,18 +208,19 @@ describe("risk", () => {
     expect(r.risk).toBeCloseTo(w.contradicted * 0.9 + w.unsupported * 0.8 + w.noPassage + w.unmatchedNumber + w.fetchFailure, 3);
   });
 
-  test("pairs take the strongest value of each signal among their claims", () => {
+  test("pairs take the mean unsupported part and the strongest value of each other signal", () => {
     const en = row({ risk: 0.6, riskParts: { unsupported: 0.6 } });
     const fr = row({ id: "1/a/context/fr/1", locale: "fr", risk: 0.3, riskParts: { unsupported: 0.1, numbers: 0.2 } });
     const other = row({ id: "1/b/context/en/1", pairKey: "1/b/context/1", risk: 0.3, riskParts: { unsupported: 0.3 } });
     const { pairs, excluded } = rankPairs([en, fr, other]);
     expect(excluded).toEqual([]);
     expect(pairs.map((p) => p.pairKey)).toEqual(["1/a/context/1", "1/b/context/1"]);
-    expect(pairs[0]!.risk).toBeCloseTo(0.6 + 0.2 + RISK_WEIGHTS.pairDisagreement * 0.3, 3);
+    expect(pairs[0]!.riskParts).toEqual({ unsupported: 0.35, numbers: 0.2 });
+    expect(pairs[0]!.risk).toBeCloseTo(0.35 + 0.2 + RISK_WEIGHTS.pairDisagreement * 0.3, 3);
     expect(pairs[0]!.disagreement).toBeCloseTo(0.3, 3);
   });
 
-  test("the unsupported part of a pair uses its lowest supported score", () => {
+  test("the unsupported part of a pair is the mean over its claims (facts-2: the lowest supported score)", () => {
     const jev = (supported: number) => ({ supported, contradicted: 0, bestPassage: "p1", ms: 0, cached: false });
     const scored = (over: Partial<ClaimRow>) => {
       const r = row(over);
@@ -227,7 +228,14 @@ describe("risk", () => {
       return { ...r, risk, riskParts: parts };
     };
     const { pairs } = rankPairs([scored({ jev: jev(0.9) }), scored({ id: "1/a/context/fr/1", locale: "fr", jev: jev(0.2) })]);
-    expect(pairs[0]!.riskParts.unsupported).toBeCloseTo(RISK_WEIGHTS.unsupported * 0.8, 3);
+    expect(pairs[0]!.riskParts.unsupported).toBeCloseTo(RISK_WEIGHTS.unsupported * (0.1 + 0.8) / 2, 4);
+    const old = (over: Partial<ClaimRow>) => {
+      const r = row(over);
+      const { risk, parts } = claimRisk(r, FACTS2_RISK_WEIGHTS);
+      return { ...r, risk, riskParts: parts };
+    };
+    const facts2 = rankPairs([old({ jev: jev(0.9) }), old({ id: "1/a/context/fr/1", locale: "fr", jev: jev(0.2) })], FACTS2_RISK_WEIGHTS);
+    expect(facts2.pairs[0]!.riskParts.unsupported).toBeCloseTo(0.8, 3);
   });
 
   test("known conflicts are left out of the ranking and stale entries are reported", () => {
@@ -251,6 +259,23 @@ describe("risk", () => {
 });
 
 describe("jev questions and report lines", () => {
+  test("blendAnswers: mean supported when both answers exist, passage answer when the whole-source one failed", () => {
+    const passage = { supported: 0.2, contradicted: 0.7, bestPassage: "p2", ms: 1, cached: true };
+    const whole = { supported: 0.8, contradicted: 0.1, bestPassage: "s1", ms: 2, cached: true };
+    expect(blendAnswers(passage, whole)).toEqual({ ...passage, supported: 0.5, passageSupported: 0.2, wholeSupported: 0.8 });
+    expect(blendAnswers(passage, { ms: 0, cached: false, error: "max_tokens_exceeded" })).toEqual({ ...passage, passageSupported: 0.2, wholeSupported: undefined, wholeError: "max_tokens_exceeded" });
+    expect(blendAnswers(passage, undefined)).toEqual(passage);
+    expect(blendAnswers({ ms: 0, cached: false, error: "timeout" }, whole).supported).toBe(0.8);
+  });
+
+  test("wholeSourceState replaces the passages with one entry per source and keeps the key order", () => {
+    const state = { claim: "c", previous_sentence: "p", station: "S", field: "f", passages: [{ id: "p1", source: "a", text: "t" }] };
+    const whole = wholeSourceState(state, [{ source: "fr.wikipedia.org: S", text: "long" }, { source: "b", text: "x" }])!;
+    expect(Object.keys(whole)).toEqual(["claim", "previous_sentence", "station", "field", "passages"]);
+    expect(whole.passages).toEqual([{ id: "s1", source: "fr.wikipedia.org: S", text: "long" }, { id: "s2", source: "b", text: "x" }]);
+    expect(wholeSourceState(state, [])).toBeUndefined();
+  });
+
   test("questions: two Nouls and a Choice over passage ids plus none, model pinned", () => {
     const q = buildQuestions(["p1", "p2"]) as Record<string, { type: string; criteria?: Record<string, unknown> }>;
     expect(q.supported!.type).toBe("noul");
@@ -270,6 +295,6 @@ describe("jev questions and report lines", () => {
       unmatched: [{ fact: { kind: "year", raw: "1922", key: "y:1922" }, matched: false }],
       jev: { supported: 0.9, contradicted: 0.1, bestPassage: "none", ms: 0, cached: false } } as unknown as ClaimRow;
     const [pair] = rankPairs([en, fr]).pairs;
-    expect(compactLine(1, pair!)).toBe("1 | 9/x/context/en/1 | 0.40 | en 0.30 fr 0.90 | en 0.60 fr 0.10 | fr:1922 | Opened in 1922. | https://a");
+    expect(compactLine(1, pair!)).toBe("1 | 9/x/context/en/1 | 0.20 | en 0.30 fr 0.90 | en 0.60 fr 0.10 | fr:1922 | Opened in 1922. | https://a");
   });
 });

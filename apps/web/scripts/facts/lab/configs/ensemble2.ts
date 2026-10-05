@@ -7,7 +7,7 @@
  */
 import { noul } from "@typesafe-ai/sdk";
 import { jevCacheOptions, jevRequest, MODEL, toJevAnswer, type JevAnswer } from "../../jev";
-import { claimRisk, rankPairs, RISK_WEIGHTS, type ClaimRow } from "../../rank";
+import { claimRisk, rankPairs, FACTS2_RISK_WEIGHTS, type ClaimRow } from "../../rank";
 import { stateFor } from "../build-dataset";
 import type { LabConfig } from "../config";
 
@@ -42,7 +42,7 @@ const config: LabConfig = {
       const conf = alt?.ok ? (alt.entry.answers.confirmable as { noul?: number } | undefined)?.noul : undefined;
       if (jev.supported !== undefined && conf !== undefined) jev = { ...jev, supported: (jev.supported + conf) / 2 };
       const passages = claim.passages.map((p) => ({ id: p.id, score: p.score, ...ds.passages[p.ref]! }));
-      const { risk, parts } = claimRisk({ unmatched: claim.numbers.filter((m) => !m.matched), passages, jev, fetchFailure: station.fetchFailure }, RISK_WEIGHTS);
+      const { risk, parts } = claimRisk({ unmatched: claim.numbers.filter((m) => !m.matched), passages, jev, fetchFailure: station.fetchFailure }, FACTS2_RISK_WEIGHTS);
       return {
         id: claim.id,
         pairKey: item.pairKey,
@@ -55,7 +55,7 @@ const config: LabConfig = {
         riskParts: parts,
       } as unknown as ClaimRow;
     });
-    const { excluded } = rankPairs(rows, RISK_WEIGHTS);
+    const { excluded } = rankPairs(rows, FACTS2_RISK_WEIGHTS);
     if (excluded.length) return { risk: excluded[0]!.risk, excluded: `known conflict: ${excluded[0]!.conflict.note.slice(0, 60)}` };
     const parts: Record<string, number> = {};
     for (const r of rows) for (const [k, v] of Object.entries(r.riskParts)) if (k !== "unsupported") parts[k] = Math.max(parts[k] ?? 0, v);

@@ -14,15 +14,16 @@
  *   --dry-run       sources, retrieval and number checks only; no Jev calls (cached Jev answers are still used)
  *
  * Steps: fetch sources (sources.ts) → split claims (claims.ts) → retrieve 5 passages per claim (retrieve.ts) →
- * number/date checks in code (numbers.ts) → one Jev request per claim (jev.ts) → risk and ranking (rank.ts).
+ * number/date checks in code (numbers.ts) → two Jev requests per claim, one on the passages and one on the whole
+ * station sources, blended (jev.ts) → risk and ranking (rank.ts, ranker facts-3).
  * Reads TYPESAFE_API_KEY from the environment or the repo-root .env.
  */
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { buildClaims, type Claim } from "./claims";
-import { askJev, fieldLabel, loadApiKey, makeClient, MODEL, QUESTION_VERSION, type JevState } from "./jev";
+import { askJev, askJevWholeSource, blendAnswers, fieldLabel, loadApiKey, makeClient, MODEL, QUESTION_VERSION, wholeSourceState, type JevAnswer, type JevState } from "./jev";
 import { buildNumberIndex, extractNumbers, matchFact, type NumberIndex } from "./numbers";
-import { claimRisk, rankPairs, RISK_WEIGHTS, round, staleConflicts, type ClaimRow, type ExcludedPair, type PairRow } from "./rank";
+import { claimRisk, RANKER_VERSION, rankPairs, RISK_WEIGHTS, round, staleConflicts, type ClaimRow, type ExcludedPair, type PairRow } from "./rank";
 import { Bm25Index, buildQuery, chunkText, cleanSourceText, type Passage } from "./retrieve";
 import { failureKind, fetchAll, mapPool, stationRefs, stationUrls, type SourceDoc, type UrlRole } from "./sources";
 import { tokenize } from "./text";
@@ -101,12 +102,16 @@ async function main() {
     );
   }
   const index = new Bm25Index([...passagesByUrl.values()].flat());
-  const stationInfo = new Map<string, { passages: Passage[]; numbers: NumberIndex; fetchFailure: number; failures: { url: string; role: UrlRole }[] }>();
+  const stationInfo = new Map<
+    string,
+    { passages: Passage[]; sources: { source: string; text: string }[]; numbers: NumberIndex; fetchFailure: number; failures: { url: string; role: UrlRole }[] }
+  >();
   for (const [key, urls] of urlRoles) {
     const ok = urls.filter((u) => docs.get(u.url)?.status === "ok");
     const failures = urls.filter((u) => docs.get(u.url)?.status !== "ok");
     stationInfo.set(key, {
       passages: ok.flatMap((u) => passagesByUrl.get(u.url) ?? []),
+      sources: ok.map((u) => ({ source: sourceLabel(docs.get(u.url)!), text: cleanSourceText(docs.get(u.url)!.text) })),
       numbers: buildNumberIndex(ok.map((u) => cleanSourceText(docs.get(u.url)!.text))),
       fetchFailure: failures.some((f) => f.role === "source") ? 1 : failures.length ? 0.5 : 0,
       failures,
@@ -114,7 +119,7 @@ async function main() {
   }
 
   // 4. Retrieval, number checks and Jev state per claim.
-  type Prepared = { claim: Claim; state: JevState; numbers: ClaimRow["numbers"]; passages: ClaimRow["passages"]; fetchFailure: number };
+  type Prepared = { claim: Claim; state: JevState; whole?: JevState; numbers: ClaimRow["numbers"]; passages: ClaimRow["passages"]; fetchFailure: number };
   const prepared: Prepared[] = claims.map((claim) => {
     const info = stationInfo.get(stationKey(claim.lineId, claim.stationId))!;
     const query = buildQuery([
@@ -137,7 +142,7 @@ async function main() {
       field: fieldLabel(claim.field),
       passages: passages.map((p) => ({ id: p.id, source: sourceLabel(docs.get(p.url)!), text: p.text })),
     };
-    return { claim, state, numbers, passages, fetchFailure: info.fetchFailure };
+    return { claim, state, whole: wholeSourceState(state, info.sources), numbers, passages, fetchFailure: info.fetchFailure };
   });
 
   // 5. Jev.
@@ -146,12 +151,18 @@ async function main() {
   const client = apiKey ? makeClient(apiKey) : undefined;
   const tJev = performance.now();
   let done = 0;
-  const answers = await mapPool(prepared, args.concurrency, async (p) => {
-    const a = p.passages.length ? await askJev(client, p.state) : { ms: 0, cached: false, error: NO_PASSAGES };
+  // A claim with no retrieved passage gets no Jev request at all.
+  const raw = await mapPool(prepared, args.concurrency, async (p): Promise<{ passage: JevAnswer; whole?: JevAnswer }> => {
+    const a = p.passages.length
+      ? { passage: await askJev(client, p.state), whole: p.whole ? await askJevWholeSource(client, p.whole) : undefined }
+      : { passage: { ms: 0, cached: false, error: NO_PASSAGES } };
     done++;
     if (done % 100 === 0 || done === prepared.length) process.stderr.write(`\rjev ${done}/${prepared.length}`);
     return a;
   });
+  const answers = raw.map((r) => blendAnswers(r.passage, r.whole));
+  const requests = raw.flatMap((r) => [r.passage, ...(r.whole ? [r.whole] : [])]);
+  const wholeAnswers = raw.flatMap((r) => (r.whole ? [r.whole] : []));
   process.stderr.write("\n");
   const jevMs = performance.now() - tJev;
 
@@ -166,8 +177,8 @@ async function main() {
   const stale = args.line || args.limit ? [] : staleConflicts(excluded);
 
   // Stats.
-  const live = answers.filter((a) => !a.cached && !a.error);
-  const usage = answers.reduce((s, a) => ({ input: s.input + (a.usage?.input_tokens ?? 0), output: s.output + (a.usage?.output_tokens ?? 0) }), { input: 0, output: 0 });
+  const live = requests.filter((a) => !a.cached && !a.error);
+  const usage = requests.reduce((s, a) => ({ input: s.input + (a.usage?.input_tokens ?? 0), output: s.output + (a.usage?.output_tokens ?? 0) }), { input: 0, output: 0 });
   const liveUsage = live.reduce((s, a) => s + (a.usage?.input_tokens ?? 0), 0);
   const failures = [...docs.values()].filter((d) => d.status !== "ok").map((d) => ({ kind: failureKind(d), httpStatus: d.httpStatus, url: d.url, error: d.error, stations: [...urlRoles].filter(([, us]) => us.some((u) => u.url === d.url)).map(([k, us]) => `${k} (${us.find((u) => u.url === d.url)!.role})`) }));
   const redirects = [...docs.values()].filter((d) => d.redirectedTo).map((d) => ({ url: d.url, redirectedTo: d.redirectedTo }));
@@ -179,6 +190,7 @@ async function main() {
   const stats = {
     model: MODEL,
     questionVersion: QUESTION_VERSION,
+    ranker: RANKER_VERSION,
     generatedAt: new Date().toISOString(),
     args: { ...args, out: undefined },
     claims: rows.length,
@@ -186,11 +198,13 @@ async function main() {
     stations: refs.length,
     urls: docs.size,
     requests: {
-      total: answers.filter((a) => a.error !== NO_PASSAGES).length,
+      total: requests.filter((a) => a.error !== NO_PASSAGES).length,
       live: live.length,
-      cached: answers.filter((a) => a.cached).length,
-      errors: answers.filter((a) => a.error && a.error !== NO_PASSAGES).length,
-      skippedNoPassages: answers.filter((a) => a.error === NO_PASSAGES).length,
+      cached: requests.filter((a) => a.cached).length,
+      errors: requests.filter((a) => a.error && a.error !== NO_PASSAGES).length,
+      skippedNoPassages: requests.filter((a) => a.error === NO_PASSAGES).length,
+      wholeSource: wholeAnswers.length,
+      wholeSourceErrors: wholeAnswers.filter((a) => a.error).length,
     },
     tokens: { input: usage.input, output: usage.output, liveInput: liveUsage },
     timeSeconds: { total: round((performance.now() - t0) / 1000, 1), fetch: round(fetchMs / 1000, 1), jev: round(jevMs / 1000, 1) },
@@ -232,9 +246,10 @@ export function compactLine(rank: number, p: PairRow): string {
 function renderMarkdown(stats: Record<string, any>, pairs: PairRow[], excluded: ExcludedPair[], top: number): string {
   const out: string[] = [];
   out.push(`# Station fact check: claims ranked by risk`, "");
-  out.push(`Model ${stats.model}, questions ${stats.questionVersion}, ${stats.generatedAt}.`, "");
+  out.push(`Model ${stats.model}, questions ${stats.questionVersion}, ranker ${stats.ranker}, ${stats.generatedAt}.`, "");
   out.push(`- Claims: ${stats.claims} (${stats.pairs} EN/FR pairs, ${stats.stations} station entries)`);
   out.push(`- Jev requests: ${stats.requests.total} (${stats.requests.live} live, ${stats.requests.cached} cached, ${stats.requests.errors} errors, ${stats.requests.skippedNoPassages} claims skipped with no passages)`);
+  out.push(`- Whole-source requests: ${stats.requests.wholeSource} (${stats.requests.wholeSourceErrors} errors; those claims use the passage answer only)`);
   out.push(`- Tokens: ${stats.tokens.input} input (${stats.tokens.liveInput} live), ${stats.tokens.output} output`);
   out.push(`- Time: ${stats.timeSeconds.total}s (fetch ${stats.timeSeconds.fetch}s, Jev ${stats.timeSeconds.jev}s)`);
   out.push(`- Numbers checked in code: ${stats.distribution.numbersChecked}; unmatched ${stats.distribution.unmatchedNumbers} in ${stats.distribution.claimsWithUnmatchedNumbers} claims`, "");
@@ -262,7 +277,8 @@ function renderMarkdown(stats: Record<string, any>, pairs: PairRow[], excluded: 
     out.push(`### ${i + 1}. ${p.pairKey} (risk ${p.risk.toFixed(2)}${p.disagreement >= 0.15 ? `, EN/FR differ by ${p.disagreement.toFixed(2)}` : ""})`, "");
     out.push(`Risk parts: ${Object.entries(p.riskParts).map(([k, v]) => `${k} ${v.toFixed(2)}`).join(", ") || "none"}`, "");
     for (const r of [...p.en, ...p.fr]) {
-      out.push(`- **${r.id}** risk ${r.risk.toFixed(2)} · supported ${fmt(r.jev.supported)} · contradicted ${fmt(r.jev.contradicted)} · best ${r.jev.bestPassage ?? "–"}${r.jev.error ? ` · error: ${r.jev.error}` : ""}`);
+      const blend = r.jev.passageSupported !== undefined || r.jev.wholeSupported !== undefined ? ` (passages ${fmt(r.jev.passageSupported)}, whole sources ${r.jev.wholeError ? "error" : fmt(r.jev.wholeSupported)})` : "";
+      out.push(`- **${r.id}** risk ${r.risk.toFixed(2)} · supported ${fmt(r.jev.supported)}${blend} · contradicted ${fmt(r.jev.contradicted)} · best ${r.jev.bestPassage ?? "–"}${r.jev.error ? ` · error: ${r.jev.error}` : ""}`);
       out.push(`  ${r.text}`);
       if (r.unmatched.length) out.push(`  Unmatched: ${r.unmatched.map((m) => `${m.fact.raw.trim()} [${m.fact.key}]${m.note ? ` (${m.note})` : ""}`).join(", ")}`);
       const best = r.passages.find((x) => x.id === r.jev.bestPassage);

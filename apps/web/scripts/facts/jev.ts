@@ -2,6 +2,10 @@
  * Jev questions for one claim and its retrieved passages, plus a request runner that uses the content-addressed
  * cache in ../jev-cache.ts (key: model + questions + state), so a rerun only pays for changed claims or questions.
  * Files under the old key (model + QUESTION_VERSION + state) are still read.
+ *
+ * Each claim gets two requests with the same questions: one on the retrieved passages (`askJev`) and one on the whole
+ * cleaned text of each fetched station source (`askJevWholeSource`). `blendAnswers` joins them (ranker facts-3; see
+ * lab/NOTES.md, iterations 6, 7 and 10).
  */
 import { createHash } from "node:crypto";
 import { existsSync, readFileSync } from "node:fs";
@@ -54,7 +58,12 @@ export function buildQuestions(passageIds: string[], hasPrevious = false): Quest
 }
 
 export type JevAnswer = {
+  /** After `blendAnswers`: the mean of the passage and whole-source values when both exist. */
   supported?: number;
+  /** Set by `blendAnswers`: the passage answer's `supported` and the whole-source answer (value or error). */
+  passageSupported?: number;
+  wholeSupported?: number;
+  wholeError?: string;
   contradicted?: number;
   bestPassage?: string;
   bestPassageConfidence?: number;
@@ -117,6 +126,35 @@ export function toJevAnswer(r: JevCacheResult): JevAnswer {
 
 export async function askJev(client: TypeSafeClient | undefined, state: JevState, dir?: string): Promise<JevAnswer> {
   return toJevAnswer(await cachedSystemOne(client, jevRequest(state), jevCacheOptions(state, dir)));
+}
+
+/** The whole-source request. It has no old-key fallback: no file was written under the old key for it. */
+export async function askJevWholeSource(client: TypeSafeClient | undefined, state: JevState, dir?: string): Promise<JevAnswer> {
+  return toJevAnswer(await cachedSystemOne(client, jevRequest(state), { dir }));
+}
+
+/**
+ * The claim state with the whole cleaned text of each fetched station source (ids s1, s2, ...) in place of the
+ * retrieved passages; undefined when the station has no fetched source. Long states can fail with
+ * max_tokens_exceeded; `blendAnswers` then keeps the passage answer.
+ */
+export function wholeSourceState(state: JevState, sources: { source: string; text: string }[]): JevState | undefined {
+  if (!sources.length) return undefined;
+  return { ...state, passages: sources.map((s, i) => ({ id: `s${i + 1}`, source: s.source, text: s.text })) };
+}
+
+/**
+ * One answer per claim from the passage answer and the whole-source answer. `supported` is the mean of the two when
+ * both exist. The whole-source answer alone is used only when the passage answer failed. `contradicted` and
+ * `best_passage` come from the passage answer. Reading the whole sources removes many false alarms from retrieval
+ * misses; the passages keep single changed details visible (lab iteration 7).
+ */
+export function blendAnswers(passage: JevAnswer, whole: JevAnswer | undefined): JevAnswer {
+  const ok = (a: JevAnswer | undefined): a is JevAnswer & { supported: number } => !!a && !a.error && a.supported !== undefined;
+  const info = { passageSupported: passage.supported, wholeSupported: whole?.supported, ...(whole?.error ? { wholeError: whole.error } : {}) };
+  if (ok(whole) && ok(passage)) return { ...passage, ...info, supported: (passage.supported + whole.supported) / 2 };
+  if (ok(whole)) return { ...whole, ...info };
+  return whole ? { ...passage, ...info } : passage;
 }
 
 export function loadApiKey(): string | undefined {

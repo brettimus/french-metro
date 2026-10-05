@@ -8,7 +8,7 @@
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { jevCacheOptions, jevRequest, toJevAnswer, type JevAnswer, type JevState } from "../../jev";
-import { claimRisk, rankPairs, RISK_WEIGHTS, type ClaimRow } from "../../rank";
+import { claimRisk, rankPairs, FACTS2_RISK_WEIGHTS, type ClaimRow } from "../../rank";
 import { cleanSourceText } from "../../retrieve";
 import { cachePath, type SourceDoc } from "../../sources";
 import { stateFor, stationKey, type Dataset, type DatasetClaim, type DatasetItem } from "../build-dataset";
@@ -44,7 +44,7 @@ function wholeState(ds: Dataset, item: DatasetItem, claim: DatasetClaim): JevSta
   return passages.length ? { ...base, passages } : undefined;
 }
 
-const WEIGHTS = { ...RISK_WEIGHTS, contradicted: 0.2 };
+const WEIGHTS = { ...FACTS2_RISK_WEIGHTS, contradicted: 0.2 };
 const PERPASS_W = Number(process.env.PERPASS_W ?? 1);
 
 const config: LabConfig = {

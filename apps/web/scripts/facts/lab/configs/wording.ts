@@ -5,7 +5,7 @@
  * Pair risk = baseline pair risk + WORDING_WEIGHT if a claim of the pair (EN or FR) contains such a word.
  */
 import { jevCacheOptions, jevRequest, toJevAnswer, type JevAnswer } from "../../jev";
-import { claimRisk, rankPairs, RISK_WEIGHTS, type ClaimRow } from "../../rank";
+import { claimRisk, rankPairs, FACTS2_RISK_WEIGHTS, type ClaimRow } from "../../rank";
 import { stateFor } from "../build-dataset";
 import type { LabConfig } from "../config";
 
@@ -37,7 +37,7 @@ const config: LabConfig = {
       flag ||= hasWordingFlag(claim.locale, claim.text);
       const jev = results[0] ? toJevAnswer(results[0]) : NO_PASSAGES;
       const passages = claim.passages.map((p) => ({ id: p.id, score: p.score, ...ds.passages[p.ref]! }));
-      const { risk, parts } = claimRisk({ unmatched: claim.numbers.filter((m) => !m.matched), passages, jev, fetchFailure: station.fetchFailure }, RISK_WEIGHTS);
+      const { risk, parts } = claimRisk({ unmatched: claim.numbers.filter((m) => !m.matched), passages, jev, fetchFailure: station.fetchFailure }, FACTS2_RISK_WEIGHTS);
       return {
         id: claim.id,
         pairKey: item.pairKey,
@@ -50,7 +50,7 @@ const config: LabConfig = {
         riskParts: parts,
       } as unknown as ClaimRow;
     });
-    const { pairs, excluded } = rankPairs(rows, RISK_WEIGHTS);
+    const { pairs, excluded } = rankPairs(rows, FACTS2_RISK_WEIGHTS);
     const add = flag ? WORDING_WEIGHT : 0;
     if (excluded.length) return { risk: excluded[0]!.risk + add, excluded: `known conflict: ${excluded[0]!.conflict.note.slice(0, 60)}` };
     return { risk: Math.round((pairs[0]!.risk + add) * 1000) / 1000 };

@@ -13,7 +13,7 @@ import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { cachedSystemOne, type JevCacheResult } from "../../../jev-cache";
 import { jevCacheOptions, jevRequest, toJevAnswer, type JevAnswer, type JevState } from "../../jev";
-import { claimRisk, rankPairs, RISK_WEIGHTS, type ClaimRow } from "../../rank";
+import { claimRisk, rankPairs, FACTS2_RISK_WEIGHTS, type ClaimRow } from "../../rank";
 import { cleanSourceText } from "../../retrieve";
 import { cachePath, type SourceDoc } from "../../sources";
 import { loadDataset, stateFor, stationKey, type Dataset, type DatasetClaim, type DatasetItem, type DatasetStation } from "../build-dataset";
@@ -49,7 +49,7 @@ function wholeState(ds: Dataset, item: DatasetItem, claim: DatasetClaim): JevSta
   return passages.length ? { ...base, passages } : undefined;
 }
 
-const WEIGHTS = { ...RISK_WEIGHTS, contradicted: 0.2 };
+const WEIGHTS = { ...FACTS2_RISK_WEIGHTS, contradicted: 0.2 };
 const L2 = Number(process.env.LRCOMBO_L2 ?? "1");
 
 function requests(ds: Dataset, item: DatasetItem, claim: DatasetClaim): LabRequest[] {
@@ -87,7 +87,7 @@ function features(ds: Dataset, item: DatasetItem, station: DatasetStation, claim
     max((p) => 1 - (p.pSup + p.wSup) / 2),
     max((p) => p.contra),
     max((p) => (p.parts.noPassage ? 1 : 0)),
-    max((p) => (p.parts.numbers ?? 0) / RISK_WEIGHTS.unmatchedNumberCap),
+    max((p) => (p.parts.numbers ?? 0) / FACTS2_RISK_WEIGHTS.unmatchedNumberCap),
     station.fetchFailure,
     max((p) => (p.parts.jevError ? 1 : 0)),
   ];
@@ -133,7 +133,7 @@ function solve(A: number[][], b: number[]): number[] {
     for (let r = 0; r < n; r++) {
       if (r === c || M[c]![c] === 0) continue;
       const f = M[r]![c]! / M[c]![c]!;
-      for (let k = c; k <= n; k++) M[r]![k] -= f * M[c]![k]!;
+      for (let k = c; k <= n; k++) M[r]![k] = M[r]![k]! - f * M[c]![k]!;
     }
   }
   return M.map((r, i) => (r[i] ? r[n]! / r[i]! : 0));

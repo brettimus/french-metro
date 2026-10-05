@@ -18,8 +18,8 @@ Run all commands from the repository root.
 | `apps/web/scripts/facts/claims.ts` | Splits each field into sentences and aligns EN and FR sentences into pairs |
 | `apps/web/scripts/facts/retrieve.ts` | Cuts source texts into passages and ranks them per claim with BM25 |
 | `apps/web/scripts/facts/numbers.ts` | Extracts numbers, years and dates and compares them with the sources, in code |
-| `apps/web/scripts/facts/jev.ts` | The Jev questions and the model id. Requests go through the shared cache in `apps/web/scripts/jev-cache.ts` |
-| `apps/web/scripts/facts/rank.ts` | Risk weights (`RISK_WEIGHTS`) and the ranking. A pair takes the strongest value of each signal among its claims, so low `supported` in one locale is enough |
+| `apps/web/scripts/facts/jev.ts` | The Jev questions and the model id, the whole-source state (`wholeSourceState`) and the blend of the two answers (`blendAnswers`). Requests go through the shared cache in `apps/web/scripts/jev-cache.ts` |
+| `apps/web/scripts/facts/rank.ts` | Risk weights (`RISK_WEIGHTS`), the ranker label (`RANKER_VERSION`, now `facts-3`) and the ranking. A pair takes the mean of its claims' `unsupported` parts and the strongest value of each other signal. `FACTS2_RISK_WEIGHTS` keeps the earlier rules for the lab baseline |
 | `apps/web/scripts/facts/known-conflicts.ts` | Claims that keep a value a cited source contradicts, on purpose (for example the Saint-Mandé rename date). They are left out of the ranking and listed with their note in `ranked.md` |
 | `apps/web/scripts/facts/reviewed.ts` | Review labels: `PASS1_REVIEWED` (80 pairs), `PASS2_REVIEWED` (100 pairs) and `ALL_REVIEWED`, with verdicts and texts at review time |
 | `apps/web/scripts/facts/evaluate.ts` | Re-scores a review run with the current weights (no Jev calls) and measures the ranking against the labels (`--labels pass1\|pass2\|all`) |
@@ -48,7 +48,7 @@ The output lists each URL that is not ok (`broken`, `blocked` or `unreadable`) a
 bun apps/web/scripts/facts/run.ts --out apps/web/scripts/facts/out/full
 ```
 
-A full run (about 1,800 Jev requests) takes about 30 seconds when the sources are cached. Options:
+Each claim gets two Jev requests with the same questions: one on the 5 retrieved passages, and one on the whole cleaned text of every fetched station source. A full run has about 1,800 claims, so about 3,600 Jev requests. When the sources and answers are cached, it takes about 30 seconds. Options:
 
 | Option | Effect |
 |---|---|
@@ -60,7 +60,9 @@ A full run (about 1,800 Jev requests) takes about 30 seconds when the sources ar
 | `--refresh` | Refetch the sources instead of reading the cache |
 | `--dry-run` | Sources, retrieval and number checks only; no new Jev calls (cached answers are still used) |
 
-Jev answers are cached in `cache/jev/` by model, question text and request state, so a changed question never gets an old answer. A rerun pays only for claims whose text, passages or questions changed. Files under the older key (model, `QUESTION_VERSION` and state) are still read. Change `QUESTION_VERSION` when you change the questions, because `results.json` reports it.
+Jev answers are cached in `cache/jev/` by model, question text and request state, so a changed question never gets an old answer. A rerun pays only for claims whose text, passages or questions changed. Files under the older key (model, `QUESTION_VERSION` and state) are still read for the passage request; the whole-source request has no older key. Change `QUESTION_VERSION` when you change the questions, because `results.json` reports it. Change `RANKER_VERSION` in `rank.ts` when you change the weights or the way answers are combined.
+
+Some stations have very long sources (for example Chaussée d'Antin, Madeleine, Pasteur). Their whole-source state is too long for Jev (`max_tokens_exceeded`). Those claims use the passage answer only, and `ranked.md` counts them as whole-source errors. Errors are not cached, so each run sends these requests again.
 
 `cache/` and `out/` are gitignored.
 
@@ -69,7 +71,7 @@ Jev answers are cached in `cache/jev/` by model, question text and request state
 `ranked.md`:
 
 - Run figures, the distribution of `supported` and `contradicted`, fetch failures and Wikipedia redirects.
-- The top N pairs in detail: each claim with its risk, `supported`, `contradicted`, best passage, unmatched numbers, and the text of the best passage.
+- The top N pairs in detail: each claim with its risk, `supported` (the blended value, then the passage and whole-source values), `contradicted`, best passage, unmatched numbers, and the text of the best passage.
 - One compact line for every pair: rank, claim id, risk, scores, unmatched numbers, EN text, best source URL.
 
 `results.json` has the same data for every claim, with the risk parts, all five passages and the Jev request ids.
@@ -82,10 +84,10 @@ The 2026-10-05 run showed which signals to trust (see the report for the numbers
 
 - **Low `supported`** is the best signal. Most pairs below 0.2 were either wrong or not supported by the cited sources.
 - **Unmatched numbers** usually mean that the date is in another article (often the line article), not that it is wrong. Find the source and add it.
-- **High `contradicted`** alone is weak. Most of these claims were correct, and the passage was about a related fact. Two of the top pairs were errors in the source article, not in the copy.
-- **EN/FR disagreement** was mostly noise.
+- **High `contradicted`** alone is weak. Most of these claims were correct, and the passage was about a related fact. Two of the top pairs were errors in the source article, not in the copy. It helps to find a single changed detail (a date, a number, a name), so it has a small weight.
+- **EN/FR disagreement** was mostly noise. A low `supported` in one locale only is often Jev missing the fact in that language.
 
-The weights in `rank.ts` follow these findings: `unsupported` has weight 1, an unmatched number 0.1 (at most 0.2), `best_passage = none` 0.1, and `contradicted` and EN/FR disagreement 0. Run `bun apps/web/scripts/facts/evaluate.ts` after a change to the weights.
+The weights in `rank.ts` (ranker `facts-3`) follow these findings and the lab (see [Lab](#lab)): `unsupported` has weight 1 and the pair takes the mean over its claims, `contradicted` 0.2, an unmatched number 0.1 (at most 0.2), `best_passage = none` 0.1, and EN/FR disagreement 0. Each claim's `supported` is the mean of the passage answer and the whole-source answer. Run `bun apps/web/scripts/facts/evaluate.ts` after a change to the weights; it re-scores stored runs, so a run from before `facts-3` has no whole-source answers.
 
 When a claim keeps a value that a cited source gets wrong, and the research notes record why, add it to `known-conflicts.ts`. An entry matches on a text fragment of the claim. When the claim is rewritten, the entry stops matching and the run lists it as stale.
 
@@ -165,7 +167,7 @@ Copy the current best config, change one thing, and run it on dev with `--compar
 
 ### Baseline (`configs/baseline.ts`)
 
-The production ranker: the `facts-2` questions, `RISK_WEIGHTS` and known conflicts. Its requests are the ones the review runs sent, so the old-key cache answers them; only the planted claims needed live calls (54 requests, about 110k tokens, under $0.01).
+The production ranker before `facts-3`: the `facts-2` questions, `FACTS2_RISK_WEIGHTS` (the pair takes the max over its claims, `contradicted` 0) and known conflicts. The other tried configs also use `FACTS2_RISK_WEIGHTS`, so their numbers stay the ones in `NOTES.md`. Its requests are the ones the review runs sent, so the old-key cache answers them; only the planted claims needed live calls (54 requests, about 110k tokens, under $0.01).
 
 | Run | Items | AP (95% interval) | AUC | confR20 | plantR20 |
 |---|---|---|---|---|---|
@@ -175,3 +177,32 @@ The production ranker: the `facts-2` questions, `RISK_WEIGHTS` and known conflic
 With planted errors, the top 20 of dev holds 10 planted errors and no real confirmed problem, so read `confR20` on runs with `--no-planted` too.
 
 Parity with `evaluate.ts` on the 80 pass-1 labels (`--parity`): problem AUC 0.782 and confirmed AUC 0.667 with `evaluate.ts`'s tie-break (rank order, then pair key), the same as `evaluate.ts`. With ties counted half, they are 0.783 and 0.665.
+
+### Ranker facts-3 (`configs/contra2.ts`, in production)
+
+The lab tried 14 configs on dev (`lab/NOTES.md`, `lab/results.tsv`). Three changes were kept and are now in `rank.ts` and `jev.ts`:
+
+1. **Mean over the pair (meanpair):** the pair's `unsupported` part is the mean over its claims, not the max. Dev AP +0.022.
+2. **Whole-source blend (blendsrc):** a second request with the whole cleaned station sources. Each claim's `supported` is the mean of the passage answer and the whole-source answer. Dev AP +0.016. The whole sources alone gave fewer false alarms from retrieval misses but missed more planted errors.
+3. **`contradicted` at 0.2 (contra2):** the passage answer's `contradicted`, max over the pair. Dev AP +0.029.
+
+The questions did not change, so `QUESTION_VERSION` stays `facts-2` and the old-key cache still answers the passage requests. `RANKER_VERSION` is `facts-3`.
+
+| Metric | dev baseline | dev facts-3 | val baseline | val facts-3 |
+|---|---|---|---|---|
+| AP | 0.840 | 0.907 | 0.862 (0.749–0.948) | 0.890 (0.795–0.960) |
+| AP, no planted errors | 0.709 | 0.805 | 0.745 | 0.747 |
+| AUC | 0.851 | 0.903 | 0.811 | 0.842 |
+| confR20 | 0 | 0 | 0.667 | 0.333 |
+| plantR20 | 0.37 | 0.63 | 0.692 | 0.769 |
+| plantAuc | 0.968 | 0.974 | 0.877 | 0.942 |
+
+On val, p_better (facts-3 > baseline) is 0.815 on all items and 0.54 with no planted errors. Almost all of the val gain is on planted errors (mean score +0.107). On real problems facts-3 is equal to the baseline. The confR20 drop is one pair: val has only 3 real confirmed pairs. Planted errors are easier than real ones, so judge the next change on the no-planted metrics and on more real labels (pass 3).
+
+What did not help: questions that change how strict `supported` is (overstated, qualifier, a 5-level support score, a lenient main-fact question), a second wording of the question, one request per passage, and a fitted logistic combiner. With 165 dev items, the next gain must come from a new signal, not from new weights.
+
+`configs/production.ts` builds the same ranking from production code only (`jevRequest`, `wholeSourceState`, `blendAnswers`, `claimRisk`, `rankPairs` with the default weights). On dev it gives the same numbers as `contra2` (AP 0.907, no planted 0.805); on val, scored offline from the cache, it also matches (0.890, no planted 0.747). Run it after a change to `rank.ts` or `jev.ts`:
+
+```sh
+bun apps/web/scripts/facts/lab/harness.ts --config production --dry-run --compare contra2
+```

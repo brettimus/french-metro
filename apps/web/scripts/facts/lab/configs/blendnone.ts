@@ -3,7 +3,7 @@
  * best_passage is none" and "the whole-source answer's best_passage is none" (when both answers exist).
  * Hypothesis: on dev, the whole-source "none" rate is lower on supported claims (0.056) than the passage rate (0.092),
  * and about the same on unsourced and planted claims, so the blend removes part of the retrieval-miss false alarms
- * from this part too. No new Jev calls. Weight unchanged (RISK_WEIGHTS.noPassage).
+ * from this part too. No new Jev calls. Weight unchanged (FACTS2_RISK_WEIGHTS.noPassage).
  *
  * Copied from blendsrc: meanpair, but each claim's `supported` is the mean of the passage answer and the whole-source answer
  * (the wholesrc request, cached). `contradicted` and `best_passage` still come from the passage answer. If the
@@ -14,7 +14,7 @@
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { jevCacheOptions, jevRequest, toJevAnswer, type JevAnswer, type JevState } from "../../jev";
-import { claimRisk, rankPairs, RISK_WEIGHTS, type ClaimRow } from "../../rank";
+import { claimRisk, rankPairs, FACTS2_RISK_WEIGHTS, type ClaimRow } from "../../rank";
 import { cleanSourceText } from "../../retrieve";
 import { cachePath, type SourceDoc } from "../../sources";
 import { stateFor, stationKey, type Dataset, type DatasetClaim, type DatasetItem } from "../build-dataset";
@@ -75,10 +75,10 @@ const config: LabConfig = {
             ? wholeAnswer
             : passageAnswer;
       const passages = claim.passages.map((p) => ({ id: p.id, score: p.score, ...ds.passages[p.ref]! }));
-      const { risk, parts } = claimRisk({ unmatched: claim.numbers.filter((m) => !m.matched), passages, jev, fetchFailure: station.fetchFailure }, RISK_WEIGHTS);
+      const { risk, parts } = claimRisk({ unmatched: claim.numbers.filter((m) => !m.matched), passages, jev, fetchFailure: station.fetchFailure }, FACTS2_RISK_WEIGHTS);
       if (wholeOk && !passageAnswer.error && passageAnswer.supported !== undefined && passages.length) {
         const none = (+(passageAnswer.bestPassage === "none") + +(wholeAnswer!.bestPassage === "none")) / 2;
-        if (none > 0) parts.noPassage = RISK_WEIGHTS.noPassage * none;
+        if (none > 0) parts.noPassage = FACTS2_RISK_WEIGHTS.noPassage * none;
         else delete parts.noPassage;
       }
       return {
@@ -93,7 +93,7 @@ const config: LabConfig = {
         riskParts: parts,
       } as unknown as ClaimRow;
     });
-    const { excluded } = rankPairs(rows, RISK_WEIGHTS);
+    const { excluded } = rankPairs(rows, FACTS2_RISK_WEIGHTS);
     if (excluded.length) return { risk: excluded[0]!.risk, excluded: `known conflict: ${excluded[0]!.conflict.note.slice(0, 60)}` };
     const parts: Record<string, number> = {};
     for (const r of rows) for (const [k, v] of Object.entries(r.riskParts)) if (k !== "unsupported") parts[k] = Math.max(parts[k] ?? 0, v);

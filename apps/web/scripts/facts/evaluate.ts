@@ -1,6 +1,7 @@
 /**
  * Measures a ranking against the review labels (reviewed.ts). It re-scores the claims of a results.json with the
- * current RISK_WEIGHTS and known conflicts, and with a few variants, without calling Jev.
+ * current RISK_WEIGHTS and known conflicts, and with a few variants, without calling Jev. It re-scores the Jev
+ * answers stored in the file: a run from before ranker facts-3 has passage answers only (no whole-source blend).
  *
  * Usage:
  *   bun apps/web/scripts/facts/evaluate.ts [--labels pass1|pass2|all] [results.json]
@@ -14,7 +15,7 @@
  * precision at k.
  */
 import { join } from "node:path";
-import { claimRisk, rankPairs, RISK_WEIGHTS, type ClaimRow, type PairRow, type RiskWeights } from "./rank";
+import { claimRisk, FACTS2_RISK_WEIGHTS, rankPairs, RISK_WEIGHTS, type ClaimRow, type PairRow, type RiskWeights } from "./rank";
 import { PASS1_REVIEWED, PASS2_REVIEWED, REVIEW_RUNS, type ReviewedPair, type Verdict } from "./reviewed";
 
 type Ranking = { name: string; order: string[]; excluded: string[]; risk?: Map<string, number> };
@@ -67,8 +68,9 @@ export function summarize(r: Ranking, labels: ReviewedPair[] = PASS1_REVIEWED) {
 
 const VARIANTS: [string, RiskWeights][] = [
   ["current RISK_WEIGHTS", RISK_WEIGHTS],
-  ["unsupported only", { ...RISK_WEIGHTS, unmatchedNumber: 0, unmatchedNumberCap: 0, noPassage: 0, fetchFailure: 0 }],
-  ["current + contradicted 0.1", { ...RISK_WEIGHTS, contradicted: 0.1 }],
+  ["facts-2 weights (max pair, contradicted 0)", FACTS2_RISK_WEIGHTS],
+  ["unsupported only", { ...RISK_WEIGHTS, contradicted: 0, unmatchedNumber: 0, unmatchedNumberCap: 0, noPassage: 0, fetchFailure: 0 }],
+  ["current, contradicted 0.1", { ...RISK_WEIGHTS, contradicted: 0.1 }],
   ["current, numbers 0.15/0.3", { ...RISK_WEIGHTS, unmatchedNumber: 0.15, unmatchedNumberCap: 0.3 }],
   ["current, noPassage 0", { ...RISK_WEIGHTS, noPassage: 0 }],
 ];
