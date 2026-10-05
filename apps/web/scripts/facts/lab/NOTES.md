@@ -217,3 +217,22 @@ One entry per loop iteration. Primary = AP on dev (all items); guard = AP on dev
   'overstated' and 'qualifier' questions, Jev finds an added detail in almost every claim, and the reviewer accepts
   most of these details. The level question finds 2 more confirmed pairs in the top 20 with no planted errors, but it
   moves many supported pairs up. Questions about the degree of support repeat the `supported` signal with more noise.
+
+## Iteration 12: perpass (DISCARD)
+
+- **Hypothesis (plan idea 4):** When the 5 retrieved passages are joined in one state, unrelated passages can lower
+  `supported`. If one passage alone states the full claim, the claim should rank low; unsourced claims have no such
+  passage. So the max over per-passage `supported` answers could separate supported from unsourced claims.
+- **Change:** `configs/perpass.ts` = contra2, plus one Jev request per retrieved passage (state with that passage
+  only, same questions). Each claim's `supported` = mean of the joined-passage noul, the whole-source noul and the
+  max of the per-passage nouls (`PERPASS_W` sets the weight of the max, default 1). `contradicted` and
+  `best_passage` still come from the joined answer. 1,621 live requests (1.5M tokens, $0.064).
+- **Result:** AP 0.907 → 0.899 (p_better 0.11). No planted: 0.805 → 0.790 (p_better 0.11). AUC 0.903 → 0.894 (no
+  planted 0.867 → 0.855). confR20 0 → 0 (no planted 0.077 → 0). plantR20 0.63 → 0.63, plantAuc 0.974 → 0.972.
+  Dry-run sweep of `PERPASS_W` (not logged): 0.3 → AP 0.905, 0.5 → 0.903, 1 → 0.899, 2 → 0.892. Each step down.
+- **Decision:** DISCARD (AP −0.008, guard holds but no gain).
+- **Learned:** The max of the per-passage nouls is lower than the joined noul, and most on supported pairs: mean pair
+  score change supported +0.039 (10 of 84 up by more than 0.1), unsourced +0.022, planted +0.008, confirmed −0.003,
+  refuted −0.027. Many supported claims combine details from two or more passages, so no single passage supports
+  them in full. The hypothesis is false: joining the passages does not lower `supported` on supported claims. More
+  context helps Jev (as the whole-source blend showed); less context hurts.
