@@ -52,7 +52,7 @@ const stations: Station[] = [
   station(
     "esplanade-de-la-defense",
     "Esplanade de La Défense",
-    "Esplanade de La Défense",
+    "Esplanade de la Défense",
     "Puteaux / Courbevoie",
     "modern",
     "Called Esplanade de La Défense for its position on the east side of the esplanade in the La Défense business district. During construction its project name was Puteaux – Courbevoie, after the two communes it serves.",

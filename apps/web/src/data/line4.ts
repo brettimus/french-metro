@@ -382,7 +382,7 @@ const stations: Station[] = [
           wiki("Église Saint-Sulpice de Paris"),
         ),
       ],
-      people: [bio("Sulpice le Pieux", "Sulpitius the Pious")],
+      people: [bio("Sulpice le Pieux", "Sulpicius the Pious")],
     },
   ),
   stop(
@@ -407,8 +407,8 @@ const stations: Station[] = [
     {
       sources: [
         source(
-          "RATP · Montparnasse-Bienvenüe",
-          "https://www.ratp.fr/decouvrir/patrimoine/histoire-station-montparnasse-bienvenue",
+          "Montparnasse - Bienvenüe · Wikipédia",
+          wiki("Montparnasse - Bienvenüe (métro de Paris)"),
         ),
         source(
           "Quartier du Montparnasse · Wikipédia",
@@ -494,7 +494,7 @@ const stations: Station[] = [
         bio(
           "Pierre Philippe Denfert-Rochereau",
           "Pierre Philippe Denfert-Rochereau",
-          "Pierre Philippe Denfert-Rochereau",
+          "Aristide Denfert-Rochereau",
         ),
       ],
     },

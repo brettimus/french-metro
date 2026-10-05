@@ -198,6 +198,7 @@ const stations: Station[] = [
           "Ville de Paris · Jacques Bonsergent",
           "https://quotidien-parisiens-sous-occupation.paris.fr/en/detail_419.html",
         ),
+        source("Jacques Bonsergent · Wikipédia", wiki("Jacques Bonsergent")),
       ],
       people: [biography("Jacques Bonsergent")],
     },
@@ -324,8 +325,8 @@ const stations: Station[] = [
           wiki("Gare de Paris-Austerlitz"),
         ),
         source(
-          "Bonjour RATP · Ligne 5",
-          "https://www.bonjour-ratp.fr/en/lignes-metro/ligne-5/",
+          "Ligne 5 du métro de Paris · Wikipédia",
+          wiki("Ligne 5 du métro de Paris"),
         ),
       ],
     },

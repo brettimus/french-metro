@@ -86,6 +86,10 @@ export const line14: MetroLine = {
           label: "Saint-Ouen-sur-Seine · Histoire",
           url: "https://www.saint-ouen.fr/vie-quotidienne/culture-et-patrimoine/histoire-et-patrimoine/histoire-de-saint-ouen-sur-seine/",
         },
+        {
+          label: "Saint-Ouen-sur-Seine · Wikipédia",
+          url: "https://fr.wikipedia.org/wiki/Saint-Ouen-sur-Seine",
+        },
       ],
       people: [
         {
@@ -118,6 +122,10 @@ export const line14: MetroLine = {
         {
           label: "Saint-Ouen-sur-Seine · Histoire",
           url: "https://www.saint-ouen.fr/vie-quotidienne/culture-et-patrimoine/histoire-et-patrimoine/histoire-de-saint-ouen-sur-seine/",
+        },
+        {
+          label: "Saint-Ouen-sur-Seine · Wikipédia",
+          url: "https://fr.wikipedia.org/wiki/Saint-Ouen-sur-Seine",
         },
       ],
       people: [
@@ -581,10 +589,6 @@ export const line14: MetroLine = {
           label: "Chevilly-Larue · Histoire de la ville",
           url: "https://www.ville-chevilly-larue.fr/vie-municipale-et-budget/histoire-de-la-ville/",
         },
-        {
-          label: "Val-de-Marne · Noms des stations",
-          url: "https://www.valdemarne.fr/espace-presse/les-communiques-de-presse/nouveaux-noms-des-stations-de-la-ligne-14-du-grand-paris-express-un-choix-de-coherence-territoriale",
-        },
       ],
     },
     {
@@ -608,10 +612,6 @@ export const line14: MetroLine = {
         {
           label: "Thiais–Orly station · Wikipedia",
           url: "https://en.wikipedia.org/wiki/Thiais%E2%80%93Orly_station",
-        },
-        {
-          label: "Val-de-Marne · Noms des stations",
-          url: "https://www.valdemarne.fr/espace-presse/les-communiques-de-presse/nouveaux-noms-des-stations-de-la-ligne-14-du-grand-paris-express-un-choix-de-coherence-territoriale",
         },
       ],
     },

@@ -259,7 +259,7 @@ const stations: Station[] = [
       people: [
         biography(
           "La Fayette",
-          "Gilbert du Motier, Marquis de Lafayette",
+          "Marquis de Lafayette",
           "Gilbert du Motier de La Fayette",
         ),
       ],

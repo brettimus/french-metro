@@ -254,8 +254,8 @@ const stations: Station[] = [
       people: [
         biography(
           "François Séverin Marceau-Desgraviers",
-          "François Séverin Marceau-Desgraviers",
-          "François Séverin Marceau-Desgraviers",
+          "François Séverin Marceau",
+          "François Séverin Marceau",
         ),
       ],
     },
@@ -271,7 +271,15 @@ const stations: Station[] = [
     "The Line 9 platform opened on 27 May 1923 as Rond-Point des Champs-Élysées. A connecting corridor joined it to the neighbouring Line 1 platform in 1942. In the 1950s the platforms were decorated with gemmail, a modernised form of stained glass. The new decoration was inaugurated in March 1957.",
     "Le quai de la ligne 9 ouvre le 27 mai 1923 sous le nom de Rond-Point des Champs-Élysées. Un couloir de correspondance le relie au quai voisin de la ligne 1 en 1942. Dans les années 1950, les quais sont décorés de gemmail, une forme modernisée du vitrail. Cette décoration est inaugurée en mars 1957.",
     1923,
-    { people: [biography("Franklin D. Roosevelt")] },
+    {
+      people: [
+        biography(
+          "Franklin D. Roosevelt",
+          "Franklin D. Roosevelt",
+          "Franklin Delano Roosevelt",
+        ),
+      ],
+    },
   ),
   station(
     "saint-philippe-du-roule",
@@ -336,7 +344,7 @@ const stations: Station[] = [
       people: [
         biography(
           "La Fayette",
-          "Gilbert du Motier, Marquis de Lafayette",
+          "Marquis de Lafayette",
           "Gilbert du Motier de La Fayette",
         ),
       ],
@@ -378,7 +386,7 @@ const stations: Station[] = [
   station(
     "bonne-nouvelle",
     "Bonne Nouvelle",
-    "Bonne Nouvelle",
+    "Bonne-Nouvelle",
     "Paris 2e / 10e",
     "church",
     "Named for the Bonne-Nouvelle district, which takes its name from the neighbouring Église Notre-Dame-de-Bonne-Nouvelle. Bonne nouvelle means “good news” in French.",
