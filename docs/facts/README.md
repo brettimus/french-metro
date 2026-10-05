@@ -18,13 +18,15 @@ Run all commands from the repository root.
 | `apps/web/scripts/facts/claims.ts` | Splits each field into sentences and aligns EN and FR sentences into pairs |
 | `apps/web/scripts/facts/retrieve.ts` | Cuts source texts into passages and ranks them per claim with BM25 |
 | `apps/web/scripts/facts/numbers.ts` | Extracts numbers, years and dates and compares them with the sources, in code |
-| `apps/web/scripts/facts/jev.ts` | The Jev questions, the model id and the answer cache |
+| `apps/web/scripts/facts/jev.ts` | The Jev questions and the model id. Requests go through the shared cache in `apps/web/scripts/jev-cache.ts` |
 | `apps/web/scripts/facts/rank.ts` | Risk weights (`RISK_WEIGHTS`) and the ranking. A pair takes the strongest value of each signal among its claims, so low `supported` in one locale is enough |
 | `apps/web/scripts/facts/known-conflicts.ts` | Claims that keep a value a cited source contradicts, on purpose (for example the Saint-Mandé rename date). They are left out of the ranking and listed with their note in `ranked.md` |
-| `apps/web/scripts/facts/reviewed.ts` | Pass-1 labels: the 80 reviewed pairs, their verdicts and their texts at review time |
-| `apps/web/scripts/facts/evaluate.ts` | Re-scores a `results.json` with the current weights (no Jev calls) and measures the ranking against the pass-1 labels |
+| `apps/web/scripts/facts/reviewed.ts` | Review labels: `PASS1_REVIEWED` (80 pairs), `PASS2_REVIEWED` (100 pairs) and `ALL_REVIEWED`, with verdicts and texts at review time |
+| `apps/web/scripts/facts/evaluate.ts` | Re-scores a review run with the current weights (no Jev calls) and measures the ranking against the labels (`--labels pass1\|pass2\|all`) |
+| `apps/web/scripts/facts/lab/` | The lab: a frozen labelled dataset and a harness that measures ranker configs on it (see [Lab](#lab)) |
 | `apps/web/scripts/facts/text.ts` | Accent folding, tokens, sentence splitting, word counts |
 | `apps/web/tests/facts.test.ts` | Tests for splitting, numbers, retrieval, risk and question building |
+| `apps/web/tests/fact-labels.test.ts`, `fact-lab.test.ts` | Tests for the label counts, the lab metrics, the dataset split and the harness guards |
 
 ## API key
 
@@ -58,7 +60,7 @@ A full run (about 1,800 Jev requests) takes about 30 seconds when the sources ar
 | `--refresh` | Refetch the sources instead of reading the cache |
 | `--dry-run` | Sources, retrieval and number checks only; no new Jev calls (cached answers are still used) |
 
-Jev answers are cached in `cache/jev/` by model, question version and request state. A rerun pays only for claims whose text or passages changed. When you change the questions in `jev.ts`, change `QUESTION_VERSION` too.
+Jev answers are cached in `cache/jev/` by model, question text and request state, so a changed question never gets an old answer. A rerun pays only for claims whose text, passages or questions changed. Files under the older key (model, `QUESTION_VERSION` and state) are still read. Change `QUESTION_VERSION` when you change the questions, because `results.json` reports it.
 
 `cache/` and `out/` are gitignored.
 
@@ -93,3 +95,83 @@ For each pair, decide one verdict: `error`, `imprecise`, `true_but_unsourced` or
 2. Add the source that supports the claim to the station's `sources[]`.
 3. Record the change, with the quote and URL, in `docs/copy/changes/lineX.md`.
 4. Run `bun run test`, `bun run typecheck`, and the copy evaluator for the line: `bun --env-file=.env apps/web/scripts/copy/evaluate.ts --kind station --line X` (see [../copy/README.md](../copy/README.md)).
+
+## Lab
+
+The lab measures changes to the ranker (questions, state fields, retrieval, weights) on labelled pairs, without a new review. It lives in `apps/web/scripts/facts/lab/`.
+
+### Rules
+
+- **Tune on dev only.** Read the dev metrics as often as you like.
+- **Run val once, at the end.** `--split val` needs `--final`. The harness writes a row to `results.tsv` and refuses a second val run for the same config name. Do not change a config after its val run.
+- **Pass 3 is the held-out test.** The pass-3 review labels pairs that no config was tuned on. Measure the final ranker on them once, and do not tune after that.
+
+### Dataset
+
+`lab/dataset.json` (committed, about 1.9 MB) is built by `lab/build-dataset.ts` from the review labels (`reviewed.ts`), the two review runs (`out/full/results.json` for pass 1, `out/pass2/results.json` for pass 2) and the source cache. It does not use today's copy or sources: the copy and the sources changed after each review, and added sources turn "unsourced" pairs into "supported" ones.
+
+For each labelled pair it stores the EN and FR claims at review time, the 5 retrieved passages (texts stored once and referenced by id), the number checks, the Jev answers of that run, and the station's fetch-failure value. For each station it stores the source URL list at the review commit (`9740b4a` for pass 1, `3c98987` for pass 2), and a number index. For each source it stores the title and a sha1 of the cleaned text, but not the text. A config that rechunks the sources must read them from `cache/` and check the hash.
+
+Rebuild or check it (needs the gitignored `out/` and `cache/` files):
+
+```sh
+bun apps/web/scripts/facts/lab/build-dataset.ts          # write dataset.json
+bun apps/web/scripts/facts/lab/build-dataset.ts --check  # compare a fresh build with dataset.json
+```
+
+The build fails when a labelled pair is not in its run, a source cache file is missing, a stored passage is not a chunk of the cached source text, or a planted edit does not match.
+
+**Planted errors.** `lab/planted.ts` has 40 supported pairs, each with one false edit (a date, a number, a name or a place) made in EN and FR. The passages stay the same. The dataset adds them as extra items with verdict `confirmed` and `planted`. Only the edited claims need new Jev calls.
+
+**Split.** A pair is in `val` when `sha1(stationId) % 10 < 3`, else in `dev`. All lines of a station go to the same split, because shared stations have the same text on several lines. 25 of the 99 labelled stations are in val. A test checks the val station set.
+
+| Split | Items | Confirmed | Refuted | Unsourced | Supported | Planted |
+|---|---|---|---|---|---|---|
+| dev | 167 | 13 | 5 | 38 | 84 | 27 |
+| val | 53 | 3 | 2 | 11 | 24 | 13 |
+
+### Metric
+
+The positive class is "problem": `confirmed`, `refuted` or `unsourced`, plus the planted errors. The negative class is `supported`. Refuted pairs count as problems because the reviewer needed to check them.
+
+- **Primary:** average precision (AP) of the risk ranking, with a 95% bootstrap interval (2,000 resamples of the items). AP rewards problems at the top of the list, where reviewers start.
+- **Secondary:** ROC AUC; `confR20`, the share of the real confirmed problems in the top 20 of the split; `plantR20`, the share of the planted errors in the top 20; `plantAuc`, planted errors against supported pairs.
+- **Cost:** the number of requests, the live requests and their input tokens, and USD at $0.042 per million input tokens. Output tokens are free.
+
+Two pairs (1/saint-mande, pass 1) match known conflicts and are left out by the baseline.
+
+### Run the harness
+
+```sh
+bun apps/web/scripts/facts/lab/harness.ts --config baseline                       # dev, logs a row
+bun apps/web/scripts/facts/lab/harness.ts --config my-change --compare baseline   # adds p_better (paired bootstrap of AP)
+bun apps/web/scripts/facts/lab/harness.ts --config baseline --no-planted --pass 2  # filters
+bun apps/web/scripts/facts/lab/harness.ts --config baseline --dry-run --no-log    # cache only, no row
+bun apps/web/scripts/facts/lab/harness.ts --config my-change --split val --final  # once, at the end
+bun apps/web/scripts/facts/lab/harness.ts --config baseline --parity              # check against evaluate.ts
+```
+
+Each run prints one JSON line, writes the per-item scores to `lab/out/<config>.<split>.json` (gitignored), and adds a row to `lab/results.tsv`: timestamp, config, config file hash, split, filters, items, positives, AP and its interval, AUC, confirmed recall@20, planted recall@20, requests, live requests, live tokens, USD, seconds, `p_better` and a note.
+
+### Write a config
+
+A config is a file in `lab/configs/` whose default export has the `LabConfig` type (`lab/config.ts`):
+
+- `name`: the file name without `.ts`.
+- `requests(ctx)`: the Jev requests for one claim. `ctx` has the dataset, the item, the claim and the station. Use `stateFor()` from `build-dataset.ts` to get the state the review run sent.
+- `score(ctx)`: the pair's risk from the claims and their Jev results, or `excluded` to leave the pair out.
+
+Copy the current best config, change one thing, and run it on dev with `--compare`. All requests go through the content-addressed Jev cache, so a rerun of the same requests costs nothing.
+
+### Baseline (`configs/baseline.ts`)
+
+The production ranker: the `facts-2` questions, `RISK_WEIGHTS` and known conflicts. Its requests are the ones the review runs sent, so the old-key cache answers them; only the planted claims needed live calls (54 requests, about 110k tokens, under $0.01).
+
+| Run | Items | AP (95% interval) | AUC | confR20 | plantR20 |
+|---|---|---|---|---|---|
+| dev | 165 | 0.840 (0.751–0.921) | 0.851 | 0.00 | 0.37 |
+| dev, no planted | 138 | 0.710 (0.580–0.842) | 0.792 | 0.08 | – |
+
+With planted errors, the top 20 of dev holds 10 planted errors and no real confirmed problem, so read `confR20` on runs with `--no-planted` too.
+
+Parity with `evaluate.ts` on the 80 pass-1 labels (`--parity`): problem AUC 0.782 and confirmed AUC 0.667 with `evaluate.ts`'s tie-break (rank order, then pair key), the same as `evaluate.ts`. With ties counted half, they are 0.783 and 0.665.
