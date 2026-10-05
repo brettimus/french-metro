@@ -43,26 +43,10 @@ const art: Record<Art, string> = {
   hospital: `<path d="M93 25h35v26h27v35h-27v27H93V86H66V51h27Z" fill="${paper}"/><path d="M46 133c30-37 46-25 65-11l30-1q18 1 17 10M46 133l20 17c29-6 64 6 90-7l59-32q13-11 4-16c-6-5-15 0-27 7l-42 20M34 128l20-15 25 34-20 14M97 68h27m-13-14v28"/>`,
 };
 
-const escapeAttribute = (value: string) =>
-  value.replace(
-    /[&<>"']/g,
-    (char) =>
-      ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[
-        char
-      ]!,
-  );
 const svgAttributes =
   'viewBox="0 0 260 165" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true" focusable="false"';
 
-export function illustration(kind: Art, cls = ""): string {
-  return `<svg xmlns="http://www.w3.org/2000/svg" class="illustration ${escapeAttribute(cls)}" ${svgAttributes}>${art[kind]}</svg>`;
+export function illustration(kind: Art): string {
+  return `<svg xmlns="http://www.w3.org/2000/svg" class="illustration" ${svgAttributes}>${art[kind]}</svg>`;
 }
 
-export function ornament(
-  kind: Art,
-  x: number,
-  y: number,
-  width: number,
-): string {
-  return `<svg class="map-illustration" x="${x}" y="${y}" width="${width}" height="${(width * 165) / 260}" ${svgAttributes}>${art[kind]}</svg>`;
-}

@@ -25,7 +25,7 @@ Use the images at their 3:2 ratio with `object-fit: contain`. Cropping can remov
 
 `src/illustrations.ts` imports the shared `Art` union and covers every kind with a typed record. Subjects include a classical temple, station train shed, open-book towers, botanical stem, market stall, modern building forms, plane, loom, biography medallion with quill, gate, bridge and river, public square, piano, and care symbol. These symbols show subject categories. They are not exact buildings. The biography medallion is blank and makes no claim to show a person's appearance. The care symbol is neutral in color.
 
-Both exports set `aria-hidden="true"` and `focusable="false"`. `ornament` uses native nested SVG rather than `foreignObject`. Class input is escaped before HTML output. No text or station identity is embedded in the drawings.
+The export sets `aria-hidden="true"` and `focusable="false"`. No text or station identity is embedded in the drawings.
 
 ## Exact generation prompts
 
