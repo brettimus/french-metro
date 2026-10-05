@@ -34,11 +34,6 @@ Source: read-only audit on 29 September 2026 (five areas: code, tests, build and
 - Where: the `image` field in each `apps/web/src/data/line*.ts`, and `apps/web/src/app.ts:66` (`metropolitain.webp`)
 - Fix: add a test that resolves each path against `apps/web/public` and checks it with `Bun.file(...).exists()`.
 
-### 6. No test checks that shared stations agree across lines
-
-- Where: `apps/web/src/data/line*.ts`. 22 station IDs are on more than one line. Each copy is a separate object written by hand.
-- Fix: add a test that groups stations by `id` across `lines` and checks that each group has the same `name` (both locales).
-
 ### 7. One test does not test the code
 
 - Where: `apps/web/tests/commit.test.ts:13-17`
@@ -54,12 +49,6 @@ Source: read-only audit on 29 September 2026 (five areas: code, tests, build and
 
 - Where: `apps/web/src/illustrations.ts:61-68`
 - Fix: delete it. Also update `docs/design/multi-line-art.md:28`, which says "both exports".
-
-### 10. Line 14 source labels use a different order
-
-- Where: `apps/web/src/data/line14.ts` (30 labels, for example line 33)
-- Problem: Line 14 writes "Wikipédia · X". The other six lines write "X · Wikipédia". Users see this in the Sources list on station pages.
-- Fix: change the Line 14 labels to "X · Wikipédia".
 
 ### 11. Stale docs
 

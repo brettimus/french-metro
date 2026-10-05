@@ -44,7 +44,7 @@ const stations: Station[] = [
     "La Courneuve – 8 Mai 1945",
     "La Courneuve",
     "square",
-    "Called La Courneuve–8 Mai 1945 because it serves this town at Place du 8-Mai-1945. The square commemorates Germany’s surrender on 8 May 1945 and the end of the Second World War in Europe.",
+    "Called La Courneuve – 8 Mai 1945 because it serves this town at Place du 8-Mai-1945. The square commemorates Germany’s surrender on 8 May 1945 and the end of the Second World War in Europe.",
     "La station doit son nom à la commune de La Courneuve et à la place du 8-Mai-1945. Cette place commémore la capitulation allemande du 8 mai 1945 et la fin de la Seconde Guerre mondiale en Europe.",
     "The northern terminus opened in 1987, when the line extended beyond Fort d’Aubervilliers. Its two island platforms sit between three tracks. The station was designed to connect with the T1 tram, which arrived in 1992.",
     "Le terminus nord ouvre en 1987, lors du prolongement depuis Fort d’Aubervilliers. Ses deux quais centraux sont disposés entre trois voies. La station a été conçue pour accueillir une correspondance avec le tramway T1, arrivé en 1992.",
@@ -72,7 +72,7 @@ const stations: Station[] = [
     "Aubervilliers – Pantin – Quatre Chemins",
     "Aubervilliers / Pantin",
     "square",
-    "Called Aubervilliers–Pantin–Quatre Chemins because it serves the crossroads on the boundary of those two towns. Quatre Chemins, meaning four roads, names the junction of the old Flanders road with two transverse avenues.",
+    "Called Aubervilliers – Pantin – Quatre Chemins because it serves the crossroads on the boundary of those two towns. Quatre Chemins, meaning four roads, names the junction of the old Flanders road with two transverse avenues.",
     "La station doit son nom aux communes d’Aubervilliers et de Pantin, dont elle dessert la limite, et au carrefour des Quatre Chemins. Ce lieu-dit désigne le croisement de l’ancienne route des Flandres avec deux avenues transversales.",
     "The crossing joins the former Route nationale 2 with Avenue de la République and Avenue Édouard-Vaillant. Earlier tram routes also met here. The Métro station opened in 1979 on the extension from Porte de la Villette.",
     "Le carrefour réunit l’ancienne route nationale 2, l’avenue de la République et l’avenue Édouard-Vaillant. D’anciennes lignes de tramway s’y croisaient aussi. Le métro y arrive en 1979, lors du prolongement depuis Porte de la Villette.",
@@ -132,7 +132,7 @@ const stations: Station[] = [
     "Stalingrad",
     "Paris 10e / 19e",
     "square",
-    "Called Stalingrad after the neighbouring square, now Place de la Bataille-de-Stalingrad. Its name commemorates the Soviet victory over Nazi Germany at Stalingrad during the Second World War.",
+    "Called Stalingrad after the neighbouring square, now Place de la Bataille-de-Stalingrad. The name commemorates the Soviet victory over Nazi Germany at Stalingrad during the Second World War.",
     "La station doit son nom à la place voisine, aujourd’hui place de la Bataille-de-Stalingrad. Ce nom commémore la victoire soviétique sur l’Allemagne nazie à Stalingrad pendant la Seconde Guerre mondiale.",
     "The Line 7 platforms originally bore the name Boulevard de la Villette. Underground passages connected them to Lines 2 and 5 in 1942. The combined station took the name Stalingrad in 1946, after the war.",
     "Les quais de la ligne 7 portaient d’abord le nom de Boulevard de la Villette. Des passages souterrains les relient aux lignes 2 et 5 en 1942. L’ensemble prend le nom de Stalingrad en 1946, après la guerre.",
@@ -153,10 +153,10 @@ const stations: Station[] = [
     "Château-Landon",
     "Paris 10e",
     "modern",
-    "Called Château-Landon after Rue du Château-Landon. Historical research traces the street’s name to a local house belonging to a man named Landon; an older explanation linking it to the distant town was challenged.",
-    "La station doit son nom à la rue du Château-Landon. Des recherches historiques rattachent ce nom à une maison appartenant à un certain Landon ; l’ancienne explication par la ville lointaine de Château-Landon a été contestée.",
-    "A passage beneath the railway tracks connects the station with Gare de l’Est. Built during the railway station’s 1931 reconstruction, the tunnel originally carried luggage and parcels. It later became a passage for passengers transferring between trains and Métro.",
-    "Un passage sous les voies ferrées relie la station à la gare de l’Est. Construit lors de la transformation de la gare en 1931, ce tunnel transportait d’abord les bagages et les colis. Il devient ensuite un passage pour les voyageurs.",
+    "Called Château-Landon after Rue du Château-Landon. In 1900, Charles Sellier traced the street’s name to a local house belonging to a man named Landon. This challenged an older explanation based on the distant town of Château-Landon.",
+    "La station doit son nom à la rue du Château-Landon. En 1900, Charles Sellier rattache ce nom à une maison appartenant à un certain Landon. Il conteste ainsi l’ancienne explication par la ville lointaine de Château-Landon.",
+    "A passage beneath the railway tracks connects the station with Gare de l’Est. It was built in 1931, when Gare de l’Est was renovated, to carry luggage and parcels. After the luggage system changed, it became a transfer corridor for passengers.",
+    "Un passage sous les voies ferrées relie la station à la gare de l’Est. Il est créé en 1931, lors de la rénovation de la gare, pour le transport des bagages et des colis. Après la réforme de l’acheminement des bagages, il devient un couloir de correspondance pour les voyageurs.",
     {
       sources: [
         {
@@ -175,10 +175,10 @@ const stations: Station[] = [
     "Gare de l’Est",
     "Paris 10e",
     "station",
-    "Called Gare de l’Est because it serves the mainline railway station above it, whose routes run towards eastern France. The additional name Verdun refers to nearby Avenue de Verdun, named for the city associated with the 1916 battle.",
-    "La station doit son nom à la gare de l’Est qu’elle dessert, point de départ de lignes ferroviaires vers l’est de la France. Le complément Verdun renvoie à l’avenue voisine, nommée pour la ville associée à la bataille de 1916.",
-    "The Métro station brings together Lines 4, 5 and 7 beneath and beside the railway terminus. Line 7 arrived in 1910. Its platforms share a large underground space with those of Line 5.",
-    "Le métro réunit les lignes 4, 5 et 7 sous la gare ferroviaire et à ses abords. La ligne 7 y arrive en 1910. Ses quais partagent un vaste espace souterrain avec ceux de la ligne 5.",
+    "Called Gare de l’Est because it serves the railway terminus for eastern France. The railway station adopted this name in 1854 as its network expanded beyond Strasbourg.",
+    "La station porte le nom de la gare de l’Est, qu’elle dessert, terminus ferroviaire vers l’est de la France. La gare ferroviaire adopte ce nom en 1854, lorsque son réseau s’étend au-delà de Strasbourg.",
+    "The Métro station brings together Lines 4, 5 and 7 beneath and beside the railway terminus. Line 7 arrived in 1910. Its platforms share a large underground space with those of Line 5. The full name, Gare de l’Est – Verdun, refers to Avenue de Verdun, which recalls the 1916 battle.",
+    "Le métro réunit les lignes 4, 5 et 7 sous la gare ferroviaire et à ses abords. La ligne 7 y arrive en 1910. Ses quais partagent un vaste espace souterrain avec ceux de la ligne 5. Le nom complet, Gare de l’Est – Verdun, renvoie à l’avenue de Verdun, qui évoque la bataille de 1916.",
     {
       sources: [
         {
@@ -207,10 +207,10 @@ const stations: Station[] = [
     "Cadet",
     "Paris 9e",
     "garden",
-    "Called Cadet after Rue Cadet, whose name is generally linked to the brothers Jacques and Jean Cadet, master gardeners and owners of the Clos Cadet. The attribution is traditional rather than certain.",
-    "La station doit son nom à la rue Cadet, généralement rattachée aux frères Jacques et Jean Cadet, maîtres jardiniers et propriétaires du clos Cadet. Cette attribution traditionnelle reste présentée avec réserve dans les sources.",
-    "The station’s American flag decoration has a different origin from its name. The platforms lie beneath Rue La Fayette, named for the general who fought in the American War of Independence. The design refers to that connection.",
-    "Le décor aux couleurs du drapeau américain a une autre origine que le nom de la station. Les quais se trouvent sous la rue La Fayette, nommée pour le général engagé dans la guerre d’indépendance américaine. Le décor rappelle ce lien.",
+    "Called Cadet after Rue Cadet. The street’s name may come from the brothers Jacques and Jean Cadet, master gardeners who owned the Clos Cadet. This traditional attribution is not certain.",
+    "La station doit son nom à la rue Cadet. Ce nom viendrait des frères Jacques et Jean Cadet, maîtres jardiniers et propriétaires du clos Cadet. Cette attribution traditionnelle n’est pas certaine.",
+    "Cadet’s platforms lie beneath Rue La Fayette, which honours the general who fought alongside the Americans in their War of Independence. For this reason, the station is tiled in the colours of the United States flag. White shapes on the tiles represent its stars.",
+    "Les quais de Cadet se trouvent sous la rue La Fayette, qui honore le général engagé aux côtés des Américains pendant leur guerre d’indépendance. C’est pourquoi le carrelage de la station reprend les couleurs du drapeau des États-Unis. Des silhouettes blanches y figurent ses étoiles.",
   ),
   station(
     "le-peletier",
@@ -227,8 +227,8 @@ const stations: Station[] = [
     "Chaussée d’Antin – La Fayette",
     "Paris 9e",
     "portrait",
-    "Called Chaussée d’Antin – La Fayette after two streets. The first recalls the Duc d’Antin’s mansion and a roadway raised above marshy ground; Rue La Fayette honours the marquis who fought for American independence.",
-    "La station doit son nom à deux rues. La Chaussée-d’Antin rappelle l’hôtel du duc d’Antin et une voie surélevée sur un terrain marécageux ; la rue La Fayette honore le marquis engagé pour l’indépendance américaine.",
+    "Called Chaussée d’Antin – La Fayette after two streets. Rue de la Chaussée-d’Antin recalls the Duc d’Antin’s mansion and a roadway raised above marshy ground. Rue La Fayette honours the marquis who fought for American independence.",
+    "La station doit son nom à la rue de la Chaussée-d’Antin et à la rue La Fayette. La première rappelle l’hôtel du duc d’Antin et une voie surélevée sur un terrain marécageux. La seconde honore le marquis engagé pour l’indépendance américaine.",
     "La Fayette was added to the station name in 1989. That year, murals on the vaults of Lines 7 and 9 marked the bicentenary of the French Revolution. Their subjects include La Fayette, liberty and the American Revolution.",
     "La Fayette est ajouté au nom de la station en 1989. Cette année-là, des fresques sur les voûtes des lignes 7 et 9 marquent le bicentenaire de la Révolution française. Elles représentent notamment La Fayette, la liberté et la Révolution américaine.",
     {
@@ -281,20 +281,20 @@ const stations: Station[] = [
     "Palais-Royal – Musée du Louvre",
     "Paris 1er",
     "modern",
-    "Called Palais-Royal–Musée du Louvre because it serves both the Palais-Royal and the Louvre museum. Musée du Louvre was added in 1989 to identify the station serving the museum’s new entrance through the Pyramid.",
-    "La station doit son nom au Palais-Royal et au musée du Louvre qu’elle dessert. Le complément Musée du Louvre est ajouté en 1989 pour signaler l’accès à la nouvelle entrée du musée, aménagée par la Pyramide.",
-    "The original station name was simply Palais-Royal. Line 7 reached it in 1916, and it remained the southern terminus until the extension along the Seine in 1926. The combined name distinguishes it from nearby Louvre–Rivoli.",
-    "La station s’appelait à l’origine Palais-Royal. La ligne 7 l’atteint en 1916 et y termine son parcours jusqu’au prolongement le long de la Seine en 1926. Le nom composé la distingue de la station voisine Louvre–Rivoli.",
+    "Called Palais-Royal after the adjoining former royal residence. Musée du Louvre was added in 1989 to signal the museum’s new entrance by the Pyramid.",
+    "La station doit son nom au Palais-Royal voisin, ancienne résidence royale. Le complément Musée du Louvre est ajouté en 1989, pour signaler la nouvelle entrée du musée par la Pyramide.",
+    "The original station name was Palais-Royal. Line 7 reached it in 1916, and it remained the southern terminus until the extension along the Seine in 1926. The combined name distinguishes it from nearby Louvre – Rivoli.",
+    "La station s’appelait à l’origine Palais-Royal. La ligne 7 l’atteint en 1916 et y termine son parcours jusqu’au prolongement le long de la Seine en 1926. Le nom composé la distingue de la station voisine Louvre – Rivoli.",
   ),
   station(
     "pont-neuf",
     "Pont-Neuf",
     "Paris 1er",
     "river",
-    "Called Pont-Neuf because it stands beside the Pont Neuf, literally the new bridge. Its name survives even though this bridge, built without houses and with pavements for pedestrians, is now the oldest surviving bridge in Paris.",
-    "La station doit son nom au Pont Neuf voisin. Ce nom demeure alors que le pont, construit sans maisons et doté de trottoirs pour les piétons, est aujourd’hui le plus ancien pont conservé de Paris.",
+    "Called Pont-Neuf after the Pont Neuf beside it. Despite its name, which means “new bridge”, it is now the oldest surviving bridge in Paris. It was built without houses and with pavements for pedestrians.",
+    "La station doit son nom au pont Neuf voisin. Malgré son nom, ce pont est aujourd’hui le plus ancien pont conservé de Paris. Il a été construit sans maisons et doté de trottoirs pour les piétons.",
     "The subtitle La Monnaie recalls nearby Rue de la Monnaie and the mint formerly located there. The mint moved across the Seine to Quai de Conti in 1775. Coin designs and a coining press later formed the station’s cultural decoration.",
-    "Le sous-titre La Monnaie rappelle la rue de la Monnaie voisine et l’ancien atelier monétaire qui s’y trouvait. La Monnaie s’installe quai de Conti en 1775. Des motifs de pièces et un balancier monétaire composent bien plus tard le décor culturel de la station.",
+    "Le sous-titre La Monnaie rappelle la rue de la Monnaie voisine et l’ancien atelier monétaire qui s’y trouvait. La Monnaie s’installe en 1775 quai de Conti, de l’autre côté de la Seine. Des motifs de pièces et un balancier monétaire composent plus tard le décor culturel de la station.",
     {
       sources: [
         {
@@ -313,10 +313,10 @@ const stations: Station[] = [
     "Châtelet",
     "Paris 1er / 4e",
     "modern",
-    "Called Châtelet after Place du Châtelet, on the site of the Grand Châtelet fortress. The fortress later housed a court and prison before its demolition. The Line 7 subtitle Pont au Change recalls the bridge of money changers.",
-    "La station doit son nom à la place du Châtelet, aménagée à l’emplacement du Grand Châtelet, forteresse devenue tribunal et prison avant sa démolition. Le sous-titre Pont au Change de la ligne 7 rappelle le pont des changeurs.",
-    "The Line 7 station opened separately as Pont Notre-Dame in 1926. A long passage linked it to Châtelet’s other platforms in 1934, when it adopted their name. Its riverside position explains the distance between the different Métro platforms.",
-    "La station de la ligne 7 ouvre séparément sous le nom de Pont Notre-Dame en 1926. Un long passage la relie aux autres quais de Châtelet en 1934 ; elle prend alors leur nom. Sa position près de la Seine explique l’éloignement des quais.",
+    "Called Châtelet after Place du Châtelet, laid out on the site of the Grand Châtelet. This fortress was a court and prison before its demolition in the early nineteenth century.",
+    "La station doit son nom à la place du Châtelet, aménagée à l’emplacement du Grand Châtelet. Cette forteresse était un tribunal et une prison avant sa démolition au début du XIXe siècle.",
+    "The Line 7 station opened separately in 1926 as Pont Notre-Dame, renamed Pont Notre-Dame – Pont au Change that year. A long passage linked it to Châtelet’s other platforms in 1934. It then took their name and kept Pont au Change, the bridge of money changers, as a subtitle.",
+    "La station de la ligne 7 ouvre séparément en 1926 sous le nom de Pont Notre-Dame, qui devient la même année Pont Notre-Dame – Pont au Change. Un long passage la relie aux autres quais de Châtelet en 1934 ; elle prend alors leur nom et garde en sous-titre Pont au Change, le pont des changeurs.",
   ),
   station(
     "pont-marie",
@@ -325,8 +325,8 @@ const stations: Station[] = [
     "river",
     "Called Pont Marie after the neighbouring bridge, which bears the surname of engineer and developer Christophe Marie. He initiated the bridge project linking the Right Bank with what became the Île Saint-Louis.",
     "La station doit son nom au pont voisin, qui porte le patronyme de l’ingénieur et entrepreneur Christophe Marie. Celui-ci est à l’origine du pont reliant la rive droite à ce qui devient l’île Saint-Louis.",
-    "Pont Marie served as Line 7’s southern terminus from 1926 until the extension to Sully–Morland in 1930. Its subtitle Cité des Arts refers to the nearby Cité internationale des arts, a residence for artists that opened in 1965.",
-    "Pont Marie est le terminus sud de la ligne 7 de 1926 au prolongement vers Sully–Morland en 1930. Son sous-titre Cité des Arts renvoie à la Cité internationale des arts voisine, résidence pour artistes ouverte en 1965.",
+    "Pont Marie was Line 7’s southern terminus from 1926 until the extension to Sully – Morland in 1930. Its subtitle Cité des Arts refers to the nearby Cité internationale des arts, a residence for artists that opened in 1965.",
+    "Pont Marie est le terminus sud de la ligne 7 de 1926 au prolongement vers Sully – Morland en 1930. Son sous-titre Cité des Arts renvoie à la Cité internationale des arts voisine, résidence pour artistes ouverte en 1965.",
     {
       sources: [
         {
@@ -342,8 +342,8 @@ const stations: Station[] = [
     "Sully – Morland",
     "Paris 4e",
     "portrait",
-    "Called Sully–Morland after nearby roads and the Pont de Sully. Sully honours Maximilien de Béthune, Henri IV’s minister; Boulevard Morland honours François-Louis de Morlan, known as Morland, a colonel of Napoleon’s Imperial Guard.",
-    "La station doit son nom aux voies voisines et au pont de Sully. Sully honore Maximilien de Béthune, ministre d’Henri IV ; le boulevard Morland rappelle François-Louis de Morlan, dit Morland, colonel de la Garde impériale de Napoléon.",
+    "Called Sully – Morland after nearby roads and the Pont de Sully. Sully honours Maximilien de Béthune, Henri IV’s minister; Boulevard Morland honours François-Louis de Morlan, known as Morland, a colonel of Napoleon’s Imperial Guard.",
+    "La station doit son nom aux voies voisines et au pont de Sully. Sully honore Maximilien de Béthune, ministre d’Henri IV ; le boulevard Morland rappelle François-Louis de Morlan, dit Morland, colonel de la Garde impériale de Napoléon.",
     "The station opened as Pont Sully in 1930 and soon acquired its compound name. It briefly served as the southern terminus. The tunnel under the Seine then connected it to Jussieu, allowing Line 7 to cross to the Left Bank.",
     "La station ouvre sous le nom de Pont Sully en 1930 et prend rapidement son nom composé. Elle sert brièvement de terminus sud. Le tunnel sous la Seine la relie ensuite à Jussieu et permet à la ligne 7 de rejoindre la rive gauche.",
     {
@@ -363,8 +363,8 @@ const stations: Station[] = [
     "garden",
     "Called Jussieu after Place Jussieu and Rue Jussieu, which honour botanist Antoine-Laurent de Jussieu. He taught at the Muséum national d’histoire naturelle and belonged to the French Academy of Sciences.",
     "La station doit son nom à la place et à la rue Jussieu, qui honorent le botaniste Antoine-Laurent de Jussieu. Il enseignait au Muséum national d’histoire naturelle et appartenait à l’Académie des sciences.",
-    "Its former name, Jussieu–Halle-aux-vins, also identified the wine market above the station. That market later gave way to the university campus. The adjacent platforms of Lines 7 and 10 opened together during the network’s 1931 reorganisation.",
-    "Son ancien nom, Jussieu–Halle-aux-vins, désignait aussi le marché aux vins situé au-dessus de la station. Ce marché laisse ensuite place au campus universitaire. Les quais voisins des lignes 7 et 10 ouvrent ensemble lors de la réorganisation du réseau en 1931.",
+    "The station’s former name, Jussieu – Halle-aux-vins, also identified the wine market above it. That market later gave way to the university campus. The adjacent platforms of Lines 7 and 10 opened together during the network’s 1931 reorganisation.",
+    "L’ancien nom de la station, Jussieu – Halle-aux-vins, désignait aussi le marché aux vins situé au-dessus. Ce marché laisse ensuite place au campus universitaire. Les quais voisins des lignes 7 et 10 ouvrent ensemble lors de la réorganisation du réseau en 1931.",
     {
       people: [
         biography(
@@ -391,8 +391,8 @@ const stations: Station[] = [
     "Censier – Daubenton",
     "Paris 5e",
     "garden",
-    "Called Censier–Daubenton after two nearby streets. Censier derives from sans chef, meaning a dead end; Rue Daubenton honours naturalist Louis Jean-Marie Daubenton, who worked with Buffon and became the first director of the natural history museum.",
-    "La station doit son nom à deux rues voisines. Censier vient de sans chef, qui désignait une impasse ; la rue Daubenton honore le naturaliste Louis Jean-Marie Daubenton, collaborateur de Buffon et premier directeur du Muséum national d’histoire naturelle.",
+    "Called Censier – Daubenton after Rue Censier and Rue Daubenton. Censier comes from sans chef, meaning a dead end. Daubenton honours the naturalist Louis Jean-Marie Daubenton, who worked with Buffon and became the first director of the Muséum national d’histoire naturelle.",
+    "La station doit son nom à la rue Censier et à la rue Daubenton. Censier vient de sans chef, qui désignait une impasse. Daubenton honore le naturaliste Louis Jean-Marie Daubenton, collaborateur de Buffon et premier directeur du Muséum national d’histoire naturelle.",
     "Until 1965, Halle aux cuirs formed a third part of the station name. It referred to a leather market in the neighbourhood. Tanneries and related trades had settled along the Bièvre, the small river that once flowed through this district.",
     "Jusqu’en 1965, Halle aux cuirs formait une troisième partie du nom de la station. Ce complément désignait un marché du cuir du quartier. Tanneurs et métiers voisins s’étaient installés le long de la Bièvre, rivière qui traversait autrefois ce secteur.",
     {
@@ -411,7 +411,7 @@ const stations: Station[] = [
     "Paris 13e",
     "loom",
     "Called Les Gobelins after the tapestry works and avenue, named for the Gobelin family of dyers. Jehan Gobelin established a dye workshop in the fifteenth century; his descendants built workshops beside the Bièvre.",
-    "La station doit son nom à la manufacture de tapisseries et à l’avenue, dont le nom vient de la famille de teinturiers Gobelin. Jehan Gobelin fonde un atelier au XVe siècle ; ses descendants s’installent au bord de la Bièvre.",
+    "La station doit son nom à la manufacture de tapisseries et à l’avenue, dont le nom vient de la famille de teinturiers Gobelin. Jehan Gobelin fonde un atelier au XVe siècle ; ses descendants s’installent au bord de la Bièvre.",
     "The dyers came before the royal tapestry works. In 1662, Colbert bought the property for the Crown and brought workshops together under Charles Le Brun. Gobelins tapestries use vertical looms, with the weaver working on the reverse of the fabric.",
     "Les teinturiers précèdent la manufacture royale de tapisseries. En 1662, Colbert achète la propriété pour la Couronne et rassemble les ateliers sous la direction de Charles Le Brun. Les tapisseries des Gobelins sont tissées sur des métiers verticaux, à l’envers de l’ouvrage.",
     {
@@ -432,9 +432,9 @@ const stations: Station[] = [
     "Place d’Italie",
     "Paris 13e",
     "square",
-    "Called Place d’Italie because it lies beneath the square at the start of the road towards Italy. Avenue d’Italie continues south from the square into the historic Route nationale 7 corridor.",
-    "La station doit son nom à la place d’Italie, située au départ de la route qui conduisait vers l’Italie. L’avenue d’Italie se prolonge vers le sud dans l’axe historique de la route nationale 7.",
-    "Lines 5, 6 and 7 meet below this major road junction. The platforms initially belonged to Line 10 in 1930 and transferred to Line 7 in 1931, when the new tunnel beneath the Seine connected the northern and southern sections.",
+    "Called Place d’Italie after the square at the start of Avenue d’Italie. This was the departure point of the road from Paris towards Italy, later known as the Route Nationale 7.",
+    "La station doit son nom à la place située au départ de l’avenue d’Italie. C’est le point de départ de la route de Paris vers l’Italie, devenue la route nationale 7.",
+    "Lines 5, 6 and 7 meet below this major road junction. The Line 7 platforms first belonged to Line 10 in 1930. They transferred to Line 7 in 1931, when the new tunnel beneath the Seine connected the northern and southern sections.",
     "Les lignes 5, 6 et 7 se rencontrent sous ce grand carrefour. Les quais de la ligne 7 appartiennent d’abord à la ligne 10 en 1930. Ils changent de ligne en 1931, lorsque le tunnel sous la Seine relie les tronçons nord et sud.",
     {
       sources: [
@@ -469,10 +469,10 @@ const stations: Station[] = [
     "Maison Blanche",
     "Paris 13e",
     "house",
-    "Called Maison Blanche after the surrounding district, which took its name from an inn called “Maison Blanche”, meaning “white house”.",
-    "La station doit son nom au quartier de la Maison-Blanche, lui-même nommé d’après une auberge appelée Maison Blanche.",
+    "Called Maison Blanche after the surrounding district. The district took its name from an inn called “Maison Blanche”, French for “white house”.",
+    "La station doit son nom au quartier de la Maison-Blanche. Ce quartier tient son nom d’une auberge appelée « Maison Blanche ».",
     "Maison Blanche is the last station shared by both southern branches of Line 7. Beyond it, tracks separate towards Mairie d’Ivry and Villejuif. The branch to Le Kremlin-Bicêtre opened in 1982; Line 14 added an interchange here in 2024.",
-    "Maison Blanche est la dernière station commune aux deux branches sud de la ligne 7. Au-delà, les voies se séparent vers Mairie d’Ivry et Villejuif. La branche vers Le Kremlin-Bicêtre ouvre en 1982 ; la ligne 14 ajoute une correspondance en 2024.",
+    "Maison Blanche est la dernière station commune aux deux branches sud de la ligne 7. Au-delà, les voies se séparent vers Mairie d’Ivry et Villejuif. La branche vers Le Kremlin-Bicêtre ouvre en 1982 ; la ligne 14 ajoute une correspondance en 2024.",
   ),
   station(
     "porte-ditalie",
@@ -480,7 +480,7 @@ const stations: Station[] = [
     "Paris 13e",
     "gate",
     "Called Porte d’Italie after the former fortified gate on the road towards Italy. The gate belonged to the Thiers city wall; its road continued south along the route later known as Route nationale 7.",
-    "La station doit son nom à l’ancienne porte fortifiée située sur la route vers l’Italie. Cette porte appartenait à l’enceinte de Thiers ; la route se poursuivait vers le sud sur l’axe devenu la route nationale 7.",
+    "La station doit son nom à l’ancienne porte fortifiée située sur la route vers l’Italie. Cette porte appartenait à l’enceinte de Thiers ; la route se poursuivait vers le sud sur l’axe devenu la route nationale 7.",
     "This is the first station on the Ivry branch after Maison Blanche. Its platforms lie under Boulevard Masséna, east of the road junction. It opened on Line 10 in 1930 and transferred to Line 7 in 1931.",
     "C’est la première station de la branche d’Ivry après Maison Blanche. Ses quais se trouvent sous le boulevard Masséna, à l’est du carrefour. Elle ouvre sur la ligne 10 en 1930 et passe à la ligne 7 en 1931.",
     {
@@ -529,8 +529,8 @@ const stations: Station[] = [
     "Pierre et Marie Curie",
     "Ivry-sur-Seine",
     "portrait",
-    "Called Pierre et Marie Curie to honour the two physicists. The original name, Pierre Curie, came from the nearby street; Marie’s name was added to the station in 2007 to recognise her work as well.",
-    "La station doit son nom aux physiciens Pierre et Marie Curie. Le nom initial, Pierre Curie, venait de la rue voisine ; celui de Marie est ajouté à la station en 2007 pour honorer également son travail scientifique.",
+    "Called Pierre et Marie Curie to honour the two physicists. The original name, Pierre Curie, came from the nearby street; Marie’s name was added in 2007 to honour her scientific work too.",
+    "La station doit son nom aux physiciens Pierre et Marie Curie. Le nom initial, Pierre Curie, venait de la rue voisine. Celui de Marie est ajouté en 2007 pour honorer aussi son travail scientifique.",
     "The change became official on International Women’s Day, 8 March 2007, following the station’s renovation. Opened in 1946, the station forms the intermediate stop on the extension from Porte d’Ivry to the town hall at Mairie d’Ivry.",
     "Le changement devient officiel le 8 mars 2007, Journée internationale des femmes, après la rénovation de la station. Ouverte en 1946, la station est l’arrêt intermédiaire du prolongement entre Porte d’Ivry et le terminus situé près de la mairie.",
     {
@@ -565,10 +565,10 @@ const stations: Station[] = [
     "Le Kremlin-Bicêtre",
     "Le Kremlin-Bicêtre",
     "modern",
-    "Called Le Kremlin-Bicêtre after the town. Bicêtre evolved from Winchester, the bishopric of a medieval owner; Kremlin recalls an inn associated with veterans of Napoleon’s Russian campaign who were treated at the local hospital.",
-    "La station doit son nom à la commune. Bicêtre est une déformation de Winchester, évêché d’un propriétaire médiéval ; Kremlin rappelle un cabaret associé aux vétérans de la campagne de Russie de Napoléon, soignés à l’hôpital voisin.",
-    "The station opened in 1982 as the first terminus of Line 7’s new southern branch. Trains reached Villejuif in 1985, turning it into a through station. The junction with the Ivry branch remains just south of Maison Blanche.",
-    "La station ouvre en 1982 comme premier terminus de la nouvelle branche sud de la ligne 7. Les trains atteignent Villejuif en 1985 ; elle devient alors une station de passage. La bifurcation avec la branche d’Ivry reste au sud de Maison Blanche.",
+    "Called Le Kremlin-Bicêtre after the town. Bicêtre evolved from Winchester: Jean de Pontoise, a medieval Bishop of Winchester, built a castle here. Kremlin recalls an inn associated with veterans of Napoleon’s Russian campaign, treated at the local hospital.",
+    "La station doit son nom à la commune. Bicêtre est une déformation de Winchester : Jean de Pontoise, évêque médiéval de Winchester, y fit construire un château. Kremlin rappelle un cabaret associé aux vétérans de la campagne de Russie de Napoléon, soignés à l’hôpital voisin.",
+    "Le Kremlin-Bicêtre was the first terminus of Line 7’s new southern branch when it opened in 1982. Trains reached Villejuif in 1985, and the station became a through station. The junction with the Ivry branch lies just south of Maison Blanche.",
+    "Le Kremlin-Bicêtre est le premier terminus de la nouvelle branche sud de la ligne 7 à son ouverture en 1982. Les trains atteignent Villejuif en 1985 et la station devient alors une station de passage. La bifurcation avec la branche d’Ivry se trouve juste au sud de Maison Blanche.",
     {
       branch: "villejuif",
       sources: [
@@ -588,7 +588,7 @@ const stations: Station[] = [
     "Villejuif – Léo Lagrange",
     "Villejuif",
     "portrait",
-    "Called Villejuif–Léo Lagrange because it serves Villejuif and honours Léo Lagrange, the Socialist lawyer and politician.",
+    "Called Villejuif – Léo Lagrange because it serves Villejuif and honours Léo Lagrange, the Socialist lawyer and politician.",
     "La station doit son nom à la commune de Villejuif et à Léo Lagrange, avocat et homme politique socialiste.",
     "The station opened in 1985 with the extension from Le Kremlin-Bicêtre to Louis Aragon. Its project name was Villejuif 1. The platforms lie below Avenue de Paris, with entrances on both sides of this main road.",
     "La station ouvre en 1985 avec le prolongement du Kremlin-Bicêtre à Louis Aragon. Son nom de projet était Villejuif 1. Les quais se trouvent sous l’avenue de Paris, avec des accès répartis des deux côtés de cette grande voie.",
@@ -602,7 +602,7 @@ const stations: Station[] = [
     "Villejuif – Paul Vaillant-Couturier",
     "Villejuif",
     "portrait",
-    "Called Villejuif–Paul Vaillant-Couturier after the town and nearby Avenue Paul-Vaillant-Couturier. The avenue honours the Communist journalist and deputy who became editor of L’Humanité.",
+    "Called Villejuif – Paul Vaillant-Couturier after the town and nearby Avenue Paul-Vaillant-Couturier. The avenue honours the Communist journalist and deputy who became editor of L’Humanité.",
     "La station doit son nom à Villejuif et à l’avenue Paul-Vaillant-Couturier voisine. Cette avenue honore le journaliste et député communiste devenu rédacteur en chef de L’Humanité.",
     "The station opened in 1985 as part of the extension to Louis Aragon. It also bears the subtitle Hôpital Paul Brousse, referring to the nearby hospital. The Métro follows the old Route nationale 7 corridor through this part of Villejuif.",
     "La station ouvre en 1985 dans le cadre du prolongement à Louis Aragon. Elle porte aussi le sous-titre Hôpital Paul Brousse, qui désigne l’hôpital voisin. Le métro suit l’axe de l’ancienne route nationale 7 dans cette partie de Villejuif.",
@@ -616,10 +616,10 @@ const stations: Station[] = [
     "Villejuif – Louis Aragon",
     "Villejuif",
     "portrait",
-    "Called Villejuif–Louis Aragon after the town and a nearby road named for the French writer Louis Aragon.",
+    "Called Villejuif – Louis Aragon after the town and a nearby road named for the French writer Louis Aragon.",
     "La station doit son nom à Villejuif et à une voie voisine dédiée à l’écrivain français Louis Aragon.",
     "The terminus opened in 1985 when the branch extended beyond Le Kremlin-Bicêtre through Villejuif. It is one of Line 7’s two southern endpoints, alongside Mairie d’Ivry. The two routes share all stations north of their fork at Maison Blanche.",
-    "Le terminus ouvre en 1985 lorsque la branche dépasse Le Kremlin-Bicêtre et traverse Villejuif. Il constitue l’une des deux extrémités sud de la ligne 7, avec Mairie d’Ivry. Les deux itinéraires partagent les stations au nord de Maison Blanche.",
+    "Le terminus ouvre en 1985 lorsque la branche dépasse Le Kremlin-Bicêtre et traverse Villejuif. C’est l’une des deux extrémités sud de la ligne 7, avec Mairie d’Ivry. Les deux itinéraires partagent les stations au nord de Maison Blanche.",
     {
       branch: "villejuif",
       people: [biography("Louis Aragon", "Louis Aragon")],
@@ -634,8 +634,8 @@ export const line7: MetroLine = {
   textColor: "#3b202a",
   title: { en: "Line 7", fr: "Ligne 7" },
   summary: {
-    en: "From dyers to scientists: 38 names, from La Courneuve to Ivry and Villejuif.",
-    fr: "Des teinturiers aux savants : 38 noms, de La Courneuve à Ivry et Villejuif.",
+    en: "Line 7 runs from La Courneuve to two southern termini, Mairie d’Ivry and Villejuif – Louis Aragon. Its 38 station names include four Paris gates and people such as the Gobelin dyers and Pierre and Marie Curie.",
+    fr: "La ligne 7 relie La Courneuve à deux terminus sud, Mairie d’Ivry et Villejuif – Louis Aragon. Ses 38 noms de stations comprennent quatre portes de Paris et des personnes comme les teinturiers Gobelin ou Pierre et Marie Curie.",
   },
   termini: [
     "La Courneuve – 8 Mai 1945",
@@ -663,8 +663,8 @@ export const line7: MetroLine = {
   featured: ["les-gobelins", "censier-daubenton", "pierre-et-marie-curie"],
   image: "/illustrations/line-7.webp",
   imageAlt: {
-    en: "Interpretive illustration of Line 7 and its station-name stories",
-    fr: "Illustration évocatrice de la ligne 7 et de l’histoire des noms de ses stations",
+    en: "Engraved-style illustration of a wooden upright tapestry loom with a floral tapestry in progress, beside a botanical drawing of a pink flowering plant.",
+    fr: "Illustration de style gravure d’un métier à tisser vertical en bois portant une tapisserie fleurie en cours, à côté d’une planche botanique d’une plante à fleurs roses.",
   },
   sources: [
     {

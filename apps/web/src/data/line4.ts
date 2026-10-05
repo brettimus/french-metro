@@ -58,8 +58,8 @@ const stations: Station[] = [
     "gate",
     "Called Simplon after nearby Rue du Simplon, which takes its name from the Alpine pass linking the Swiss canton of Valais with northern Italy.",
     "La station porte le nom de la rue du Simplon, qui rappelle le col alpin reliant la Suisse à l’Italie.",
-    "Napoleon ordered a road across the pass. A railway tunnel beneath the Simplon opened in 1906, two years before this Métro station opened in Paris.",
-    "Napoléon fait aménager une route par le col. Un tunnel ferroviaire sous le Simplon ouvre en 1906, deux ans avant la station de métro parisienne.",
+    "Napoleon had a road built across the Simplon Pass in 1807, and a railway tunnel beneath it opened in 1906. On the night of 20 to 21 April 1944, an Allied air raid on the La Chapelle depot hit the station. Its vault fell onto the track and platforms.",
+    "Napoléon fait construire une route par le col du Simplon en 1807, et un tunnel ferroviaire le traverse depuis 1906. Dans la nuit du 20 au 21 avril 1944, un bombardement allié visant le dépôt de La Chapelle touche la station. Sa voûte s’effondre sur la voie et les quais.",
   ),
   stop(
     "marcadet-poissonniers",
@@ -67,9 +67,9 @@ const stations: Station[] = [
     "Paris 18e",
     "market",
     "Called Marcadet – Poissonniers after two nearby streets. Marcadet recalls an old market site; Poissonniers recalls the traders who carried fish from the northern coast to the markets of Paris.",
-    "La station réunit les noms de deux rues voisines. Marcadet rappelle un ancien lieu de marché ; Poissonniers évoque les marchands qui acheminaient le poisson des côtes du nord vers les halles de Paris.",
+    "La station réunit les noms de deux rues voisines. Marcadet rappelle un ancien lieu de marché ; Poissonniers évoque les marchands qui acheminaient le poisson des côtes du nord vers les halles de Paris.",
     "Marcadet and Poissonniers began as separate stations run by rival companies. An underground passage joined them in 1931, and their names were joined too.",
-    "Marcadet et Poissonniers étaient deux stations distinctes, exploitées par des compagnies concurrentes. Un couloir les relie en 1931 : leurs deux noms sont alors réunis.",
+    "Marcadet et Poissonniers étaient deux stations distinctes, exploitées par des compagnies concurrentes. Un couloir les relie en 1931 : leurs deux noms sont alors réunis.",
   ),
   stop(
     "chateau-rouge",
@@ -78,8 +78,8 @@ const stations: Station[] = [
     "square",
     "Called Château Rouge after the square above the station. Its name recalls a small country house once known as the Château Rouge, which disappeared in 1889.",
     "La station porte le nom de la place du Château-Rouge, située au-dessus des quais. Ce nom rappelle une petite demeure autrefois appelée Château Rouge, disparue en 1889.",
-    "The house was probably built in the late eighteenth century. Its exact construction date is uncertain, but its name survived in the square and surrounding neighbourhood.",
-    "La demeure aurait été construite à la fin du XVIIIe siècle. Sa date exacte reste incertaine, mais son nom a survécu dans celui de la place et du quartier.",
+    "Works from July 2014 to July 2017 enlarged the ticket hall and added a third entrance, on Rue Custine. The Château Rouge house itself was probably built in the late eighteenth century.",
+    "De juillet 2014 à juillet 2017, des travaux agrandissent la salle d’échanges et ajoutent un troisième accès, rue Custine. La demeure du Château Rouge a probablement été construite à la fin du XVIIIe siècle.",
   ),
   stop(
     "barbes-rochechouart",
@@ -108,7 +108,7 @@ const stations: Station[] = [
     "Paris 10e",
     "station",
     "Called Gare de l’Est because it serves the railway terminus for eastern France. The railway station adopted this name in 1854 as its network expanded beyond Strasbourg.",
-    "La station porte le nom de la gare de l’Est, qu’elle dessert. La gare ferroviaire adopte ce nom en 1854, lorsque son réseau s’étend au-delà de Strasbourg.",
+    "La station porte le nom de la gare de l’Est, qu’elle dessert, terminus ferroviaire vers l’est de la France. La gare ferroviaire adopte ce nom en 1854, lorsque son réseau s’étend au-delà de Strasbourg.",
     "The railway station began as the Embarcadère de Strasbourg. Its later name followed the Compagnie des chemins de fer de l’Est, which operated the growing network.",
     "La gare ferroviaire s’appelait d’abord Embarcadère de Strasbourg. Son nouveau nom reprend celui de la Compagnie des chemins de fer de l’Est, qui exploite le réseau en expansion.",
     {
@@ -140,7 +140,7 @@ const stations: Station[] = [
     "Paris 2e / 3e / 10e",
     "gate",
     "Called Strasbourg – Saint-Denis after the boulevards at this junction. Strasbourg recalls the destination of the railway nearby; Saint-Denis recalls the old road to the town named after the first bishop of Paris.",
-    "La station réunit les noms des boulevards du carrefour. Strasbourg rappelle la destination du chemin de fer voisin ; Saint-Denis, l’ancienne route vers la ville portant le nom du premier évêque de Paris.",
+    "La station réunit les noms des boulevards du carrefour. Strasbourg rappelle la destination du chemin de fer voisin ; Saint-Denis, l’ancienne route vers la ville portant le nom du premier évêque de Paris.",
     "The station first used the shorter name Boulevard Saint-Denis. Strasbourg was added in 1931, when the arrival of Line 8 made this a connecting station.",
     "La station s’appelait d’abord Boulevard Saint-Denis. Strasbourg est ajouté en 1931, lorsque l’arrivée de la ligne 8 transforme cet arrêt en station de correspondance.",
     {
@@ -162,7 +162,7 @@ const stations: Station[] = [
     "Paris 2e / 3e",
     "portrait",
     "Called Réaumur – Sébastopol after the intersecting street and boulevard. Réaumur honours the physicist and naturalist René-Antoine Ferchault de Réaumur; Sébastopol recalls the capture of the Crimean port in 1855.",
-    "La station porte les noms de la rue et du boulevard qui se croisent ici. Réaumur honore le physicien et naturaliste René-Antoine Ferchault de Réaumur ; Sébastopol rappelle la prise du port de Crimée en 1855.",
+    "La station porte les noms de la rue et du boulevard qui se croisent ici. Réaumur honore le physicien et naturaliste René-Antoine Ferchault de Réaumur ; Sébastopol rappelle la prise du port de Crimée en 1855.",
     "The station opened as Rue Saint-Denis on Line 3. It received its present name in 1907, ahead of the arrival of Line 4 the following year.",
     "La station ouvre sous le nom de Rue Saint-Denis sur la ligne 3. Elle reçoit son nom actuel en 1907, avant l’arrivée de la ligne 4 l’année suivante.",
     {
@@ -180,10 +180,10 @@ const stations: Station[] = [
     "Étienne Marcel",
     "Paris 1er / 2e",
     "portrait",
-    "Called Étienne Marcel after the nearby street honouring a fourteenth-century provost of the merchants of Paris. This office made Marcel a leading figure in the city’s government.",
-    "La station porte le nom de la rue Étienne-Marcel, dédiée à un prévôt des marchands de Paris du XIVe siècle. Cette fonction faisait de Marcel une figure majeure du gouvernement de la ville.",
-    "Marcel played a prominent role in the Estates General of 1355 and 1357. His political career ended violently with his death in Paris in 1358.",
-    "Marcel joue un rôle important aux États généraux de 1355 et de 1357. Sa carrière politique s’achève dans la violence, avec sa mort à Paris en 1358.",
+    "Called Étienne Marcel after the nearby street honouring a fourteenth-century provost of the merchants of Paris. Marcel took this office in 1354; it gave him jurisdiction over river trade in Paris.",
+    "La station porte le nom de la rue Étienne-Marcel, dédiée à un prévôt des marchands de Paris du XIVe siècle. Marcel devient prévôt en 1354 ; cette charge lui donne autorité sur le commerce fluvial parisien.",
+    "At the Estates General of 1355, Marcel was a leading representative of the towns. In 1357 he backed the Grande Ordonnance, which placed royal finances under the oversight of the Estates. He was killed in Paris in 1358.",
+    "Aux États généraux de 1355, Marcel est l’un des principaux représentants des villes. En 1357, il soutient la Grande Ordonnance, qui place les finances royales sous le contrôle des états. Il est tué à Paris en 1358.",
     {
       sources: [
         source(
@@ -219,10 +219,10 @@ const stations: Station[] = [
     "Châtelet",
     "Paris 1er / 4e",
     "gate",
-    "Called Châtelet after Place du Châtelet, laid out on the site of the Grand Châtelet. This vanished fortress became a court and prison.",
-    "La station doit son nom à la place du Châtelet, aménagée à l’emplacement du Grand Châtelet. Cette forteresse disparue a servi de tribunal et de prison.",
-    "The Grand Châtelet guarded the northern approach to the Pont au Change. Its demolition began in 1802, leaving its name attached to the new square.",
-    "Le Grand Châtelet gardait l’accès nord du pont au Change. Sa démolition commence en 1802 ; son nom reste alors attaché à la nouvelle place.",
+    "Called Châtelet after Place du Châtelet, laid out on the site of the Grand Châtelet. This fortress was a court and prison before its demolition in the early nineteenth century.",
+    "La station doit son nom à la place du Châtelet, aménagée à l’emplacement du Grand Châtelet. Cette forteresse était un tribunal et une prison avant sa démolition au début du XIXe siècle.",
+    "The Grand Châtelet guarded the northern approach to the Pont au Change. Its demolition began in 1802.",
+    "Le Grand Châtelet gardait l’accès nord du pont au Change. Sa démolition commence en 1802.",
     {
       sources: [
         source("Châtelet · Wikipédia", wiki("Châtelet (métro de Paris)")),
@@ -240,8 +240,8 @@ const stations: Station[] = [
     "river",
     "Called Cité because it lies beneath the Île de la Cité. The island’s name recalls the fortified city of late antiquity, which formed a core of medieval Paris.",
     "La station s’appelle Cité parce qu’elle se trouve sous l’île de la Cité. Le nom de l’île rappelle la ville fortifiée de l’Antiquité tardive, devenue un noyau du Paris médiéval.",
-    "It is the only Métro station beneath an island. Line 4 crosses both arms of the Seine here, with Châtelet on one bank and Saint-Michel on the other.",
-    "C’est la seule station du métro située sous une île. La ligne 4 traverse ici les deux bras de la Seine, entre Châtelet sur une rive et Saint-Michel sur l’autre.",
+    "Cité is the only Métro station beneath an island. Line 4 crosses both arms of the Seine here, with Châtelet on one bank and Saint-Michel on the other.",
+    "Cité est la seule station du métro située sous une île. La ligne 4 traverse ici les deux bras de la Seine, entre Châtelet sur une rive et Saint-Michel sur l’autre.",
   ),
   stop(
     "saint-michel",
@@ -272,8 +272,8 @@ const stations: Station[] = [
     "square",
     "Called Odéon after the nearby crossroads and theatre. The theatre’s name refers to the odeons of ancient Greece, buildings used for musical performances and recitations.",
     "La station porte le nom du carrefour et du théâtre voisins. Le mot odéon vient des édifices de la Grèce antique consacrés aux spectacles musicaux et aux récitations.",
-    "The theatre opened in 1782. Its monumental columns and pediment reflect the neoclassical architecture of Charles de Wailly and Marie-Joseph Peyre, who designed the building.",
-    "Le théâtre ouvre en 1782. Ses colonnes monumentales et son fronton illustrent l’architecture néoclassique de Charles de Wailly et Marie-Joseph Peyre, les deux concepteurs du bâtiment.",
+    "The Odéon theatre opened in 1782. Charles de Wailly and Marie-Joseph Peyre designed the neoclassical building, with its columns and pediment.",
+    "Le théâtre de l’Odéon ouvre en 1782. Charles de Wailly et Marie-Joseph Peyre ont conçu ce bâtiment néoclassique, avec ses colonnes et son fronton.",
     {
       sources: [
         source("Odéon · Wikipédia", wiki("Odéon (métro de Paris)")),
@@ -290,9 +290,9 @@ const stations: Station[] = [
     "Paris 6e",
     "church",
     "Called Saint-Germain-des-Prés after the church and square nearby. Germain was a sixth-century bishop of Paris; des prés recalls the meadows that once surrounded the abbey.",
-    "La station porte le nom de l’église et de la place voisines. Germain était évêque de Paris au VIe siècle ; « des Prés » rappelle les prairies qui entouraient autrefois l’abbaye.",
+    "La station porte le nom de l’église et de la place voisines. Germain était évêque de Paris au VIe siècle ; « des Prés » rappelle les prairies qui entouraient autrefois l’abbaye.",
     "The abbey began under the names Sainte-Croix and Saint-Vincent. Germain’s burial there in 576 helped make it a pilgrimage site, and his name gradually replaced the earlier dedication.",
-    "L’abbaye est d’abord dédiée à Sainte-Croix et à Saint-Vincent. La sépulture de Germain, en 576, contribue à en faire un lieu de pèlerinage ; son nom remplace progressivement la dédicace initiale.",
+    "L’abbaye est d’abord dédiée à Sainte-Croix et à Saint-Vincent. La sépulture de Germain, en 576, contribue à en faire un lieu de pèlerinage ; son nom remplace progressivement la dédicace initiale.",
     {
       sources: [
         source(
@@ -314,8 +314,8 @@ const stations: Station[] = [
     "church",
     "Called Saint-Sulpice after the nearby street and church. The church is dedicated to Sulpice the Pious, a seventh-century bishop of Bourges and chaplain to the Merovingian king Clotaire II.",
     "La station porte le nom de la rue et de l’église Saint-Sulpice. L’église est dédiée à Sulpice le Pieux, évêque de Bourges au VIIe siècle et aumônier du roi mérovingien Clotaire II.",
-    "Construction of the present church began in 1646 to replace a smaller medieval building. Work continued intermittently for more than a century, involving several architects.",
-    "La construction de l’église actuelle commence en 1646 pour remplacer un édifice médiéval devenu trop petit. Plusieurs architectes se succèdent sur ce chantier, poursuivi par étapes pendant plus d’un siècle.",
+    "Construction of the present Saint-Sulpice church began in 1646. It replaced a medieval building that had become too small. Several architects worked on it in turn, in stages, for more than a century.",
+    "La construction de l’église Saint-Sulpice actuelle commence en 1646. Elle remplace un édifice médiéval devenu trop petit. Plusieurs architectes se succèdent sur ce chantier, mené par étapes pendant plus d’un siècle.",
     { people: [bio("Sulpice le Pieux", "Sulpitius the Pious")] },
   ),
   stop(
@@ -325,18 +325,18 @@ const stations: Station[] = [
     "church",
     "Called Saint-Placide after the nearby street dedicated to Placide, a disciple of Saint Benedict. The station adopted the street’s name in 1913 to avoid confusion with another stop.",
     "La station porte le nom de la rue Saint-Placide, dédiée à un disciple de saint Benoît. Elle adopte ce nom en 1913 pour éviter une confusion avec un autre arrêt.",
-    "Its original name was Vaugirard, after Rue de Vaugirard. When another Vaugirard station opened on today’s Line 12, this stop needed a name of its own.",
-    "Elle s’appelait d’abord Vaugirard, comme la rue voisine. L’ouverture d’une autre station Vaugirard sur l’actuelle ligne 12 a conduit à choisir un nom différent pour cet arrêt.",
+    "Opened in 1910, the station was first called Vaugirard, after Rue de Vaugirard. Another Vaugirard station opened on what is now Line 12, so this stop needed a different name.",
+    "Ouverte en 1910, la station s’appelait d’abord Vaugirard, comme la rue voisine. L’ouverture d’une autre station Vaugirard, sur l’actuelle ligne 12, impose ensuite un nom différent.",
   ),
   stop(
     "montparnasse-bienvenue",
     "Montparnasse – Bienvenüe",
     "Paris 6e / 14e / 15e",
     "station",
-    "Called Montparnasse – Bienvenüe after the railway district and Métro engineer Fulgence Bienvenüe. Montparnasse began as a joking reference to Mount Parnassus, the Greek mountain associated with poetry.",
-    "La station associe le nom du quartier de la gare à celui de l’ingénieur Fulgence Bienvenüe. Montparnasse vient d’une référence plaisante au mont Parnasse, montagne grecque associée à la poésie.",
-    "Students gave that grand name to a local heap of rubble. The present station joins two formerly separate stops, Montparnasse and Bienvenüe, whose names were combined in 1942.",
-    "Des étudiants avaient donné ce nom prestigieux à une butte de gravats. La station actuelle réunit deux anciens arrêts, Montparnasse et Bienvenüe, dont les noms sont associés en 1942.",
+    "Called Montparnasse – Bienvenüe after the railway district and Métro engineer Fulgence Bienvenüe. Montparnasse began as a students’ joke: they gave the name of Mount Parnassus, the Greek mountain associated with poetry, to a local heap of rubble.",
+    "La station associe le nom du quartier de la gare à celui de l’ingénieur Fulgence Bienvenüe. Montparnasse vient d’une plaisanterie d’étudiants, qui avaient donné à une butte de gravats le nom du mont Parnasse, montagne grecque associée à la poésie.",
+    "The present station joins two formerly separate stops, Montparnasse and Bienvenüe. Their names were combined in 1942.",
+    "La station actuelle réunit deux arrêts autrefois distincts, Montparnasse et Bienvenüe. Leurs noms sont associés en 1942.",
     {
       sources: [
         source(
@@ -354,8 +354,8 @@ const stations: Station[] = [
     "portrait",
     "Called Vavin after nearby Rue Vavin, named for Alexis Vavin. A Paris notary who entered politics, he was elected to represent Paris in the Chamber of Deputies in 1839.",
     "La station porte le nom de la rue Vavin, dédiée à Alexis Vavin. Ce notaire parisien devenu homme politique est élu député de Paris en 1839.",
-    "He continued to serve as a representative after the revolution of 1848, during the Second Republic.",
-    "Après la révolution de 1848, Vavin poursuit son activité de représentant au sein des assemblées de la Deuxième République.",
+    "Alexis Vavin continued to serve as a representative during the Second Republic, after the revolution of 1848. The station opened on 9 January 1910. From 24 January, during the Seine flood, it served as the terminus for trains from Porte d’Orléans.",
+    "Après la révolution de 1848, Alexis Vavin siège encore comme représentant sous la Deuxième République. La station ouvre le 9 janvier 1910. À partir du 24 janvier, pendant la crue de la Seine, elle sert de terminus aux trains venant de Porte d’Orléans.",
     {
       sources: [
         source("Vavin · Wikipédia", wiki("Vavin (métro de Paris)")),
@@ -382,8 +382,8 @@ const stations: Station[] = [
     "portrait",
     "Called Raspail after the boulevard above the station. It honours François-Vincent Raspail, a nineteenth-century scientist and republican politician whose work combined research with campaigns for social change.",
     "La station porte le nom du boulevard Raspail. Celui-ci honore François-Vincent Raspail, savant et homme politique républicain du XIXe siècle, engagé à la fois dans la recherche et dans les luttes sociales.",
-    "In February 1848, Raspail led a delegation to Paris City Hall to demand an immediate proclamation of the Republic from the provisional government.",
-    "En février 1848, Raspail conduit une délégation à l’Hôtel de Ville de Paris pour exiger du gouvernement provisoire la proclamation immédiate de la République.",
+    "The Line 4 and Line 6 platforms run parallel, on the same level. In February 1848, François-Vincent Raspail led a delegation to Paris City Hall to demand an immediate proclamation of the Republic from the provisional government.",
+    "Les quais des lignes 4 et 6 sont parallèles et situés au même niveau. En février 1848, François-Vincent Raspail conduit une délégation à l’Hôtel de Ville de Paris pour exiger du gouvernement provisoire la proclamation immédiate de la République.",
     {
       sources: [
         source("Raspail · Wikipédia", wiki("Raspail (métro de Paris)")),
@@ -430,9 +430,9 @@ const stations: Station[] = [
     "Paris 14e",
     "portrait",
     "Called Mouton-Duvernet after the nearby street honouring General Régis Barthélemy Mouton-Duvernet. He served during the French Revolution and Napoleon’s empire, and was executed in Lyon in 1816.",
-    "La station porte le nom de la rue dédiée au général Régis Barthélemy Mouton-Duvernet. Il sert pendant la Révolution et l’Empire, avant d’être fusillé à Lyon en 1816.",
-    "The station later gave its own name to a Métro decorating style. Its orange tiles, introduced in 1969, became a model for other stations.",
-    "La station a ensuite donné son propre nom à un décor du métro. Son carrelage orange, installé en 1969, sert de modèle à d’autres stations.",
+    "La station porte le nom de la rue dédiée au général Régis Barthélemy Mouton-Duvernet. Ce militaire sert sous la Révolution et l’Empire. Il est fusillé à Lyon en 1816.",
+    "This station gave its name to the “Mouton style” of orange tiles, first installed here early in 1969. Twenty other stations were then decorated on this model. The station lost its orange tiles on 13 March 2007.",
+    "Cette station a donné son nom au « style Mouton », un carrelage orange posé ici pour la première fois début 1969. Vingt autres stations sont ensuite décorées sur ce modèle. La station perd son carrelage orange le 13 mars 2007.",
     {
       sources: [
         source(
@@ -457,10 +457,10 @@ const stations: Station[] = [
     "Alésia",
     "Paris 14e",
     "gate",
-    "Called Alésia after Rue d’Alésia, named for the Gallic stronghold where Julius Caesar defeated Vercingetorix in 52 BC. The battle took place in Burgundy, far from this Paris street.",
+    "Called Alésia after Rue d’Alésia, named for the Gallic stronghold where Julius Caesar defeated Vercingetorix in 52 BC. The battle took place in Burgundy.",
     "La station porte le nom de la rue d’Alésia, qui rappelle la place forte gauloise où Jules César vainquit Vercingétorix en 52 avant notre ère. La bataille se déroula en Bourgogne.",
-    "At Alise-Sainte-Reine, archaeological remains trace the siege. Roman fortifications enclosed the Gallic forces while a second line of defences faced the army coming to relieve them.",
-    "À Alise-Sainte-Reine, les vestiges archéologiques retracent le siège. Les fortifications romaines encerclaient les Gaulois ; une seconde ligne de défense faisait face à l’armée venue les secourir.",
+    "Archaeological remains of the siege lie at Alise-Sainte-Reine. Roman fortifications enclosed the Gallic forces, and a second line of defences faced the army coming to relieve them.",
+    "Les vestiges archéologiques du siège se trouvent à Alise-Sainte-Reine. Les fortifications romaines encerclaient les Gaulois, et une seconde ligne de défense faisait face à l’armée venue les secourir.",
     {
       sources: [
         source("Alésia · Wikipédia", wiki("Alésia (métro de Paris)")),
@@ -478,7 +478,7 @@ const stations: Station[] = [
     "Paris 14e",
     "gate",
     "Called Porte d’Orléans after the former city gate on the road to Orléans. The name preserves the direction of travel through the southern fortifications of Paris.",
-    "La station porte le nom de l’ancienne porte de Paris située sur la route d’Orléans. Ce nom conserve la destination de la voie qui traversait les fortifications au sud de la capitale.",
+    "La station porte le nom d’une ancienne porte des fortifications, au sud de Paris. Cette porte s’ouvrait sur la route d’Orléans.",
     "This was Line 4’s southern terminus for more than a century. The extension to Mairie de Montrouge in 2013 finally carried the line beyond the city boundary.",
     "Cet arrêt a été le terminus sud de la ligne 4 pendant plus d’un siècle. Le prolongement à Mairie de Montrouge, en 2013, a permis à la ligne de franchir la limite de Paris.",
     {
@@ -499,10 +499,10 @@ const stations: Station[] = [
     "Mairie de Montrouge",
     "Montrouge",
     "square",
-    "Called Mairie de Montrouge because it serves the town hall of Montrouge. Mairie means town hall.",
-    "La station s’appelle Mairie de Montrouge parce qu’elle dessert l’hôtel de ville.",
-    "The town’s own name remains debated. Its municipal history gives two explanations: reddish soil on the plateau, or a local lord nicknamed Le Rouge.",
-    "L’origine du nom Montrouge reste discutée. L’histoire municipale présente deux explications : la terre rougeâtre du plateau, ou un seigneur local surnommé « le Rouge ».",
+    "Called Mairie de Montrouge because it serves the town hall of Montrouge. Mairie means town hall. The origin of the name Montrouge is debated. The town gives two explanations: reddish soil on the plateau, or a local lord nicknamed Le Rouge.",
+    "La station porte le nom de la mairie de Montrouge, qu’elle dessert. L’origine du nom Montrouge est discutée. La commune avance deux explications : la terre rougeâtre du plateau, ou un seigneur local surnommé « le Rouge ».",
+    "The station opened on 23 March 2013 as the first stage of the extension of Line 4 to Bagneux. On 13 January 2022, the line was extended beyond it to Barbara and Bagneux – Lucie Aubrac.",
+    "La station ouvre le 23 mars 2013, première étape du prolongement de la ligne 4 vers Bagneux. Le 13 janvier 2022, la ligne est prolongée au-delà, jusqu’à Barbara et Bagneux – Lucie Aubrac.",
     {
       sources: [
         source(
@@ -521,8 +521,8 @@ const stations: Station[] = [
     "Barbara",
     "Montrouge / Bagneux",
     "piano",
-    "Called Barbara after the French singer and songwriter. She is buried in the nearby Parisian cemetery of Bagneux, which can be reached from the station’s southern exit.",
-    "La station porte le nom de Barbara, autrice-compositrice-interprète. Elle repose au cimetière parisien de Bagneux, situé à proximité et accessible depuis la sortie sud de la station.",
+    "Called Barbara after the French singer and songwriter. She is buried in the Parisian cemetery of Bagneux, which is reached from the station’s southern exit.",
+    "La station porte le nom de Barbara, autrice-compositrice-interprète. Elle repose au cimetière parisien de Bagneux, accessible depuis la sortie sud de la station.",
     "Residents chose the name in a public vote organised by Île-de-France Mobilités. Barbara received more votes than the other proposed names, Coluche and Fort de Montrouge.",
     "Le nom est choisi lors d’un vote public organisé par Île-de-France Mobilités. Barbara recueille davantage de voix que les deux autres propositions, Coluche et Fort de Montrouge.",
     {
@@ -541,8 +541,8 @@ const stations: Station[] = [
     "Bagneux – Lucie Aubrac",
     "Bagneux",
     "portrait",
-    "Called Bagneux – Lucie Aubrac to identify the town and honour a member of the French Resistance. Aubrac fought against the Nazi occupation and continued to campaign for peace after the war.",
-    "La station associe le nom de Bagneux à celui de Lucie Aubrac, figure de la Résistance. Elle lutte contre l’occupation nazie puis poursuit, après la guerre, son engagement pour la paix.",
+    "Called Bagneux – Lucie Aubrac after the town it serves and Lucie Aubrac (1912–2007). A history teacher, communist activist and pacifist, she was a member of the Resistance during the Second World War.",
+    "La station porte le nom de la commune de Bagneux et celui de Lucie Aubrac (1912–2007). Professeure d’histoire, militante communiste et pacifiste, elle est résistante pendant la Seconde Guerre mondiale.",
     "The terminus had to include Bagneux in its name. In the public vote, Lucie Aubrac was chosen over the alternatives Nina Simone and Champ des Oiseaux.",
     "Le nom du terminus devait obligatoirement comporter Bagneux. Lors du vote public, Lucie Aubrac est préférée aux deux autres propositions, Nina Simone et Champ des Oiseaux.",
     {
@@ -567,8 +567,8 @@ export const line4: MetroLine = {
   textColor: "#ffffff",
   title: { en: "Line 4", fr: "Ligne 4" },
   summary: {
-    en: "City gates, old markets and the people behind 29 station names.",
-    fr: "Portes de Paris, anciens marchés et figures qui ont donné leur nom à 29 stations.",
+    en: "Line 4 runs from Porte de Clignancourt to Bagneux – Lucie Aubrac. Its 29 station names recall city gates, old markets and people, such as the singer Barbara.",
+    fr: "La ligne 4 relie Porte de Clignancourt à Bagneux – Lucie Aubrac. Ses 29 noms de stations rappellent des portes de Paris, d’anciens marchés et des personnes, comme la chanteuse Barbara.",
   },
   termini: ["Porte de Clignancourt", "Bagneux – Lucie Aubrac"],
   stations,

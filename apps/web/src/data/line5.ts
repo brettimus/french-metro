@@ -40,10 +40,10 @@ const stations: Station[] = [
     "Bobigny - Pablo Picasso",
     "Bobigny",
     "portrait",
-    "Called Bobigny–Pablo Picasso after the town and nearby Rue Pablo-Picasso. The street honours Spanish artist Pablo Picasso.",
+    "Called Bobigny – Pablo Picasso after the town and nearby Rue Pablo-Picasso. The street honours Spanish artist Pablo Picasso.",
     "La station doit son nom à la ville de Bobigny et à la rue Pablo-Picasso voisine, qui rend hommage à l’artiste espagnol.",
-    "The northern terminus opened in 1985. Its subtitle, Préfecture–Hôtel du Département, identifies the nearby administrative offices of Seine-Saint-Denis.",
-    "Ce terminus nord ouvre en 1985. Son sous-titre, Préfecture–Hôtel du Département, désigne les services administratifs de la Seine-Saint-Denis situés à proximité.",
+    "The northern terminus opened in 1985. Its subtitle, Préfecture – Hôtel du Département, identifies the nearby administrative offices of Seine-Saint-Denis.",
+    "Ce terminus nord ouvre en 1985. Son sous-titre, Préfecture – Hôtel du Département, désigne les services administratifs de la Seine-Saint-Denis situés à proximité.",
     {
       sources: [
         source(
@@ -60,7 +60,7 @@ const stations: Station[] = [
     "Bobigny - Pantin - Raymond Queneau",
     "Bobigny / Pantin",
     "portrait",
-    "Called Bobigny–Pantin–Raymond Queneau after the two neighbouring towns and nearby Rue Raymond-Queneau. The street honours the French writer who wrote Zazie dans le métro.",
+    "Called Bobigny – Pantin – Raymond Queneau after the two neighbouring towns and nearby Rue Raymond-Queneau. The street honours the French writer who wrote Zazie dans le métro.",
     "La station doit son nom aux communes voisines de Bobigny et de Pantin, ainsi qu’à la rue Raymond-Queneau. Celle-ci honore l’écrivain, auteur de Zazie dans le métro.",
     "Queneau also set his Exercises in Style around an encounter on a Paris bus. The station opened in 1985 beside the Ourcq canal, on the extension from Pantin to Bobigny.",
     "Queneau situe aussi ses Exercices de style autour d’une rencontre dans un autobus parisien. La station ouvre en 1985 près du canal de l’Ourcq, sur le prolongement de Pantin à Bobigny.",
@@ -72,7 +72,7 @@ const stations: Station[] = [
     "Église de Pantin",
     "Pantin",
     "church",
-    "Called Église de Pantin because it serves the nearby Saint-Germain-l’Auxerrois church. The name simply means “Pantin church”.",
+    "Called Église de Pantin, French for “Pantin church”, after the nearby church of Saint-Germain-l’Auxerrois.",
     "La station doit son nom à l’église Saint-Germain-l’Auxerrois de Pantin, située à proximité.",
     "This was Line 5’s northern terminus from 1942 to 1985. The church escaped planned demolition in the 1970s and received historic monument protection in 1978.",
     "La station est le terminus nord de la ligne 5 de 1942 à 1985. Menacée de démolition dans les années 1970, l’église est protégée au titre des monuments historiques en 1978.",
@@ -116,10 +116,11 @@ const stations: Station[] = [
     "river",
     "Called Ourcq after nearby Rue de l’Ourcq, which crosses the canal of that name. The canal takes its name from the river whose water it carries towards Paris.",
     "La station doit son nom à la rue de l’Ourcq, qui franchit le canal voisin. Celui-ci porte le nom de la rivière dont il conduit l’eau vers Paris.",
-    "Work on the canal began in 1802. It was designed to bring water to Paris and carry goods, linking the city to waterways farther east.",
-    "Les travaux du canal commencent en 1802. Il doit alimenter Paris en eau et transporter des marchandises, en reliant la capitale aux voies navigables situées plus à l’est.",
+    "Ourcq station did not open until March 1947. Trains had passed through it without stopping since the line reached Église de Pantin in October 1942. The nearby canal, begun in 1802, was built to bring water to Paris and to carry goods between the city and waterways farther east.",
+    "La station n’ouvre qu’en mars 1947. Depuis l’arrivée de la ligne à Église de Pantin en octobre 1942, les trains la traversaient sans s’arrêter. Le canal voisin, commencé en 1802, doit alimenter Paris en eau et transporter des marchandises entre la capitale et les voies navigables plus à l’est.",
     {
       sources: [
+        source("Ourcq · Wikipédia", wiki("Ourcq (métro de Paris)")),
         source("Canal de l’Ourcq · Wikipédia", wiki("Canal de l'Ourcq")),
       ],
     },
@@ -132,8 +133,8 @@ const stations: Station[] = [
     "portrait",
     "Called Laumière after Avenue de Laumière, which honours the French artillery general Xavier Jean Marie Clément Vernhet de Laumière.",
     "La station doit son nom à l’avenue de Laumière, dédiée au général d’artillerie français Xavier Jean Marie Clément Vernhet de Laumière.",
-    "Early plans placed the station nearer the town hall and called it Meynadier. The final route followed Avenue Jean-Jaurès instead, avoiding a winding course through smaller streets.",
-    "Les premiers plans prévoyaient une station plus proche de la mairie, appelée Meynadier. Le tracé retenu suit l’avenue Jean-Jaurès, évitant un parcours sinueux dans des rues plus étroites.",
+    "Early plans placed the station nearer the town hall and called it Meynadier. The final route followed Avenue Jean-Jaurès instead and avoided a winding course through smaller streets.",
+    "Les premiers plans prévoyaient une station plus proche de la mairie, appelée Meynadier. Le tracé retenu suit l’avenue Jean-Jaurès et évite un parcours sinueux dans des rues plus étroites.",
   ),
   station(
     "jaures",
@@ -143,8 +144,8 @@ const stations: Station[] = [
     "portrait",
     "Called Jaurès in tribute to socialist politician Jean Jaurès. The station received his name on 1 August 1914, the day after his assassination.",
     "La station porte le nom de Jean Jaurès en hommage à l’homme politique socialiste. Elle est rebaptisée le 1er août 1914, au lendemain de son assassinat.",
-    "It was previously Rue d’Allemagne. The station changed its name before the avenue above it became Avenue Jean-Jaurès later that month. Line 5 joined the interchange in 1942.",
-    "Elle s’appelait auparavant Rue d’Allemagne. Le changement précède celui de l’avenue, devenue avenue Jean-Jaurès plus tard dans le mois. La ligne 5 rejoint cette correspondance en 1942.",
+    "The station’s former name was Rue d’Allemagne. The renaming came before the avenue above it became Avenue Jean-Jaurès later that month. Line 5 joined the interchange in 1942.",
+    "La station s’appelait auparavant Rue d’Allemagne. Ce changement précède celui de l’avenue, devenue avenue Jean-Jaurès plus tard dans le mois. La ligne 5 rejoint cette correspondance en 1942.",
     { people: [biography("Jean Jaurès")] },
   ),
   station(
@@ -155,8 +156,8 @@ const stations: Station[] = [
     "square",
     "Called Stalingrad after the neighbouring square, now Place de la Bataille-de-Stalingrad. The name commemorates the Soviet victory over Nazi Germany at Stalingrad during the Second World War.",
     "La station doit son nom à la place voisine, aujourd’hui place de la Bataille-de-Stalingrad. Ce nom commémore la victoire soviétique sur l’Allemagne nazie à Stalingrad pendant la Seconde Guerre mondiale.",
-    "The station took this name in 1946. Four years earlier, new passages had joined the Line 2 and Line 7 stations to the arriving Line 5, creating one interchange.",
-    "La station prend ce nom en 1946. Quatre ans plus tôt, de nouveaux passages avaient réuni les stations des lignes 2 et 7 à l’arrivée de la ligne 5, créant une correspondance unique.",
+    "The station took this name in 1946. Four years earlier, Line 5 arrived and new passages joined it to the Line 2 and Line 7 stations. The three lines then formed one interchange.",
+    "La station prend ce nom en 1946. Quatre ans plus tôt, la ligne 5 arrive et de nouveaux passages la relient aux stations des lignes 2 et 7. Les trois lignes forment alors une seule correspondance.",
   ),
   station(
     "gare-du-nord",
@@ -164,8 +165,8 @@ const stations: Station[] = [
     "Gare du Nord",
     "Paris 10e",
     "station",
-    "Called Gare du Nord because it serves the railway station of that name. Nord means “north”, the direction of the French destinations its railway was built to reach.",
-    "La station doit son nom à la gare du Nord qu’elle dessert. Ce nom désigne la région de France vers laquelle son réseau ferroviaire a été construit.",
+    "Called Gare du Nord because it serves the railway terminus for northern France. The railway station also recalls its original operator, the Compagnie des chemins de fer du Nord.",
+    "La station porte le nom de la gare ferroviaire qu’elle dessert, tournée vers le nord de la France. Cette gare rappelle aussi son exploitant d’origine, la Compagnie des chemins de fer du Nord.",
     "Line 5’s original terminus lay on a loop. In 1942, new platforms allowed trains to continue towards Pantin. The old loop became a training facility for metro staff.",
     "Le terminus initial de la ligne 5 était aménagé sur une boucle. En 1942, de nouveaux quais permettent de poursuivre vers Pantin. L’ancienne boucle devient un centre de formation du personnel.",
   ),
@@ -175,10 +176,10 @@ const stations: Station[] = [
     "Gare de l'Est",
     "Paris 10e",
     "station",
-    "Called Gare de l’Est because it serves the railway station for routes towards eastern France. Its Verdun subtitle refers to nearby Avenue de Verdun.",
-    "La station doit son nom à la gare de l’Est, point de départ de lignes vers l’est de la France. Le complément Verdun renvoie à l’avenue de Verdun voisine.",
-    "Lines 5 and 7 share a broad underground space here, with their tracks beside one another. Line 4 passes below them, making the station a junction of three metro lines.",
-    "Les lignes 5 et 7 partagent ici un vaste espace souterrain, avec leurs voies côte à côte. La ligne 4 passe au-dessous et complète cette correspondance entre trois lignes.",
+    "Called Gare de l’Est because it serves the railway terminus for eastern France. The railway station adopted this name in 1854 as its network expanded beyond Strasbourg.",
+    "La station porte le nom de la gare de l’Est, qu’elle dessert, terminus ferroviaire vers l’est de la France. La gare ferroviaire adopte ce nom en 1854, lorsque son réseau s’étend au-delà de Strasbourg.",
+    "Lines 5 and 7 share a broad underground space here, with their tracks beside one another. Line 4 passes below them, so three metro lines meet at the station. The full name, Gare de l’Est – Verdun, refers to nearby Avenue de Verdun.",
+    "Les lignes 5 et 7 partagent ici un vaste espace souterrain, avec leurs voies côte à côte. La ligne 4 passe au-dessous et complète cette correspondance entre trois lignes. Le nom complet, Gare de l’Est – Verdun, renvoie à l’avenue de Verdun voisine.",
   ),
   station(
     "jacques-bonsergent",
@@ -225,12 +226,13 @@ const stations: Station[] = [
     "Oberkampf",
     "Paris 11e",
     "loom",
-    "Called Oberkampf after Rue Oberkampf, which honours Christophe-Philippe Oberkampf. The German-born manufacturer founded the printed-textile works at Jouy-en-Josas, known for toile de Jouy.",
-    "La station doit son nom à la rue Oberkampf, dédiée à Christophe-Philippe Oberkampf. Cet industriel d’origine allemande fonde à Jouy-en-Josas la manufacture de tissus imprimés célèbre pour la toile de Jouy.",
-    "Oberkampf opened his workshop in 1760. In 1783 it received the title of royal manufacture. Its flower patterns and illustrated scenes became a distinctive part of French textile design.",
-    "Oberkampf ouvre son atelier en 1760. En 1783, l’atelier reçoit le titre de manufacture royale. Ses motifs floraux et ses scènes figuratives marquent l’histoire des tissus imprimés français.",
+    "Called Oberkampf after Rue Oberkampf, which honours Christophe-Philippe Oberkampf. In 1760, the German-born manufacturer opened a printed-textile workshop at Jouy-en-Josas, known for toile de Jouy. It became a royal manufacture in 1783.",
+    "La station doit son nom à la rue Oberkampf, dédiée à Christophe-Philippe Oberkampf. En 1760, cet industriel d’origine allemande ouvre à Jouy-en-Josas un atelier de tissus imprimés, célèbre pour la toile de Jouy. Il devient manufacture royale en 1783.",
+    "The Line 5 platforms opened in January 1907. Line 9 arrived in 1933, with platforms parallel to those of Line 5 under Boulevard Voltaire. The Line 9 platforms are 105 metres long, compared with 75 metres for Line 5.",
+    "Les quais de la ligne 5 ouvrent en janvier 1907. La ligne 9 arrive en 1933, avec des quais parallèles à ceux de la ligne 5 sous le boulevard Voltaire. Ses quais mesurent 105 mètres, contre 75 mètres pour la ligne 5.",
     {
       sources: [
+        source("Oberkampf · Wikipédia", wiki("Oberkampf (métro de Paris)")),
         source(
           "Musée de la Toile de Jouy · Collections",
           "https://www.museedelatoiledejouy.fr/collections/oeuvres/",
@@ -247,7 +249,7 @@ const stations: Station[] = [
     "loom",
     "Called Richard-Lenoir after the boulevard honouring manufacturer François Richard. He added Lenoir to his surname in memory of his business partner, Joseph Lenoir-Dufresne, after the latter’s death.",
     "La station doit son nom au boulevard dédié au manufacturier François Richard. Celui-ci ajoute Lenoir à son patronyme en mémoire de son associé Joseph Lenoir-Dufresne, après la mort de ce dernier.",
-    "The boulevard’s gardens sit above a covered stretch of the Canal Saint-Martin. The metro runs beside that canal tunnel, leaving little room for the station’s entrance hall.",
+    "The boulevard’s gardens sit above a covered stretch of the Canal Saint-Martin. The metro runs beside that canal tunnel, so the station’s entrance hall has little room.",
     "Les jardins du boulevard recouvrent une partie du canal Saint-Martin. Le métro longe le tunnel du canal, ce qui laisse peu de place au hall de la station.",
     {
       sources: [
@@ -271,8 +273,8 @@ const stations: Station[] = [
     "Bréguet - Sabin",
     "Paris 11e",
     "portrait",
-    "Called Bréguet–Sabin after two streets. Rue Bréguet honours the Breguet family, including watchmaker Abraham Louis Breguet. Rue Saint-Sabin recalls Charles-Pierre d’Angelesme de Saint-Sabin, an eighteenth-century Paris alderman.",
-    "La station doit son nom à deux rues. La rue Bréguet honore la famille Breguet, dont l’horloger Abraham Louis Breguet. La rue Saint-Sabin rappelle Charles-Pierre d’Angelesme de Saint-Sabin, échevin de Paris au XVIIIe siècle.",
+    "Called Bréguet – Sabin after two streets. Rue Bréguet honours the Breguet family, including watchmaker Abraham Louis Breguet. Rue Saint-Sabin recalls Charles-Pierre d’Angelesme de Saint-Sabin, an eighteenth-century Paris alderman.",
+    "Le nom de la station réunit ceux de deux rues. La rue Bréguet honore la famille Breguet, dont l’horloger Abraham Louis Breguet. La rue Saint-Sabin rappelle Charles-Pierre d’Angelesme de Saint-Sabin, échevin de Paris au XVIIIe siècle.",
     "The family name Breguet has no accent, unlike the street and station. The stop opened at the end of December 1906, two weeks after trains began passing through it.",
     "Le nom de famille Breguet s’écrit sans accent, contrairement à celui de la rue et de la station. L’arrêt ouvre fin décembre 1906, deux semaines après le passage des premiers trains.",
     {
@@ -291,9 +293,9 @@ const stations: Station[] = [
     "Bastille",
     "Paris 4e / 11e / 12e",
     "gate",
-    "Called Bastille after the square marking the site of the Bastille fortress and prison. Its destruction followed the storming of the prison during the French Revolution in 1789.",
-    "La station doit son nom à la place qui occupe l’emplacement de la Bastille, forteresse devenue prison. Sa démolition suit sa prise pendant la Révolution française, en 1789.",
-    "Construction of Line 5 exposed remains of the prison’s defensive wall in 1905. Part of this masonry survives beside the platform, bringing the former fortress into the station itself.",
+    "Called Bastille after the square marking the site of the Bastille fortress and prison, demolished after its storming during the French Revolution in 1789.",
+    "La station doit son nom à la place qui occupe l’emplacement de la Bastille, forteresse devenue prison, démolie après sa prise pendant la Révolution française de 1789.",
+    "Construction of Line 5 uncovered part of the prison’s defensive wall in 1905. Some of this masonry is preserved beside the platform, inside the station.",
     "La construction de la ligne 5 met au jour des vestiges d’un mur défensif de la prison en 1905. Une partie de cette maçonnerie est conservée près du quai, dans la station.",
   ),
   station(
@@ -315,7 +317,7 @@ const stations: Station[] = [
     "station",
     "Called Gare d’Austerlitz after the railway station it serves. Like the nearby quay and bridge, its name recalls Napoleon’s victory at Austerlitz in 1805.",
     "La station doit son nom à la gare d’Austerlitz qu’elle dessert. Comme le quai et le pont voisins, son nom rappelle la victoire de Napoléon à Austerlitz en 1805.",
-    "Line 5 crosses the railway station’s great hall on an elevated structure. The metro stop was originally Gare d’Orléans, reflecting the railway’s route towards Orléans.",
+    "Line 5 crosses the railway station’s great hall on an elevated structure. The metro stop was originally Gare d’Orléans, after the railway’s route towards Orléans.",
     "La ligne 5 traverse la grande halle ferroviaire sur une structure aérienne. L’arrêt de métro s’appelle à l’origine Gare d’Orléans, en référence à la destination du chemin de fer.",
     {
       sources: [
@@ -338,8 +340,8 @@ const stations: Station[] = [
     "church",
     "Called Saint-Marcel after Boulevard Saint-Marcel and the old suburb it crosses. The district grew around the burial place of Marcel, a fifth-century bishop of Paris.",
     "La station doit son nom au boulevard Saint-Marcel et au faubourg qu’il traverse. Ce quartier s’est développé autour de la sépulture de Marcel, évêque de Paris au Ve siècle.",
-    "A medieval legend tells of Marcel defeating a dragon with his bishop’s staff. A sculpture at Notre-Dame shows this scene.",
-    "Une légende médiévale raconte que Marcel vainquit un dragon avec sa crosse d’évêque. Une sculpture de Notre-Dame représente cette scène.",
+    "According to a medieval legend, Marcel defeated a dragon with his bishop’s staff. A sculpture on the central pillar of the Saint Anne portal at Notre-Dame shows this scene. The present statue is a nineteenth-century copy.",
+    "Selon une légende médiévale, Marcel vainc un dragon avec sa crosse d’évêque. Une sculpture du trumeau du portail Sainte-Anne, à Notre-Dame, représente cette scène. La statue actuelle est une copie du XIXe siècle.",
     {
       sources: [
         source(
@@ -379,7 +381,7 @@ const stations: Station[] = [
     "square",
     "Called Place d’Italie after the square at the start of Avenue d’Italie. This was the departure point of the road from Paris towards Italy, later known as the Route Nationale 7.",
     "La station doit son nom à la place située au départ de l’avenue d’Italie. C’est le point de départ de la route de Paris vers l’Italie, devenue la route nationale 7.",
-    "In 1907, Line 5 began running beyond this stop to Étoile. That section passed permanently to Line 6 in 1942, making Place d’Italie Line 5’s southern terminus.",
+    "In 1907, Line 5 began running beyond this stop to Étoile. That section passed permanently to Line 6 in 1942. Place d’Italie then became Line 5’s southern terminus.",
     "En 1907, la ligne 5 commence à desservir Étoile au-delà de cet arrêt. Ce tronçon passe définitivement à la ligne 6 en 1942. Place d’Italie devient alors le terminus sud de la ligne 5.",
   ),
 ];
@@ -390,8 +392,8 @@ export const line5: MetroLine = {
   textColor: "#29251f",
   title: { en: "Line 5", fr: "Ligne 5" },
   summary: {
-    en: "Artists, old city gates and a railway above the Seine. Discover the names of 22 stations.",
-    fr: "Des artistes, d’anciennes portes et un métro au-dessus de la Seine. Découvrez les noms de 22 stations.",
+    en: "Line 5 runs from Bobigny – Pablo Picasso to Place d’Italie and crosses the Seine on a viaduct. Its 22 station names include Picasso, Queneau, the Bastille and Napoleon’s victory at Austerlitz.",
+    fr: "La ligne 5 relie Bobigny – Pablo Picasso à Place d’Italie et franchit la Seine sur un viaduc. Ses 22 stations évoquent notamment Picasso, Queneau, la Bastille et la victoire de Napoléon à Austerlitz.",
   },
   termini: ["Bobigny – Pablo Picasso", "Place d’Italie"],
   stations,

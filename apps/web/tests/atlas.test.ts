@@ -8,6 +8,7 @@ import {
 } from "../src/routing";
 import { mapLayout, mapNeighbour, riverCrossings } from "../src/map";
 import { messages } from "../src/i18n";
+import type { Station } from "../src/data/types";
 import { createHandler } from "../src/handler";
 import { join } from "node:path";
 
@@ -154,6 +155,28 @@ describe("route graph and content", () => {
           expect(words(s.etymology[locale])).toBeLessThanOrEqual(45);
           expect(words(s.context[locale])).toBeLessThanOrEqual(55);
         }
+  });
+  test("shared stations have the same name and etymology on every line", () => {
+    const groups = new Map<string, { lineId: string; station: Station }[]>();
+    for (const line of lines)
+      for (const station of line.stations)
+        groups.set(station.id, [
+          ...(groups.get(station.id) ?? []),
+          { lineId: line.id, station },
+        ]);
+    const shared = [...groups.values()].filter((group) => group.length > 1);
+    expect(shared.length).toBeGreaterThanOrEqual(22);
+    for (const group of shared) {
+      const [owner, ...others] = group;
+      for (const other of others) {
+        const where = `${other.station.id} on line ${other.lineId}`;
+        expect(other.station.name, where).toBe(owner!.station.name);
+        for (const locale of ["en", "fr"] as const)
+          expect(other.station.etymology[locale], `${where} (${locale})`).toBe(
+            owner!.station.etymology[locale],
+          );
+      }
+    }
   });
   test("displayed copy contains no em dashes", () => {
     expect(JSON.stringify(messages)).not.toContain("—");
