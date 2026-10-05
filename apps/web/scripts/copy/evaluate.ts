@@ -203,12 +203,12 @@ export type JevResult = {
   error?: string;
 };
 
-/** Other UI strings of the same role and locale, for U2 (all other strings for unused keys). */
+/** Other UI strings of the same role and locale, for U2. */
 export function uiSiblings(u: CopyUnit, corpus: CopyUnit[]): Record<string, string> {
   const role = uiUsage(u.field).role;
   return Object.fromEntries(
     corpus
-      .filter((x) => x.kind === "ui" && x.locale === u.locale && x.id !== u.id && (role === "unused" || uiUsage(x.field).role === role))
+      .filter((x) => x.kind === "ui" && x.locale === u.locale && x.id !== u.id && uiUsage(x.field).role === role)
       .map((x) => [x.field, x.text]),
   );
 }

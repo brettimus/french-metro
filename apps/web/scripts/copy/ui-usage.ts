@@ -5,7 +5,7 @@
  */
 
 /** Sibling group for U2: strings of one type are compared with each other. */
-export type UiRole = "action" | "heading" | "label" | "message" | "unused";
+export type UiRole = "action" | "heading" | "label" | "message";
 
 export type UiUsage = { role: UiRole; usage: string };
 
@@ -13,7 +13,6 @@ const a = (usage: string): UiUsage => ({ role: "action", usage });
 const h = (usage: string): UiUsage => ({ role: "heading", usage });
 const l = (usage: string): UiUsage => ({ role: "label", usage });
 const m = (usage: string): UiUsage => ({ role: "message", usage });
-const unused = (intent: string): UiUsage => ({ role: "unused", usage: `Not used by app.ts at present; the key suggests: ${intent}` });
 
 export const UI_USAGE: Record<string, UiUsage> = {
   brand: a("Link text of the site name in the page header; it goes to the home page"),
@@ -30,7 +29,6 @@ export const UI_USAGE: Record<string, UiUsage> = {
   list: a("Toggle button that shows the station list view on a line page"),
   search: l("Placeholder and aria-label of the station search field on a line page"),
   noResults: m("Status message when the station search finds nothing"),
-  clear: unused("a button that clears the station search"),
   why: h("Heading (h2) above the name explanation in the station sheet; also a small label in the station preview"),
   history: h("Heading (h2) above the context note in the station sheet"),
   sources: a("Summary of the collapsible source list in the station sheet; also an external link in the map legend"),
@@ -41,7 +39,6 @@ export const UI_USAGE: Record<string, UiUsage> = {
   previous: l("Small label above the link to the previous station in the station sheet"),
   branches: l("Small label above the links to the next stations where the line forks"),
   terminus: l("Text shown instead of a next or previous station link at the end of the line"),
-  branch: unused("a label for a branch of the line"),
   copy: a("Button in the station sheet that copies the page link"),
   copied: m("Status message after the link was copied"),
   copyError: m("Status message when copying the link failed"),
@@ -59,24 +56,20 @@ export const UI_USAGE: Record<string, UiUsage> = {
   skip: a("Skip link, first focusable element of every page; goes to the main content"),
   unknown: h("Heading (h1) of the not-found page"),
   returnHome: a("Link on the not-found page that goes to the home page ('… →')"),
-  station: unused("a label for one station"),
   open: a("Call to action at the end of the station preview card; the whole card is a link to the station sheet"),
-  selected: unused("a label for the selected station"),
   featured: l("Small label (kicker) above the featured station links in the line sidebar"),
   reset: a("Button under the reading progress that clears it"),
-  fullyRead: unused("a message when every entry on the line has been opened"),
   sourceDate: m("Small note under the source links in the station sheet"),
-  end: unused("a label at the end of a branch"),
   chooseLanguage: l("aria-label of the language switch (FR / EN links)"),
-  searchCount: unused("a count word after the number of search results"),
   routeLabel: l("aria-label of the route section of a line page, followed by the line number"),
   independent: l("Footer text that states the site's status"),
-  branchIvry: unused("a link or label for the Mairie d’Ivry branch of Line 7"),
-  branchVillejuif: unused("a link or label for the Villejuif branch of Line 7"),
   switchLine: l("aria-label of the header navigation that lists the line badges"),
   selectStation: l("aria-label of the map/list view switch and of the previous/next station navigation"),
-  noStory: unused("a placeholder for a station without an entry"),
   keyHint: m("Help paragraph in the line sidebar about keyboard navigation"),
 };
 
-export const uiUsage = (key: string): UiUsage => UI_USAGE[key] ?? { role: "unused", usage: "No usage note; add one to ui-usage.ts" };
+export const uiUsage = (key: string): UiUsage => {
+  const usage = UI_USAGE[key];
+  if (!usage) throw new Error(`No usage note for UI key "${key}"; add one to ui-usage.ts`);
+  return usage;
+};
