@@ -11,7 +11,7 @@ The home page offers all seven lines. Maps have hover previews, animated station
 - Station: `/{locale}/lines/{line}/stations/{station-id}`.
 - Old Line 14 links in the form `/#station-id` remain supported.
 
-To add a line, use the shared contract in `apps/web/src/data/types.ts`, register its module in `data/lines.ts`, and add its ID to `lineIds` in `data/types.ts`. Route paths define branch connections. Historical audits are in `docs/research/`. Editorial panels and UI/code reviews are in `docs/reviews/`. The release plan is `docs/four-line-plan.md`; generated artwork and exact prompts are in `docs/design/`.
+To add a line, use the shared contract in `apps/web/src/data/types.ts`, register its module in `data/lines.ts`, and add its ID to `lineIds` in `data/types.ts`. Route paths define branch connections. Historical audits are in `docs/research/`. Editorial panels and UI/code reviews are in `docs/reviews/`. The original four-line release plan (`docs/four-line-plan.md`) and `docs/multi-line-plan.md` are historical; the atlas now has seven lines. Generated artwork and exact prompts are in `docs/design/`.
 
 ## Purpose
 
