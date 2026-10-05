@@ -10,8 +10,8 @@
 
 ## Deployment scheme
 
-1. Commit everything. `deploy.sh` refuses a dirty tree and builds the browser
-   bundle before archiving.
+1. Commit everything. `deploy.sh` refuses a dirty tree. When it deploys HEAD,
+   it runs `bun run test` and `bun run typecheck` and stops if either fails.
 2. Extract the selected commit into a temporary directory, then build the browser bundle with `bun run build` (hashed `app-<hash>.js`
    written to `public/`, with deterministic `build.json` recording the filename).
 3. `git archive` an explicit allowlist (`src`, `public`, `ops`, `package.json`
@@ -60,11 +60,15 @@ From the repo root:
 
 ```sh
 bun install --frozen-lockfile
-bun test && bun run typecheck
 git status   # must be clean
-bun run deploy            # deploys HEAD
-# or: bash apps/web/ops/deploy.sh french-metro.exe.xyz <revision>
+bun run deploy            # runs the tests and typecheck, then deploys HEAD
+# or: SKIP_CHECKS=1 bash apps/web/ops/deploy.sh french-metro.exe.xyz <revision>
 ```
+
+The deploy runs `bun run test` and `bun run typecheck` before it archives
+anything. These checks use the working tree, which is HEAD. To deploy a
+different revision, set `SKIP_CHECKS=1`; the script then skips the checks.
+Without it, the script refuses a revision that is not HEAD.
 
 The script prints the deployed revision and verifies the public
 `/healthz` commit matches. Old releases are kept for rollback. Prune
