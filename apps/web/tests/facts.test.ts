@@ -191,6 +191,14 @@ describe("sources helpers", () => {
     expect(isKnownUnreadable("https://fr.wikipedia.org/wiki/Nation")).toBe(false);
   });
 
+  test("every station cites its station article", () => {
+    // A station's `sources` override replaces the default list, so a fix can drop the station article by accident.
+    const missing = stationRefs()
+      .filter((r) => !r.station.sources.some((src) => /_\(m%C3%A9tro_de_Paris\)$/.test(src.url)))
+      .map((r) => `${r.lineId}/${r.station.id}`);
+    expect(missing).toEqual(["9/republique"]);
+  });
+
   test("the user agent is generic", () => {
     expect(USER_AGENT).toBe("french-metro-factcheck/1.0");
   });

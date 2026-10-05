@@ -79,6 +79,10 @@ const stations: Station[] = [
     {
       sources: [
         {
+          label: "Aubervilliers – Pantin – Quatre Chemins · Wikipédia",
+          url: wiki("Aubervilliers - Pantin - Quatre Chemins (métro de Paris)"),
+        },
+        {
           label: "Société des transports en commun de la région parisienne · Wikipédia",
           url: wiki("Société des transports en commun de la région parisienne"),
         },
@@ -127,6 +131,10 @@ const stations: Station[] = [
     "Riquet ouvre un jour après le reste du premier tronçon de la ligne 7, en novembre 1910. Les trains la traversent d’abord sans arrêt. La station se trouve sous l’avenue de Flandre, près du bassin de la Villette.",
     {
       sources: [
+        {
+          label: "Riquet · Wikipédia",
+          url: wiki("Riquet (métro de Paris)"),
+        },
         {
           label: "Rue Riquet · Wikipédia",
           url: wiki("Rue Riquet (Paris)"),
@@ -305,6 +313,10 @@ const stations: Station[] = [
     "La station s’appelait à l’origine Palais-Royal. La ligne 7 l’atteint en 1916 et y termine son parcours jusqu’au prolongement le long de la Seine en 1926. Le nom composé la distingue de la station voisine Louvre – Rivoli.",
     {
       sources: [
+        {
+          label: "Palais-Royal – Musée du Louvre · Wikipédia",
+          url: wiki("Palais-Royal - Musée du Louvre (métro de Paris)"),
+        },
         {
           label: "Palais-Royal · Wikipédia",
           url: wiki("Palais-Royal"),
@@ -697,6 +709,10 @@ const stations: Station[] = [
     {
       branch: "villejuif",
       sources: [
+        {
+          label: "Villejuif – Louis Aragon · Wikipédia",
+          url: wiki("Villejuif - Louis Aragon (métro de Paris)"),
+        },
         {
           label: "Ligne 7 du métro de Paris · Wikipédia",
           url: wiki("Ligne 7 du métro de Paris"),
