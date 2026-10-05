@@ -13,11 +13,11 @@ export const line14: MetroLine = {
     en: "Line 14 runs through 21 stations from Saint-Denis – Pleyel, in a district named after a piano factory, to Aéroport d’Orly. Several names on the southern extension were chosen in 2022, such as Hôpital Bicêtre.",
     fr: "La ligne 14 relie en 21 stations Saint-Denis – Pleyel, dans un quartier qui doit son nom à une manufacture de pianos, à Aéroport d’Orly. Plusieurs noms du prolongement sud ont été choisis en 2022, comme Hôpital Bicêtre.",
   },
-  termini: ["Saint-Denis–Pleyel", "Aéroport d’Orly"],
+  termini: ["Saint-Denis – Pleyel", "Aéroport d’Orly"],
   stations: [
     {
       id: "saint-denis-pleyel",
-      name: "Saint-Denis–Pleyel",
+      name: "Saint-Denis – Pleyel",
       area: "Saint-Denis",
       art: "piano",
       etymology: {
@@ -468,7 +468,7 @@ export const line14: MetroLine = {
     },
     {
       id: "villejuif-gustave-roussy",
-      name: "Villejuif–Gustave Roussy",
+      name: "Villejuif – Gustave Roussy",
       area: "Villejuif",
       art: "portrait",
       etymology: {
@@ -565,7 +565,7 @@ export const line14: MetroLine = {
     },
     {
       id: "thiais-orly",
-      name: "Thiais–Orly",
+      name: "Thiais – Orly",
       area: "Thiais / Orly",
       art: "station",
       etymology: {

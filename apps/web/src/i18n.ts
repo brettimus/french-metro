@@ -72,7 +72,7 @@ export const messages = {
     title: "Why this name?",
     subtitle: "The origins of Paris Métro station names.",
     choose: "Choose a line",
-    explore: "Explore the line",
+    explore: "Explore line",
     line: "Line",
     stations: "stations",
     soon: "Coming soon",

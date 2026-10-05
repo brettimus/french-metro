@@ -259,11 +259,7 @@ const stations: Station[] = [
         ),
       ],
       people: [
-        biography(
-          "François Richard-Lenoir",
-          "François Richard-Lenoir",
-          "François Richard-Lenoir",
-        ),
+        { name: "François Richard-Lenoir", url: { en: wiki("François Richard-Lenoir"), fr: wiki("François Richard-Lenoir") } },
       ],
     },
   ),

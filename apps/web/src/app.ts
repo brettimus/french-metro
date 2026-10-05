@@ -16,8 +16,10 @@ const closeIcon = `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"
 const app = document.getElementById("app")!;
 const dialog = document.getElementById("station-dialog") as HTMLDialogElement;
 const about = document.getElementById("about-dialog") as HTMLDialogElement;
+// A no-break space before a spaced en dash keeps compound station names
+// such as "Bobigny – Pablo Picasso" from breaking at the dash.
 const esc = (s: string | number) =>
-  String(s).replace(
+  String(s).replaceAll(" – ", "\u00a0– ").replace(
     /[&<>"']/g,
     (c) =>
       ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[
@@ -87,7 +89,7 @@ function mapMarkup(line: MetroLine) {
 }
 function linePage(line: MetroLine) {
   const m = t(state.locale);
-  return `<main id="main" class="line-page" style="${lineStyle(line)}"><div class="line-heading"><a class="back-link" data-route href="${href()}">← ${m.home}</a><div class="line-heading-title">${lineBadge(line)}<div><h1>${m.line} ${line.id}</h1><p>${esc(line.termini[0]!) + " → " + line.termini.slice(1).map(esc).join(" / ")}</p></div></div></div><div class="atlas-layout"><aside class="line-sidebar"><div class="sidebar-sticky"><p class="line-summary">${esc(line.summary[state.locale])}</p><div class="featured-links"><span class="kicker">${m.featured}</span>${line.featured
+  return `<main id="main" class="line-page" style="${lineStyle(line)}"><div class="line-heading"><a class="back-link" data-route href="${href()}">← ${m.home}</a><div class="line-heading-title">${lineBadge(line)}<div><h1>${m.line} ${line.id}</h1><p>${esc(line.termini[0]!) + " → " + line.termini.slice(1).map(esc).join(" / ")}</p></div></div></div><div class="atlas-layout"><aside class="line-sidebar"><div class="sidebar-sticky"><p class="line-summary">${esc(line.summary[state.locale])}</p><div class="featured-links" role="group" aria-label="${m.featured}"><span class="kicker" aria-hidden="true">${m.featured}</span>${line.featured
     .slice(0, 3)
     .map((id) => line.stations.find((s) => s.id === id))
     .filter((s): s is Station => !!s)
@@ -140,7 +142,7 @@ function setupLine(line: MetroLine) {
       if (!row.hidden) found++;
     });
     document.getElementById("station-count")!.textContent =
-      `${found} ${found === 1 ? "station" : m.stations}`;
+      `${found} ${found === 1 || (found === 0 && state.locale === "fr") ? "station" : m.stations}`;
     if (term) view(true);
     document.getElementById("station-instruction")!.hidden = found === 0;
     status.hidden = found > 0;

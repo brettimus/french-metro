@@ -96,7 +96,7 @@ const stations: Station[] = [
     "La station doit son nom à l’avenue voisine, rebaptisée en mémoire de Corentin Cariou, conseiller municipal communiste du 19e arrondissement. Retenu comme otage pendant l’Occupation, il est fusillé par les forces allemandes en 1942.",
     "The station first bore the name Pont de Flandre, after the road bridge over the Canal Saint-Denis. It took Cariou’s name in 1946, as Paris commemorated people killed during the Occupation.",
     "La station portait d’abord le nom de Pont de Flandre, celui du pont routier sur le canal Saint-Denis. Elle prend le nom de Cariou en 1946, lorsque Paris commémore les personnes tuées pendant l’Occupation.",
-    { people: [biography("Corentin Cariou", "Corentin Cariou")] },
+    { people: [{ name: "Corentin Cariou", url: { en: wiki("Corentin Cariou"), fr: wiki("Corentin Cariou") } }] },
   ),
   station(
     "crimee",
