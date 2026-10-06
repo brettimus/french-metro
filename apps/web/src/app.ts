@@ -78,13 +78,13 @@ function home() {
   return `<main id="main" class="home"><section class="home-heading"><img class="metropolitain-sign" src="/illustrations/metropolitain.webp" alt="Métropolitain" width="2172" height="724"/><h1>${m.title}</h1><p>${m.subtitle}</p></section><section class="line-grid" aria-label="${m.choose}">${lines
     .map(
       (line) =>
-        `<article class="line-card" style="${lineStyle(line)}"><a class="line-card-link" data-route href="${href(line)}" aria-label="${m.explore} ${line.id}"><div class="card-top">${lineBadge(line)}<span>${line.stations.length} ${m.stations}</span><span class="card-arrow" aria-hidden="true">↗</span></div><h2>${esc(line.termini[0]!)}</h2><p class="termini">${line.termini.slice(1).map(esc).join(" / ")}</p><div class="card-art"><img src="${line.image}" alt="${esc(line.imageAlt[state.locale])}" width="1536" height="1024" decoding="async"/>${miniRoute(line.id)}</div><span class="card-link">${m.explore} <span aria-hidden="true">→</span></span></a><div class="card-featured">${line.featured
+        `<article class="line-card" style="${lineStyle(line)}"><a class="line-card-link" data-route href="${href(line)}" aria-label="${m.explore} ${line.id}"><div class="card-top">${lineBadge(line)}<span>${line.stations.length} ${m.stations}</span></div><h2>${esc(line.termini[0]!)}</h2><p class="termini">${line.termini.slice(1).map(esc).join(" / ")}</p><div class="card-art"><img src="${line.image}" alt="${esc(line.imageAlt[state.locale])}" width="1536" height="1024" decoding="async"/>${miniRoute(line.id)}</div><span class="card-link">${m.explore} <span aria-hidden="true">→</span></span></a><div class="card-featured">${line.featured
           .slice(0, 2)
           .map((id) => line.stations.find((s) => s.id === id))
           .filter((s): s is Station => !!s)
           .map(
             (s) =>
-              `<a data-route href="${href(line, s)}">${esc(s.name)} <span aria-hidden="true">↗</span></a>`,
+              `<a data-route href="${href(line, s)}">${esc(s.name)} <span aria-hidden="true">→</span></a>`,
           )
           .join("")}</div></article>`,
     )
@@ -105,11 +105,11 @@ function linePage(line: MetroLine) {
     .filter((s): s is Station => !!s)
     .map(
       (s) =>
-        `<a data-route href="${href(line, s)}">${esc(s.name)} <span>↗</span></a>`,
+        `<a data-route href="${href(line, s)}">${esc(s.name)} <span aria-hidden="true">→</span></a>`,
     )
     .join(
       "",
-    )}</div><div id="station-preview"></div><div class="reading-progress"><span id="read-count"></span><button id="reset-progress">${m.reset}</button></div><p class="sidebar-help">${m.keyHint}</p></div></aside><section class="route-section" aria-label="${m.routeLabel} ${line.id}"><div class="route-toolbar"><div class="view-switch" aria-label="${m.selectStation}"><button id="map-view" aria-pressed="true">${m.map}</button><button id="list-view" aria-pressed="false">${m.list}</button></div><label class="search"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8" cy="8" r="5"/><path d="m12 12 5 5"/></svg><input type="search" id="station-search" placeholder="${m.search}" aria-label="${m.search}" autocomplete="off"/></label></div><div class="map-meta"><span id="station-count">${line.stations.length} ${m.stations}</span><span id="station-instruction">${m.instruction}</span></div>${mapMarkup(line)}<div id="station-list" class="station-list" hidden>${line.stations.map((s) => `<a data-route class="station-row" data-station="${s.id}" href="${href(line, s)}"><span class="row-dot" aria-hidden="true"></span><span><strong>${esc(s.name)}</strong><small>${esc(s.area)}</small></span><span class="row-arrow" aria-hidden="true">↗</span></a>`).join("")}</div><div id="search-status" class="search-status" role="status" hidden></div><div class="map-legend" id="map-legend"><span id="schematic-note">${m.schematic}</span><a href="${esc(line.sources[0]?.url || "https://www.ratp.fr/vos-lignes")}" target="_blank" rel="noreferrer">${m.sources} ↗</a></div></section></div></main>`;
+    )}</div><div id="station-preview"></div><div class="reading-progress"><span id="read-count"></span><button id="reset-progress">${m.reset}</button></div><p class="sidebar-help">${m.keyHint}</p></div></aside><section class="route-section" aria-label="${m.routeLabel} ${line.id}"><div class="route-toolbar"><div class="view-switch" aria-label="${m.selectStation}"><button id="map-view" aria-pressed="true">${m.map}</button><button id="list-view" aria-pressed="false">${m.list}</button></div><label class="search"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8" cy="8" r="5"/><path d="m12 12 5 5"/></svg><input type="search" id="station-search" placeholder="${m.search}" aria-label="${m.search}" autocomplete="off"/></label></div><div class="map-meta"><span id="station-count">${line.stations.length} ${m.stations}</span><span id="station-instruction">${m.instruction}</span></div>${mapMarkup(line)}<div id="station-list" class="station-list" hidden>${line.stations.map((s) => `<a data-route class="station-row" data-station="${s.id}" href="${href(line, s)}"><span class="row-dot" aria-hidden="true"></span><span><strong>${esc(s.name)}</strong><small>${esc(s.area)}</small></span><span class="row-arrow" aria-hidden="true">→</span></a>`).join("")}</div><div id="search-status" class="search-status" role="status" hidden></div><div class="map-legend" id="map-legend"><span id="schematic-note">${m.schematic}</span><a href="${esc(line.sources[0]?.url || "https://www.ratp.fr/vos-lignes")}" target="_blank" rel="noreferrer">${m.sources} ↗</a></div></section></div></main>`;
 }
 function updateProgress(line: MetroLine) {
   const el = document.getElementById("read-count");
@@ -121,7 +121,7 @@ function preview(line: MetroLine, id: string) {
   if (!s) return;
   const el = document.getElementById("station-preview");
   if (el)
-    el.innerHTML = `<a class="preview" data-route href="${href(line, s)}"><div class="preview-art">${illustration(s.art)}</div><span class="kicker">${t(state.locale).why}</span><h2>${esc(s.name)}</h2><p>${esc(s.etymology[state.locale])}</p><span class="preview-cta">${t(state.locale).open} <span>↗</span></span></a>`;
+    el.innerHTML = `<a class="preview" data-route href="${href(line, s)}"><div class="preview-art">${illustration(s.art)}</div><span class="kicker">${t(state.locale).why}</span><h2>${esc(s.name)}</h2><p>${esc(s.etymology[state.locale])}</p><span class="preview-cta">${t(state.locale).open} <span aria-hidden="true">→</span></span></a>`;
   app
     .querySelectorAll<HTMLElement>("[data-station]")
     .forEach((n) =>
@@ -312,7 +312,7 @@ function render() {
     if (dialog.open) dialog.close();
     app.innerHTML = frame(
       !valid
-        ? `<main id="main" class="not-found"><p>404</p><h1>${m.unknown}</h1><a data-route href="${href()}">${m.returnHome} →</a></main>`
+        ? `<main id="main" class="not-found"><p>404</p><h1>${m.unknown}</h1><a class="back-link" data-route href="${href()}">← ${m.returnHome}</a></main>`
         : line
           ? linePage(line)
           : home(),

@@ -362,16 +362,10 @@ h2 {
   gap: 17px;
 }
 .card-top > span:nth-child(2) {
-  font-size: 11px;
+  font-size: 12px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
   color: var(--muted);
-}
-.card-arrow {
-  margin-left: auto;
-  font-size: 25px;
-  transition: transform 0.25s;
-}
-.line-card-link:hover .card-arrow {
-  transform: translate(3px, -3px);
 }
 .line-card h2 {
   font: 400 clamp(28px, 3vw, 43px) / 1.06 var(--serif);
@@ -418,6 +412,14 @@ h2 {
   padding-top: 17px;
   font-size: 12px;
   font-weight: 500;
+}
+.card-link > span {
+  transition: transform 0.25s;
+}
+@media (hover: hover) and (pointer: fine) {
+  .line-card-link:hover .card-link > span {
+    transform: translateX(4px);
+  }
 }
 .card-featured {
   display: flex;
@@ -870,6 +872,16 @@ footer button:hover {
 }
 .row-arrow {
   margin-left: auto;
+  color: var(--muted);
+  transition:
+    transform 0.2s,
+    color 0.2s;
+}
+@media (hover: hover) and (pointer: fine) {
+  .station-row:hover .row-arrow {
+    transform: translateX(3px);
+    color: var(--ink);
+  }
 }
 .search-status {
   text-align: center;
@@ -1199,6 +1211,11 @@ dialog::backdrop {
 }
 .not-found a {
   font-size: 13px;
+}
+.not-found .back-link {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 ::view-transition-old(root) {
   animation: fade-out 0.16s both;
@@ -1545,9 +1562,6 @@ dialog::backdrop {
   .card-art {
     margin-top: 18px;
     margin-bottom: 18px;
-  }
-  .card-top > span:nth-child(2) {
-    font-size: 11px;
   }
   .card-featured {
     flex-direction: column;
