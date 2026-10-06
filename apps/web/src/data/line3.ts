@@ -764,7 +764,7 @@ export const line3: MetroLine = {
       opened: 1971,
       etymology: {
         en: "Named for the Porte de Bagnolet, the gate of Paris next to the town of Bagnolet. A Line 2 station named for Rue de Bagnolet was renamed Alexandre Dumas on 13 September 1970 to avoid confusion with this one.",
-        fr: "La station doit son nom à la porte de Bagnolet, qui jouxte la commune de Bagnolet. Une station de la ligne 2, nommée d’après la rue de Bagnolet, a été rebaptisée Alexandre Dumas le 13 septembre 1970 pour éviter toute confusion avec celle-ci.",
+        fr: "La station doit son nom à la porte de Bagnolet, qui jouxte la commune. Une station de la ligne 2 portait le nom de la rue de Bagnolet. Pour éviter toute confusion avec celle-ci, elle a été rebaptisée Alexandre Dumas le 13 septembre 1970.",
       },
       context: {
         en: "The ground here is a mix of gypsum, sand and clay. The station therefore stands on eighty piles one metre in diameter, anchored in limestone 27 metres down. It opened on 2 April 1971 with the extension to Gallieni.",
