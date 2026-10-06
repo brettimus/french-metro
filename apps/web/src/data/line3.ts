@@ -10,8 +10,8 @@ export const line3: MetroLine = {
     fr: "Ligne 3",
   },
   summary: {
-    en: "Line 3 runs from Pont de Levallois – Bécon to Gallieni and has 25 stations, all on the Right Bank. Several names recall the proclamation of the Third Republic in 1870, such as Quatre-Septembre and Gambetta. Its first section opened in 1904.",
-    fr: "La ligne 3 relie Pont de Levallois – Bécon à Gallieni et compte 25 stations, toutes sur la rive droite. Plusieurs noms rappellent la proclamation de la Troisième République en 1870, comme Quatre-Septembre et Gambetta. Son premier tronçon ouvre en 1904.",
+    en: "Line 3 runs from Pont de Levallois – Bécon to Gallieni and has 25 stations, all on the Right Bank. Two names recall the proclamation of the Third Republic on 4 September 1870: Quatre-Septembre, for the date, and Gambetta, for the man who made it. Its first section opened in 1904.",
+    fr: "La ligne 3 relie Pont de Levallois – Bécon à Gallieni et compte 25 stations, toutes sur la rive droite. Deux noms rappellent la proclamation de la Troisième République le 4 septembre 1870 : Quatre-Septembre, pour la date, et Gambetta, pour l’homme qui l’a prononcée. Son premier tronçon ouvre en 1904.",
   },
   termini: ["Pont de Levallois – Bécon", "Gallieni"],
   stations: [
@@ -93,7 +93,7 @@ export const line3: MetroLine = {
         fr: "La station doit son nom à la rue Louise-Michel, qui honore Louise Michel (1830–1905). Institutrice communarde, elle écrit des romans sociaux et ses mémoires, et reçoit le surnom de « Vierge rouge ».",
       },
       context: {
-        en: "The station opened on 24 September 1937 as Vallier, the name of the street above. On 1 May 1946 the station and the street were both renamed for Louise Michel. The station lies about 100 metres from the Paris city limit.",
+        en: "The station opened on 24 September 1937 as Vallier, the name of the street it serves. On 1 May 1946 the station and the street were both renamed for Louise Michel. The station lies about 100 metres from the Paris city limit.",
         fr: "La station ouvre le 24 septembre 1937 sous le nom de Vallier, celui de la rue qu’elle dessert. Le 1er mai 1946, la station et la rue prennent toutes deux le nom de Louise Michel. La station se trouve à 100 mètres environ de la limite de Paris.",
       },
       sources: [
@@ -123,8 +123,8 @@ export const line3: MetroLine = {
       art: "gate",
       opened: 1911,
       etymology: {
-        en: "Named for the Porte de Champerret, a gate in the city fortifications towards Champerret, a locality of Neuilly. One explanation is that Champerret was the field (champ) of Jean-Jacques Perret, who owned the land.",
-        fr: "La station doit son nom à la porte de Champerret, une porte de l’enceinte fortifiée en direction de Champerret, un lieu-dit de Neuilly. Une explication y voit le champ de Jean-Jacques Perret, propriétaire des terrains.",
+        en: "Named for the Porte de Champerret, a gate in the city fortifications towards Champerret, a former locality of Neuilly. One explanation is that Champerret was the field (champ) of Jean-Jacques Perret, who owned the land.",
+        fr: "La station doit son nom à la porte de Champerret, une porte de l’enceinte fortifiée en direction de Champerret, un ancien lieu-dit de Neuilly. Une explication y voit le champ de Jean-Jacques Perret, propriétaire des terrains.",
       },
       context: {
         en: "The station opened on 15 February 1911 as the new western terminus, in place of Pereire. It kept that role until 1937, when the tunnel to Levallois was built under its turning loop. The loop has been used as sidings since then.",
@@ -305,8 +305,8 @@ export const line3: MetroLine = {
         fr: "La station doit son nom à la place de l’Europe, au centre du quartier de l’Europe. Les rues de ce quartier portent des noms de villes européennes, comme Rome, Milan, Naples ou Londres.",
       },
       context: {
-        en: "On 29 May 2018 the station received the subtitle Simone Veil, on the day the square took her name. Simone Veil was minister of health and the first president of the European Parliament.",
-        fr: "Le 29 mai 2018, la station reçoit le sous-titre Simone Veil, le jour même où la place prend son nom. Simone Veil a été ministre de la Santé et la première présidente du Parlement européen.",
+        en: "On 29 May 2018 the station received the subtitle Simone Veil, on the day the square took her name. Simone Veil was minister of health and the first president of the directly elected European Parliament.",
+        fr: "Le 29 mai 2018, la station reçoit le sous-titre Simone Veil, le jour même où la place prend son nom. Simone Veil a été ministre de la Santé et la première présidente du Parlement européen élu au suffrage universel.",
       },
       sources: [
         {
@@ -351,6 +351,10 @@ export const line3: MetroLine = {
           label: "Ligne 3 du métro de Paris · Wikipédia",
           url: "https://fr.wikipedia.org/wiki/Ligne_3_du_m%C3%A9tro_de_Paris",
         },
+        {
+          label: "Enclos Saint-Lazare · Wikipédia",
+          url: "https://fr.wikipedia.org/wiki/Enclos_Saint-Lazare",
+        },
       ],
     },
     {
@@ -360,8 +364,8 @@ export const line3: MetroLine = {
       art: "portrait",
       opened: 1904,
       etymology: {
-        en: "Named for Rue de Caumartin and Rue du Havre. Rue de Caumartin honours Antoine-Louis Lefebvre de Caumartin, marquis de Saint-Ange (1725–1803), a prévôt des marchands of Paris. Rue du Havre, added to the name in 1926, honours the Normandy port.",
-        fr: "La station doit son nom à la rue de Caumartin et à la rue du Havre. La première honore Antoine-Louis Lefebvre de Caumartin, marquis de Saint-Ange (1725–1803), prévôt des marchands de Paris. La rue du Havre, ajoutée au nom en 1926, honore le port normand.",
+        en: "Named for Rue de Caumartin and Rue du Havre. Rue de Caumartin honours Antoine-Louis Lefebvre de Caumartin, marquis de Saint-Ange (1725–1803), a prévôt des marchands of Paris. Rue du Havre, added to the name in 1926, recalls the trains from Saint-Lazare to Le Havre.",
+        fr: "La station doit son nom aux rues de Caumartin et du Havre. La première honore Antoine-Louis Lefebvre de Caumartin, marquis de Saint-Ange (1725–1803), prévôt des marchands de Paris. La seconde, ajoutée au nom en 1926, rappelle les trains de Saint-Lazare vers Le Havre.",
       },
       context: {
         en: "The Line 3 platform opened on 19 October 1904 under the name Caumartin. It lies just below the street, at the end of Rue Auber. Towards Opéra, the Line 3 tunnel passes directly above the RER A station Auber, 15 metres lower.",
@@ -375,6 +379,10 @@ export const line3: MetroLine = {
         {
           label: "Ligne 3 du métro de Paris · Wikipédia",
           url: "https://fr.wikipedia.org/wiki/Ligne_3_du_m%C3%A9tro_de_Paris",
+        },
+        {
+          label: "Rue du Havre · Wikipédia",
+          url: "https://fr.wikipedia.org/wiki/Rue_du_Havre_(Paris)",
         },
       ],
     },
@@ -427,8 +435,8 @@ export const line3: MetroLine = {
         fr: "La station doit son nom à la rue du Quatre-Septembre, qui rappelle le 4 septembre 1870, jour de la proclamation de la Troisième République. Léon Gambetta la proclame à l’Hôtel de Ville.",
       },
       context: {
-        en: "The station opened on 3 November 1904, about two weeks after the first section of the line. It was the first station on the network named for a date. La Courneuve – 8 Mai 1945 followed in 1987.",
-        fr: "La station ouvre le 3 novembre 1904, deux semaines environ après le premier tronçon de la ligne. C’est la première station du réseau dont le nom rappelle une date. La Courneuve – 8 Mai 1945 la rejoint en 1987.",
+        en: "Quatre-Septembre was the first station on the network named for a date; La Courneuve – 8 Mai 1945 followed in 1987. The station opened on 3 November 1904, about two weeks after the line’s first section.",
+        fr: "Quatre-Septembre est la première station du réseau dont le nom rappelle une date ; La Courneuve – 8 Mai 1945 la rejoint en 1987. La station ouvre le 3 novembre 1904, deux semaines environ après le premier tronçon de la ligne.",
       },
       sources: [
         {
@@ -473,12 +481,12 @@ export const line3: MetroLine = {
       art: "house",
       opened: 1904,
       etymology: {
-        en: "Named for Rue du Sentier, in the quarter of the same name. The origin of the street name is uncertain. The street probably began as a path (sentier), by one account leading to the city rampart. Some old maps call it Rue du Chantier.",
-        fr: "La station doit son nom à la rue du Sentier, dans le quartier du même nom. L’origine du nom est incertaine : la rue serait d’abord un sentier, qui menait selon une version au rempart de la ville. Certains plans anciens la nomment rue du Chantier.",
+        en: "Named for Rue du Sentier, in the quarter of the same name. The street probably began as a path (sentier); one source says it led to the city rampart. Some old maps call it Rue du Chantier.",
+        fr: "La station doit son nom à la rue du Sentier, dans le quartier du même nom. La rue serait d’abord un sentier ; selon une source, il menait au rempart de la ville. Certains plans anciens la nomment rue du Chantier.",
       },
       context: {
-        en: "The station opened on 20 November 1904, a month after the first section of the line. In 2025 it was one of five stations on the network whose platforms kept 1960s metal wall panels. Parmentier, on the same line, was another.",
-        fr: "La station ouvre le 20 novembre 1904, un mois après le premier tronçon de la ligne. En 2025, elle fait partie des cinq stations du réseau dont les quais conservent un carrossage métallique des années 1960. Parmentier, sur la même ligne, en fait aussi partie.",
+        en: "In 2025 Sentier was one of five stations on the network whose platforms kept 1960s metal wall panels. Parmentier, on the same line, was another. The station opened on 20 November 1904, a month after the line’s first section.",
+        fr: "En 2025, Sentier fait partie des cinq stations du réseau dont les quais conservent un carrossage métallique des années 1960. Parmentier, sur la même ligne, en fait aussi partie. La station ouvre le 20 novembre 1904, un mois après le premier tronçon de la ligne.",
       },
       sources: [
         {
@@ -506,8 +514,8 @@ export const line3: MetroLine = {
         fr: "La station porte les noms de la rue et du boulevard qui se croisent ici. Réaumur honore le physicien et naturaliste René-Antoine Ferchault de Réaumur ; Sébastopol rappelle la prise du port de Crimée en 1855.",
       },
       context: {
-        en: "The Line 3 platforms opened on 19 November 1904; until then trains passed through without stopping. The two lines cross at right angles under the ticket hall, with Line 3 below Line 4. Just east of the station, a service track from Line 11 joins Line 3.",
-        fr: "Les quais de la ligne 3 ouvrent le 19 novembre 1904 ; jusque-là, les rames passent sans s’arrêter. Les deux lignes se croisent à angle droit sous la salle d’échanges, la ligne 3 sous la ligne 4. Juste à l’est, un raccordement venant de la ligne 11 rejoint la ligne 3.",
+        en: "The Line 3 platforms opened on 19 November 1904; until then trains passed through without stopping. Lines 3 and 4 cross at right angles under the ticket hall, with Line 3 below. Just east of the station, a service track from Line 11 joins Line 3.",
+        fr: "Les quais de la ligne 3 ouvrent le 19 novembre 1904 ; jusque-là, les rames passent sans s’arrêter. Les lignes 3 et 4 se croisent à angle droit sous la salle d’échanges, la ligne 3 en dessous. Juste à l’est, un raccordement venant de la ligne 11 rejoint la ligne 3.",
       },
       sources: [
         {
@@ -517,6 +525,15 @@ export const line3: MetroLine = {
         {
           label: "Ligne 3 du métro de Paris · Wikipédia",
           url: "https://fr.wikipedia.org/wiki/Ligne_3_du_m%C3%A9tro_de_Paris",
+        },
+      ],
+      people: [
+        {
+          name: "René-Antoine Ferchault de Réaumur",
+          url: {
+            en: "https://en.wikipedia.org/wiki/Ren%C3%A9_Antoine_Ferchault_de_R%C3%A9aumur",
+            fr: "https://fr.wikipedia.org/wiki/Ren%C3%A9-Antoine_Ferchault_de_R%C3%A9aumur",
+          },
         },
       ],
     },
@@ -531,8 +548,8 @@ export const line3: MetroLine = {
         fr: "La station doit son nom au Conservatoire national des arts et métiers, fondé par l’abbé Henri Grégoire le 10 octobre 1794. Il forme d’abord des techniciens et des ingénieurs par la démonstration d’objets scientifiques et abrite aujourd’hui le musée des Arts et Métiers.",
       },
       context: {
-        en: "The Line 3 platform opened on 19 October 1904 and lies on a curve under the corner of Rue Réaumur and Rue de Turbigo. After 1988 it received a dark green “Ouï-dire” decoration, with lighting strips on curved brackets shaped like scythes.",
-        fr: "Le quai de la ligne 3 ouvre le 19 octobre 1904. Il est établi en courbe sous l’angle des rues Réaumur et de Turbigo. Après 1988, il reçoit une décoration de style « Ouï-dire » vert foncé, avec des bandeaux lumineux portés par des consoles courbes en forme de faux.",
+        en: "Under the corner of Rue Réaumur and Rue de Turbigo, the Line 3 platform lies on a curve. It opened with the line’s first section on 19 October 1904. After 1988 it received a dark green “Ouï-dire” decoration, with lighting strips on curved brackets shaped like scythes.",
+        fr: "Sous l’angle des rues Réaumur et de Turbigo, le quai de la ligne 3 est établi en courbe. Il ouvre avec le premier tronçon de la ligne, le 19 octobre 1904. Après 1988, il reçoit une décoration « Ouï-dire » vert foncé, avec des bandeaux lumineux portés par des consoles courbes en forme de faux.",
       },
       sources: [
         {
@@ -746,8 +763,8 @@ export const line3: MetroLine = {
       art: "gate",
       opened: 1971,
       etymology: {
-        en: "Named for the Porte de Bagnolet, the gate of Paris next to the town of Bagnolet. A Line 2 station, opened as Rue de Bagnolet, was renamed Alexandre Dumas on 13 September 1970 to avoid confusion with this one.",
-        fr: "La station doit son nom à la porte de Bagnolet, qui jouxte la commune de Bagnolet. Une station de la ligne 2, ouverte sous le nom de Rue de Bagnolet, a été rebaptisée Alexandre Dumas le 13 septembre 1970 pour éviter toute confusion avec celle-ci.",
+        en: "Named for the Porte de Bagnolet, the gate of Paris next to the town of Bagnolet. A Line 2 station named for Rue de Bagnolet was renamed Alexandre Dumas on 13 September 1970 to avoid confusion with this one.",
+        fr: "La station doit son nom à la porte de Bagnolet, qui jouxte la commune de Bagnolet. Une station de la ligne 2, nommée d’après la rue de Bagnolet, a été rebaptisée Alexandre Dumas le 13 septembre 1970 pour éviter toute confusion avec celle-ci.",
       },
       context: {
         en: "The ground here is a mix of gypsum, sand and clay. The station therefore stands on eighty piles one metre in diameter, anchored in limestone 27 metres down. It opened on 2 April 1971 with the extension to Gallieni.",

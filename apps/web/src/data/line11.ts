@@ -127,6 +127,15 @@ export const line11: MetroLine = {
           url: "https://fr.wikipedia.org/wiki/Conservatoire_national_des_arts_et_m%C3%A9tiers",
         },
       ],
+      people: [
+        {
+          name: "Henri Grégoire",
+          url: {
+            en: "https://en.wikipedia.org/wiki/Henri_Gr%C3%A9goire",
+            fr: "https://fr.wikipedia.org/wiki/Abb%C3%A9_Gr%C3%A9goire",
+          },
+        },
+      ],
     },
     {
       id: "republique",

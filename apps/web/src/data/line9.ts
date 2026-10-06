@@ -318,11 +318,16 @@ const stations: Station[] = [
     "Havre - Caumartin",
     "Paris 9e",
     "portrait",
-    "Named for Rue de Caumartin and Rue du Havre. Rue de Caumartin honours Antoine-Louis Lefebvre de Caumartin, marquis de Saint-Ange (1725–1803), a prévôt des marchands of Paris. Rue du Havre, added to the name in 1926, honours the Normandy port.",
-    "La station doit son nom à la rue de Caumartin et à la rue du Havre. La première honore Antoine-Louis Lefebvre de Caumartin, marquis de Saint-Ange (1725–1803), prévôt des marchands de Paris. La rue du Havre, ajoutée au nom en 1926, honore le port normand.",
+    "Named for Rue de Caumartin and Rue du Havre. Rue de Caumartin honours Antoine-Louis Lefebvre de Caumartin, marquis de Saint-Ange (1725–1803), a prévôt des marchands of Paris. Rue du Havre, added to the name in 1926, recalls the trains from Saint-Lazare to Le Havre.",
+    "La station doit son nom aux rues de Caumartin et du Havre. La première honore Antoine-Louis Lefebvre de Caumartin, marquis de Saint-Ange (1725–1803), prévôt des marchands de Paris. La seconde, ajoutée au nom en 1926, rappelle les trains de Saint-Lazare vers Le Havre.",
     "A Line 3 platform opened here in 1904. The Line 9 platform followed on 3 June 1923, under the single name Caumartin. A link to the new Auber station opened on 23 November 1971.",
     "Un quai de la ligne 3 ouvre ici en 1904. Le quai de la ligne 9 suit le 3 juin 1923, sous le seul nom de Caumartin. Une liaison vers la nouvelle station Auber ouvre le 23 novembre 1971.",
     1923,
+    {
+      sources: [
+        source("Rue du Havre · Wikipédia", wiki("Rue du Havre (Paris)")),
+      ],
+    },
   ),
   station(
     "chaussee-dantin-la-fayette",
