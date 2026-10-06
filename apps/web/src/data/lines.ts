@@ -4,6 +4,7 @@ import { line5 } from "./line5";
 import { line6 } from "./line6";
 import { line7 } from "./line7";
 import { line9 } from "./line9";
+import { line11 } from "./line11";
 import { line14 } from "./line14";
 import type { MetroLine } from "./types";
 import type { FutureLine } from "../coming-soon";
@@ -14,6 +15,7 @@ export const lines: MetroLine[] = [
   line6,
   line7,
   line9,
+  line11,
   line14,
 ];
 export const getLine = (id: string | undefined) =>
@@ -25,7 +27,6 @@ export const comingSoon: FutureLine[] = [
   { id: "3", color: "#837902", ink: "#fff" },
   { id: "8", color: "#e19bdf", ink: "#29251f" },
   { id: "10", color: "#e3b32a", ink: "#29251f" },
-  { id: "11", color: "#8d5e2a", ink: "#fff" },
   { id: "12", color: "#00814f", ink: "#fff" },
   { id: "13", color: "#98d4e2", ink: "#29251f" },
 ];
