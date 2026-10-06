@@ -1024,6 +1024,9 @@ dialog::backdrop {
   min-height: 44px;
   border-radius: 12px;
 }
+.connections a:focus-visible {
+  outline-offset: -2px;
+}
 @media (hover: hover) and (pointer: fine) {
   .connections a:hover .line-badge {
     transform: translateY(-2px);

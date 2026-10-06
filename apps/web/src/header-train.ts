@@ -103,9 +103,21 @@ export function startHeaderTrain(nav: HTMLElement) {
       frame = undefined;
       train.classList.remove("moving");
       train.style.setProperty("--train-stretch", "1");
+      // Go back to the stop the train left, which is still near the view.
+      index = (index - 1 + stops.length) % stops.length;
       placeTrain(stops[index]!);
       schedule(RESUME_AFTER_INTERACTION);
     }
+  };
+  // A vertical mouse wheel scrolls the rail sideways until the rail ends.
+  const wheel = (e: WheelEvent) => {
+    interrupt();
+    if (Math.abs(e.deltaY) <= Math.abs(e.deltaX) || !overflowing()) return;
+    const max = nav.scrollWidth - nav.clientWidth;
+    if ((e.deltaY < 0 && nav.scrollLeft <= 0) || (e.deltaY > 0 && nav.scrollLeft >= max - 1))
+      return;
+    e.preventDefault();
+    nav.scrollLeft += e.deltaMode === 1 ? e.deltaY * 16 : e.deltaY;
   };
   const enter = () => (hovered = true);
   const leave = () => (hovered = false);
@@ -115,7 +127,7 @@ export function startHeaderTrain(nav: HTMLElement) {
   };
 
   nav.addEventListener("scroll", updateFades, { passive: true });
-  nav.addEventListener("wheel", interrupt, { passive: true });
+  nav.addEventListener("wheel", wheel, { passive: false });
   nav.addEventListener("pointerdown", interrupt);
   nav.addEventListener("touchstart", interrupt, { passive: true });
   nav.addEventListener("keydown", interrupt);
@@ -128,7 +140,7 @@ export function startHeaderTrain(nav: HTMLElement) {
     clearTimeout(timer);
     if (frame !== undefined) cancelAnimationFrame(frame);
     nav.removeEventListener("scroll", updateFades);
-    nav.removeEventListener("wheel", interrupt);
+    nav.removeEventListener("wheel", wheel);
     nav.removeEventListener("pointerdown", interrupt);
     nav.removeEventListener("touchstart", interrupt);
     nav.removeEventListener("keydown", interrupt);
