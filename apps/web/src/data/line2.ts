@@ -26,8 +26,8 @@ export const line2: MetroLine = {
         fr: "La station doit son nom à la porte Dauphine, située au bout de la Belle Faisanderie de Marie-Antoinette. Celle-ci était alors dauphine, épouse de l’héritier du trône, depuis son mariage en 1770.",
       },
       context: {
-        en: "Entrance 3 keeps a closed Guimard pavilion with its glass canopy, the last of these pavilions that the RATP did not destroy. It was restored in 1999 and listed as a historic monument in 2016. Trains turn on a loop of 30 metres radius, the tightest on the network.",
-        fr: "L’accès 3 conserve un édicule Guimard fermé, avec sa verrière, le dernier de ces pavillons que la RATP n’a pas détruit. Restauré en 1999, il est inscrit monument historique en 2016. Les trains font demi-tour sur une boucle de 30 mètres de rayon, la plus serrée du réseau.",
+        en: "Entrance 3 keeps a closed Guimard pavilion with its glass canopy, the last of these pavilions that the RATP did not destroy. It was listed as a historic monument in 1965 and restored in 1999. Trains turn on a loop of 30 metres radius, the tightest on the network.",
+        fr: "L’accès 3 conserve un édicule Guimard fermé, avec sa verrière, le dernier de ces pavillons que la RATP n’a pas détruit. Inscrit monument historique en 1965, il est restauré en 1999. Les trains font demi-tour sur une boucle de 30 mètres de rayon, la plus serrée du réseau.",
       },
       sources: [
         {
@@ -41,6 +41,10 @@ export const line2: MetroLine = {
         {
           label: "Ligne 2 du métro de Paris · Wikipédia",
           url: "https://fr.wikipedia.org/wiki/Ligne_2_du_m%C3%A9tro_de_Paris",
+        },
+        {
+          label: "Entrée de métro Guimard · Wikipédia",
+          url: "https://fr.wikipedia.org/wiki/Entr%C3%A9e_de_m%C3%A9tro_Guimard",
         },
       ],
       people: [
@@ -102,8 +106,8 @@ export const line2: MetroLine = {
         fr: "La station doit son nom d’Étoile au carrefour en étoile formé par les avenues de la place. Ce nom précède de plusieurs décennies celui de Charles de Gaulle, ajouté le 30 novembre 1970, trois semaines après sa mort.",
       },
       context: {
-        en: "The Line 2 platforms opened on 13 December 1900 and were the line’s eastern terminus until the extension to Anvers on 7 October 1902. They lie on the lowest level, under the start of Avenue de Wagram, and keep orange 1970s tiling in the Mouton-Duvernet style.",
-        fr: "Les quais de la ligne 2 ouvrent le 13 décembre 1900 et servent de terminus est jusqu’au prolongement vers Anvers, le 7 octobre 1902. Situés au niveau le plus bas, sous le début de l’avenue de Wagram, ils gardent un carrelage orange des années 1970, de style Mouton-Duvernet.",
+        en: "On the lowest level, under Avenue de Wagram, the Line 2 platforms lie almost at right angles to Lines 1 and 6. They opened on 13 December 1900 and were the eastern terminus until the extension to Anvers on 7 October 1902. Unlike Line 1, they keep orange 1970s Mouton-Duvernet tiling.",
+        fr: "Au niveau inférieur, sous l’avenue de Wagram, les quais de la ligne 2 sont presque perpendiculaires aux lignes 1 et 6. Ils ouvrent le 13 décembre 1900 et servent de terminus est jusqu’au prolongement vers Anvers, le 7 octobre 1902. Contrairement à la ligne 1, ils gardent leur carrelage orange Mouton-Duvernet des années 1970.",
       },
       sources: [
         {
@@ -127,8 +131,8 @@ export const line2: MetroLine = {
       art: "house",
       opened: 1902,
       etymology: {
-        en: "Named for Place des Ternes and Avenue des Ternes, after the former hamlet of Les Ternes. The name is usually explained as coming from the Latin villa externa, “outlying farm”, which became Estern and then Ternes.",
-        fr: "La station doit son nom à la place et à l’avenue des Ternes, qui rappellent l’ancien hameau des Ternes. L’explication la plus admise fait venir ce nom du latin villa externa, « ferme extérieure », devenu Estern puis Ternes.",
+        en: "Named for Place des Ternes and Avenue des Ternes, after the former hamlet of Les Ternes. The name probably comes from the Latin villa externa, “outlying farm”, which became Estern and then Ternes.",
+        fr: "La station doit son nom à la place et à l’avenue des Ternes, qui rappellent l’ancien hameau des Ternes. Ce nom vient probablement du latin villa externa, « ferme extérieure », devenu Estern puis Ternes.",
       },
       context: {
         en: "The station lies on a curve under the square. Entrance 2, in the middle of the square, keeps its Guimard surround, listed as a historic monument in 1965. The two other entrances have plainer green steel balustrades.",
@@ -240,8 +244,8 @@ export const line2: MetroLine = {
       art: "towers",
       opened: 1902,
       etymology: {
-        en: "Named for Rue de Rome, after the Italian capital. The station is in the Europe quarter, where the streets carry the names of European cities.",
-        fr: "La station doit son nom à la rue de Rome, qui porte le nom de la capitale italienne. Elle se trouve dans le quartier de l’Europe, dont les rues portent des noms de villes européennes.",
+        en: "Named for Rue de Rome, after the Italian capital. The station is in the Europe quarter, where many streets carry the names of European cities.",
+        fr: "La station doit son nom à la rue de Rome, qui porte le nom de la capitale italienne. Elle se trouve dans le quartier de l’Europe, dont de nombreuses rues portent des noms de villes européennes.",
       },
       context: {
         en: "West of the station, the line crosses the Saint-Lazare railway cutting in a tunnel hung beneath the road. With Nation, Rome is one of the only two underground Line 2 stations with a metal roof instead of a vault. Line 14 passes deep below without stopping.",
@@ -273,8 +277,8 @@ export const line2: MetroLine = {
         fr: "La station doit son nom à la place de Clichy, à l’emplacement de l’ancienne barrière de Clichy. Cette porte du mur des Fermiers généraux donnait accès au village de Clichy.",
       },
       context: {
-        en: "The Line 2 station opened on 26 October 1902, almost three weeks after trains began running on its section. The Nord-Sud company opened the platforms of its line B, now Line 13, on 26 February 1911.",
-        fr: "La station de la ligne 2 ouvre le 26 octobre 1902, près de trois semaines après la mise en service de son tronçon. La compagnie du Nord-Sud y ouvre les quais de sa ligne B, l’actuelle ligne 13, le 26 février 1911.",
+        en: "Trains passed through the station without stopping for almost three weeks after the Étoile – Anvers section opened. The Line 2 stop opened on 26 October 1902, under Boulevard de Clichy. The Nord-Sud company opened its line B platforms, now Line 13, under Avenue de Clichy on 26 February 1911.",
+        fr: "Pendant près de trois semaines après l’ouverture du tronçon Étoile – Anvers, les trains traversent la station sans s’y arrêter. L’arrêt de la ligne 2 ouvre le 26 octobre 1902, sous le boulevard de Clichy. Le 26 février 1911, le Nord-Sud ouvre sous l’avenue de Clichy les quais de sa ligne B, l’actuelle ligne 13.",
       },
       sources: [
         {
@@ -298,8 +302,8 @@ export const line2: MetroLine = {
         fr: "La station doit son nom à la place et à la rue Blanche. La rue tient probablement ce nom des charrettes de plâtre de Montmartre, qui la blanchissaient au XVIIe siècle. Un plan de 1672 l’appelle rue de la Croix-Blanche, nom d’une enseigne de cabaret.",
       },
       context: {
-        en: "The station opened on 21 October 1902, two weeks after trains began running on its section. With Pigalle, it serves the Moulin Rouge; with Place de Clichy, the Montmartre cemetery. A dead-end siding lies just before the station on the Porte Dauphine side.",
-        fr: "La station ouvre le 21 octobre 1902, deux semaines après la mise en service de son tronçon. Avec Pigalle, elle dessert le Moulin-Rouge ; avec Place de Clichy, le cimetière de Montmartre. Une voie en impasse précède la station du côté de Porte Dauphine.",
+        en: "The station opened on 21 October 1902, two weeks after trains began running on its section. With Pigalle, it serves the Moulin Rouge; with Place de Clichy, the Montmartre cemetery. A dead-end siding lies between Blanche and Pigalle.",
+        fr: "La station ouvre le 21 octobre 1902, deux semaines après la mise en service de son tronçon. Avec Pigalle, elle dessert le Moulin-Rouge ; avec Place de Clichy, le cimetière de Montmartre. Une voie en impasse se trouve entre Blanche et Pigalle.",
       },
       sources: [
         {
@@ -407,8 +411,8 @@ export const line2: MetroLine = {
           url: "https://fr.wikipedia.org/wiki/Boulevard_Marguerite-de-Rochechouart",
         },
         {
-          label: "Paris Métro train fire · Wikipedia",
-          url: "https://en.wikipedia.org/wiki/Paris_M%C3%A9tro_train_fire",
+          label: "Paris Metro train fire · Wikipedia",
+          url: "https://en.wikipedia.org/wiki/Paris_Metro_train_fire",
         },
       ],
       people: [
@@ -432,8 +436,8 @@ export const line2: MetroLine = {
         fr: "La station doit son nom à l’ancienne barrière de la Chapelle, une porte du mur des Fermiers généraux, au sud du village de La Chapelle. Ce village, qui tenait son nom d’une ancienne chapelle, est annexé à Paris en 1860.",
       },
       context: {
-        en: "The elevated station lies between the Nord railway lines and the Est cutting. Since 1993 a long corridor has linked it to the underground part of Gare du Nord. It was the prototype of the Andreu-Motte style for the elevated stations.",
-        fr: "Cette station aérienne se trouve entre les voies ferrées du Nord et la tranchée de l’Est. Depuis 1993, un long couloir la relie à la partie souterraine de la gare du Nord. Elle a servi de prototype au style Andreu-Motte pour les stations aériennes.",
+        en: "La Chapelle is an elevated station between the Nord railway lines and the Est cutting. It was the prototype of the Andreu-Motte style for elevated stations. Since 1993 a long corridor has linked it to the RER B and D platforms under Gare du Nord.",
+        fr: "La Chapelle est une station aérienne située entre les voies ferrées du Nord et la tranchée de l’Est. Elle a servi de prototype au style Andreu-Motte des stations aériennes. Depuis 1993, un long couloir la relie aux quais des RER B et D, sous la gare du Nord.",
       },
       sources: [
         {
@@ -461,8 +465,8 @@ export const line2: MetroLine = {
         fr: "La station doit son nom à la place voisine, aujourd’hui place de la Bataille-de-Stalingrad. Ce nom commémore la victoire soviétique sur l’Allemagne nazie à Stalingrad pendant la Seconde Guerre mondiale.",
       },
       context: {
-        en: "The Line 2 station opened on 31 January 1903, on the viaduct, as Rue d’Aubervilliers. Passengers changing to Line 7 crossed the street with a transfer voucher. From October 1942 to 1946, the joined station was called Aubervilliers – Boulevard de la Villette.",
-        fr: "La station de la ligne 2 ouvre le 31 janvier 1903 sur le viaduc, sous le nom de Rue d’Aubervilliers. La correspondance avec la ligne 7 se fait alors par la rue, avec une contremarque. D’octobre 1942 à 1946, la station réunie s’appelle Aubervilliers – Boulevard de la Villette.",
+        en: "The Line 2 station opened on 31 January 1903, on the viaduct, as Rue d’Aubervilliers. East of the station, the viaduct curves twice to pass around the Rotonde de la Villette, designed by Claude-Nicolas Ledoux. From October 1942 to 1946, the joined station was called Aubervilliers – Boulevard de la Villette.",
+        fr: "La station de la ligne 2 ouvre le 31 janvier 1903 sur le viaduc, sous le nom de Rue d’Aubervilliers. À l’est de la station, le viaduc décrit deux courbes pour contourner la rotonde de la Villette, œuvre de Claude-Nicolas Ledoux. D’octobre 1942 à 1946, la station réunie s’appelle Aubervilliers – Boulevard de la Villette.",
       },
       sources: [
         {
@@ -587,8 +591,8 @@ export const line2: MetroLine = {
         fr: "La station doit son nom à la rue des Couronnes, qui reprend celui d’un ancien lieu-dit, les Couronnes sous Savies. Savies est le nom de Belleville du VIIe au début du XVIIIe siècle.",
       },
       context: {
-        en: "On 10 August 1903, smoke from a burning train filled the station, where a crowd was arguing with staff about refunds. The lights failed, and 75 people died against the blind end of the platform, out of 84 dead in all. The disaster led to all-metal trains and at least two exits per station.",
-        fr: "Le 10 août 1903, la fumée d’un train en feu envahit la station, où une foule réclame au personnel le remboursement des billets. L’éclairage s’éteint et 75 personnes meurent contre le fond sans issue du quai, sur 84 victimes au total. La catastrophe impose des trains entièrement métalliques et au moins deux sorties par station.",
+        en: "On 10 August 1903, smoke from a burning train filled the station, where a crowd was arguing with staff about refunds. The lights failed, and most of the 84 victims died here, against the blind end of the platform. The disaster led to all-metal trains and a separate lighting circuit.",
+        fr: "Le 10 août 1903, la fumée d’un train en feu envahit la station, où une foule réclame au personnel le remboursement des billets. L’éclairage s’éteint et la plupart des 84 victimes meurent ici, contre le fond sans issue du quai. La catastrophe impose des trains entièrement métalliques et un circuit d’éclairage séparé.",
       },
       sources: [
         {
@@ -600,12 +604,16 @@ export const line2: MetroLine = {
           url: "https://fr.wikipedia.org/wiki/Rue_des_Couronnes",
         },
         {
-          label: "Paris Métro train fire · Wikipedia",
-          url: "https://en.wikipedia.org/wiki/Paris_M%C3%A9tro_train_fire",
+          label: "Paris Metro train fire · Wikipedia",
+          url: "https://en.wikipedia.org/wiki/Paris_Metro_train_fire",
         },
         {
           label: "Ligne 2 du métro de Paris · Wikipédia",
           url: "https://fr.wikipedia.org/wiki/Ligne_2_du_m%C3%A9tro_de_Paris",
+        },
+        {
+          label: "Incendie du 10 août 1903 dans le métro de Paris · Wikipédia",
+          url: "https://fr.wikipedia.org/wiki/Incendie_du_10_ao%C3%BBt_1903_dans_le_m%C3%A9tro_de_Paris",
         },
       ],
     },
@@ -763,8 +771,8 @@ export const line2: MetroLine = {
         fr: "La station doit son nom à la rue d’Avron, tronçon d’un ancien chemin vers le plateau d’Avron, à l’est de Paris. Ce plateau, alors sur la commune de Rosny, est un point stratégique de la défense de Paris pendant le siège de 1870–1871.",
       },
       context: {
-        en: "The station opened on 2 April 1903 with the last section of the line, from Rue de Bagnolet to Nation. The street was given the name Rue d’Avron by an order of 1 February 1877. The station is very close to Buzenval on Line 9.",
-        fr: "La station ouvre le 2 avril 1903 avec le dernier tronçon de la ligne, de Rue de Bagnolet à Nation. La rue reçoit le nom de rue d’Avron par un arrêté du 1er février 1877. La station est très proche de Buzenval, sur la ligne 9.",
+        en: "Avron lies under Boulevard de Charonne, at its crossing with Rue d’Avron and Rue de Montreuil, very close to Buzenval on Line 9. It opened on 2 April 1903 with the last section of the line, from Rue de Bagnolet to Nation. Rue d’Avron took its name by an order of 1 February 1877.",
+        fr: "La station se trouve sous le boulevard de Charonne, au croisement des rues d’Avron et de Montreuil, tout près de Buzenval (ligne 9). Elle ouvre le 2 avril 1903 avec le dernier tronçon de la ligne, de Rue de Bagnolet à Nation. La rue d’Avron reçoit son nom par un arrêté du 1er février 1877.",
       },
       sources: [
         {
@@ -788,8 +796,8 @@ export const line2: MetroLine = {
         fr: "La station doit son nom à la place de la Nation, elle-même rebaptisée en référence à la fête nationale du 14 juillet 1880. Elle s’appelait auparavant place du Trône, d’après un trône dressé en 1660 pour l’entrée de Louis XIV dans Paris.",
       },
       context: {
-        en: "The Line 2 platforms opened on 2 April 1903 and replaced the temporary terminus at Rue de Bagnolet. Trains turn on a loop under the square, arriving under Avenue de Taillebourg and leaving under Avenue du Trône. The curved station has one wide island platform between the two tracks.",
-        fr: "Les quais de la ligne 2 ouvrent le 2 avril 1903 et remplacent le terminus provisoire de Rue de Bagnolet. Les trains tournent sur une boucle sous la place : arrivée sous l’avenue de Taillebourg, départ sous l’avenue du Trône. La station, en courbe, a un large quai central entre ses deux voies.",
+        en: "The Line 2 platforms opened on 2 April 1903, with the last section of the line. Trains turn on a loop under the square, arriving under Avenue de Taillebourg and leaving under Avenue du Trône. The curved station has one wide island platform between the two tracks.",
+        fr: "Les quais de la ligne 2 ouvrent le 2 avril 1903, avec le dernier tronçon de la ligne. Les trains tournent sur une boucle sous la place : arrivée sous l’avenue de Taillebourg, départ sous l’avenue du Trône. La station, en courbe, a un large quai central entre ses deux voies.",
       },
       sources: [
         {
@@ -843,8 +851,8 @@ export const line2: MetroLine = {
   ],
   image: "/illustrations/line-2.webp",
   imageAlt: {
-    en: "Engraved-style illustration of the Rotonde de la Villette, a neoclassical stone toll house with porticoes and an arcaded central drum.",
-    fr: "Illustration de style gravure de la rotonde de la Villette, ancien bureau d’octroi néoclassique en pierre, avec ses portiques et son tambour central à arcades.",
+    en: "Engraved-style illustration of the Rotonde de la Villette, a neoclassical stone toll house with porticoes and an arcaded central drum, beside a stretch of water.",
+    fr: "Illustration de style gravure de la rotonde de la Villette, ancien bureau d’octroi néoclassique en pierre, avec ses portiques et son tambour central à arcades, au bord d’un plan d’eau.",
   },
   sources: [
     {
@@ -860,8 +868,8 @@ export const line2: MetroLine = {
       url: "https://data.iledefrance-mobilites.fr/explore/dataset/arrets-lignes/",
     },
     {
-      label: "Paris Métro train fire · Wikipedia",
-      url: "https://en.wikipedia.org/wiki/Paris_M%C3%A9tro_train_fire",
+      label: "Paris Metro train fire · Wikipedia",
+      url: "https://en.wikipedia.org/wiki/Paris_Metro_train_fire",
     },
   ],
 };
