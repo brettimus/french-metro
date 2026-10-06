@@ -952,7 +952,7 @@ dialog::backdrop {
   display: flex;
   align-items: center;
   gap: 11px;
-  padding: 18px 32px;
+  padding: 18px 38px;
   border-bottom: 1px solid var(--rule);
   font-size: 11px;
   letter-spacing: 0.7px;
@@ -1045,7 +1045,7 @@ dialog::backdrop {
   flex-wrap: wrap;
   align-items: center;
   gap: 2px;
-  margin: -8px 0 18px;
+  margin: -8px 0 26px;
 }
 .connections > span {
   font-size: 11px;
@@ -1072,13 +1072,15 @@ dialog::backdrop {
   transition: transform 200ms ease;
 }
 .opening-year {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--muted);
   margin: 20px 0;
 }
 .opening-year strong {
-  font-weight: 500;
-  margin-left: 6px;
+  color: var(--ink);
+  font: 400 17px/1 var(--serif);
+  margin-left: 8px;
+  font-variant-numeric: lining-nums;
 }
 .person-links {
   margin: 23px 0;
@@ -1103,7 +1105,17 @@ dialog::backdrop {
   display: flex;
   justify-content: space-between;
   font-weight: 500;
+  font-size: 12px;
   list-style: none;
+}
+.sources summary span {
+  font-size: 16px;
+  line-height: 1;
+  color: var(--muted);
+  transition: transform 0.2s, color 0.2s;
+}
+.sources summary:hover span {
+  color: var(--ink);
 }
 .sources summary::-webkit-details-marker {
   display: none;
@@ -1138,9 +1150,14 @@ dialog::backdrop {
   gap: 8px;
   min-height: 44px;
   padding: 0;
-  font-size: 11px;
+  font-size: 12px;
+}
+.share-row button:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 .share-row button svg {
+  color: var(--muted);
   width: 16px;
   height: 16px;
   fill: none;
@@ -1215,10 +1232,15 @@ dialog::backdrop {
   padding-top: 20px;
   margin-top: 25px;
 }
+.about-body .small-copy + .small-copy {
+  border-top: 0;
+  padding-top: 0;
+  margin-top: 10px;
+}
 #about-dialog > .close-button {
   position: absolute;
-  right: 14px;
-  top: 14px;
+  right: 40px;
+  top: 20px;
 }
 .not-found {
   min-height: 60vh;
@@ -1687,7 +1709,7 @@ dialog::backdrop {
     min-height: 480px;
   }
   .sheet-top {
-    padding: 16px 23px;
+    padding: 16px 25px;
   }
   .sheet-illustration {
     height: 164px;
@@ -1716,7 +1738,10 @@ dialog::backdrop {
     font-size: 11px;
   }
   .about-body {
-    padding: 58px 27px 27px;
+    padding: 68px 27px 27px;
+  }
+  #about-dialog > .close-button {
+    right: 27px;
   }
   .about-body h1 {
     font-size: 37px;
