@@ -485,6 +485,7 @@ footer {
 footer a,
 footer button {
   display: inline-flex;
+  gap: 0.25em;
   align-items: center;
   min-height: 44px;
   text-decoration: none;
@@ -853,6 +854,7 @@ footer button:hover {
 }
 .map-legend a {
   display: inline-flex;
+  gap: 0.25em;
   align-items: center;
   min-height: 44px;
   margin-left: auto;
@@ -1092,6 +1094,7 @@ dialog::backdrop {
   font-size: 12px;
   min-height: 44px;
   display: inline-flex;
+  gap: 0.25em;
   align-items: center;
   margin: 0 14px 7px 0;
 }
@@ -1128,6 +1131,7 @@ dialog::backdrop {
 }
 .sources a {
   display: flex;
+  gap: 0.25em;
   align-items: center;
   min-height: 44px;
   padding: 8px 0;
