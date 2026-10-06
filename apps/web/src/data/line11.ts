@@ -26,8 +26,8 @@ export const line11: MetroLine = {
         fr: "La station doit son nom à la place du Châtelet, aménagée à l’emplacement du Grand Châtelet. Cette forteresse était un tribunal et une prison avant sa démolition au début du XIXe siècle.",
       },
       context: {
-        en: "The Line 11 platform opened on 28 April 1935 under Avenue Victoria, as the western terminus, and is still the terminus. Until 2018 its name plates carried the subtitle “Avenue Victoria”, after Queen Victoria of the United Kingdom.",
-        fr: "Le quai de la ligne 11 ouvre le 28 avril 1935 sous l’avenue Victoria, comme terminus ouest, rôle qu’il garde aujourd’hui. Jusqu’en 2018, ses plaques portent le sous-titre « Avenue Victoria », en l’honneur de la reine Victoria du Royaume-Uni.",
+        en: "Since 28 April 1935 this platform under Avenue Victoria has been the western terminus of Line 11. Until 2018 its name plates carried the subtitle “Avenue Victoria”, after Queen Victoria.",
+        fr: "Depuis le 28 avril 1935, ce quai sous l’avenue Victoria est le terminus ouest de la ligne 11. Jusqu’en 2018, ses plaques portent le sous-titre « Avenue Victoria », en l’honneur de la reine Victoria.",
       },
       sources: [
         {
@@ -51,8 +51,8 @@ export const line11: MetroLine = {
         fr: "La station doit son nom à l’Hôtel de Ville de Paris, qu’elle dessert, et à la place du même nom. L’Hôtel de Ville abrite les institutions municipales parisiennes depuis 1357.",
       },
       context: {
-        en: "The Line 11 platform lies under Rue du Renard, just after the line passes under Line 1. When Châtelet closed on 18 March 2019 to be adapted for longer trains, Hôtel de Ville became the temporary western terminus.",
-        fr: "Le quai de la ligne 11 se trouve sous la rue du Renard, juste après le passage de la ligne sous la ligne 1. Quand Châtelet ferme le 18 mars 2019 pour être adapté à des trains plus longs, Hôtel de Ville devient le terminus ouest provisoire.",
+        en: "This platform, under Rue du Renard, lies just after the point where Line 11 passes under Line 1. From 18 March 2019 Hôtel de Ville was the temporary western terminus, while the Châtelet platform was closed to be adapted for longer trains.",
+        fr: "Ce quai, sous la rue du Renard, se trouve juste après le point où la ligne 11 passe sous la ligne 1. À partir du 18 mars 2019, Hôtel de Ville est le terminus ouest provisoire, pendant que le quai de Châtelet, fermé, est adapté à des trains plus longs.",
       },
       sources: [
         {
@@ -139,8 +139,8 @@ export const line11: MetroLine = {
         fr: "La station doit son nom à la place de la République, rebaptisée alors que Paris prépare un monument célébrant la République française.",
       },
       context: {
-        en: "The Line 11 tunnel under the square was built at the same time as Lines 8 and 9. Work on the rest of the line began in September 1931. Here Line 11 passes below all the other lines. Its platforms opened on 28 April 1935.",
-        fr: "Le tunnel de la ligne 11 sous la place est construit en même temps que les lignes 8 et 9. Les travaux sur le reste de la ligne commencent en septembre 1931. La ligne 11 passe ici sous toutes les autres lignes ; ses quais ouvrent le 28 avril 1935.",
+        en: "The Line 11 tunnel under the square was built at the same time as Lines 8 and 9. Work on the rest of the line began in September 1931. Here Line 11 passes below all the other lines.",
+        fr: "Le tunnel de la ligne 11 sous la place est construit en même temps que les lignes 8 et 9. Les travaux sur le reste de la ligne commencent en septembre 1931. La ligne 11 passe ici sous toutes les autres lignes.",
       },
       sources: [
         {
@@ -160,8 +160,8 @@ export const line11: MetroLine = {
       art: "portrait",
       opened: 1935,
       etymology: {
-        en: "Named for Rue des Goncourt, which honours the brothers Edmond (1822–1896) and Jules (1830–1870) de Goncourt. The two writers and historians founded the Académie Goncourt, which awards the Prix Goncourt.",
-        fr: "La station doit son nom à la rue des Goncourt, qui honore les frères Edmond (1822–1896) et Jules (1830–1870) de Goncourt. Écrivains et historiens, ils sont les fondateurs de l’Académie Goncourt, qui décerne le prix Goncourt.",
+        en: "Named for Rue des Goncourt, which honours the brothers Edmond (1822–1896) and Jules (1830–1870) de Goncourt. The two writers and historians planned the Académie Goncourt, founded in 1903 under Edmond’s will. It awards the Prix Goncourt.",
+        fr: "La station doit son nom à la rue des Goncourt, qui honore les frères Edmond (1822–1896) et Jules (1830–1870) de Goncourt. Écrivains et historiens, ils conçoivent l’Académie Goncourt, fondée en 1903 selon le testament d’Edmond. Elle décerne le prix Goncourt.",
       },
       context: {
         en: "The subtitle “Hôpital Saint-Louis” names the hospital 350 m to the north, named in memory of King Louis IX. Between République and Goncourt the line passes under the Canal Saint-Martin, which runs in a tunnel from that point to the Arsenal basin.",
@@ -180,6 +180,10 @@ export const line11: MetroLine = {
           label: "Ligne 11 du métro de Paris · Wikipédia",
           url: "https://fr.wikipedia.org/wiki/Ligne_11_du_m%C3%A9tro_de_Paris",
         },
+        {
+          label: "Académie Goncourt · Wikipédia",
+          url: "https://fr.wikipedia.org/wiki/Acad%C3%A9mie_Goncourt",
+        },
       ],
     },
     {
@@ -193,8 +197,8 @@ export const line11: MetroLine = {
         fr: "La station doit son nom au croisement de la rue et du boulevard de Belleville. Tous deux rappellent l’ancien village de Belleville : la rue en était la grande rue et le boulevard la limite ouest. La commune est annexée à Paris en 1860.",
       },
       context: {
-        en: "Belleville and Place de Clichy are the only two stations that touch four arrondissements. The Line 11 platforms, opened on 28 April 1935, keep their interwar honey-coloured tile frames. The station name is set in the tiles.",
-        fr: "Belleville et Place de Clichy sont les deux seules stations à toucher quatre arrondissements. Les quais de la ligne 11, ouverts le 28 avril 1935, gardent leurs encadrements de carreaux couleur miel de l’entre-deux-guerres. Le nom de la station y est inscrit dans le carrelage.",
+        en: "Belleville and Place de Clichy are the only two stations that touch four arrondissements. The Line 11 platforms keep their interwar honey-coloured tile frames. The station name is set in the tiles.",
+        fr: "Belleville et Place de Clichy sont les deux seules stations à toucher quatre arrondissements. Les quais de la ligne 11 gardent leurs encadrements de carreaux couleur miel de l’entre-deux-guerres. Le nom de la station y est inscrit dans le carrelage.",
       },
       sources: [
         {
@@ -218,8 +222,8 @@ export const line11: MetroLine = {
         fr: "La station doit son nom à la rue des Pyrénées, qui porte le nom de la chaîne de montagnes qui sépare la France de l’Espagne.",
       },
       context: {
-        en: "Trains reach the station after a 700 m climb at a 4% gradient under Rue de Belleville. Because the station is deep, its vault is higher and narrower than the standard, like those of Jourdain and Place des Fêtes. In April 1944 its platforms were used as an air-raid shelter.",
-        fr: "Les trains y arrivent après une rampe de 700 m à 4 % sous la rue de Belleville. La station étant profonde, sa voûte est plus haute et plus étroite que la normale, comme à Jourdain et à Place des Fêtes. En avril 1944, ses quais servent d’abri antiaérien.",
+        en: "Between Belleville and this station, 700 m apart, the line climbs at a 4% gradient under Rue de Belleville. Because the station is deep, its vault is higher and narrower than the standard, like those of Jourdain and Place des Fêtes. In April 1944 its platforms were used as an air-raid shelter.",
+        fr: "Entre Belleville et la station, distantes de 700 m, la ligne monte une rampe de 4 % sous la rue de Belleville. La station étant profonde, sa voûte est plus haute et plus étroite que la normale, comme à Jourdain et à Place des Fêtes. En avril 1944, ses quais servent d’abri antiaérien.",
       },
       sources: [
         {
@@ -343,8 +347,8 @@ export const line11: MetroLine = {
         fr: "La station doit son nom à la porte des Lilas, dans l’enceinte de Thiers. La porte tient son nom de la commune des Lilas, vers laquelle elle mène. Elle était aussi appelée porte de Romainville.",
       },
       context: {
-        en: "The Line 11 platform was the eastern terminus from 1935 to 1937, and the line passes above the Line 3 bis turning loop here. Three mosaics by Michel L’Huillier (late 1980s), showing Georges Brassens and lilacs, were destroyed at the end of July 2025 during waterproofing work.",
-        fr: "Le quai de la ligne 11 est le terminus est de 1935 à 1937 ; la ligne passe ici au-dessus de la boucle de retournement de la ligne 3 bis. Trois mosaïques de Michel L’Huillier (fin des années 1980), représentant Georges Brassens et des lilas, sont détruites fin juillet 2025 lors de travaux d’étanchéité.",
+        en: "From 1935 to 1937 this platform was the eastern terminus of Line 11. Here the line passes above the Line 3 bis turning loop. Three mosaics by Michel L’Huillier (late 1980s), showing Georges Brassens and lilacs, were destroyed at the end of July 2025 during waterproofing work.",
+        fr: "De 1935 à 1937, ce quai est le terminus oriental de la ligne 11. Ici, la ligne passe au-dessus de la boucle de retournement de la ligne 3 bis. Trois mosaïques de Michel L’Huillier (fin des années 1980), représentant Georges Brassens et des lilas, sont détruites fin juillet 2025 lors de travaux d’étanchéité.",
       },
       sources: [
         {
@@ -364,8 +368,8 @@ export const line11: MetroLine = {
       art: "garden",
       opened: 1937,
       etymology: {
-        en: "Named for the town hall of Les Lilas. The commune, created in 1867, takes its name from the flower gardens that covered the hill under the Second Empire. Above all, it recalls the lilacs of its open-air cafés and cabarets.",
-        fr: "La station doit son nom à la mairie des Lilas. Créée en 1867, la commune tient son nom des jardins fleuris qui couvraient la colline sous le Second Empire. Elle le doit surtout aux lilas de ses guinguettes et cabarets.",
+        en: "Named for the town hall of Les Lilas. The commune, created on 24 July 1867, takes its name mainly from the lilacs of its open-air cafés and cabarets. It also takes it from the flower gardens that covered the hill under the Second Empire.",
+        fr: "La station doit son nom à la mairie des Lilas. La commune, créée le 24 juillet 1867, tient son nom surtout des lilas de ses guinguettes et cabarets. Elle le tient aussi des jardins fleuris qui couvraient la colline sous le Second Empire.",
       },
       context: {
         en: "The station opened on 17 February 1937 as the only stop of a planned extension towards Fort de Rosny, which the Second World War halted. The platforms are narrow because the street above them is narrow.",
@@ -397,12 +401,12 @@ export const line11: MetroLine = {
       art: "piano",
       opened: 2024,
       etymology: {
-        en: "Named for the singer-songwriter Serge Gainsbourg (1928–1991), who wrote “Le Poinçonneur des Lilas” (1958), about a Métro ticket puncher at Les Lilas. The mayor of Les Lilas obtained the agreement of Jane Birkin, Gainsbourg’s former partner and heir, for this name.",
-        fr: "La station porte le nom de l’auteur-compositeur-interprète Serge Gainsbourg (1928–1991), auteur du « Poinçonneur des Lilas » (1958), sur un poinçonneur de tickets du métro aux Lilas. Le maire des Lilas a obtenu pour ce nom l’accord de Jane Birkin, ancienne compagne et héritière de Gainsbourg.",
+        en: "Named for the singer-songwriter Serge Gainsbourg (1928–1991), who wrote “Le Poinçonneur des Lilas” (1958), about a Métro ticket puncher at Les Lilas. The mayor of Les Lilas obtained the agreement of Jane Birkin, Gainsbourg’s former partner, for this name.",
+        fr: "La station porte le nom de l’auteur-compositeur-interprète Serge Gainsbourg (1928–1991), auteur du « Poinçonneur des Lilas » (1958), sur un poinçonneur de tickets du métro aux Lilas. Le maire des Lilas a obtenu pour ce nom l’accord de Jane Birkin, ancienne compagne de Gainsbourg.",
       },
       context: {
         en: "The station site was the exit shaft of the tunnel boring machine Sofia, which arrived on 16 July 2021. The station does not serve the Jardin Serge-Gainsbourg at the Porte des Lilas, 1.5 km to the west.",
-        fr: "Le chantier de la station sert de puits de sortie au tunnelier Sofia, arrivé le 16 juillet 2021. La station ne dessert pas le jardin Serge-Gainsbourg de la porte des Lilas, situé à 1,5 km à l’ouest.",
+        fr: "Le chantier de la station est le puits de sortie du tunnelier Sofia, arrivé le 16 juillet 2021. La station ne dessert pas le jardin Serge-Gainsbourg de la porte des Lilas, situé à 1,5 km à l’ouest.",
       },
       sources: [
         {
@@ -478,7 +482,7 @@ export const line11: MetroLine = {
       },
       context: {
         en: "The station lies under Boulevard de la Boissière and partly under the hospital grounds, across the boundary between Montreuil and Noisy-le-Sec. It was built by cut and cover, in two parts.",
-        fr: "La station se trouve sous le boulevard de la Boissière et en partie sous le terrain de l’hôpital, à cheval sur Montreuil et Noisy-le-Sec. Elle est construite à ciel ouvert, en deux parties.",
+        fr: "La station se trouve sous le boulevard de la Boissière et en partie sous le terrain de l’hôpital, à cheval sur Montreuil et Noisy-le-Sec. Elle est construite en tranchée couverte, en deux parties.",
       },
       sources: [
         {
@@ -531,8 +535,8 @@ export const line11: MetroLine = {
       art: "modern",
       opened: 2024,
       etymology: {
-        en: "Named after the Coteaux Beauclair development zone in Rosny-sous-Bois, beside the station. Its developer says the zone was created in December 2015 by merging two earlier zones, because of the new metro station.",
-        fr: "La station doit son nom à la zone d’aménagement concerté des Coteaux Beauclair, à Rosny-sous-Bois, qu’elle jouxte. Selon son aménageur, cette zone est créée en décembre 2015 par la fusion de deux zones, en raison de la nouvelle station de métro.",
+        en: "It shares its name with the Coteaux Beauclair development zone in Rosny-sous-Bois, beside the station. Its developer says the zone was created in December 2015 by merging two earlier zones, because of the new metro station.",
+        fr: "La station porte le même nom que la zone d’aménagement concerté des Coteaux Beauclair, à Rosny-sous-Bois, qu’elle jouxte. Selon son aménageur, cette zone est créée en décembre 2015 par la fusion de deux zones, en raison de la nouvelle station de métro.",
       },
       context: {
         en: "Coteaux Beauclair, on a 580 m viaduct, is the only elevated station on the line. It is the first viaduct station built on the Métro since 1905. Marc Mimram designed the viaduct and the station. Its platforms, 8 m above the ground, are covered by a glass roof.",
@@ -568,8 +572,8 @@ export const line11: MetroLine = {
         fr: "La station doit son nom, comme la gare du RER E voisine, à la ville de Rosny-sous-Bois et à son quartier du Bois-Perrier. La gare ouvre en 1971 pour desservir les nouveaux grands ensembles du quartier et le centre commercial Rosny 2, ouvert en 1973.",
       },
       context: {
-        en: "Rosny – Bois-Perrier has been the eastern terminus of the line since 13 June 2024 and is the easternmost station of the Métro. Line 15 is planned to serve it around 2030, linked to Line 11 by a 35 m tunnel under the RER tracks.",
-        fr: "Rosny – Bois-Perrier est le terminus est de la ligne depuis le 13 juin 2024 et la station la plus orientale du métro. La ligne 15 doit la desservir vers 2030, reliée à la ligne 11 par un tunnel de 35 m sous les voies du RER.",
+        en: "Rosny – Bois-Perrier has been the eastern terminus of the line since 13 June 2024 and is the easternmost station of the Métro. Line 15 is planned to serve it from 2031, linked to Line 11 by a 35 m tunnel under the RER tracks.",
+        fr: "Rosny – Bois-Perrier est le terminus est de la ligne depuis le 13 juin 2024 et la station la plus orientale du métro. La ligne 15 doit la desservir à partir de 2031, reliée à la ligne 11 par un tunnel de 35 m sous les voies du RER.",
       },
       sources: [
         {
@@ -583,6 +587,10 @@ export const line11: MetroLine = {
         {
           label: "Rosny–Bois-Perrier station · Wikipedia",
           url: "https://en.wikipedia.org/wiki/Rosny%E2%80%93Bois-Perrier_station",
+        },
+        {
+          label: "Ligne 15 Est · Grand Paris Express",
+          url: "https://www.grandparisexpress.fr/ligne-15-est",
         },
       ],
     },
