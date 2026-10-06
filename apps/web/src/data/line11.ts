@@ -535,7 +535,7 @@ export const line11: MetroLine = {
       art: "modern",
       opened: 2024,
       etymology: {
-        en: "It shares its name with the Coteaux Beauclair development zone in Rosny-sous-Bois, beside the station. Its developer says the zone was created in December 2015 by merging two earlier zones, because of the new metro station.",
+        en: "Coteaux Beauclair shares its name with the development zone in Rosny-sous-Bois, beside the station. Its developer says the zone was created in December 2015 by merging two earlier zones, because of the new metro station.",
         fr: "La station porte le même nom que la zone d’aménagement concerté des Coteaux Beauclair, à Rosny-sous-Bois, qu’elle jouxte. Selon son aménageur, cette zone est créée en décembre 2015 par la fusion de deux zones, en raison de la nouvelle station de métro.",
       },
       context: {

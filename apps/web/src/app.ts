@@ -17,9 +17,10 @@ const app = document.getElementById("app")!;
 const dialog = document.getElementById("station-dialog") as HTMLDialogElement;
 const about = document.getElementById("about-dialog") as HTMLDialogElement;
 // A no-break space before a spaced en dash keeps compound station names
-// such as "Bobigny – Pablo Picasso" from breaking at the dash.
+// such as "Bobigny – Pablo Picasso" from breaking at the dash. Word joiners
+// around an en dash between digits keep year ranges such as 1781–1869 on one line.
 const esc = (s: string | number) =>
-  String(s).replaceAll(" – ", "\u00a0– ").replace(
+  String(s).replaceAll(" – ", "\u00a0– ").replace(/(\d)–(\d)/g, "$1\u2060–\u2060$2").replace(
     /[&<>"']/g,
     (c) =>
       ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[
