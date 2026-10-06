@@ -1,4 +1,5 @@
 import { line1 } from "./line1";
+import { line3 } from "./line3";
 import { line4 } from "./line4";
 import { line5 } from "./line5";
 import { line6 } from "./line6";
@@ -10,6 +11,7 @@ import type { MetroLine } from "./types";
 import type { FutureLine } from "../coming-soon";
 export const lines: MetroLine[] = [
   line1,
+  line3,
   line4,
   line5,
   line6,
@@ -24,7 +26,6 @@ export const getLine = (id: string | undefined) =>
 // left out until the badge layout is checked with four-character labels.
 export const comingSoon: FutureLine[] = [
   { id: "2", color: "#003ca6", ink: "#fff" },
-  { id: "3", color: "#837902", ink: "#fff" },
   { id: "8", color: "#e19bdf", ink: "#29251f" },
   { id: "10", color: "#e3b32a", ink: "#29251f" },
   { id: "12", color: "#00814f", ink: "#fff" },
