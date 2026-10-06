@@ -1,17 +1,17 @@
 # French Metro
 
-An illustrated history atlas for Paris Métro Lines 1, 3, 4, 5, 6, 7, 9, 11 and 14, in French and English.
+An illustrated history atlas for Paris Métro Lines 1, 2, 3, 4, 5, 6, 7, 9, 11 and 14, in French and English.
 
-Explore **https://french-metro.exe.xyz/**. Line 1 has 25 entries, Line 3 has 25, Line 4 has 29, Line 5 has 22, Line 6 has 28, Line 7 has 38, Line 9 has 37, Line 11 has 19, and Line 14 has 21. This includes Les Gobelins, Oberkampf, and both southern branches of Line 7. Each entry explains the station name, adds a short history, and links its sources.
+Explore **https://french-metro.exe.xyz/**. Line 1 has 25 entries, Line 2 has 25, Line 3 has 25, Line 4 has 29, Line 5 has 22, Line 6 has 28, Line 7 has 38, Line 9 has 37, Line 11 has 19, and Line 14 has 21. This includes Les Gobelins, Oberkampf, and both southern branches of Line 7. Each entry explains the station name, adds a short history, and links its sources.
 
-The home page offers all nine lines. Maps have hover previews, animated station panels, search, keyboard navigation, and reading progress stored in the browser. Each line and station has a direct URL. The language switch preserves the current station.
+The home page offers all ten lines. Maps have hover previews, animated station panels, search, keyboard navigation, and reading progress stored in the browser. Each line and station has a direct URL. The language switch preserves the current station.
 
 - French home: `/fr`; English home: `/en`.
 - Line: `/{locale}/lines/{line}`.
 - Station: `/{locale}/lines/{line}/stations/{station-id}`.
 - Old Line 14 links in the form `/#station-id` remain supported.
 
-To add a line, use the shared contract in `apps/web/src/data/types.ts`, register its module in `data/lines.ts`, and add its ID to `lineIds` in `data/types.ts`. Route paths define branch connections. Historical audits are in `docs/research/`. Editorial panels and UI/code reviews are in `docs/reviews/`. The original four-line release plan (`docs/four-line-plan.md`) and `docs/multi-line-plan.md` are historical; the atlas now has nine lines. Generated artwork and exact prompts are in `docs/design/`.
+To add a line, use the shared contract in `apps/web/src/data/types.ts`, register its module in `data/lines.ts`, and add its ID to `lineIds` in `data/types.ts`. Route paths define branch connections. Historical audits are in `docs/research/`. Editorial panels and UI/code reviews are in `docs/reviews/`. The original four-line release plan (`docs/four-line-plan.md`) and `docs/multi-line-plan.md` are historical; the atlas now has ten lines. Generated artwork and exact prompts are in `docs/design/`.
 
 ## Purpose
 
