@@ -9,6 +9,7 @@ Reports:
 - [2026-10-05-fact-check-pass3.md](2026-10-05-fact-check-pass3.md): review of all 712 holdout pairs, the held-out test of `facts-2` and `facts-3`, and the list of errors and missing sources (not yet applied).
 - [2026-10-06-fact-check-line-11.md](2026-10-06-fact-check-line-11.md): full review of the 84 Line 11 pairs with adversarial refutation, 6 confirmed errors and their fixes, 2 sources added, and how the `facts-3` ranking compared.
 - [2026-10-06-fact-check-line-3.md](2026-10-06-fact-check-line-3.md): full review of the 123 Line 3 pairs with adversarial refutation, 6 confirmed errors (5 fixed, 1 fix refuted), 1 unsourced claim, 2 sources added, and how the `facts-3` ranking compared.
+- [2026-10-06-fact-check-line-2.md](2026-10-06-fact-check-line-2.md): full review of the 123 Line 2 pairs with adversarial refutation, 5 confirmed errors and their fixes, 2 sources added and 1 renamed, and how the `facts-3` ranking compared.
 
 Run all commands from the repository root.
 
