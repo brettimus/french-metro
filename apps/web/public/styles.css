@@ -648,10 +648,10 @@ footer button:hover {
 .route-toolbar {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   gap: 15px;
   border-bottom: 1px solid var(--rule);
-  padding-bottom: 18px;
+  padding-bottom: 0;
 }
 .view-switch {
   display: flex;
@@ -659,13 +659,19 @@ footer button:hover {
 }
 .view-switch button {
   min-height: 44px;
-  font-size: 11px;
+  font-size: 12px;
   white-space: nowrap;
   padding: 7px 0;
-  border-bottom: 1px solid transparent;
+  color: var(--muted);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+.view-switch button:hover {
+  color: var(--ink);
 }
 .view-switch button[aria-pressed="true"] {
   border-bottom-color: var(--ink);
+  color: var(--ink);
   font-weight: 600;
 }
 .search {
@@ -695,10 +701,21 @@ footer button:hover {
 }
 .map-meta {
   display: flex;
-  justify-content: space-between;
-  font-size: 11px;
+  justify-content: flex-start;
+  gap: 6px;
+  font-size: 12px;
   color: var(--muted);
   padding: 20px 0 4px;
+}
+#station-count {
+  color: var(--ink);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+#station-instruction::before {
+  content: "·";
+  margin-right: 6px;
+  color: var(--muted);
 }
 .map-canvas {
   container-type: inline-size;
@@ -1302,9 +1319,6 @@ dialog::backdrop {
   .view-switch {
     gap: 14px;
   }
-  .view-switch button {
-    font-size: 11px;
-  }
   .preview h2 {
     font-size: 29px;
   }
@@ -1442,10 +1456,7 @@ dialog::backdrop {
     padding-top: 6px;
   }
   .route-toolbar {
-    padding-bottom: 12px;
-  }
-  .view-switch button {
-    font-size: 11px;
+    padding-bottom: 0;
   }
   .search input {
     width: 150px;
@@ -1620,9 +1631,8 @@ dialog::backdrop {
   }
   .view-switch {
     gap: 14px;
-  }
-  .view-switch button {
-    font-size: 11px;
+    width: 100%;
+    border-bottom: 1px solid var(--rule);
   }
   .search {
     gap: 7px;
@@ -1633,13 +1643,11 @@ dialog::backdrop {
   }
   .route-toolbar {
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 10px 8px;
+    padding-bottom: 0;
   }
   .search {
     width: 100%;
-  }
-  .map-meta {
-    font-size: 11px;
   }
   .map-canvas {
     height: calc(var(--map-height) * 0.87);
