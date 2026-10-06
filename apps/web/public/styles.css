@@ -365,7 +365,7 @@ h2 {
   font-size: 12px;
   font-weight: 500;
   font-variant-numeric: tabular-nums;
-  color: var(--muted);
+  color: color-mix(in srgb, var(--muted) 80%, var(--ink));
 }
 .line-card h2 {
   font: 400 clamp(28px, 3vw, 43px) / 1.06 var(--serif);
@@ -375,7 +375,7 @@ h2 {
 }
 .termini {
   font-size: 12px;
-  color: var(--muted);
+  color: color-mix(in srgb, var(--muted) 80%, var(--ink));
   margin: 0;
   min-height: 18px;
 }
@@ -621,10 +621,9 @@ footer button:hover {
   padding-top: 15px;
   font-size: 11px;
   color: var(--muted);
-  flex-wrap: wrap;
-  row-gap: 0;
 }
 .reading-progress #read-count {
+  min-width: 0;
   font-variant-numeric: tabular-nums;
 }
 .reading-progress button {
@@ -755,9 +754,13 @@ footer button:hover {
   opacity: 0.7;
 }
 .river-name {
-  fill: #668476;
+  position: absolute;
+  left: 11.875%;
+  transform: translateY(-80%);
+  color: #5f7b6e;
   font: italic 15px var(--serif);
   letter-spacing: 2px;
+  pointer-events: none;
 }
 .map-stations {
   position: absolute;
@@ -1250,6 +1253,7 @@ dialog::backdrop {
 }
 .not-found h1 {
   font: 48px var(--serif);
+  text-wrap: balance;
 }
 .not-found > p {
   color: var(--muted);
@@ -1642,7 +1646,7 @@ dialog::backdrop {
     font-size: 20px;
   }
   .featured-links {
-    gap: 8px 12px;
+    gap: 0 12px;
   }
   .featured-links .kicker {
     display: none;
@@ -1692,9 +1696,6 @@ dialog::backdrop {
   }
   .route-track {
     stroke-width: 4;
-  }
-  .river-name {
-    font-size: 18px;
   }
   .map-legend {
     font-size: 11px;
