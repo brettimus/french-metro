@@ -84,10 +84,89 @@ summary:focus-visible {
   text-decoration: none;
   white-space: nowrap;
 }
+/* The line badges scroll on one row when they do not fit. Fades show that
+   more badges are hidden; header-train.ts sets the fade classes. */
 .header-lines {
+  --fade-start: 0px;
+  --fade-end: 0px;
+  flex: 0 1 auto;
+  min-width: 0;
+  margin-left: auto;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 var(--fade-start),
+    #000 calc(100% - var(--fade-end)),
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 var(--fade-start),
+    #000 calc(100% - var(--fade-end)),
+    transparent
+  );
+}
+.header-lines::-webkit-scrollbar {
+  display: none;
+}
+.header-lines.fade-start {
+  --fade-start: 32px;
+}
+.header-lines.fade-end {
+  --fade-end: 32px;
+}
+.line-rail {
+  position: relative;
   display: flex;
   gap: 10px;
-  margin-left: auto;
+  width: max-content;
+  padding: 6px 6px 8px;
+}
+/* A hairline track runs under every stop. */
+.line-rail::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  right: 6px;
+  bottom: 10px;
+  height: 1px;
+  background: var(--rule);
+}
+/* The train rides the track from line to line. */
+.train {
+  position: absolute;
+  left: 0;
+  bottom: 8px;
+  width: 16px;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--train-color, var(--ink));
+  box-shadow: 0 0 0 2px var(--paper);
+  transform: translateX(calc(var(--train-x, 0px) - 50%))
+    scaleX(var(--train-stretch, 1));
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 400ms ease,
+    background-color 300ms ease;
+}
+.train.ready {
+  opacity: 1;
+}
+.header-lines a.has-train::after {
+  opacity: 0;
+}
+.header-lines a.has-train .line-badge {
+  animation: train-arrival 520ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+@keyframes train-arrival {
+  40% {
+    transform: translateY(-3px) scale(1.1);
+  }
 }
 .header-lines a {
   --nav-lift: 0px;
@@ -145,6 +224,8 @@ summary:focus-visible {
   left: calc(50% - 11px);
 }
 .header-lines a:focus-visible {
+  /* The scrolling rail clips anything outside its padding. */
+  outline-offset: 1px;
   --nav-lift: -3px;
   --nav-scale: 1.08;
   --nav-halo: 6px;
@@ -923,6 +1004,34 @@ dialog::backdrop {
   color: #625d53;
   margin-bottom: 20px;
 }
+.connections {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px;
+  margin: -8px 0 18px;
+}
+.connections > span {
+  font-size: 11px;
+  color: var(--muted);
+  margin-right: 6px;
+}
+.connections a {
+  text-decoration: none;
+  display: grid;
+  place-items: center;
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 12px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .connections a:hover .line-badge {
+    transform: translateY(-2px);
+  }
+}
+.connections .line-badge {
+  transition: transform 200ms ease;
+}
 .opening-year {
   font-size: 11px;
   color: var(--muted);
@@ -1207,7 +1316,7 @@ dialog::backdrop {
     margin-left: 10px;
     gap: 6px;
   }
-  .header-lines {
+  .line-rail {
     gap: 7px;
   }
   .home {
@@ -1368,11 +1477,11 @@ dialog::backdrop {
   .header-lines {
     grid-column: 1 / -1;
     grid-row: 2;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0;
-    column-gap: 0;
-    row-gap: 4px;
+    margin: 0 -12px;
+  }
+  .line-rail {
+    margin: 0 auto;
+    gap: 2px;
   }
   .header-lines .line-badge {
     width: 27px;

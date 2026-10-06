@@ -11,6 +11,7 @@ import {
 } from "./routing";
 import { mapLayout, mapNeighbour } from "./map";
 import { illustration } from "./illustrations";
+import { startHeaderTrain } from "./header-train";
 const linkIcon = `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m10 13 4-2m-5 5H7a4 4 0 0 1 0-8h3m4 0h3a4 4 0 0 1 0 8h-3"/></svg>`;
 const closeIcon = `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 6 12 12M18 6 6 18"/></svg>`;
 const app = document.getElementById("app")!;
@@ -67,7 +68,7 @@ function languageLink(locale: Locale) {
 }
 function frame(content: string) {
   const m = t(state.locale);
-  return `<a class="skip" href="#main">${m.skip}</a><header class="masthead"><a class="brand" data-route href="${href()}">${m.brand}</a><nav class="header-lines" aria-label="${m.switchLine}">${lines.map((l) => `<a data-route href="${href(l)}" style="--nav-line:${l.color}" ${state.lineId === l.id ? 'aria-current="page"' : ""} aria-label="${m.line} ${l.id}">${lineBadge(l, true)}</a>`).join("")}</nav><nav class="language" aria-label="${m.chooseLanguage}"><a data-route href="${languageLink("fr")}" lang="fr" hreflang="fr" ${state.locale === "fr" ? 'aria-current="true"' : ""}>FR</a><a data-route href="${languageLink("en")}" lang="en" hreflang="en" ${state.locale === "en" ? 'aria-current="true"' : ""}>EN</a></nav></header>${content}<footer><span>${m.independent}</span><button id="about-button">${m.about}</button><a href="https://www.ratp.fr/vos-lignes" target="_blank" rel="noreferrer">${m.official} ↗</a></footer>`;
+  return `<a class="skip" href="#main">${m.skip}</a><header class="masthead"><a class="brand" data-route href="${href()}">${m.brand}</a><nav class="header-lines" aria-label="${m.switchLine}"><div class="line-rail">${lines.map((l) => `<a data-route href="${href(l)}" style="--nav-line:${l.color}" ${state.lineId === l.id ? 'aria-current="page"' : ""} aria-label="${m.line} ${l.id}">${lineBadge(l, true)}</a>`).join("")}<span class="train" aria-hidden="true"></span></div></nav><nav class="language" aria-label="${m.chooseLanguage}"><a data-route href="${languageLink("fr")}" lang="fr" hreflang="fr" ${state.locale === "fr" ? 'aria-current="true"' : ""}>FR</a><a data-route href="${languageLink("en")}" lang="en" hreflang="en" ${state.locale === "en" ? 'aria-current="true"' : ""}>EN</a></nav></header>${content}<footer><span>${m.independent}</span><button id="about-button">${m.about}</button><a href="https://www.ratp.fr/vos-lignes" target="_blank" rel="noreferrer">${m.official} ↗</a></footer>`;
 }
 function miniRoute(id: string) {
   return `<svg class="mini-route" viewBox="0 0 100 260" aria-hidden="true" focusable="false"><path d="M50 10V${id === "7" ? "198" : "248"}${id === "7" ? "M50 198L18 246M50 198L82 246" : ""}"/>${[10, 48, 86, 124, 162, 198, ...(id !== "7" ? [246] : [])].map((y) => `<circle cx="50" cy="${y}" r="4"/>`).join("")}${id === "7" ? '<circle cx="18" cy="246" r="5"/><circle cx="82" cy="246" r="5"/>' : ""}</svg>`;
@@ -222,7 +223,18 @@ function saveProgress() {
 function stationPanel(line: MetroLine, s: Station) {
   const m = t(state.locale),
     near = neighbours(line, s.id);
-  return `<div class="sheet-top">${lineBadge(line, true)}<span>${m.line} ${line.id}</span><nav class="language sheet-language" aria-label="${m.chooseLanguage}">${(["fr", "en"] as Locale[]).map((locale) => `<a data-route href="${routeUrl(locale, line.id, s.id)}" lang="${locale}" hreflang="${locale}" ${state.locale === locale ? 'aria-current="true"' : ""}>${locale.toUpperCase()}</a>`).join("")}</nav><button class="close-button" id="close-station" aria-label="${m.close}">${closeIcon}</button></div><div class="sheet-illustration">${illustration(s.art)}</div><article class="sheet-body"><p class="kicker">${esc(s.area)}</p><h1 id="station-title" tabindex="-1">${esc(s.name)}</h1><section class="name-origin"><h2>${m.why}</h2><p>${esc(s.etymology[state.locale])}</p></section><section class="station-context"><h2>${m.history}</h2><p>${esc(s.context[state.locale])}</p></section>${s.opened ? `<p class="opening-year">${m.arrived} <strong>${s.opened}</strong></p>` : ""}${s.people?.length ? `<section class="person-links"><h2>${m.people}</h2>${s.people.map((p) => `<a href="${esc(p.url[state.locale])}" target="_blank" rel="noreferrer">${esc(p.name)} ↗</a>`).join("")}</section>` : ""}<details class="sources"><summary>${m.sources} <span>+</span></summary>${s.sources.map((source) => `<a href="${esc(source.url)}" target="_blank" rel="noreferrer">${esc(source.label)} ↗</a>`).join("")}<small>${m.sourceDate}</small></details><div class="share-row"><button id="copy-link">${m.copy} ${linkIcon}</button><span id="copy-status" role="status"></span></div><nav class="station-nav" aria-label="${m.selectStation}"><div><span>${m.previous}</span>${near.previous.length ? near.previous.map((n) => `<a data-route href="${href(line, n)}">← ${esc(n.name)}</a>`).join("") : `<span class="end">${m.terminus}</span>`}</div><div><span>${near.next.length > 1 ? m.branches : m.next}</span>${near.next.length ? near.next.map((n) => `<a data-route href="${href(line, n)}">${esc(n.name)} →</a>`).join("") : `<span class="end">${m.terminus}</span>`}</div></nav></article>`;
+  return `<div class="sheet-top">${lineBadge(line, true)}<span>${m.line} ${line.id}</span><nav class="language sheet-language" aria-label="${m.chooseLanguage}">${(["fr", "en"] as Locale[]).map((locale) => `<a data-route href="${routeUrl(locale, line.id, s.id)}" lang="${locale}" hreflang="${locale}" ${state.locale === locale ? 'aria-current="true"' : ""}>${locale.toUpperCase()}</a>`).join("")}</nav><button class="close-button" id="close-station" aria-label="${m.close}">${closeIcon}</button></div><div class="sheet-illustration">${illustration(s.art)}</div><article class="sheet-body"><p class="kicker">${esc(s.area)}</p><h1 id="station-title" tabindex="-1">${esc(s.name)}</h1>${connections(line, s)}<section class="name-origin"><h2>${m.why}</h2><p>${esc(s.etymology[state.locale])}</p></section><section class="station-context"><h2>${m.history}</h2><p>${esc(s.context[state.locale])}</p></section>${s.opened ? `<p class="opening-year">${m.arrived} <strong>${s.opened}</strong></p>` : ""}${s.people?.length ? `<section class="person-links"><h2>${m.people}</h2>${s.people.map((p) => `<a href="${esc(p.url[state.locale])}" target="_blank" rel="noreferrer">${esc(p.name)} ↗</a>`).join("")}</section>` : ""}<details class="sources"><summary>${m.sources} <span>+</span></summary>${s.sources.map((source) => `<a href="${esc(source.url)}" target="_blank" rel="noreferrer">${esc(source.label)} ↗</a>`).join("")}<small>${m.sourceDate}</small></details><div class="share-row"><button id="copy-link">${m.copy} ${linkIcon}</button><span id="copy-status" role="status"></span></div><nav class="station-nav" aria-label="${m.selectStation}"><div><span>${m.previous}</span>${near.previous.length ? near.previous.map((n) => `<a data-route href="${href(line, n)}">← ${esc(n.name)}</a>`).join("") : `<span class="end">${m.terminus}</span>`}</div><div><span>${near.next.length > 1 ? m.branches : m.next}</span>${near.next.length ? near.next.map((n) => `<a data-route href="${href(line, n)}">${esc(n.name)} →</a>`).join("") : `<span class="end">${m.terminus}</span>`}</div></nav></article>`;
+}
+// Stations shared by several lines link to the same entry on each other line.
+const linesByStation = new Map<string, MetroLine[]>();
+for (const l of lines)
+  for (const s of l.stations)
+    linesByStation.set(s.id, [...(linesByStation.get(s.id) ?? []), l]);
+function connections(line: MetroLine, s: Station) {
+  const others = (linesByStation.get(s.id) ?? []).filter((l) => l !== line);
+  if (!others.length) return "";
+  const m = t(state.locale);
+  return `<nav class="connections" aria-label="${m.alsoOn}"><span>${m.alsoOn}</span>${others.map((l) => `<a data-route href="${href(l, s)}" aria-label="${m.line} ${l.id}">${lineBadge(l, true)}</a>`).join("")}</nav>`;
 }
 function showStation(line: MetroLine, s: Station) {
   visited.add(readKey(line, s));
@@ -306,6 +318,7 @@ function render() {
           : home(),
     );
     document.getElementById("about-button")!.onclick = showAbout;
+    startHeaderTrain(app.querySelector<HTMLElement>(".header-lines")!);
     if (line && valid) setupLine(line);
   } else {
     app

@@ -53,6 +53,7 @@ export const messages = {
     routeLabel: "Stations de la ligne",
     independent: "Atlas indépendant",
     switchLine: "Changer de ligne",
+    alsoOn: "Correspondances",
     selectStation: "Choisir une station",
     keyHint:
       "Utilisez les flèches du clavier pour passer d’une station à l’autre.",
@@ -110,6 +111,7 @@ export const messages = {
     routeLabel: "Stations on line",
     independent: "Independent atlas",
     switchLine: "Change line",
+    alsoOn: "Also on",
     selectStation: "Choose a station",
     keyHint: "Use the arrow keys to move between stations.",
   },

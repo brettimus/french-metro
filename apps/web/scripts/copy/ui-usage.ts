@@ -64,6 +64,7 @@ export const UI_USAGE: Record<string, UiUsage> = {
   routeLabel: l("aria-label of the route section of a line page, followed by the line number"),
   independent: l("Footer text that states the site's status"),
   switchLine: l("aria-label of the header navigation that lists the line badges"),
+  alsoOn: l("Label before the line badges under a station name in the station sheet, for a station that other lines also serve; also the aria-label of that navigation"),
   selectStation: l("aria-label of the map/list view switch and of the previous/next station navigation"),
   keyHint: m("Help paragraph in the line sidebar about keyboard navigation"),
 };
