@@ -286,7 +286,7 @@ summary:focus-visible {
 .kicker {
   font-size: 11px;
   line-height: 1.5;
-  letter-spacing: 1.8px;
+  letter-spacing: 1.4px;
   text-transform: uppercase;
   font-weight: 500;
   color: var(--muted);
@@ -433,7 +433,7 @@ h2 {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
-  font-size: 11px;
+  font-size: 12px;
   text-decoration: none;
 }
 .card-featured a:hover {
@@ -556,7 +556,6 @@ footer button:hover {
 }
 .featured-links .kicker {
   display: block;
-  font-size: 11px;
   margin-bottom: 9px;
 }
 .featured-links a {
@@ -564,7 +563,7 @@ footer button:hover {
   align-items: center;
   min-height: 44px;
   justify-content: space-between;
-  font-size: 11px;
+  font-size: 12px;
   text-decoration: none;
   padding: 8px 0;
   border-bottom: 1px solid var(--rule);
@@ -592,7 +591,6 @@ footer button:hover {
 }
 .preview .kicker {
   font-size: 11px;
-  letter-spacing: 1px;
 }
 .preview h2 {
   font: 33px/1.08 var(--serif);
@@ -602,12 +600,12 @@ footer button:hover {
 .preview p {
   font-size: 12px;
   line-height: 1.8;
-  color: #696259;
+  color: #625d53;
 }
 .preview-cta {
   display: flex;
   justify-content: space-between;
-  font-size: 11px;
+  font-size: 12px;
   padding: 12px 0;
   border-top: 1px solid var(--rule);
 }
@@ -623,6 +621,11 @@ footer button:hover {
   padding-top: 15px;
   font-size: 11px;
   color: var(--muted);
+  flex-wrap: wrap;
+  row-gap: 0;
+}
+.reading-progress #read-count {
+  font-variant-numeric: tabular-nums;
 }
 .reading-progress button {
   min-height: 44px;
@@ -630,9 +633,14 @@ footer button:hover {
   font-size: 11px;
   margin-left: auto;
   padding: 2px;
+  white-space: nowrap;
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-underline-offset: 4px;
 }
 .reading-progress button:hover {
-  text-decoration: underline;
+  text-decoration-color: currentColor;
 }
 .sidebar-help {
   font-size: 11px;
@@ -999,7 +1007,6 @@ dialog::backdrop {
   padding: 31px 38px 22px;
 }
 .sheet-body > .kicker {
-  font-size: 11px;
   margin-bottom: 9px;
 }
 .sheet-body h1 {
@@ -1012,7 +1019,7 @@ dialog::backdrop {
 .sheet-body h2 {
   font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 1.2px;
+  letter-spacing: 1.4px;
   font-weight: 500;
   color: var(--muted);
   margin: 0 0 12px;
@@ -1322,9 +1329,6 @@ dialog::backdrop {
   .preview h2 {
     font-size: 29px;
   }
-  .preview p {
-    font-size: 11px;
-  }
   .preview-art svg {
     width: 205px;
   }
@@ -1386,8 +1390,9 @@ dialog::backdrop {
   }
   .card-featured {
     padding: 12px 20px;
-    flex-direction: column;
-    gap: 8px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0 20px;
   }
   .coming-soon {
     gap: 15px;
@@ -1440,7 +1445,6 @@ dialog::backdrop {
   }
   .featured-links a {
     border: 0;
-    font-size: 11px;
     padding: 4px 0;
     gap: 7px;
   }
@@ -1575,13 +1579,8 @@ dialog::backdrop {
     margin-bottom: 18px;
   }
   .card-featured {
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 12px;
-    padding: 12px 23px;
-  }
-  .card-featured a {
-    font-size: 11px;
+    gap: 0 18px;
+    padding: 6px 23px;
   }
   .coming-soon {
     display: block;
@@ -1625,9 +1624,6 @@ dialog::backdrop {
   }
   .featured-links .kicker {
     display: none;
-  }
-  .featured-links a {
-    font-size: 11px;
   }
   .view-switch {
     gap: 14px;
